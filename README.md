@@ -12,7 +12,7 @@
 
 <br>
 
-## Running in a local installation
+## How to run the projectco
 Launch with:
 <br>
 `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
@@ -25,7 +25,7 @@ Launch with:
 ...
 
 ## Mers and Sars
-...
+- [ ] Adding SVGs with D3
 
 
 <br>

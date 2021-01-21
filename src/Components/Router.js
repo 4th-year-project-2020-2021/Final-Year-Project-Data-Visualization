@@ -5,6 +5,7 @@ import Covid19 from '../Routes/Covid19';
 import Search from '../Routes/Search';
 import MersAndSars from '../Routes/MersAndSars';
 import Smallpox from '../Routes/Smallpox';
+import Comparison from '../Routes/Comparison';
 import Header from '../Header';
 
 function Router(){
@@ -18,7 +19,8 @@ function Router(){
               <Route path="/search" component={Search} />
               <Route path="/mersandsars" component={MersAndSars} />
               <Route path="/smallpox" component={Smallpox} />
-              npm i styled-reset<Redirect from="*" to="/" />  
+              <Route path="/comparison" component={Comparison} />
+              <Redirect from="*" to="/" />  
           </Switch>
           </>
         </Browser>
