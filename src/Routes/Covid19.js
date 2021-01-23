@@ -1,46 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from "axios"
 // Adapted from 
-// https://react-bootstrap.github.io/components/cards/
-// https://react-bootstrap.github.io/getting-started/introduction/
+// Styling - https://react-bootstrap.github.io/components/cards/
+// Styling - https://react-bootstrap.github.io/getting-started/introduction/
+// Get API - https://www.npmjs.com/package/axios
+// Time formats - https://www.npmjs.com/package/react-moment
+
 function Covid19(){
+    const[latest, setLatest] = useState("use");
+    
+    useEffect(() => {
+        axios
+            // API for cards (cases, deaths, recoveres values) 
+            .get("https://corona.lmao.ninja/v2/all")
+            .then(res => {
+                setLatest(res.data);
+            })
+            // Return an error (if any)
+            .catch(err => {
+                console.log(err);
+            });
+        }, []);
+        
+    // Getting updated time by converting miliseconds
+    const date = new Date(parseInt(latest.updated))
+    const lastUpdated = date.toString();
+
     return(
         <div>
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}}>
                     <Card.Body>
-                    <Card.Title>Covid-19 Cases</Card.Title>
+                    <Card.Title>Cases</Card.Title>
                     <Card.Text>
-                        100
+                        {latest.cases}
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    <small>Last updated 3 mins ago</small>
+                    <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
                 <Card bg="danger" text={"white"} className="text-center" style={{margin: "10px"}}>
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Deaths</Card.Title>
                     <Card.Text>
-                        0
+                        {latest.deaths}
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    <small>Last updated 3 mins ago</small>
+                    <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
                 <Card bg="success" text={"white"} className="text-center" style={{margin: "10px"}}>
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Recovered</Card.Title>
                     <Card.Text>
-                        20
+                        {latest.recovered}
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                    <small>Last updated 3 mins ago</small>
+                    <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
             </CardDeck>
