@@ -43,7 +43,8 @@ export default class D3Comparison{
               .attr("y", HEIGHT + 50)
               .attr("text-anchor","middle")
               .text("A comparison of COVID-19, MERS and SARS")
-              .style("stroke", "lightsteelblue")
+              .style("stroke", "white")
+              .style("fill","white")
               .style("stroke-width", ".4px")
               .style("font", "20px sans-serif");
 
@@ -53,7 +54,8 @@ export default class D3Comparison{
               .attr("text-anchor","middle")
               .text("Mortality Rate (%)")
               .attr("transform","rotate(-90)")
-              .style("stroke", "lightsteelblue")
+              .style("stroke", "white")
+              .style("fill","white")
               .style("stroke-width", ".4px")
               .style("font", "20px sans-serif");
 

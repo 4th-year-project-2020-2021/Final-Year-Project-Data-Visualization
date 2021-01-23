@@ -11,7 +11,7 @@ class Comparison extends React.Component{
     render(){
         return <div ref="chart">
             <Navbar bg="light">
-                <Navbar.Brand>A comparison of COVID-19, SARS and MERS</Navbar.Brand>
+                <Navbar.Brand>COVID-19, MERS and SARS</Navbar.Brand>
             </Navbar>
         </div>
     }

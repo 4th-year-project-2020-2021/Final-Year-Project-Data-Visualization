@@ -2,6 +2,7 @@ import * as d3 from 'd3';
 import { svg } from 'd3';
 
 const url ="https://merssummary-default-rtdb.firebaseio.com/Names.json";
+const url2 = "https://sarssummary-default-rtdb.firebaseio.com/Sars.json";
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
 const WIDTH = 850 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
@@ -27,9 +28,6 @@ export default class D3Comparison{
                 .domain([min, max]) //highest y value
                 .range([HEIGHT,0]) //minimum and maximum value 
 
-                //console.log(y(100)); //it returns 132.27513227513228 
-                //console.log(y(50)); //it returns 66.13756613756614
-
             const x = d3.scaleBand()
                 .domain(data.map(d => d.Year))
                 .range([0,WIDTH])  
@@ -49,6 +47,7 @@ export default class D3Comparison{
               .attr("text-anchor","middle")
               .text("Year - (Mers)")
               .style("stroke", "white")
+              .style("fill","white")
               .style("stroke-width", ".4px")
               .style("font", "20px sans-serif");
 
@@ -59,6 +58,7 @@ export default class D3Comparison{
               .text("No. of confirmed cases")
               .attr("transform", "rotate(-90)")
               .style("stroke", "white")
+              .style("fill","white")
               .style("stroke-width", ".4px")
               .style("font", "20px sans-serif");
 

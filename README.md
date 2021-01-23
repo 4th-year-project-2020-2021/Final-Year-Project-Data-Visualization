@@ -4,7 +4,7 @@
 ##### A collection of react components to render common data visualization charts, such as line/area/bar charts, scatterplots, pie and donut charts.
 
 ## Group members
-|    Students   |   |
+|    Students   | G Number  |
 | ------------- |:-:|
 |    Jina Kim   | G00353420 | 
 |  Shirin Nagle | G00363458 | 
@@ -25,8 +25,10 @@ Launch with:
 ...
 
 ## Mers and Sars
-- [ ] Adding SVGs with D3
-
+- [x] Adding SVGs with D3
+- [ ] Working with two different dataset and Flicking between datasets
+- [ ] Draw differnt types of charts
+- [ ] Working with API
 
 <br>
 
@@ -35,9 +37,10 @@ Launch with:
 
 ## Screens
 
-- [ ] Home
-- [ ] Covid-19
-- [ ] Mers and Sars
-- [ ] Small pox
-- [ ] Search
-- [ ] Detail
+- [x] Home
+- [x] Covid-19
+- [x] Mers and Sars
+- [x] Small pox
+- [x] Search
+- [x] Comparison
+- [x] Detail
