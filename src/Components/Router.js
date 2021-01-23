@@ -6,7 +6,7 @@ import Search from '../Routes/Search';
 import MersAndSars from '../Routes/MersAndSars';
 import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
-import Header from '../Header';
+import Header from './Header';
 
 function Router(){
     return (
