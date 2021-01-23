@@ -10,24 +10,56 @@ import axios from "axios"
 // Time formats - https://www.npmjs.com/package/react-moment
 
 function Covid19(){
-    const[latest, setLatest] = useState("use");
+    // Storing data inside array
+    const[latest, setLatest] = useState([]);
+    const[results, setResults] = useState([]);
     
+    // Dealing with two APIs at once
     useEffect(() => {
         axios
-            // API for cards (cases, deaths, recoveres values) 
-            .get("https://corona.lmao.ninja/v2/all")
-            .then(res => {
-                setLatest(res.data);
-            })
-            // Return an error (if any)
-            .catch(err => {
-                console.log(err);
-            });
-        }, []);
+            .all([
+                // API for cards (cases, deaths, recoveres values) 
+                axios.get("https://corona.lmao.ninja/v2/all"),
+                // API for countrys
+                axios.get("https://corona.lmao.ninja/v2/countries")
+        ])
+        .then(responceArr => {
+            setLatest(responceArr[0].data);
+            setResults(responceArr[1].data);
+        })
+        // Return an error (if any)
+        .catch(err => {
+            console.log(err);
+        });
+    }, []);
         
     // Getting updated time by converting miliseconds
     const date = new Date(parseInt(latest.updated))
     const lastUpdated = date.toString();
+
+    // Creating a reusable component for country data
+    const countries = results.map(data => {
+        return (
+            <Card
+                bg="dark"
+                text="light"
+                className="text-center"
+                style={{margin: "10px"}}
+            >
+            
+            <Card.Body>
+                <Card.Title>{data.country}</Card.Title>
+                <Card.Text>Cases {data.cases}</Card.Text>
+                <Card.Text>Deaths {data.deaths}</Card.Text>
+                <Card.Text>Recovered {data.recovered}</Card.Text>
+                <Card.Text>Today's Cases {data.todayCases}</Card.Text>
+                <Card.Text>Today's Deaths {data.todayDeaths}</Card.Text>
+                <Card.Text>Active {data.active}</Card.Text>
+                <Card.Text>Critical {data.critical}</Card.Text>
+            </Card.Body>
+        </Card>
+        )
+    })
 
     return(
         <div>
@@ -66,6 +98,7 @@ function Covid19(){
                     </Card.Footer>
                 </Card>
             </CardDeck>
+            {countries}
         </div>
     );
 }
