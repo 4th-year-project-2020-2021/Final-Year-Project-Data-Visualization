@@ -1,6 +1,7 @@
 import React from 'react';
 import D3Comparison from '../D3/D3Comparison';
 import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
 
 class Comparison extends React.Component{
 
@@ -9,10 +10,15 @@ class Comparison extends React.Component{
     }
 
     render(){
-        return <div ref="chart1">
+        return <div className="App">
             <Navbar bg="light">
-                <Navbar.Brand>COVID-19, MERS and SARS</Navbar.Brand>
+                <Navbar.Brand>HOW COVID-19 compares to past epidemics</Navbar.Brand>
             </Navbar>
+            <Container>
+                <div>
+                    <div ref="chart1"></div>
+                </div>
+            </Container>
         </div>
     }
 }
