@@ -3,6 +3,8 @@ import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
+import Columns from 'react-columns'
+
 // Adapted from 
 // Styling - https://react-bootstrap.github.io/components/cards/
 // Styling - https://react-bootstrap.github.io/getting-started/introduction/
@@ -38,15 +40,17 @@ function Covid19(){
     const lastUpdated = date.toString();
 
     // Creating a reusable component for country data
-    const countries = results.map(data => {
+    const countries = results.map((data, i) => {
         return (
             <Card
+            key={i}
                 bg="dark"
                 text="light"
                 className="text-center"
                 style={{margin: "10px"}}
             >
-            
+
+            <Card.Img variant= "top" src={data.countryInfo.flag} />
             <Card.Body>
                 <Card.Title>{data.country}</Card.Title>
                 <Card.Text>Cases {data.cases}</Card.Text>
@@ -61,10 +65,19 @@ function Covid19(){
         )
     })
 
+    // Adapted from https://www.npmjs.com/package/react-columns
+    var queries = [{
+        columns: 2,
+        query: 'min-width: 500px'
+    }, {
+        columns: 3,
+        query: 'min-width: 1000px'
+    }];
+
     return(
         <div>
             <CardDeck>
-                <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}}>
+                <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
                     <Card.Title>Cases</Card.Title>
                     <Card.Text>
@@ -75,7 +88,7 @@ function Covid19(){
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-                <Card bg="danger" text={"white"} className="text-center" style={{margin: "10px"}}>
+                <Card bg="danger" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
                     <Card.Title>Deaths</Card.Title>
                     <Card.Text>
@@ -86,7 +99,7 @@ function Covid19(){
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-                <Card bg="success" text={"white"} className="text-center" style={{margin: "10px"}}>
+                <Card bg="success" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
                     <Card.Title>Recovered</Card.Title>
                     <Card.Text>
@@ -98,7 +111,7 @@ function Covid19(){
                     </Card.Footer>
                 </Card>
             </CardDeck>
-            {countries}
+            <Columns queries={queries}> {countries} </Columns>
         </div>
     );
 }
