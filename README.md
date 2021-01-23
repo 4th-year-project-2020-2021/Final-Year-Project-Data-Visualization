@@ -26,7 +26,7 @@ Launch with:
 
 ## Mers and Sars
 - [x] Adding SVGs with D3
-- [ ] Working with two different dataset and Flicking between datasets
+- [x] Working with two different dataset and Flicking between datasets
 - [ ] Draw differnt types of charts
 - [ ] Working with API
 

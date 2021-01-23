@@ -25,7 +25,7 @@ export default class D3Comparison{
             .attr("x", WIDTH/2)
             .attr("y", HEIGHT+50)
             .attr("text-anchor","middle")
-            .text("Year - (Mers)")
+            .text("Year")
             .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
@@ -51,28 +51,25 @@ export default class D3Comparison{
             d3.json("https://merssummary-default-rtdb.firebaseio.com/Names.json"),
             d3.json("https://sarssummary-default-rtdb.firebaseio.com/Sars.json")
           ]).then((datasets)=>{
-            //console.log(datasets); // It will get you two arrays of Mers and Sars datasets
-            const [mers, sars] = datasets
-            let flag = true
 
-            vis.data = mers
-            vis.update()
-
-            d3.interval(()=>{
-              vis.data = flag ? mers : sars
-              vis.update();
-              flag =! flag
-            },1000)
-          })
-    }// End of constuructor function.
+            vis.MersData=datasets[0]
+            vis.SarsData=datasets[1]
+            console.log(vis.MersData)
+            console.log(vis.SarsData)
+            vis.update("mers")
+        })
+    }
 
     // This update() method gets called you change your data.
-    update(){
+    update(virus){
       const vis = this;
+
+      vis.data = (virus === "mers") ? vis.MersData : vis.SarsData;
+      //vis.xLabel.text(`coronavirus - ${virus} (Year)`)  // TEXT TYPE ERROR
+
   
       //using max function, it will loop through the data and get the highest number of y value.
       const max = d3.max(vis.data, d=> d.Number)
-
       const min = d3.min(vis.data, d=> d.Number) *0.95
 
       const y = d3.scaleLinear()
@@ -97,7 +94,7 @@ export default class D3Comparison{
       // EXIT
       rects.exit()
         .transition().duration(500)
-          .attr("Number", 0)
+          .attr("height", 0)
           .attr("y", HEIGHT)
           .remove()
 

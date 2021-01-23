@@ -5,11 +5,11 @@ import Navbar from 'react-bootstrap/Navbar';
 class Comparison extends React.Component{
 
     componentDidMount(){
-        new D3Comparison(this.refs.chart);
+        new D3Comparison(this.refs.chart1);
     }
 
     render(){
-        return <div ref="chart">
+        return <div ref="chart1">
             <Navbar bg="light">
                 <Navbar.Brand>COVID-19, MERS and SARS</Navbar.Brand>
             </Navbar>
