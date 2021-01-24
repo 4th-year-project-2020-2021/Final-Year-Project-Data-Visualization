@@ -3,19 +3,26 @@ import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
-import Columns from 'react-columns'
+import CardColumns from 'react-bootstrap/CardColumns'
+import Form from 'react-bootstrap/Form'
 
 // Adapted from 
 // Styling - https://react-bootstrap.github.io/components/cards/
 // Styling - https://react-bootstrap.github.io/getting-started/introduction/
 // Get API - https://www.npmjs.com/package/axios
 // Time formats - https://www.npmjs.com/package/react-moment
+// Search bar - https://react-bootstrap.github.io/components/forms/
 
 function Covid19(){
     // Storing data inside array
+
+    // Top cards
     const[latest, setLatest] = useState([]);
+    // Country cards
     const[results, setResults] = useState([]);
-    
+    // Search bar
+    const[searchCountry, setSearchCountry] = useState("");
+        
     // Dealing with two APIs at once
     useEffect(() => {
         axios
@@ -39,8 +46,14 @@ function Covid19(){
     const date = new Date(parseInt(latest.updated))
     const lastUpdated = date.toString();
 
+    // Filter search
+    const filterCountry = results.filter(item  =>{
+        // If search and country the same -> return info
+        return searchCountry !== "" ? item.country.includes(searchCountry) : item;
+    })
+
     // Creating a reusable component for country data
-    const countries = results.map((data, i) => {
+    const countries = filterCountry.map((data, i) => {
         return (
             <Card
             key={i}
@@ -50,7 +63,7 @@ function Covid19(){
                 style={{margin: "10px"}}
             >
 
-            <Card.Img variant= "top" src={data.countryInfo.flag} />
+            <Card.Img variant= "top" src={data.countryInfo.flag} height="350px"/>
             <Card.Body>
                 <Card.Title>{data.country}</Card.Title>
                 <Card.Text>Cases {data.cases}</Card.Text>
@@ -76,6 +89,9 @@ function Covid19(){
 
     return(
         <div>
+            <br/>
+            <h3>Live Covid-19 Stats</h3>
+            <br/>
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
@@ -111,7 +127,16 @@ function Covid19(){
                     </Card.Footer>
                 </Card>
             </CardDeck>
-            <Columns queries={queries}> {countries} </Columns>
+
+            <Form>
+                <Form.Group controlId="formGroupSearch">
+                    <Form.Label>Search Country</Form.Label>
+                    <br/>
+                    <Form.Control type="text" placeholder="Enter a Country by name" onChange={e => setSearchCountry(e.target.value)} />
+                </Form.Group>
+            </Form>
+            <br/>
+            <CardColumns> {countries} </CardColumns>
         </div>
     );
 }
