@@ -5,7 +5,8 @@ import {authService} from './Fbase';
 
 function App() {
     //console.log(authService.currentUser);
-    const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser); 
+    //const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser); 
+    const [isLoggedIn, setIsLoggedIn] = useState(true); 
     return (
       <>
         <Router isLoggedIn={isLoggedIn}/>
