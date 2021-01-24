@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Router from "./Router";
 import GlobalStyles from "./GlobalStyles";
+import {authService} from './Fbase';
 
-class App extends React.Component {
-  render(){
+function App() {
+    //console.log(authService.currentUser);
+    const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser); 
     return (
       <>
-        <Router />
+        <Router isLoggedIn={isLoggedIn}/>
         <GlobalStyles />
+        <footer>&copy; {new Date().getFullYear()} React Data Visualization</footer>
       </>
     )
-  }
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Browser, Route, Redirect, Switch} from 'react-router-dom';
 import Home from '../Routes/Home';
 import Covid19 from '../Routes/Covid19';
@@ -7,14 +7,25 @@ import MersAndSars from '../Routes/MersAndSars';
 import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
 import Header from './Header';
+import Auth from '../Routes/Auth';
 
-function Router(){
+function Router({isLoggedIn}){
     return (
         <Browser>
           <>
             <Header />
             <Switch>
-              <Route path="/" exact component={Home} />
+              {isLoggedIn ? (
+                <>
+                   <Route exact path="/">
+                     <Home />
+                   </Route> 
+                </>
+              ):(
+                <Route exact path="/">
+                  <Auth />
+                </Route>
+              )}
               <Route path="/covid19" component={Covid19} />
               <Route path="/search" component={Search} />
               <Route path="/mersandsars" component={MersAndSars} />
