@@ -1,3 +1,9 @@
+import { authService } from 'Components/Fbase';
 import React from 'react';
 
-export default () => <span>Rrofile</span>;
+export default () => {
+
+    const onLogOutClick = () => authService.signOut();
+     
+    return <><button onClick={onLogOutClick}>Log Out</button></>;
+}
