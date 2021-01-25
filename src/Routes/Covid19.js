@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
 import CardColumns from 'react-bootstrap/CardColumns'
 import Form from 'react-bootstrap/Form'
-//import GoogleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
+import {Map} from 'google-maps-react';
 
 // Adapted from 
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -93,13 +94,21 @@ function Covid19(){
             <br/>
             <h3>Live Covid-19 Stats</h3>
             <br/>
-      
+
+            <div style={{ height: '100vh', width: '100%' }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
+                    defaultCenter={{lat: 59.95, lng: 30.33}}
+                    defaultZoom={10}
+                    >
+                </GoogleMapReact>
+            </div>
 
       
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
-                    <Card.Title>Cases</Card.Title>
+                    <Card.Title>Total Cases</Card.Title>
                     <Card.Text>
                         {latest.cases}
                     </Card.Text>
@@ -110,7 +119,7 @@ function Covid19(){
                 </Card>
                 <Card bg="danger" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
-                    <Card.Title>Deaths</Card.Title>
+                    <Card.Title>Total Deaths</Card.Title>
                     <Card.Text>
                         {latest.deaths}
                     </Card.Text>
@@ -121,7 +130,7 @@ function Covid19(){
                 </Card>
                 <Card bg="success" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
-                    <Card.Title>Recovered</Card.Title>
+                    <Card.Title>Total Recovered</Card.Title>
                     <Card.Text>
                         {latest.recovered}
                     </Card.Text>
