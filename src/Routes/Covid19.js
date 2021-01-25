@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
 import CardColumns from 'react-bootstrap/CardColumns'
 import Form from 'react-bootstrap/Form'
-import GoogleMapReact from 'google-map-react';
+//import GoogleMapReact from 'google-map-react';
 
 // Adapted from 
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -93,16 +93,7 @@ function Covid19(){
             <br/>
             <h3>Live Covid-19 Stats</h3>
             <br/>
-
-            <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-          defaultCenter={{lat: 59.95, lng: 30.33}}
-          defaultZoom={10}
-        >
-         
-        </GoogleMapReact>
-      </div>
+      
 
       
             <CardDeck>
