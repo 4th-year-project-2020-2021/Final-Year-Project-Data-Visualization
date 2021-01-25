@@ -6,14 +6,14 @@ import axios from "axios"
 import CardColumns from 'react-bootstrap/CardColumns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
-import {Map} from 'google-maps-react';
 
-// Adapted from 
+// Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
 // Styling - https://react-bootstrap.github.io/getting-started/introduction/
 // Get API - https://www.npmjs.com/package/axios
 // Time formats - https://www.npmjs.com/package/react-moment
 // Search bar - https://react-bootstrap.github.io/components/forms/
+// Google map - https://www.npmjs.com/package/google-map-react
 
 function Covid19(){
     // Storing data inside array
@@ -53,6 +53,26 @@ function Covid19(){
         // If search and country the same -> return info
         return searchCountry !== "" ? item.country.includes(searchCountry) : item;
     })
+
+    // Assigning country markers to cases 
+    const countriesLocation = results.map((data, i) => {
+        return (
+            <div
+                // Using latitude and longitude to plot
+                lat={data.countryInfo.lat}
+                lng={data.countryInfo.long}
+                // Various styling of marker
+                style={{
+                    color: "black",
+                    backgroundColor: "#FFF",
+                    height: "25px",
+                    width: "35px",
+                }}
+            >
+                {data.cases}
+            </div>
+        );
+    });
 
     // Creating a reusable component for country data
     const countries = filterCountry.map((data, i) => {
@@ -94,15 +114,16 @@ function Covid19(){
             <br/>
             <h3>Live Covid-19 Stats</h3>
             <br/>
-
+        
             <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                     defaultCenter={{lat: 59.95, lng: 30.33}}
                     defaultZoom={10}
-                    >
+                >
+                    {countriesLocation}
                 </GoogleMapReact>
-            </div>
+        </div>
 
       
             <CardDeck>
