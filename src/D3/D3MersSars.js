@@ -3,9 +3,15 @@ import { svg } from 'd3';
 
 const url ="https://merssummary-default-rtdb.firebaseio.com/Names.json";  // == Mers data.
 const url2 = "https://sarssummary-default-rtdb.firebaseio.com/Sars.json";  // == Sars data.
+const mersCountry = "https://reactproject1-3472c-default-rtdb.firebaseio.com/MersCountry.json";
+const sarsCountry = "https://reactproject11-c3541-default-rtdb.firebaseio.com/SarsCountry.json";
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
 const WIDTH = 850 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
+
+const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
+const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
 export default class D3Comparison{
     // This constructor function gets called only once when you first load up this visualization.
@@ -21,6 +27,20 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
+        const svg2 = d3.select(element)
+          .append("svg")
+            .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
+            .attr("height",HEIGHT2 + MARGIN2.TOP + MARGIN2.BOTTOM)
+          .append("g")
+            .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+
+        const svg3 = d3.select(element)
+          .append("svg")
+            .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
+            .attr("height",HEIGHT2 + MARGIN2.TOP + MARGIN2.BOTTOM)
+          .append("g")
+            .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+
           vis.svg.append("text")
             .attr("x", WIDTH/2)
             .attr("y", HEIGHT+50)
@@ -29,7 +49,7 @@ export default class D3Comparison{
             .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
+            .style("font", "15px sans-serif");
 
           vis.svg.append("text")
             .attr("x",-(HEIGHT/2))
@@ -40,13 +60,138 @@ export default class D3Comparison{
             .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
+            .style("font", "15px sans-serif");
 
           vis.xAxisGroup = vis.svg.append("g")
             .attr("transform",`translate(0, ${ HEIGHT })`)
 
           vis.yAxisGroup = vis.svg.append("g")
 
+          // Mers - Country
+          d3.json(mersCountry).then(comparison2=>{
+            //using max function, it will loop through the data and get the highest number of y value
+            const max2 = d3.max(comparison2, d=> d.Confirmed)
+           
+            const min2 = d3.min(comparison2, d=> d.Confirmed) *0.99
+
+            const y = d3.scaleLinear()
+                .domain([min2, max2]) //highest y value
+                .range([HEIGHT2,0]) //minimum and maximum value 
+
+            const x = d3.scaleBand()
+                .domain(comparison2.map(d => d.Country))
+                .range([0,WIDTH2])  
+                .padding(0.2)
+
+            const xAxisCall2 = d3.axisBottom(x)
+            svg2.append("g")
+             .attr("transform",`translate(0, ${ HEIGHT2 })`)
+             .call(xAxisCall2)
+
+            const yAxisCall2 = d3.axisLeft(y)
+            svg2.append("g").call(yAxisCall2)
+
+            svg2.append("text")
+              .attr("x", WIDTH2/2)
+              .attr("y", HEIGHT2 + 50)
+              .attr("text-anchor","middle")
+              .text("Mers - Country")
+              .style("stroke", "white")
+              .style("fill","white")
+              .style("stroke-width", ".4px")
+              .style("text-decoration", "underline") 
+              .style("font", "15px sans-serif");
+
+            svg2.append("text")
+              .attr("x",-(HEIGHT2/2))
+              .attr("y",-40)
+              .attr("text-anchor","middle")
+              .text("No. of Confirmed Cases")
+              .attr("transform","rotate(-90)")
+              .style("stroke", "white")
+              .style("fill","white")
+              .style("stroke-width", ".4px")
+              .style("font", "15px sans-serif");
+
+            const rects2 = svg2.selectAll("rect")
+            .data(comparison2)
+
+            rects2.enter().append("rect")
+              .attr("x", d=> x(d.Country))
+              .attr("y", d => y(d.Confirmed))
+              .attr("width",x.bandwidth)
+              .attr("height", d => HEIGHT2 - y(d.Confirmed))
+              .attr("fill", d => {
+                  if(d.Confirmed > 50){
+                      return "red";
+                  }
+                  return "green";
+              })
+        })// End Mers - Country
+
+        // Start Sars - Country
+        d3.json(sarsCountry).then(comparison3=>{
+          //using max function, it will loop through the data and get the highest number of y value
+          const max3 = d3.max(comparison3, d=> d.Confirmed)
+          const min3 = d3.min(comparison3, d=> d.Confirmed) *0.99
+  
+          const y = d3.scaleLinear()
+              .domain([min3, max3]) //highest y value
+              .range([HEIGHT2,0]) //minimum and maximum value 
+  
+          const x = d3.scaleBand()
+              .domain(comparison3.map(d => d.Country))
+              .range([0,WIDTH2])  
+              .padding(0.2)
+  
+          const xAxisCall3 = d3.axisBottom(x)
+          svg3.append("g")
+           .attr("transform",`translate(0, ${ HEIGHT2 })`)
+           .call(xAxisCall3)
+  
+          const yAxisCall3 = d3.axisLeft(y)
+          svg3.append("g").call(yAxisCall3)
+  
+          svg3.append("text")
+            .attr("x", WIDTH2/2)
+            .attr("y", HEIGHT2 + 50)
+            .attr("text-anchor","middle")
+            .text("Mers - Country")
+            .style("stroke", "white")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("text-decoration", "underline") 
+            .style("font", "15px sans-serif");
+            
+  
+          svg3.append("text")
+            .attr("x",-(HEIGHT2/2))
+            .attr("y",-40)
+            .attr("text-anchor","middle")
+            .text("No. of Confirmed Cases")
+            .attr("transform","rotate(-90)")
+            .style("stroke", "white")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "15px sans-serif");
+            
+  
+          const rects3 = svg3.selectAll("rect")
+          .data(comparison3)
+  
+          rects3.enter().append("rect")
+            .attr("x", d=> x(d.Country))
+            .attr("y", d => y(d.Confirmed))
+            .attr("width",x.bandwidth)
+            .attr("height", d => HEIGHT2 - y(d.Confirmed))
+            .attr("fill", d=>{
+                if(d.Confirmed > 500){
+                    return "red";
+                }
+                return "green";
+            })
+      })//end third
+  
           Promise.all([
             d3.json("https://merssummary-default-rtdb.firebaseio.com/Names.json"),
             d3.json("https://sarssummary-default-rtdb.firebaseio.com/Sars.json")
@@ -57,6 +202,7 @@ export default class D3Comparison{
             console.log(vis.MersData)
             console.log(vis.SarsData)
             vis.update("mers")
+            
         })
     }
 
@@ -110,7 +256,14 @@ export default class D3Comparison{
       rects.enter().append("rect")
         .attr("x", d => x(d.Year))
         .attr("width", x.bandwidth)
-        .attr("fill", "green")
+        .attr("fill", d=>{
+          if(d.Number >= 300){
+              return "red";
+          }else if(d.Number < 300 && d.Number > 150){
+              return "blue";
+          }
+          return "green";
+      })
         .attr("y",HEIGHT)
         .transition().duration(500)
         .attr("height", d => HEIGHT-y(d.Number))
