@@ -8,6 +8,14 @@ const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class D3Comparison{
     constructor(element){
+
+        const ttsvg = d3.select(element)
+          .append("div")
+          .style("border", "1px lightgray solid;")
+          .style("background-color", "#A52A2A")
+          .style("font", "20px sans-serif")
+          .text("This is preliminary COVID-19 data. While SARS and MERS' mortality rates are well understood, the definition of COVID-19 diagnoses is still shifting and it may be years until the actual number of cases is known.");
+
         const svg = d3.select(element)
           .append("svg")
             .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
@@ -15,12 +23,27 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
+     
+        const tsvg = d3.select(element)
+          .append("div")
+          .style("border", "1px lightgray solid;")
+          .style("background-color", "#708090")
+          .style("font", "20px sans-serif")
+          .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 2.3%, lower than that of SARS (9.5%) and much lower than that of MERS (34.4%).");
+      
         const svg2 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
             .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+        const tsvg2 = d3.select(element)
+          .append("div")
+          .style("border", "1px lightgray solid;")
+          .style("background-color", "#708090")
+          .style("font", "20px sans-serif")
+          .text("However, despite the lower case fatality rate, covid-19 has so far resulted in more deaths than SARS and MERS combined.");
 
         const svg3 = d3.select(element)
           .append("svg")

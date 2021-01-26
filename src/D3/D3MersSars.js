@@ -13,6 +13,9 @@ const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
+const WIDTH3 = 500 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT3 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
+
 export default class D3Comparison{
     // This constructor function gets called only once when you first load up this visualization.
     constructor(element){
@@ -34,6 +37,13 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
+        const tsvg2 = d3.select(element)
+          .append("div")
+          .style("border", "1px lightgray solid;")
+          .style("background-color", "#708090")
+          .style("font", "20px sans-serif")
+          .text("Middle East had the highest number cases (88.4%), followed by Asia (10.7%), Europe (0.8%) and USA with only 2 cases officially reported (0.1%).");
+
         const svg3 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
@@ -41,11 +51,20 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
+        const tsvg3 = d3.select(element)
+          .append("div")
+          .style("border", "1px lightgray solid;")
+          .style("background-color", "#708090")
+          .style("font", "20px sans-serif")
+          .text("The majority of SARS cases were from China, Canada and Singapore, among which, cases from China mainland presented the largest proportion, followed by that from Hong Kong and Taiwan.");
+
+          
           vis.svg.append("text")
             .attr("x", WIDTH/2)
             .attr("y", HEIGHT+50)
             .attr("text-anchor","middle")
             .text("Year")
+            .style("text-decoration", "underline") 
             .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
@@ -66,6 +85,8 @@ export default class D3Comparison{
             .attr("transform",`translate(0, ${ HEIGHT })`)
 
           vis.yAxisGroup = vis.svg.append("g")
+
+
 
           // Mers - Country
           d3.json(mersCountry).then(comparison2=>{
