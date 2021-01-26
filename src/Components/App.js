@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Router from "./Router";
 import GlobalStyles from "./GlobalStyles";
 import {authService} from './Fbase';
-//import Fbase from './Fbase';
 
 function App() {
     const [init, setInit] = useState(false);
@@ -17,8 +16,6 @@ function App() {
         setInit(true);
       })
     },[])
-    //console.log(authService.currentUser);
-    //const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
     return (
       <>

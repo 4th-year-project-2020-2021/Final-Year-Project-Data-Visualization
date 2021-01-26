@@ -1,5 +1,53 @@
 import { authService, firebaseInstance } from 'Components/Fbase';
+import styled from 'styled-components';
 import React, {useState} from 'react';
+
+const Form = styled.form`
+    display:flex;
+`;
+
+const Error = styled.h2`
+    color: tomato;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+`;
+
+const Box= styled.div`
+    text-align: center;
+`;
+
+const Sn = styled.span`
+    color: #04aaff;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 18px;
+    text-decoration: underline;
+`;
+
+const Input = styled.input`
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: white;
+    color: black;
+    box-sizing: content-box;
+`;
+
+const Btn = styled.button`
+    cursor: pointer;
+    width: 300px;
+    padding: 7px 20px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    background-color: #04aaff;
+    cursor: pointer;
+`;
 
 const Auth = () => {
     const [email, setEmail] = useState("");
@@ -60,9 +108,9 @@ const Auth = () => {
     };
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <input 
+        <Box>
+            <Form onSubmit={onSubmit}>
+                <Input 
                     name="email" 
                     type="text" 
                     placeholder="Email" 
@@ -70,7 +118,7 @@ const Auth = () => {
                     value={email} 
                     onChange={onChange} 
                 />
-                <input 
+                <Input 
                     name="password"
                     type="password" 
                     placeholder="Password" 
@@ -78,15 +126,15 @@ const Auth = () => {
                     value={password} 
                     onChange={onChange} 
                 />
-                <input type="submit" value={newAccount ? "Create Account" : "Log In" } />
-                {error}
-            </form>
-            <span onClick={toggleAccount}>{newAccount ? "Sign In" : "Create Account"}</span>
-            <div>
-                <button onClick={onSocialClick} name="google">Continue with Google</button>
-                <button onClick={onSocialClick} name="github">Continue with Github</button>
-            </div>
-        </div>
+                <Input type="submit" value={newAccount ? "Create Account" : "Log In" } />
+                <Error>{error}</Error>
+            </Form>
+            <Sn onClick={toggleAccount}>{newAccount ? "Sign In" : "Create Account"}</Sn>
+            <Box>
+                <Btn onClick={onSocialClick} name="google">Continue with Google</Btn>
+                <Btn onClick={onSocialClick} name="github">Continue with Github</Btn>
+            </Box>
+        </Box>
     )
 }
 export default Auth;

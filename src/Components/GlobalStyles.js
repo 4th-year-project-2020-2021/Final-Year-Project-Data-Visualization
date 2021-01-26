@@ -16,7 +16,15 @@ const globalStyles = createGlobalStyle`
         background-color:rgba(20, 20, 20, 1);
         color:white;
         padding-top:50px;
+        height:100%;
     }
+    button {
+        background-color: white;
+        color: black;
+    }
+    form {
+        width: 100%;
+    } 
 `;
 
 export default globalStyles;

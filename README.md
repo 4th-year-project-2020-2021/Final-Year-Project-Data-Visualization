@@ -18,6 +18,10 @@ Launch with:
 `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
 <br>
 `cd Final-Year-Project-Data-Visualization`
+<br>
+`npm install`
+<br>
+`npm start`
 
 <br>
 
@@ -25,10 +29,13 @@ Launch with:
 ...
 
 ## Mers and Sars
+
+I consider D3 to be the standard library for data visualization on the web
+
 - [x] Adding SVGs with D3
 - [x] Working with two different dataset and Flicking between datasets
 - [ ] Draw differnt types of charts
-- [ ] Working with API
+- [x] Working with API
 
 <br>
 
@@ -43,4 +50,5 @@ Launch with:
 - [x] Small pox
 - [x] Search
 - [x] Comparison
+- [x] Profile
 - [x] Detail
