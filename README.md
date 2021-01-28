@@ -12,7 +12,7 @@
 
 <br>
 
-## How to run the projectco
+## How to run the project
 Launch with:
 <br>
 `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
@@ -27,13 +27,13 @@ Launch with:
 
 # Work Plans
 
-## Covid-19
+## Covid-19  -  Grace
 
 - [x] World Map using API
 - [x] Search bar 
 - [ ] Temperature Checker - More Research needed
 
-## Mers and Sars
+## Mers and Sars  -  Jina  
 
 I consider D3 to be the standard library for data visualization on the web
 
@@ -50,7 +50,7 @@ I consider D3 to be the standard library for data visualization on the web
 
 <br>
 
-## Smallpox
+## Smallpox  -  Shirin
 
 - [x] World Map 
 - [ ] Upload component - let the user add files and make charts.
@@ -66,4 +66,4 @@ I consider D3 to be the standard library for data visualization on the web
 - [x] Comparison
 - [x] Profile
 - [x] Detail
-- [ ] Upload
+- [x] Upload

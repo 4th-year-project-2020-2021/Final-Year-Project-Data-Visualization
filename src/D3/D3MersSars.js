@@ -329,8 +329,6 @@ export default class D3Comparison{
         .attr("fill", d=>{
           if(d.Number > 300){
               return "red";
-          }else if(d.Number <= 300 && d.Number >= 150 ){
-              return "blue";
           }
           return "green";
       })
