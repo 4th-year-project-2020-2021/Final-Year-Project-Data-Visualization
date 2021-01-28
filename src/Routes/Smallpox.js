@@ -1,87 +1,73 @@
-import React, { useState } from 'react';
-import DataTable from 'react-data-table-component';
-import * as XLSX from 'xlsx';
- 
+import React from 'react';
+import Chart from "react-google-charts";
+import Dropdown from 'react-bootstrap/Dropdown';
+
 function Smallpox() {
- 
-  const [columns, setColumns] = useState([]);
-  const [data, setData] = useState([]);
+    return(
+        <div>
+        <div><select>
+  <option selected value="year">Year</option>
+  <option value="country">Country</option>
+  
+</select>
+</div>
+        <Chart
+  width={'100%'}
+  height={'100%'}
+  chartType="GeoChart"
+  data={[
+    ['Country','No of Cases'],
+    ['Algeria',755],
+    ['Austria',18],
+    ['Belgium', 21],
+    ['Bulgaria', 22],
+    ['Burma', 987],
+    ['Chile',1171],
+   // ['Czechoslovakia',1642],
+    //['Democratic Republic of Congo',1497],
+    ['Egypt',93],
+    ['Finland',27],
+    ['Germany',680],
+    ['Greece',250],
+    ['Hungary',131],
+    ['Indonesia',1445],
+    ['Iraq',475],
+    ['Italy',4644],
+    ['Japan',889],
+    ['Kenya',200],
+    //['Korea',8316],
+    ['Malaysia',232],
+    ['Morocco',203],
+    ['Netherlands',1],
+    ['Nigeria',1031],
+    ['Panama',215],
+    ['Romania',2744],
+    ['South Africa',1108],
+    ['Sri Lanka',18],
+    ['Tanzania', 1427],
+    ['Thailand', 404],
+    ['Russia', 100004],
+    ['Uganda', 506],
+    ['United Kingdom', 442],
+    ['United States', 108487],
+    ['Uruguay', 31],
+    ['Zimbabwe', 515],
+    
+    
+  ]}
 
-  // process CSV data
-  const processData = dataString => {
-    const dataStringLines = dataString.split(/\r\n|\n/);
-    const headers = dataStringLines[0].split(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/);
-    const list = [];
-    for (let i = 1; i < dataStringLines.length; i++) {
-      const row = dataStringLines[i].split(/,(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)/);
-      if (headers && row.length === headers.length) {
-        const obj = {};
-        for (let j = 0; j < headers.length; j++) {
-          let d = row[j];
-          if (d.length > 0) {
-            if (d[0] === '"')
-              d = d.substring(1, d.length - 1);
-            if (d[d.length - 1] === '"')
-              d = d.substring(d.length - 2, 1);
-          }
-          if (headers[j]) {
-            obj[headers[j]] = d;
-          }
-        }
- 
-        // remove the blank rows
-        if (Object.values(obj).filter(x => x).length > 0) {
-          list.push(obj);
-        }
-      }
-    }
- 
-    // prepare columns list from headers
-    const columns = headers.map(c => ({
-      name: c,
-      selector: c,
-    }));
- 
-    setData(list);
-    setColumns(columns);
-  }
- 
-  // handle file upload
-  const handleFileUpload = e => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (evt) => {
-      /* Parse data */
-      const bstr = evt.target.result;
-      const wb = XLSX.read(bstr, { type: 'binary' });
-      /* Get first worksheet */
-      const wsname = wb.SheetNames[0];
-      const ws = wb.Sheets[wsname];
-      /* Convert array of arrays */
-      const data = XLSX.utils.sheet_to_csv(ws, { header: 1 });
-      processData(data);
-    };
-    reader.readAsBinaryString(file);
-  }
- 
-  return (
-    <div>
-      <h3>Read CSV file in React - <a href="https://www.cluemediator.com" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
-      <input
-        type="file"
-        accept=".csv,.xlsx,.xls"
-        onChange={handleFileUpload}
-      />
-      <DataTable
-        pagination
-        highlightOnHover
-        columns={columns}
-        data={data}
-      />
-    </div>
-  );
+  options={{
+    region: 'world',
+    colorAxis: { colors: ['orange','yellow', 'green','blue', 'darkblue', 'red'] },
+  }}
+  // Note: you will need to get a mapsApiKey for your project.
+  // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+  mapsApiKey="YOUR_KEY_HERE"
+ // rootProps={{ 'data-testid': '1' }}
+/>
+</div>
+
+    )
 }
- 
 export default Smallpox;
-
-//https://www.cluemediator.com/read-csv-file-in-react
+//adapted from https://www.youtube.com/watch?v=oX7Wqavzoc0
