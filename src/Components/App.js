@@ -3,6 +3,7 @@ import Router from "./Router";
 import GlobalStyles from "./GlobalStyles";
 import {authService} from './Fbase';
 
+
 function App() {
     const [init, setInit] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false); 

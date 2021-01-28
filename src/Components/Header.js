@@ -36,6 +36,15 @@ const SLink = styled(Link)`
     justify-content:center;
 `;
 
+const H1 = styled.h1`
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:right;
+`;
+
 export default withRouter(({ location : {pathname} })=>(
         <Header>
             <List>
@@ -61,6 +70,7 @@ export default withRouter(({ location : {pathname} })=>(
                     <SLink to="/profile">Profile </SLink>
                 </Item>
             </List>
+            <H1>Hello Customer!</H1>
         </Header>
     )
 

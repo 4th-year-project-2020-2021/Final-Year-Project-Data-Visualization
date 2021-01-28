@@ -13,7 +13,7 @@ const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
-const WIDTH3 = 500 - MARGIN.LEFT - MARGIN.RIGHT;
+const MWIDTH3 = 500 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT3 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class D3Comparison{
@@ -148,6 +148,31 @@ export default class D3Comparison{
                   }
                   return "green";
               })
+              .on("mouseover", function() {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                  .attr("fill", "red");
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                  .attr("fill", "blue");
+              })
+              .append("title")
+                .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
+
+                
+          rects2.enter().append("text")
+            .attr("class", "value")
+            .attr("x", d=> x(d.Country))
+            .attr("y", d => y(d.Confirmed))
+            .attr("dy", ".35em") //vertical align middle
+            .attr("width",x.bandwidth)
+            .attr("height", d => HEIGHT - y(d.Confirmed))
+            .attr("text-anchor", "middle")
+            .text(d=>d.Confirmed)
+            .attr("font-family" , "sans-serif")
+            .attr("font-size" , "14px")
+            .attr("fill" , "white")
         })// End Mers - Country
 
         // Start Sars - Country
@@ -211,6 +236,30 @@ export default class D3Comparison{
                 }
                 return "green";
             })
+            .on("mouseover", function() {
+              //Do something on mouseover of any bar
+              d3.select(this)
+                .attr("fill", "red");
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+                .attr("fill", "blue");
+            })
+            .append("title")
+              .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
+
+            rects3.enter().append("text")
+            .attr("class", "value")
+            .attr("x", d=> x(d.Country))
+            .attr("y", d => y(d.Confirmed))
+            .attr("dy", ".35em") //vertical align middle
+            .attr("width",x.bandwidth)
+            .attr("height", d => HEIGHT - y(d.Confirmed))
+            .attr("text-anchor", "middle")
+            .text(d=>d.Confirmed)
+            .attr("font-family" , "sans-serif")
+            .attr("font-size" , "14px")
+            .attr("fill" , "white")
       })//end third
   
           Promise.all([
@@ -278,16 +327,18 @@ export default class D3Comparison{
         .attr("x", d => x(d.Year))
         .attr("width", x.bandwidth)
         .attr("fill", d=>{
-          if(d.Number >= 300){
+          if(d.Number > 300){
               return "red";
-          }else if(d.Number < 300 && d.Number > 150){
+          }else if(d.Number <= 300 && d.Number >= 150 ){
               return "blue";
           }
           return "green";
       })
+      
         .attr("y",HEIGHT)
         .transition().duration(500)
         .attr("height", d => HEIGHT-y(d.Number))
         .attr("y", d => y(d.Number))
+
     }
 }

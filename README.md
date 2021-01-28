@@ -34,8 +34,9 @@ I consider D3 to be the standard library for data visualization on the web
 
 - [x] Adding SVGs with D3
 - [x] Working with two different dataset and Flicking between datasets
-- [ ] Draw differnt types of charts
 - [x] Working with API
+- [x] Create interactive bar charts
+- [ ] Create a static bubble chart then animate it
 
 <br>
 

@@ -29,7 +29,7 @@ export default class D3Comparison{
           .style("border", "1px lightgray solid;")
           .style("background-color", "#708090")
           .style("font", "20px sans-serif")
-          .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 2.3%, lower than that of SARS (9.5%) and much lower than that of MERS (34.4%).");
+          .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%).");
       
         const svg2 = d3.select(element)
           .append("svg")
@@ -95,7 +95,8 @@ export default class D3Comparison{
               .style("stroke", "white")
               .style("fill","white")
               .style("stroke-width", ".4px")
-              .style("font", "20px sans-serif");
+              .style("font", "20px sans-serif")
+              .style("pointer-events", "none");
 
             const rects = svg.selectAll("rect")
             .data(comparison)
@@ -111,6 +112,31 @@ export default class D3Comparison{
                   }
                   return "green";
               })
+              .on("mouseover", function() {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                  .attr("fill", "red");
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                  .attr("fill", "grey");
+              })
+              .append("title")
+                .text(d=>`Mortality Rate : ${d.Mortality} % in ${d.Name}`);
+              
+
+            rects.enter().append("text")
+              .attr("class", "value")
+              .attr("x", d=> x(d.Name))
+              .attr("y", d => y(d.Mortality))
+              .attr("dy", ".35em") //vertical align middle
+              .attr("width",x.bandwidth)
+              .attr("height", d => HEIGHT - y(d.Mortality))
+              .attr("text-anchor", "middle")
+              .text(d=>d.Mortality+ " %")
+              .attr("font-family" , "sans-serif")
+              .attr("font-size" , "14px")
+              .attr("fill" , "white")
         })//end first
 
         d3.json(url).then(comparison2=>{
@@ -171,6 +197,30 @@ export default class D3Comparison{
                 }
                 return "green";
             })
+            .on("mouseover", function() {
+              //Do something on mouseover of any bar
+              d3.select(this)
+                .attr("fill", "red");
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+                .attr("fill", "grey");
+            })
+            .append("title")
+              .text(d=>`Number of Deaths : ${d.Deaths}  in ${d.Name}`);
+
+            rects2.enter().append("text")
+              .attr("class", "value")
+              .attr("x", d=> x(d.Name))
+              .attr("y", d => y(d.Deaths))
+              .attr("dy", ".35em") //vertical align middle
+              .attr("width",x.bandwidth)
+              .attr("height", d => HEIGHT - y(d.Deaths))
+              .attr("text-anchor", "middle")
+              .text(d=>d.Deaths)
+              .attr("font-family" , "sans-serif")
+              .attr("font-size" , "14px")
+              .attr("fill" , "white")
       })//end second
 
       d3.json(url).then(comparison3=>{
@@ -233,6 +283,31 @@ export default class D3Comparison{
               }
               return "green";
           })
+          .on("mouseover", function() {
+            //Do something on mouseover of any bar
+            d3.select(this)
+              .attr("fill", "red");
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+              .attr("fill", "grey");
+          })
+          .append("title")
+            .text(d=>`Number of Cases : ${d.Cases}  in ${d.Name}`);
+          
+
+          rects3.enter().append("text")
+              .attr("class", "value")
+              .attr("x", d=> x(d.Name))
+              .attr("y", d => y(d.Cases))
+              .attr("dy", ".35em") //vertical align middle
+              .attr("width",x.bandwidth)
+              .attr("height", d => HEIGHT - y(d.Cases))
+              .attr("text-anchor", "middle")
+              .text(d=>d.Cases)
+              .attr("font-family" , "sans-serif")
+              .attr("font-size" , "14px")
+              .attr("fill" , "white")
     })//end third
 
     }

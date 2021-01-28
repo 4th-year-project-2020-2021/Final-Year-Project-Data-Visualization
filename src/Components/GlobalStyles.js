@@ -6,6 +6,7 @@ const globalStyles = createGlobalStyle`
     a{
         text-decoration:none;
         color:inherit;
+        color: gold;
     }
     *{
         box-sizing:border-box;
@@ -18,6 +19,7 @@ const globalStyles = createGlobalStyle`
         padding-top:50px;
         height:100%;
     }
+    
     button {
         background-color: white;
         color: black;
@@ -25,6 +27,10 @@ const globalStyles = createGlobalStyle`
     form {
         width: 100%;
     } 
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+    }
 `;
 
 export default globalStyles;
