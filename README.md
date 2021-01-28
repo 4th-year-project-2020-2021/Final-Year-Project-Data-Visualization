@@ -1,6 +1,6 @@
 # Final Year Project 
 
-##### Data visualization 
+### Data visualization 
 ##### A collection of react components to render common data visualization charts, such as line/area/bar charts, scatterplots, pie and donut charts.
 
 ## Group members
@@ -25,8 +25,13 @@ Launch with:
 
 <br>
 
+# Work Plans
+
 ## Covid-19
-...
+
+- [x] World Map using API
+- [x] Search bar 
+- [ ] Temperature Checker - More Research needed
 
 ## Mers and Sars
 
@@ -37,11 +42,19 @@ I consider D3 to be the standard library for data visualization on the web
 - [x] Working with API
 - [x] Create interactive bar charts
 - [ ] Create a static bubble chart then animate it
+- [ ] Symptom Checker component
+- [ ] Home component using D3
+- [ ] Comparison component 
+- [ ] Profile component - let users change their profile picture (Not sure yet.)
+- [x] User Authentication using Firebase -> Still need to work on it.
 
 <br>
 
 ## Smallpox
-...
+
+- [x] World Map 
+- [ ] Upload component - let the user add files and make charts.
+- [ ] Flask - BackEnd
 
 ## Screens
 
@@ -53,3 +66,4 @@ I consider D3 to be the standard library for data visualization on the web
 - [x] Comparison
 - [x] Profile
 - [x] Detail
+- [ ] Upload
