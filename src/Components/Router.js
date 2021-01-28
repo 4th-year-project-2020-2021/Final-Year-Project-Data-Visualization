@@ -7,6 +7,7 @@ import MersAndSars from '../Routes/MersAndSars';
 import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
 import Profile from '../Routes/Profile';
+import Upload from '../Routes/Upload';
 import Header from './Header';
 import Auth from '../Routes/Auth';
 
@@ -27,6 +28,7 @@ function Router({isLoggedIn}){
                    <Route path="/smallpox" component={Smallpox} />
                    <Route path="/comparison" component={Comparison} />
                    <Route path="/profile" component={Profile} />
+                   <Route path="/upload" component={Upload} />
                    <Redirect from="*" to="/" /> 
                 </>
               ):(
