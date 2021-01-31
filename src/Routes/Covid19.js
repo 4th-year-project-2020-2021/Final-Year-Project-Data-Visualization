@@ -90,8 +90,9 @@ function Covid19(){
                 className="text-center"
                 style={{margin: "10px"}}
             >
-
-            <Card.Img variant= "top" src={data.countryInfo.flag} height="350px"/>
+            lat={data.countryInfo.lat}
+            lng={data.countryInfo.long}
+            
             <Card.Body>
                 <Card.Title>{data.country}</Card.Title>
                 <Card.Text>Cases {data.cases}</Card.Text>
@@ -116,15 +117,13 @@ function Covid19(){
     }];
 
     return(
-        <div>
-            <br/>
-            <h2>Live Covid-19 Stats</h2>
-            <br/>
+        <div> <br/>
+            <h2 style={{height: "40px", textAlign: "center"}}> COVID-19 Live Data & Visuals </h2>
         
             <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-                    defaultCenter={{lat: 13, lng: 105}}
+                    defaultCenter={{lat: 28, lng: 3}}
                     // Zoom level
                     defaultZoom={3}
                 >
@@ -177,14 +176,15 @@ function Covid19(){
 
             <Form>
                 <Form.Group controlId="formGroupSearch">
-                    <Form.Label>Search Country</Form.Label>
                     <br/>
-                    <Form.Control type="text" placeholder="Enter a Country by name" onChange={e => setSearchCountry(e.target.value)} />
+                    <Form.Control type="text" placeholder="Seach a specific country" onChange={e => setSearchCountry(e.target.value)} />
                 </Form.Group>
             </Form>
             <br/>
             <CardColumns> {countries} </CardColumns>
         </div>
+
+        
     );
 }
 
