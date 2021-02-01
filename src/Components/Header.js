@@ -63,9 +63,6 @@ export default withRouter(({ location : {pathname} })=>(
                 <Item current={pathname === "/comparison"}>
                     <SLink to="/comparison">Comparison </SLink>
                 </Item>
-                <Item current={pathname === "/search"}>
-                    <SLink to="/search">Search </SLink>
-                </Item>
                 <Item current={pathname === "/upload"}>
                     <SLink to="/upload">Upload </SLink>
                 </Item>
@@ -73,7 +70,6 @@ export default withRouter(({ location : {pathname} })=>(
                     <SLink to="/profile">Profile </SLink>
                 </Item>
             </List>
-            <H1>Hello Customer!</H1>
         </Header>
     )
 

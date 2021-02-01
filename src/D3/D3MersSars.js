@@ -21,11 +21,9 @@ export default class D3Comparison{
     constructor(element){
         const vis = this;
 
-        // D3 code goes here--!
-        // Appending SVG canvas and moving into the center of the screen according to the D3 margin convension.
-        vis.svg = d3.select(element)
-          .append("svg")
-            .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+        vis.svg = d3.select(element)  // Select element on the page with D3 select
+          .append("svg")  // Add elements onto a selection with the D3 append method
+            .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)  // Attr method to set attributes of these elements
             .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
@@ -59,27 +57,35 @@ export default class D3Comparison{
           .text("The majority of SARS cases were from China, Canada and Singapore, among which, cases from China mainland presented the largest proportion, followed by that from Hong Kong and Taiwan.");
 
           
+          vis.xLabel = vis.svg.append("text")
+            .attr("x", WIDTH/2)
+            .attr("y", HEIGHT-300)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","gold")
+            .style("stroke-width", ".4px")
+            .style("font", "35px sans-serif");
+
           vis.svg.append("text")
             .attr("x", WIDTH/2)
             .attr("y", HEIGHT+50)
             .attr("text-anchor","middle")
-            .text("Year")
-            .style("text-decoration", "underline") 
             .style("stroke", "white")
+            .text("Year of onset")
             .style("fill","white")
-            .style("stroke-width", ".4px")
-            .style("font", "15px sans-serif");
+            .style("stroke-width", ".2px")
+            .style("font", "20px sans-serif");
 
           vis.svg.append("text")
             .attr("x",-(HEIGHT/2))
             .attr("y",-50)
             .attr("text-anchor","middle")
-            .text("No. of confirmed cases")
+            .text("Number of reported cases")
             .attr("transform", "rotate(-90)")
             .style("stroke", "white")
             .style("fill","white")
-            .style("stroke-width", ".4px")
-            .style("font", "15px sans-serif");
+            .style("stroke-width", ".2px")
+            .style("font", "20px sans-serif");
 
           vis.xAxisGroup = vis.svg.append("g")
             .attr("transform",`translate(0, ${ HEIGHT })`)
@@ -92,8 +98,7 @@ export default class D3Comparison{
           d3.json(mersCountry).then(comparison2=>{
             //using max function, it will loop through the data and get the highest number of y value
             const max2 = d3.max(comparison2, d=> d.Confirmed)
-           
-            const min2 = d3.min(comparison2, d=> d.Confirmed) *0.99
+            const min2 = d3.min(comparison2, d=> d.Confirmed) *0.55
 
             const y = d3.scaleLinear()
                 .domain([min2, max2]) //highest y value
@@ -124,6 +129,16 @@ export default class D3Comparison{
               .style("font", "15px sans-serif");
 
             svg2.append("text")
+              .attr("x", WIDTH2/2)
+              .attr("y", HEIGHT2 - 300)
+              .attr("text-anchor","middle")
+              .text("Mers")
+              .style("stroke", "gold")
+              .style("fill","gold")
+              .style("stroke-width", ".4px")
+              .style("font", "15px sans-serif");
+
+            svg2.append("text")
               .attr("x",-(HEIGHT2/2))
               .attr("y",-40)
               .attr("text-anchor","middle")
@@ -142,20 +157,15 @@ export default class D3Comparison{
               .attr("y", d => y(d.Confirmed))
               .attr("width",x.bandwidth)
               .attr("height", d => HEIGHT2 - y(d.Confirmed))
-              .attr("fill", d => {
-                  if(d.Confirmed > 50){
-                      return "red";
-                  }
-                  return "green";
-              })
+              .attr("fill", "#c0c0c0")
               .on("mouseover", function() {
                 //Do something on mouseover of any bar
                 d3.select(this)
-                  .attr("fill", "red");
+                  .attr("fill", "rgb(95, 109, 148)");
               })
               .on("mouseout", function(d) {
                 d3.select(this)
-                  .attr("fill", "blue");
+                  .attr("fill", "#00315b");
               })
               .append("title")
                 .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
@@ -179,7 +189,7 @@ export default class D3Comparison{
         d3.json(sarsCountry).then(comparison3=>{
           //using max function, it will loop through the data and get the highest number of y value
           const max3 = d3.max(comparison3, d=> d.Confirmed)
-          const min3 = d3.min(comparison3, d=> d.Confirmed) *0.99
+          const min3 = d3.min(comparison3, d=> d.Confirmed) *0.55
   
           const y = d3.scaleLinear()
               .domain([min3, max3]) //highest y value
@@ -202,12 +212,22 @@ export default class D3Comparison{
             .attr("x", WIDTH2/2)
             .attr("y", HEIGHT2 + 50)
             .attr("text-anchor","middle")
-            .text("Mers - Country")
+            .text("Sars - Country")
             .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
             .style("font", "15px sans-serif");
+
+          svg3.append("text")
+            .attr("x", WIDTH2/2)
+            .attr("y", HEIGHT2 - 300)
+            .attr("text-anchor","middle")
+            .text("Sars")
+            .style("stroke", "gold")
+            .style("fill","gold")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
             
   
           svg3.append("text")
@@ -230,20 +250,15 @@ export default class D3Comparison{
             .attr("y", d => y(d.Confirmed))
             .attr("width",x.bandwidth)
             .attr("height", d => HEIGHT2 - y(d.Confirmed))
-            .attr("fill", d=>{
-                if(d.Confirmed > 500){
-                    return "red";
-                }
-                return "green";
-            })
+            .attr("fill", "#c0c0c0")
             .on("mouseover", function() {
               //Do something on mouseover of any bar
               d3.select(this)
-                .attr("fill", "red");
+                .attr("fill", "rgb(95, 109, 148)");
             })
             .on("mouseout", function(d) {
               d3.select(this)
-                .attr("fill", "blue");
+                .attr("fill", "#00315b");
             })
             .append("title")
               .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
@@ -281,12 +296,12 @@ export default class D3Comparison{
       const vis = this;
 
       vis.data = (virus === "mers") ? vis.MersData : vis.SarsData;
-      //vis.xLabel.text(`coronavirus - ${virus} (Year)`)  // TEXT TYPE ERROR
+      vis.xLabel.text(` ${virus}`)  // TEXT TYPE ERROR
 
   
       //using max function, it will loop through the data and get the highest number of y value.
       const max = d3.max(vis.data, d=> d.Number)
-      const min = d3.min(vis.data, d=> d.Number) *0.95
+      const min = d3.min(vis.data, d=> d.Number) *0.55
 
       const y = d3.scaleLinear()
           .domain([min, max]) //highest y value.
@@ -326,17 +341,28 @@ export default class D3Comparison{
       rects.enter().append("rect")
         .attr("x", d => x(d.Year))
         .attr("width", x.bandwidth)
-        .attr("fill", d=>{
-          if(d.Number > 300){
-              return "red";
-          }
-          return "green";
-      })
-      
+        //.attr("fill", "#69b3a2")
         .attr("y",HEIGHT)
         .transition().duration(500)
         .attr("height", d => HEIGHT-y(d.Number))
         .attr("y", d => y(d.Number))
+        .style("padding", "3px")
+        .style("margin", "1px")
+        .style("width", d => `${d * 10}px`)
+        .text(d => d)
+        .attr("fill", "#69b3a2")
+        .attr("stroke", "#FFB9EC")
+        .attr("stroke-width", 1)
+
+      rects.enter().append("text")
+        .attr("class", "value")
+        .attr("x", d=> x(d.Year))
+        .attr("y", d => y(d.Number))
+        .attr("dx", -5)
+        .attr("dy", ".35em") //vertical align middle
+        .attr("text-anchor", "end")
+        .text(d=>d.Number)
+        .attr("fill" , "red")
 
     }
 }

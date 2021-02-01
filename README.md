@@ -30,23 +30,19 @@ Launch with:
 ## Covid-19  -  Grace
 
 - [x] World Map using API
-- [x] Search bar 
-- [ ] Temperature Checker - More Research needed
+- [x] Search 
+- [ ] Home component
+
+<br>
 
 ## Mers and Sars  -  Jina  
 
 I consider D3 to be the standard library for data visualization on the web
 
-- [x] Adding SVGs with D3
-- [x] Working with two different dataset and Flicking between datasets
-- [x] Working with API
 - [x] Create interactive bar charts
 - [ ] Create a static bubble chart then animate it
-- [ ] Symptom Checker component
-- [ ] Home component using D3
 - [ ] Comparison component 
-- [ ] Profile component - let users change their profile picture (Not sure yet.)
-- [x] User Authentication using Firebase -> Still need to work on it.
+- [x] User Authentication using Firebase 
 
 <br>
 
@@ -55,6 +51,8 @@ I consider D3 to be the standard library for data visualization on the web
 - [x] World Map 
 - [ ] Upload component - let the user add files and make charts.
 - [ ] Flask - BackEnd
+
+<br>
 
 ## Screens
 

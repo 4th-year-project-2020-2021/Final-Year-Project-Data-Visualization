@@ -7,8 +7,8 @@ const WIDTH = 1050 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 
-const WIDTH2 = 500 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
+const WIDTH2 = 400 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT2 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
 const url2 ="https://covid19symptom-default-rtdb.firebaseio.com/Names.json";  //covid-19 symptom
@@ -29,6 +29,15 @@ export default class D3Comparison{
         .append("g")
           .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
+      
+        const ttsvvg = d3.select(element)
+          .append("div")
+          .style("border", "2px lightgray solid;")
+          .style("background-color", "green")
+          .style("font", "20px sans-serif")
+          .text("Shortness of breath was less common in COVID‐19 patients (17%), in comparison to SARS (32%) and MERS (51%). Likewise, chills were less common in COVID‐19 patients (17%), in comparison to SARS (57.5%) and MERS (41%). Therefore, these clinical symptoms should help distinguish the various coronavirus infections from each other.");
+
+
         const ttsvg = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
@@ -47,52 +56,53 @@ export default class D3Comparison{
         const tsvg = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
-          .style("background-color", "#708090")
+          .style("background-color", "green")
           .style("font", "20px sans-serif")
-          .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%).");
+          .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
       
         const svg2 = d3.select(element)
           .append("svg")
-            .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-            .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+            .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
+            .attr("height",HEIGHT2 + MARGIN2.TOP + MARGIN2.BOTTOM)
           .append("g")
-            .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
-
-        const tsvg2 = d3.select(element)
-          .append("div")
-          .style("border", "1px lightgray solid;")
-          .style("background-color", "#708090")
-          .style("font", "20px sans-serif")
-          .text("However, despite the lower case fatality rate, covid-19 has so far resulted in more deaths than SARS and MERS combined.");
+            .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
         const svg3 = d3.select(element)
           .append("svg")
-            .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
-            .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+            .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
+            .attr("height",HEIGHT2 + MARGIN2.TOP + MARGIN2.BOTTOM)
           .append("g")
-            .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+            .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
-            vis.svgg.append("text")
+           vis.xLabel = vis.svgg.append("text")
+            .attr("x", WIDTH/2)
+            .attr("y", HEIGHT-300)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","gold")
+            .style("stroke-width", ".4px")
+            .style("font", "35px sans-serif");
+
+          vis.svgg.append("text")
             .attr("x", WIDTH/2)
             .attr("y", HEIGHT+50)
             .attr("text-anchor","middle")
-            .text("Symptoms")
-            .style("text-decoration", "underline") 
             .style("stroke", "white")
             .style("fill","white")
-            .style("stroke-width", ".4px")
-            .style("font", "15px sans-serif");
+            .text("Symptoms")
+            .style("stroke-width", ".2px")
+            .style("font", "20px sans-serif");
 
           vis.svgg.append("text")
             .attr("x",-(HEIGHT/2))
             .attr("y",-50)
             .attr("text-anchor","middle")
-            .text("Number")
+            .text("Percentage (%) of patients with symptoms")
             .attr("transform", "rotate(-90)")
             .style("stroke", "white")
             .style("fill","white")
-            .style("stroke-width", ".4px")
-            .style("font", "15px sans-serif");
+            .style("stroke-width", ".2px")
+            .style("font", "20px sans-serif");
 
           vis.xAxisGroup = vis.svgg.append("g")
             .attr("transform",`translate(0, ${ HEIGHT })`)
@@ -128,12 +138,12 @@ export default class D3Comparison{
               .attr("x", WIDTH2/2)
               .attr("y", HEIGHT2 + 50)
               .attr("text-anchor","middle")
-              .text("A comparison of COVID-19, MERS and SARS")
+              .text("Comparisons between the viruses were made")
               .style("stroke", "white")
               .style("fill","white")
               .style("stroke-width", ".4px")
               .style("text-decoration", "underline") 
-              .style("font", "20px sans-serif");
+              .style("font", "15px sans-serif");
 
             svg.append("text")
               .attr("x",-(HEIGHT2/2))
@@ -168,7 +178,7 @@ export default class D3Comparison{
               })
               .on("mouseout", function(d) {
                 d3.select(this)
-                  .attr("fill", "grey");
+                  .attr("fill", "#00315b");
               })
               .append("title")
                 .text(d=>`Mortality Rate : ${d.Mortality} % in ${d.Name}`);
@@ -214,18 +224,18 @@ export default class D3Comparison{
             .attr("x", WIDTH2/2)
             .attr("y", HEIGHT2 + 50)
             .attr("text-anchor","middle")
-            .text("A comparison of COVID-19, MERS and SARS")
+            .text("Comparisons between the viruses were made")
             .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
-            .style("font", "20px sans-serif");
+            .style("font", "15px sans-serif");
 
           svg2.append("text")
             .attr("x",-(HEIGHT2/2))
             .attr("y",-40)
             .attr("text-anchor","middle")
-            .text("No. of Deaths")
+            .text("Number of Deaths")
             .attr("transform","rotate(-90)")
             .style("stroke", "white")
             .style("fill","white")
@@ -253,7 +263,7 @@ export default class D3Comparison{
             })
             .on("mouseout", function(d) {
               d3.select(this)
-                .attr("fill", "grey");
+                .attr("fill", "#00315b");
             })
             .append("title")
               .text(d=>`Number of Deaths : ${d.Deaths}  in ${d.Name}`);
@@ -298,19 +308,19 @@ export default class D3Comparison{
           .attr("x", WIDTH2/2)
           .attr("y", HEIGHT2 + 50)
           .attr("text-anchor","middle")
-          .text("A comparison of COVID-19, MERS and SARS")
+          .text("Comparisons between the viruses were made")
           .style("stroke", "white")
           .style("fill","white")
           .style("stroke-width", ".4px")
           .style("text-decoration", "underline") 
-          .style("font", "20px sans-serif");
+          .style("font", "15px sans-serif");
           
 
         svg3.append("text")
           .attr("x",-(HEIGHT2/2))
           .attr("y",-40)
           .attr("text-anchor","middle")
-          .text("No. of Cases")
+          .text("Number of Cases")
           .attr("transform","rotate(-90)")
           .style("stroke", "white")
           .style("fill","white")
@@ -339,7 +349,7 @@ export default class D3Comparison{
           })
           .on("mouseout", function(d) {
             d3.select(this)
-              .attr("fill", "grey");
+              .attr("fill", "#00315b");
           })
           .append("title")
             .text(d=>`Number of Cases : ${d.Cases}  in ${d.Name}`);
@@ -382,7 +392,7 @@ update(virus){
 const vis = this;
 
 vis.data = (virus === "covid19") ? vis.Covid19Data : (virus === "mers") ? vis.MersData : vis.SarsData;
-//vis.xLabel.text(`coronavirus - ${virus} (Year)`)  // TEXT TYPE ERROR
+vis.xLabel.text(`${virus} symptoms`)  
 
 
 //using max function, it will loop through the data and get the highest number of y value.
@@ -392,11 +402,13 @@ const min = d3.min(vis.data, d=> d.Number) *0.95
 const y = d3.scaleLinear()
     .domain([min, max]) //highest y value.
     .range([HEIGHT,0]) //minimum and maximum value .
+    
 
+// Create the scale
 const x = d3.scaleBand()
     .domain(vis.data.map(d => d.Name))
     .range([0,WIDTH])  
-    .padding(0.4)
+    .padding(0.6)
 
 const xAxisCall = d3.axisBottom(x)
   vis.xAxisGroup.transition().duration(500).call(xAxisCall)
@@ -427,17 +439,30 @@ rects.transition().duration(500)
 rects.enter().append("rect")
   .attr("x", d => x(d.Name))
   .attr("width", x.bandwidth)
-  .attr("fill", d=>{
-    if(d.Number > 50){
-        return "red";
-    }
-    return "green";
-})
-
+  //.attr("fill", "#69b3a2")
   .attr("y",HEIGHT)
   .transition().duration(500)
   .attr("height", d => HEIGHT-y(d.Number))
   .attr("y", d => y(d.Number))
+  .style("padding", "3px")
+  .style("margin", "1px")
+  .style("width", d => `${d * 10}px`)
+  .text(d => d)
+  .attr("fill", "#69b3a2")
+  .attr("stroke", "#FFB9EC")
+  .attr("stroke-width", 1)
+
+rects.enter().append("text")
+  .attr("class", "value")
+  .attr("x", d=> x(d.Name))
+  .attr("y", d => y(d.Number))
+  .attr("dx", -5)
+  .attr("dy", ".35em") //vertical align middle
+  .attr("text-anchor", "end")
+  .text(d=>d.Number+ " %")
+  .attr("fill" , "red")
+    
+  
 
 }
 }
