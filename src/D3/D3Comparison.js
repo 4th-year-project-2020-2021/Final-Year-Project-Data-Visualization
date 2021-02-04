@@ -7,9 +7,9 @@ const WIDTH = 1050 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 
-const WIDTH2 = 400 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT2 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
+const WIDTH2 = 360 - MARGIN2.LEFT - MARGIN2.RIGHT;
+const HEIGHT2 = 380 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
 const url2 ="https://covid19symptom-default-rtdb.firebaseio.com/Names.json";  //covid-19 symptom
 const url3 ="https://merssymptom-default-rtdb.firebaseio.com/Names.json";  //mers
@@ -29,15 +29,6 @@ export default class D3Comparison{
         .append("g")
           .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
-      
-        const ttsvvg = d3.select(element)
-          .append("div")
-          .style("border", "2px lightgray solid;")
-          .style("background-color", "green")
-          .style("font", "20px sans-serif")
-          .text("Shortness of breath was less common in COVID‐19 patients (17%), in comparison to SARS (32%) and MERS (51%). Likewise, chills were less common in COVID‐19 patients (17%), in comparison to SARS (57.5%) and MERS (41%). Therefore, these clinical symptoms should help distinguish the various coronavirus infections from each other.");
-
-
         const ttsvg = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
@@ -52,14 +43,6 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
-     
-        const tsvg = d3.select(element)
-          .append("div")
-          .style("border", "1px lightgray solid;")
-          .style("background-color", "green")
-          .style("font", "20px sans-serif")
-          .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
-      
         const svg2 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
@@ -74,14 +57,75 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
+        const tsvg = d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "green")
+            .style("font", "20px sans-serif")
+            .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
+        
            vis.xLabel = vis.svgg.append("text")
             .attr("x", WIDTH/2)
-            .attr("y", HEIGHT-300)
+            .attr("y", HEIGHT-410)
             .attr("text-anchor","middle")
             .style("stroke", "gold")
             .style("fill","gold")
             .style("stroke-width", ".4px")
             .style("font", "35px sans-serif");
+
+          vis.xLabel2 = vis.svgg.append("text")
+            .attr("x", WIDTH/1.8)
+            .attr("y", HEIGHT-380)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+          vis.xLabel3 = vis.svgg.append("text")
+            .attr("x", WIDTH/2.1)
+            .attr("y", HEIGHT-360)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+          vis.xLabel4 = vis.svgg.append("text")
+            .attr("x", WIDTH/1.85)
+            .attr("y", HEIGHT-340)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+          vis.xLabel5 = vis.svgg.append("text")
+            .attr("x", WIDTH/2.08)
+            .attr("y", HEIGHT-320)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+          vis.xLabel6 = vis.svgg.append("text")
+            .attr("x", WIDTH/1.95)
+            .attr("y", HEIGHT-300)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+          vis.xLabel7 = vis.svgg.append("text")
+            .attr("x", WIDTH/2.1)
+            .attr("y", HEIGHT-280)
+            .attr("text-anchor","middle")
+            .style("stroke", "gold")
+            .style("fill","white")
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
 
           vis.svgg.append("text")
             .attr("x", WIDTH/2)
@@ -233,7 +277,7 @@ export default class D3Comparison{
 
           svg2.append("text")
             .attr("x",-(HEIGHT2/2))
-            .attr("y",-40)
+            .attr("y",-45)
             .attr("text-anchor","middle")
             .text("Number of Deaths")
             .attr("transform","rotate(-90)")
@@ -318,7 +362,7 @@ export default class D3Comparison{
 
         svg3.append("text")
           .attr("x",-(HEIGHT2/2))
-          .attr("y",-40)
+          .attr("y",-45)
           .attr("text-anchor","middle")
           .text("Number of Cases")
           .attr("transform","rotate(-90)")
@@ -393,6 +437,13 @@ const vis = this;
 
 vis.data = (virus === "covid19") ? vis.Covid19Data : (virus === "mers") ? vis.MersData : vis.SarsData;
 vis.xLabel.text(`${virus} symptoms`)  
+vis.xLabel2.text(`Shortness of breath was less common in COVID‐19 patients (17%),`)  
+vis.xLabel3.text(`in comparison to SARS (32%) and MERS (51%). `)  
+vis.xLabel4.text(`Likewise, chills were less common in COVID‐19 patients (17%), `)  
+vis.xLabel5.text(`in comparison to SARS (57.5%) and MERS (41%). `) 
+vis.xLabel6.text(`Therefore, these clinical symptoms should help distinguish`)  
+vis.xLabel7.text(`the various coronavirus infections from each other. `) 
+
 
 
 //using max function, it will loop through the data and get the highest number of y value.
