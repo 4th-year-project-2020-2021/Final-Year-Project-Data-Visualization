@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import D3Comparison from '../D3/D3Comparison';
 import D3Piechart from '../D3/D3Piechart';
-import MapChart from './MapChart';
 
 export default class ChartWrapper extends Component{
 
@@ -29,7 +28,6 @@ export default class ChartWrapper extends Component{
         return <div>
             <div ref="chart"></div>
             <div ref="chart2"></div>
-            <MapChart />
         </div>
     }
 }

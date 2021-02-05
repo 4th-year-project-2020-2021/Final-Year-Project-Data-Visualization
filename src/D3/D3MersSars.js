@@ -6,7 +6,7 @@ const url2 = "https://sarssummary-default-rtdb.firebaseio.com/Sars.json";  // ==
 const mersCountry = "https://reactproject1-3472c-default-rtdb.firebaseio.com/MersCountry.json";
 const sarsCountry = "https://reactproject11-c3541-default-rtdb.firebaseio.com/SarsCountry.json";
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
-const WIDTH = 870 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH = 900 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
@@ -27,6 +27,27 @@ export default class D3Comparison{
             .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#2F4F4F")
+            .style("font", "20px sans-serif")
+            .text("Since April 2012 and as of 12 January 2021, 2 581 cases of MERS-CoV, including 935 deaths,have been reported by health authorities worldwide.");
+          
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#696969")
+            .style("font", "20px sans-serif")
+            .text("SARS was first reported in Asia in February 2003. The illness spread to 29 countries, where 8,437 people got SARS and 774 of them died. The last known case of SARS was in 2004.");
+          
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#2F4F4F")
+            .style("font", "20px sans-serif")
+            .text("(It means the virus killed roughly one in 10 people who were infected.)")
 
         const svg2 = d3.select(element)
           .append("svg")
@@ -59,84 +80,12 @@ export default class D3Comparison{
           
           vis.xLabel = vis.svg.append("text")
             .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-400)
+            .attr("y", HEIGHT-300)
             .attr("text-anchor","middle")
             .style("stroke", "gold")
             .style("fill","gold")
             .style("stroke-width", ".4px")
             .style("font", "35px sans-serif");
-
-          vis.xLabel2 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-370)
-            .attr("text-anchor","middle")
-            .style("stroke", "blue")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-
-          vis.xLabel3 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-350)
-            .attr("text-anchor","middle")
-            .style("stroke", "blue")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-
-          vis.xLabel4 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-330)
-            .attr("text-anchor","middle")
-            .style("stroke", "blue")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-
-          vis.xLabel5 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-280)
-            .attr("text-anchor","middle")
-            .style("stroke", "red")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-
-          vis.xLabel6 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-260)
-            .attr("text-anchor","middle")
-            .style("stroke", "red")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-
-          vis.xLabel7 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-240)
-            .attr("text-anchor","middle")
-            .style("stroke", "red")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-
-          vis.xLabel8 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-220)
-            .attr("text-anchor","middle")
-            .style("stroke", "red")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "18px sans-serif");
-          
-          vis.xLabel9 = vis.svg.append("text")
-            .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-200)
-            .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
-            .style("stroke-width", ".3px")
-            .style("font", "14px sans-serif");
 
           vis.svg.append("text")
             .attr("x", WIDTH/2)
@@ -369,15 +318,6 @@ export default class D3Comparison{
 
       vis.data = (virus === "mers") ? vis.MersData : vis.SarsData;
       vis.xLabel.text(` ${virus}`)  
-      vis.xLabel2.text(`Since April 2012 and as of 12 January 2021, `)  
-      vis.xLabel3.text(`2 581 cases of MERS-CoV, including 935 deaths, `)  
-      vis.xLabel4.text(` have been reported by health authorities worldwide.`) 
-
-      vis.xLabel5.text(`SARS was first reported in Asia in February 2003.`) 
-      vis.xLabel6.text(`The illness spread to 29 countries, `) 
-      vis.xLabel7.text(`where 8,437 people got SARS and 774 of them died. `) 
-      vis.xLabel8.text(`The last known case of SARS was in 2004. `) 
-      vis.xLabel9.text(`(It means the virus killed roughly one in 10 people who were infected.)`) 
       
       //using max function, it will loop through the data and get the highest number of y value.
       const max = d3.max(vis.data, d=> d.Number)
@@ -430,19 +370,20 @@ export default class D3Comparison{
         .style("margin", "1px")
         .style("width", d => `${d * 10}px`)
         .text(d => d)
-        .attr("fill", "#69b3a2")
+        .attr("fill", "#008080")
         .attr("stroke", "#FFB9EC")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 3)
 
       rects.enter().append("text")
         .attr("class", "value")
-        .attr("x", d=> x(d.Year))
+        .attr("x", d=> x(d.Year) + (x.bandwidth() / 2))
         .attr("y", d => y(d.Number))
         .attr("dx", -5)
         .attr("dy", ".35em") //vertical align middle
-        .attr("text-anchor", "end")
-        .text(d=>d.Number)
-        .attr("fill" , "red")
+        .attr("text-anchor", "middle")
+        .text(d=>"No. "+d.Number)
+        .attr("fill" , "white")
+        .style("font", "20px sans-serif");
 
     }
 }

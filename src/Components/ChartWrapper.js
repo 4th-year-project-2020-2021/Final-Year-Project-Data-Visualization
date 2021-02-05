@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import D3MersSars from '../D3/D3MersSars';
-import MapChart from './MapChart';
 
 export default class ChartWrapper extends Component{
 
@@ -26,7 +25,6 @@ export default class ChartWrapper extends Component{
         //lifecycle method uses the ref system to keep track of an element
         return <div>
             <div ref="chart"></div>
-            <MapChart />
         </div>
     }
 }

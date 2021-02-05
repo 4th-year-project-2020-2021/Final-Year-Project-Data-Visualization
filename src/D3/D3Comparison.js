@@ -29,13 +29,14 @@ export default class D3Comparison{
         .append("g")
           .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
-        const ttsvg = d3.select(element)
-          .append("div")
+      d3.select(element)
+        .append("div")
           .style("border", "1px lightgray solid;")
           .style("background-color", "#A52A2A")
           .style("font", "20px sans-serif")
           .text("This is preliminary COVID-19 data. While SARS and MERS' mortality rates are well understood, the definition of COVID-19 diagnoses is still shifting and it may be years until the actual number of cases is known.");
 
+          
         const svg = d3.select(element)
           .append("svg")
             .attr("width",WIDTH2 + MARGIN2.LEFT + MARGIN2.RIGHT)
@@ -57,15 +58,15 @@ export default class D3Comparison{
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
-        const tsvg = d3.select(element)
+        d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "green")
+            .style("background-color", "#2F4F4F")
             .style("font", "20px sans-serif")
             .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
         
            vis.xLabel = vis.svgg.append("text")
-            .attr("x", WIDTH/2)
+            .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-410)
             .attr("text-anchor","middle")
             .style("stroke", "gold")
@@ -77,52 +78,52 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-380)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
+            .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
           vis.xLabel3 = vis.svgg.append("text")
-            .attr("x", WIDTH/2.1)
+            .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-360)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
+            .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
           vis.xLabel4 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.85)
+            .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-340)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
+            .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
           vis.xLabel5 = vis.svgg.append("text")
-            .attr("x", WIDTH/2.08)
+            .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-320)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
+            .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
           vis.xLabel6 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.95)
+            .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-300)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
+            .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
           vis.xLabel7 = vis.svgg.append("text")
-            .attr("x", WIDTH/2.1)
+            .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-280)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
+            .style("stroke", "white")
             .style("fill","white")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
@@ -178,16 +179,6 @@ export default class D3Comparison{
             const yAxisCall = d3.axisLeft(y)
             svg.append("g").call(yAxisCall)
 
-            svg.append("text")
-              .attr("x", WIDTH2/2)
-              .attr("y", HEIGHT2 + 50)
-              .attr("text-anchor","middle")
-              .text("Comparisons between the viruses were made")
-              .style("stroke", "white")
-              .style("fill","white")
-              .style("stroke-width", ".4px")
-              .style("text-decoration", "underline") 
-              .style("font", "15px sans-serif");
 
             svg.append("text")
               .attr("x",-(HEIGHT2/2))
@@ -201,14 +192,15 @@ export default class D3Comparison{
               .style("font", "20px sans-serif")
               .style("pointer-events", "none");
 
-            const rects = svg.selectAll("rect")
-            .data(comparison)
+            const rects = svg.selectAll("circle")
+              .data(comparison)
 
-            rects.enter().append("rect")
-              .attr("x", d=> x(d.Name))
-              .attr("y", d => y(d.Mortality))
-              .attr("width",x.bandwidth)
-              .attr("height", d => HEIGHT2 - y(d.Mortality))
+            rects.enter().append("circle")
+              .attr("cx", d=> x(d.Name) + (x.bandwidth() / 2))
+              .attr("cy", d => y(d.Mortality))
+              //.attr("width",x.bandwidth)
+              //.attr("height", d => HEIGHT2 - y(d.Mortality))
+              .attr("r",35)
               .attr("fill", d=>{
                   if(d.Mortality > 20){
                       return "red";
@@ -230,7 +222,7 @@ export default class D3Comparison{
 
             rects.enter().append("text")
               .attr("class", "value")
-              .attr("x", d=> x(d.Name))
+              .attr("x", d=> x(d.Name)+ (x.bandwidth() / 2))
               .attr("y", d => y(d.Mortality))
               .attr("dy", ".35em") //vertical align middle
               .attr("width",x.bandwidth)
@@ -238,7 +230,7 @@ export default class D3Comparison{
               .attr("text-anchor", "middle")
               .text(d=>d.Mortality+ " %")
               .attr("font-family" , "sans-serif")
-              .attr("font-size" , "14px")
+              .attr("font-size" , "18px")
               .attr("fill" , "white")
         })//end first
 
@@ -289,11 +281,12 @@ export default class D3Comparison{
           const rects2 = svg2.selectAll("rect")
           .data(comparison2)
 
-          rects2.enter().append("rect")
-            .attr("x", d=> x(d.Name))
-            .attr("y", d => y(d.Deaths))
-            .attr("width",x.bandwidth)
-            .attr("height", d => HEIGHT2 - y(d.Deaths))
+          rects2.enter().append("circle")
+            .attr("cx", d=> x(d.Name)+ (x.bandwidth() / 2))
+            .attr("cy", d => y(d.Deaths))
+            .attr("r",35)
+            //.attr("width",x.bandwidth)
+            //.attr("height", d => HEIGHT2 - y(d.Deaths))
             .attr("fill", d=>{
                 if(d.Deaths > 1000){
                     return "red";
@@ -314,15 +307,15 @@ export default class D3Comparison{
 
             rects2.enter().append("text")
               .attr("class", "value")
-              .attr("x", d=> x(d.Name))
+              .attr("x", d=> x(d.Name)+ (x.bandwidth() / 2))
               .attr("y", d => y(d.Deaths))
               .attr("dy", ".35em") //vertical align middle
               .attr("width",x.bandwidth)
               .attr("height", d => HEIGHT2 - y(d.Deaths))
               .attr("text-anchor", "middle")
-              .text(d=>d.Deaths)
+              .text(d=>"No. "+d.Deaths)
               .attr("font-family" , "sans-serif")
-              .attr("font-size" , "14px")
+              .attr("font-size" , "18px")
               .attr("fill" , "white")
       })//end second
 
@@ -348,17 +341,6 @@ export default class D3Comparison{
         const yAxisCall3 = d3.axisLeft(y)
         svg3.append("g").call(yAxisCall3)
 
-        svg3.append("text")
-          .attr("x", WIDTH2/2)
-          .attr("y", HEIGHT2 + 50)
-          .attr("text-anchor","middle")
-          .text("Comparisons between the viruses were made")
-          .style("stroke", "white")
-          .style("fill","white")
-          .style("stroke-width", ".4px")
-          .style("text-decoration", "underline") 
-          .style("font", "15px sans-serif");
-          
 
         svg3.append("text")
           .attr("x",-(HEIGHT2/2))
@@ -372,14 +354,15 @@ export default class D3Comparison{
           .style("font", "20px sans-serif");
           
 
-        const rects3 = svg3.selectAll("rect")
+        const rects3 = svg3.selectAll("circle")
         .data(comparison3)
 
-        rects3.enter().append("rect")
-          .attr("x", d=> x(d.Name))
-          .attr("y", d => y(d.Cases))
-          .attr("width",x.bandwidth)
-          .attr("height", d => HEIGHT2 - y(d.Cases))
+        rects3.enter().append("circle")
+          .attr("cx", d=> x(d.Name)+ (x.bandwidth() / 2))
+          .attr("cy", d => y(d.Cases))
+          .attr("r",35)
+          //.attr("width",x.bandwidth)
+          //.attr("height", d => HEIGHT2 - y(d.Cases))
           .attr("fill", d=>{
               if(d.Cases > 10000){
                   return "red";
@@ -401,15 +384,15 @@ export default class D3Comparison{
 
           rects3.enter().append("text")
               .attr("class", "value")
-              .attr("x", d=> x(d.Name))
+              .attr("x", d=> x(d.Name)+ (x.bandwidth() / 2))
               .attr("y", d => y(d.Cases))
               .attr("dy", ".35em") //vertical align middle
               .attr("width",x.bandwidth)
               .attr("height", d => HEIGHT2 - y(d.Cases))
               .attr("text-anchor", "middle")
-              .text(d=>d.Cases)
+              .text(d=>"No. "+d.Cases)
               .attr("font-family" , "sans-serif")
-              .attr("font-size" , "14px")
+              .attr("font-size" , "18px")
               .attr("fill" , "white")
     })//end third
     
@@ -459,7 +442,7 @@ const y = d3.scaleLinear()
 const x = d3.scaleBand()
     .domain(vis.data.map(d => d.Name))
     .range([0,WIDTH])  
-    .padding(0.6)
+    .padding(0.4)
 
 const xAxisCall = d3.axisBottom(x)
   vis.xAxisGroup.transition().duration(500).call(xAxisCall)
@@ -499,19 +482,20 @@ rects.enter().append("rect")
   .style("margin", "1px")
   .style("width", d => `${d * 10}px`)
   .text(d => d)
-  .attr("fill", "#69b3a2")
-  .attr("stroke", "#FFB9EC")
-  .attr("stroke-width", 1)
+  .attr("fill", "#008B8B")
+  .attr("stroke", "#D3D3D3")
+  .attr("stroke-width", 3)
 
 rects.enter().append("text")
   .attr("class", "value")
-  .attr("x", d=> x(d.Name))
+  .attr("x", d=> x(d.Name)+ (x.bandwidth() / 2))
   .attr("y", d => y(d.Number))
   .attr("dx", -5)
   .attr("dy", ".35em") //vertical align middle
-  .attr("text-anchor", "end")
+  .attr("text-anchor", "middle")
   .text(d=>d.Number+ " %")
   .attr("fill" , "red")
+  .style("font", "22px sans-serif");
     
   
 
