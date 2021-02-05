@@ -2,9 +2,17 @@ import React from 'react';
 import Chart from "react-google-charts";
 import Dropdown from 'react-bootstrap/Dropdown';
 
+const paragraphStyle = {
+  marginTop: '10px',
+  marginBottom: '10px'
+};
+
+
 function Smallpox() {
     return(
         <div>
+        
+        <p style={paragraphStyle}><h3>Smallpox cases - hover over country to see case numbers</h3></p>
         <div><select>
   <option selected value="year">Year</option>
   <option value="country">Country</option>
@@ -60,7 +68,7 @@ function Smallpox() {
     region: 'world',
     colorAxis: { colors: ['orange','yellow', 'green','blue', 'darkblue', 'red'] },
   }}
-  // Note: you will need to get a mapsApiKey for your project.
+  // need to get a mapsApiKey for project.
   // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
   mapsApiKey="YOUR_KEY_HERE"
  // rootProps={{ 'data-testid': '1' }}

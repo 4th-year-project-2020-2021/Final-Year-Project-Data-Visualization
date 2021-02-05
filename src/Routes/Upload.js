@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import * as XLSX from 'xlsx';
+import { Chart, Interval, Tooltip } from 'bizcharts';
  
+const paragraphStyle = {
+  marginTop: '10px',
+  marginBottom: '10px'
+}
+
 function Upload() {
  
   const [columns, setColumns] = useState([]);
@@ -66,7 +72,7 @@ function Upload() {
  
   return (
     <div>
-      <h3>Read CSV file in React - <a href="https://www.cluemediator.com" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
+      <h3 style={paragraphStyle}>Upload a CSV file to the app</h3>
       <input
         type="file"
         accept=".csv,.xlsx,.xls"
@@ -78,6 +84,10 @@ function Upload() {
         columns={columns}
         data={data}
       />
+      <Chart height={600} autoFit data={data} interactions={['active-region']} padding={[10, 10, 10, 10]} >
+    <Interval position="year*cases" />
+    <Tooltip shared />
+  </Chart>
     </div>
   );
 }
