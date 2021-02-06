@@ -134,6 +134,15 @@ export default class D3Comparison{
             svg2.append("g")
              .attr("transform",`translate(0, ${ HEIGHT2 })`)
              .call(xAxisCall2)
+             .selectAll("text")
+             .attr("y", 0)
+             .attr("x", 9)
+             .attr("dy", ".35em")
+             .attr("transform", "rotate(50)")
+             .style("fill","gold")
+             .style("font", "15px sans-serif")
+             .style("text-anchor", "start");
+
 
             const yAxisCall2 = d3.axisLeft(y)
             svg2.append("g").call(yAxisCall2)
@@ -157,7 +166,7 @@ export default class D3Comparison{
               .style("stroke", "gold")
               .style("fill","gold")
               .style("stroke-width", ".4px")
-              .style("font", "15px sans-serif");
+              .style("font", "35px sans-serif");
 
             svg2.append("text")
               .attr("x",-(HEIGHT2/2))
@@ -170,15 +179,34 @@ export default class D3Comparison{
               .style("stroke-width", ".4px")
               .style("font", "15px sans-serif");
 
-            const rects2 = svg2.selectAll("rect")
+            // Add the line
+            svg2.append("path")
+            .datum(comparison2)
+            .attr("fill", "none")
+            .attr("stroke", "blue")
+            .attr("stroke-width", 1.5)
+            .attr("d", d3.line()
+              .x(function(d) { return x(d.Country) })
+              .y(function(d) { return y(d.Confirmed) })
+            )
+            // Add the points
+
+            const rects2 = svg2.selectAll("circle")
             .data(comparison2)
 
-            rects2.enter().append("rect")
-              .attr("x", d=> x(d.Country))
-              .attr("y", d => y(d.Confirmed))
-              .attr("width",x.bandwidth)
-              .attr("height", d => HEIGHT2 - y(d.Confirmed))
-              .attr("fill", "#c0c0c0")
+            rects2.enter().append("circle")
+              .attr("cx", d=> x(d.Country))
+              .attr("cy", d => y(d.Confirmed))
+              .attr("r",20)
+              //.attr("width",x.bandwidth)
+              //.attr("height", d => HEIGHT2 - y(d.Confirmed))
+              //.attr("fill", "red")
+              .attr("fill", d=>{
+                if(d.Confirmed > 2000){
+                    return "red";
+                }
+                return "green";
+              })
               .on("mouseover", function() {
                 //Do something on mouseover of any bar
                 d3.select(this)
@@ -186,7 +214,7 @@ export default class D3Comparison{
               })
               .on("mouseout", function(d) {
                 d3.select(this)
-                  .attr("fill", "#00315b");
+                  .attr("fill", "red");
               })
               .append("title")
                 .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
@@ -200,9 +228,9 @@ export default class D3Comparison{
             .attr("width",x.bandwidth)
             .attr("height", d => HEIGHT - y(d.Confirmed))
             .attr("text-anchor", "middle")
-            .text(d=>d.Confirmed)
+            .text(d=>"No. "+ d.Confirmed)
             .attr("font-family" , "sans-serif")
-            .attr("font-size" , "14px")
+            .attr("font-size" , "10px")
             .attr("fill" , "white")
         })// End Mers - Country
 
@@ -225,6 +253,14 @@ export default class D3Comparison{
           svg3.append("g")
            .attr("transform",`translate(0, ${ HEIGHT2 })`)
            .call(xAxisCall3)
+           .selectAll("text")
+             .attr("y", 0)
+             .attr("x", 9)
+             .attr("dy", ".35em")
+             .attr("transform", "rotate(50)")
+             .style("fill","gold")
+             .style("font", "15px sans-serif")
+             .style("text-anchor", "start");
   
           const yAxisCall3 = d3.axisLeft(y)
           svg3.append("g").call(yAxisCall3)
@@ -248,7 +284,7 @@ export default class D3Comparison{
             .style("stroke", "gold")
             .style("fill","gold")
             .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
+            .style("font", "35px sans-serif");
             
   
           svg3.append("text")
@@ -262,16 +298,35 @@ export default class D3Comparison{
             .style("stroke-width", ".4px")
             .style("font", "15px sans-serif");
             
-  
-          const rects3 = svg3.selectAll("rect")
+          // Add the line
+          svg3.append("path")
+          .datum(comparison3)
+          .attr("fill", "none")
+          .attr("stroke", "white")
+          .attr("stroke-width", 1.5)
+          .attr("d", d3.line()
+            .x(function(d) { return x(d.Country) })
+            .y(function(d) { return y(d.Confirmed) })
+          )
+          // Add the points
+
+
+          const rects3 = svg3.selectAll("circle")
           .data(comparison3)
   
-          rects3.enter().append("rect")
-            .attr("x", d=> x(d.Country))
-            .attr("y", d => y(d.Confirmed))
-            .attr("width",x.bandwidth)
-            .attr("height", d => HEIGHT2 - y(d.Confirmed))
-            .attr("fill", "#c0c0c0")
+          rects3.enter().append("circle")
+            .attr("cx", d=> x(d.Country))
+            .attr("cy", d => y(d.Confirmed))
+            .attr("r",20)
+            //.attr("width",x.bandwidth)
+            //.attr("height", d => HEIGHT2 - y(d.Confirmed))
+            //.attr("fill", "red")
+            .attr("fill", d=>{
+              if(d.Confirmed > 5000){
+                  return "red";
+              }
+              return "green";
+            })
             .on("mouseover", function() {
               //Do something on mouseover of any bar
               d3.select(this)
@@ -279,7 +334,7 @@ export default class D3Comparison{
             })
             .on("mouseout", function(d) {
               d3.select(this)
-                .attr("fill", "#00315b");
+                .attr("fill", "red");
             })
             .append("title")
               .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
@@ -292,9 +347,9 @@ export default class D3Comparison{
             .attr("width",x.bandwidth)
             .attr("height", d => HEIGHT - y(d.Confirmed))
             .attr("text-anchor", "middle")
-            .text(d=>d.Confirmed)
+            .text(d=>"No. "+ d.Confirmed)
             .attr("font-family" , "sans-serif")
-            .attr("font-size" , "14px")
+            .attr("font-size" , "10px")
             .attr("fill" , "white")
       })//end third
   
