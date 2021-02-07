@@ -27,28 +27,26 @@ Launch with:
 
 # Work Plans
 
-## Covid-19 component -  Grace
-## Home component - Grace
+## Grace - Covid-19 component & Home component
 
 - [x] World Map using API
 - [x] Search 
 
 <br>
 
-## Mers and Sars component  -  Jina  
-## Comparison component  - Jina
+## Jina - Mers and Sars component & Comparison component
 
 I consider D3 to be the standard library for data visualization on the web
 
 - [x] Create interactive bar charts
 - [x] Add scatter plots
+- [x] Add line charts
 - [ ] Add Pie charts
 - [x] User Authentication using Firebase 
 
 <br>
 
-## Smallpox component -  Shirin
-## Upload component - Shirin
+## Shirin - Smallpox component & Upload component
 
 - [x] World Map 
 
