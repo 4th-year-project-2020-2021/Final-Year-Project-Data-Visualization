@@ -1,7 +1,20 @@
-# Final Year Project 
+<h2 align="center">
+    Final Year Project
+</h3>
 
-### Data visualization 
-##### A collection of react components to render common data visualization charts, such as line/area/bar charts, scatterplots, pie and donut charts.
+<h3 align="center">
+    A collection of react components to render common data visualization charts, such as line/area/bar charts, scatterplots, pie and donut charts.
+</h4>
+
+## Contents
+- [Group Members](#group-members)
+- [Repository Description](#repository-description)
+- [Program Overview](#program-overview)
+- [Software Requirements](#software-requirements)
+- [Running the Program](#running-the-program)
+- [Designated Tasks](#designated-tasks)
+- [Screens](#screens)
+- [Referances](#referances)
 
 ## Group members
 |    Students   | G Number  |
@@ -12,7 +25,13 @@
 
 <br>
 
-## How to run the project
+## Repository Description 
+
+## Program Overview
+
+## Software Requirements
+
+## Running the Program
 Launch with:
 <br>
 `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
@@ -23,18 +42,21 @@ Launch with:
 <br>
 `npm start`
 
+- Screencast of how to run the program goes here
+
 <br>
 
-# Work Plans
-
-## Grace - Covid-19 component & Home component
+## Designated Tasks
+### Grace - Covid-19 component & Home component
 
 - [x] World Map using API
 - [x] Search 
+- [ ] Home screen
+- [ ] Covid-19 Line Graphs
 
 <br>
 
-## Jina - Mers and Sars component & Comparison component
+### Jina - Mers and Sars component & Comparison component
 
 I consider D3 to be the standard library for data visualization on the web
 
@@ -46,9 +68,10 @@ I consider D3 to be the standard library for data visualization on the web
 
 <br>
 
-## Shirin - Smallpox component & Upload component
+### Shirin - Smallpox component & Upload component
 
 - [x] World Map 
+- [ ] Auto Generated Graph
 
 <br>
 
@@ -60,3 +83,5 @@ I consider D3 to be the standard library for data visualization on the web
 - [x] Small pox
 - [x] Comparison
 - [x] Upload
+
+## Referances
