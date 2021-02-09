@@ -9,13 +9,13 @@ const sarsOutbreak ="https://sarsoutbreak-7f6ec-default-rtdb.firebaseio.com/Sars
 
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
 const WIDTH = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT = 650 - MARGIN.TOP - MARGIN.BOTTOM;
+const HEIGHT = 620 - MARGIN.TOP - MARGIN.BOTTOM;
 
 const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
-const WIDTH3 = 500 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH3 = 560 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT3 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class D3Comparison{
