@@ -6,17 +6,15 @@ const globalStyles = createGlobalStyle`
     a{
         text-decoration:none;
         color:inherit;
-        color: gold;
     }
     *{
         box-sizing:border-box;
     }
     body{
-        font-family:"Lucida Console", "Courier New", monospace;
-        font-size:14px;
+        font-size:15px;
         background-color:rgba(20, 20, 20, 1);
         color:white;
-        padding-top:50px;
+        padding-top:70px;
         height:100%;
     }
     
