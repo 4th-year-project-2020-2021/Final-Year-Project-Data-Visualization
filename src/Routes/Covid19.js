@@ -25,11 +25,15 @@ function Covid19(){
 
     // Chart styling https://www.npmjs.com/package/react-apexcharts
     const series = [{
-        name: 'series1',
-        data: [31, 40, 28, 51, 42, 109, 100]
+        name: 'Cases',
+        data: [557, 81376, 199970, 958586, 3368225, 6284173]
       }, {
-        name: 'series2',
-        data: [11, 32, 45, 32, 34, 52, 41]
+        name: 'Recovered',
+        data: [30, 30386, 80830, 193096, 1051859, 378025]
+      },
+      {
+        name: 'Deaths',
+        data: [17, 2771, 7967, 50481, 242367, 2692028]
       }];
       const options = {
         chart: {
@@ -44,7 +48,14 @@ function Covid19(){
         },
         xaxis: {
           type: 'datetime',
-          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+          categories: [
+              "1/22/20",
+              "2/26/20",
+              "3/17/20",
+              "4/1/20",
+              "5/1/20",
+              "6/1/20"
+            ]
         },
         tooltip: {
           x: {
@@ -212,10 +223,17 @@ function Covid19(){
             </div>        
             <br/>
 
-            <ReactApexChart options={options} series={series} type="area" height={350} />
+            <br></br>
 
             <Navbar bg="light">
-                <Navbar.Brand>Custom Graph </Navbar.Brand>
+                <Navbar.Brand>Line Graph </Navbar.Brand>
+            </Navbar>
+            <br></br>
+
+            <ReactApexChart options={options} series={series} type="area" height={500} />
+
+            <Navbar bg="light">
+                <Navbar.Brand>Customise your graph </Navbar.Brand>
             </Navbar>
             <br></br>
 
@@ -239,7 +257,8 @@ function Covid19(){
                     <Form.Control type="text" placeholder="Select date 2: " onChange={e => setSearchCountry(e.target.value)} />
                 </Form.Group>
             </Form>
-            
+
+            <button type="button" class="btn btn-danger">Process</button>            
 
             <br></br>
            
