@@ -7,6 +7,8 @@ import CardColumns from 'react-bootstrap/CardColumns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
+import Navbar from 'react-bootstrap/Navbar';
+import ReactApexChart from "react-apexcharts";
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -17,9 +19,41 @@ import NumberFormat from 'react-number-format';
 // Google map - https://www.npmjs.com/package/google-map-react
 // Number format - https://www.npmjs.com/package/react-number-format
 
-function Covid19(){
-    // Storing data inside array
+//  Reusable - <CardColumns> {countries} </CardColumns>
 
+function Covid19(){
+
+    // Chart styling https://www.npmjs.com/package/react-apexcharts
+    const series = [{
+        name: 'series1',
+        data: [31, 40, 28, 51, 42, 109, 100]
+      }, {
+        name: 'series2',
+        data: [11, 32, 45, 32, 34, 52, 41]
+      }];
+      const options = {
+        chart: {
+          height: 350,
+          type: 'area'
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+    };
+
+    // Storing data inside array
     // Top cards
     const[latest, setLatest] = useState([]);
     // Country cards
@@ -85,8 +119,8 @@ function Covid19(){
         return (
             <Card
             key={i}
-                bg="dark"
-                text="light"
+                bg="light"
+                text="dark"
                 className="text-center"
                 style={{margin: "10px"}}
             >
@@ -118,20 +152,12 @@ function Covid19(){
 
     return(
         <div> <br/>
-            <h2 style={{height: "40px", textAlign: "center"}}> COVID-19 Live Data & Visuals </h2>
-        
-            <div style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-                    defaultCenter={{lat: 28, lng: 3}}
-                    // Zoom level
-                    defaultZoom={3}
-                >
-                    {countriesLocation}
-                </GoogleMapReact>
-            </div>
 
-      
+            <Navbar bg="light">
+                <Navbar.Brand>COVID-19 Live Data & Visuals </Navbar.Brand>
+            </Navbar>
+            <br></br>
+              
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
@@ -172,7 +198,26 @@ function Covid19(){
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-            </CardDeck>          
+            </CardDeck>  
+
+             <div style={{ height: '100vh', width: '100%' }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
+                    defaultCenter={{lat: 28, lng: 3}}
+                    // Zoom level
+                    defaultZoom={3}
+                >
+                    {countriesLocation}
+                </GoogleMapReact>
+            </div>        
+            <br/>
+
+            <ReactApexChart options={options} series={series} type="area" height={350} />
+
+            <Navbar bg="light">
+                <Navbar.Brand>Custom Graph </Navbar.Brand>
+            </Navbar>
+            <br></br>
 
             <Form>
                 <Form.Group controlId="formGroupSearch">
@@ -180,11 +225,25 @@ function Covid19(){
                     <Form.Control type="text" placeholder="Seach a specific country" onChange={e => setSearchCountry(e.target.value)} />
                 </Form.Group>
             </Form>
-            <br/>
-            <CardColumns> {countries} </CardColumns>
-        </div>
 
-        
+            <Form>
+                <Form.Group controlId="formGroupSearch">
+                    <br/>
+                    <Form.Control type="text" placeholder="Select date 1: " onChange={e => setSearchCountry(e.target.value)} />
+                </Form.Group>
+            </Form>
+
+            <Form>
+                <Form.Group controlId="formGroupSearch">
+                    <br/>
+                    <Form.Control type="text" placeholder="Select date 2: " onChange={e => setSearchCountry(e.target.value)} />
+                </Form.Group>
+            </Form>
+            
+
+            <br></br>
+           
+        </div>
     );
 }
 
