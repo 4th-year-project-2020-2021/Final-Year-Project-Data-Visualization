@@ -88,7 +88,7 @@ I consider D3 to be the standard library for data visualization on the web
 ## Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
 [2] COVID-19 map data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest#34f61547-12f7-4c8b-8326-c3894d9ceea7 <br>
-[3] COVID-19 line graph API data - https://disease.sh/v3/covid-19/historical/all?lastdays=all<br>
+[3] COVID-19 line graph API data - https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical<br>
 [4] <br>
 [5] <br>
 

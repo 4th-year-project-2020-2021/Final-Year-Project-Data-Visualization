@@ -9,6 +9,7 @@ import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
 import Navbar from 'react-bootstrap/Navbar';
 import ReactApexChart from "react-apexcharts";
+import { color } from 'd3';
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -244,19 +245,23 @@ function Covid19(){
                 </Form.Group>
             </Form>
 
-            <Form>
-                <Form.Group controlId="formGroupSearch">
-                    <br/>
-                    <Form.Control type="text" placeholder="Select date 1: " onChange={e => setSearchCountry(e.target.value)} />
-                </Form.Group>
-            </Form>
+            <label for="start">Date 1:</label>
+            <br></br>
 
-            <Form>
-                <Form.Group controlId="formGroupSearch">
-                    <br/>
-                    <Form.Control type="text" placeholder="Select date 2: " onChange={e => setSearchCountry(e.target.value)} />
-                </Form.Group>
-            </Form>
+            <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2019-01-01" max="2021-12-31"/>
+                <br></br>
+
+            <label for="end">Date 2:</label>
+            <br></br>
+    
+            <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2019-01-01" max="2021-12-31"/>           
+
+            <br></br>
+            <br></br>
 
             <button type="button" class="btn btn-danger">Process</button>            
 
