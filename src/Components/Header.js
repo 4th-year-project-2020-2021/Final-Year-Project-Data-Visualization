@@ -66,9 +66,6 @@ export default withRouter(({ location : {pathname} })=>(
                 <Item current={pathname === "/upload"}>
                     <SLink to="/upload">Upload </SLink>
                 </Item>
-                <Item current={pathname === "/profile"}>
-                    <SLink to="/profile">Profile </SLink>
-                </Item>
             </List>
         </Header>
     )

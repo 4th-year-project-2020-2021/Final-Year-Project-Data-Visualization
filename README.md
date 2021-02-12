@@ -64,8 +64,9 @@ I consider D3 to be the standard library for data visualization on the web
 - [x] Create interactive bar charts
 - [x] Add scatter plots
 - [x] Add line charts
-- [ ] Add Pie charts
+- [x] Add Pie charts
 - [x] User Authentication using Firebase 
+- [ ] Add World Map
 
 <br>
 
