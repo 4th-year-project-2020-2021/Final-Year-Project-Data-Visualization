@@ -39,7 +39,7 @@ function Covid19(){
       const options = {
         chart: {
           height: 350,
-          type: 'area'
+          type: 'area',
         },
         dataLabels: {
           enabled: false
@@ -231,40 +231,13 @@ function Covid19(){
             </Navbar>
             <br></br>
 
-            <ReactApexChart options={options} series={series} type="area" height={500} />
+            <ReactApexChart options={options} series={series} type="area" height={500} />           
+
+            <br></br>
 
             <Navbar bg="light">
-                <Navbar.Brand>Customise your graph </Navbar.Brand>
+                <Navbar.Brand> Statistics </Navbar.Brand>
             </Navbar>
-            <br></br>
-
-            <Form>
-                <Form.Group controlId="formGroupSearch">
-                    <br/>
-                    <Form.Control type="text" placeholder="Seach a specific country" onChange={e => setSearchCountry(e.target.value)} />
-                </Form.Group>
-            </Form>
-
-            <label for="start">Date 1:</label>
-            <br></br>
-
-            <input type="date" id="start" name="trip-start"
-                value="2018-07-22"
-                min="2019-01-01" max="2021-12-31"/>
-                <br></br>
-
-            <label for="end">Date 2:</label>
-            <br></br>
-    
-            <input type="date" id="start" name="trip-start"
-                value="2018-07-22"
-                min="2019-01-01" max="2021-12-31"/>           
-
-            <br></br>
-            <br></br>
-
-            <button type="button" class="btn btn-danger">Process</button>            
-
             <br></br>
            
         </div>
