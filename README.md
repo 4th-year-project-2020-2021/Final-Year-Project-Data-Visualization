@@ -17,11 +17,11 @@
 - [Referances](#referances)
 
 ## Group members
-|    Students   | G Number  |
+|    Students   | Student Number  |
 | ------------- |:-:|
-|    Jina Kim   | G00353420 | 
-|  Shirin Nagle | G00363458 | 
-|  Grace Keane  | G00359990 | 
+|    Jina Kim   |    G00353420    | 
+|  Shirin Nagle |    G00363458    | 
+|  Grace Keane  |    G00359990    | 
 
 <br>
 
@@ -32,17 +32,50 @@
 ## Software Requirements
 
 ## Running the Program
-Launch with:
+To get started developing right away:
 <br>
-`git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
+* `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
 <br>
-`cd Final-Year-Project-Data-Visualization`
+* install all project dependencies with  `npm install`
 <br>
-`npm install`
+* start the development server with `npm start`
 <br>
-`npm start`
+* Navigate to http://localhost:3000/ on your browser.
 
 - Screencast of how to run the program goes here
+
+<br>
+## What You're Getting
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. 
+├── public
+│   ├── favicon.ico 
+│   └── index.html 
+└── src
+    ├── Components
+    │   ├── GlobalStyle.js # Global styles.
+    │   ├── App.js # This is the root of this app. 
+    │   ├── ChartWrapper1.js
+    │   ├── ChartWrapper2.js
+    │   ├── Header.js
+    │   └── Router.js
+    ├── D3
+    │   ├── D3Comparison.js 
+    │   ├── D3MersSars.js 
+    │   ├── D3Piechart.js
+    │   ├── SymptomDropdown.js
+    │   ├── VirusDropdown.js
+    │   └── Router.js
+    ├── Routes
+    │   ├── Comparison.js 
+    │   ├── Covid19.js 
+    │   ├── Home.js
+    │   ├── MersAndSars.js
+    │   ├── Smallpox.js
+    │   └── Upload.js
+    └── index.js # It is used for DOM rendering only.
+```
 
 <br>
 
@@ -66,9 +99,9 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Add scatter plots.
 - [x] Add line charts.
 - [x] Add Pie charts.
-- [x] User Authentication using Firebase .
+- [x] User Authentication using Firebase .  -- Deleted!
 - [ ] Add World Map.
-- [ ] Use Flask on the backend.
+- [ ] User Authentication.
 
 
 <br>
