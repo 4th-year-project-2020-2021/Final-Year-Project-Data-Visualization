@@ -44,7 +44,7 @@ To get started developing right away:
 
 - Screencast of how to run the program goes here
 
-<br>
+
 ## What You're Getting
 ```bash
 ├── README.md - This file.
