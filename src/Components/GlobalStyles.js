@@ -16,6 +16,7 @@ const globalStyles = createGlobalStyle`
         color:white;
         padding-top:70px;
         height:100%;
+        font-family: 'Nanum Gothic', sans-serif;
     }
     
     button {

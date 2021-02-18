@@ -163,12 +163,11 @@ function Covid19(){
     }];
 
     return(
-        <div> <br/>
-
+        <div> 
             <Navbar bg="light">
                 <Navbar.Brand>COVID-19 Live Data & Visuals </Navbar.Brand>
             </Navbar>
-            <br></br>
+            
               
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
