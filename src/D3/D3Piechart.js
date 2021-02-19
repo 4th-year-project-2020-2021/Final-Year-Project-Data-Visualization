@@ -12,6 +12,7 @@ export default class D3Comparison{
 
             var data = [63,37];
 
+
             const svg = d3.select(element)
             .append("svg")
                 .attr("width",width)
@@ -82,35 +83,21 @@ export default class D3Comparison{
                .attr("font-size" , "20px")
                .attr("fill" , "white")
 
-           
+            svg.append("g")
+               .attr("transform", "translate(" + (width  - 480) + "," + 230 + ")")
+               .append("text")
+               .text("% of COVID-19 deaths")
+               .attr("class", "title")
+               .attr("font-family" , "sans-serif")
+               .attr("font-size" , "25px")
+               .attr("fill" , "#FAFAD2")
+
             d3.select(element)
                .append("div")
                  .style("border", "1px lightgray solid;")
                  .style("background-color", "#A52A2A")
                  .style("font", "20px sans-serif")
                  .text("Biological Sex is also a Risk-Factor");
- 
-             d3.select(element)
-               .append("div")
-                 .style("border", "1px lightgray solid;")
-                 .style("background-color", "#A52A2A")
-                 .style("font", "20px sans-serif")
-                 .text("% of COVID-19 deaths");
 
-            /* 
-        //added canvas
-        const svg = d3.select(element)
-            .append("svg")
-                .attr("width",1200)
-                .attr("height",200)
-
-        const circles = svg.selectAll("circle")
-            .data(data)
-
-        circles.enter().append("circle")
-            .attr("cx", (d, i) => (i*50)+50)
-            .attr("cy", 150)
-            .attr("r", d=>d)
-            .attr("fill","#2F4F4F")*/
     }
 }

@@ -33,13 +33,13 @@
 
 ## Running the Program
 To get started developing right away:
-<br>
+
 * `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
-<br>
+
 * install all project dependencies with  `npm install`
-<br>
+
 * start the development server with `npm start`
-<br>
+
 * Navigate to http://localhost:3000/ on your browser.
 
 - Screencast of how to run the program goes here
@@ -84,7 +84,6 @@ To get started developing right away:
 
 - [x] World Map using API
 - [x] Search 
-- [ ] Home screen
 - [ ] Covid-19 Line Graphs
 - [ ] Customize Graph
 
@@ -100,7 +99,6 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Add line charts.
 - [x] Add Pie charts.
 - [x] User Authentication using Firebase .  -- Deleted!
-- [ ] Add World Map.
 - [ ] User Authentication.
 
 
