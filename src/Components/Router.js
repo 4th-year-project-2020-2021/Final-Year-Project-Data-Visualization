@@ -6,7 +6,12 @@ import Search from '../Routes/Search';
 import MersAndSars from '../Routes/MersAndSars';
 import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
+<<<<<<< Updated upstream
 import Profile from '../Routes/Profile';
+=======
+import Upload from '../Routes/Upload';
+
+>>>>>>> Stashed changes
 import Header from './Header';
 import Auth from '../Routes/Auth';
 
