@@ -5,6 +5,7 @@ import Covid19 from '../Routes/Covid19';
 import MersAndSars from '../Routes/MersAndSars';
 import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
+import Profile from '../Routes/Profile';
 import Upload from '../Routes/Upload';
 import Header from './Header';
 
