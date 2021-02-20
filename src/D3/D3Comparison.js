@@ -8,13 +8,17 @@ const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
-const WIDTH2 = 360 - MARGIN2.LEFT - MARGIN2.RIGHT;
+const WIDTH2 = 370 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT2 = 380 - MARGIN2.TOP - MARGIN2.BOTTOM;
+
+const WIDTH3 = 500 - MARGIN2.LEFT - MARGIN2.RIGHT;
+const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
 const url2 ="https://covid19symptom-default-rtdb.firebaseio.com/Names.json";  //covid-19 symptom
 const url3 ="https://merssymptom-default-rtdb.firebaseio.com/Names.json";  //mers
 const url4 ="https://sarssymptom-default-rtdb.firebaseio.com/Names.json";  //sars
-
+const url5 ="https://symptomsseriousness-default-rtdb.firebaseio.com/CovidSymptoms.json";  //covid19 symptoms
+const url6 ="https://diffviruses-default-rtdb.firebaseio.com/Names.json";  //different viruses comparison
 
 export default class D3Comparison{
     constructor(element){
@@ -64,8 +68,60 @@ export default class D3Comparison{
             .style("background-color", "#2F4F4F")
             .style("font", "20px sans-serif")
             .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
+          
+          
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#9ACD32")
+            .style("font", "20px sans-serif")
+            .text("The Majority of Infections are Mild");
+
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#9ACD32")
+            .style("font", "20px sans-serif")
+            .text("Seriousness of symptoms");
+
+              
+        const svgsymptom = d3.select(element)  //covid19 symptoms
+            .append("svg")
+              .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
+              .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
+            .append("g")
+              .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#20B2AA")
+            .style("font", "20px sans-serif")
+            .text("How Contagious & Deadly is it?");
+
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#20B2AA")
+            .style("font", "20px sans-serif")
+            .text("We don't fully know yet but it's in this range");
+
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#87CEEB")
+            .style("font", "20px sans-serif")
+            .text("% who die (CASE FAFALITY RATE)");
+
         
-           vis.xLabel = vis.svgg.append("text")
+        const svght = d3.select(element)
+            .append("svg")
+              .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+              .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+            .append("g")
+              .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+          vis.xLabel = vis.svgg.append("text")
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-410)
             .attr("text-anchor","middle")
@@ -396,6 +452,168 @@ export default class D3Comparison{
               .attr("fill" , "white")
     })//end third
     
+    d3.json(url5).then(symptoms=>{
+      //using max function, it will loop through the data and get the highest number of y value
+      const max = d3.max(symptoms, d=> d.HowSerious)
+     
+      const min = d3.min(symptoms, d=> d.HowSerious) *0.55
+
+      const y = d3.scaleLinear()
+          .domain([min, max]) //highest y value
+          .range([HEIGHT3,0]) //minimum and maximum value 
+
+      const x = d3.scaleBand()
+          .domain(symptoms.map(d => d.Seriousness))
+          .range([0,WIDTH3])  
+          .padding(0.2)
+
+      const xAxisCall = d3.axisBottom(x)
+      svgsymptom.append("g")
+       .attr("transform",`translate(0, ${ HEIGHT3 })`)
+       .call(xAxisCall)
+       .style("fill","gold")
+       .style("font", "17px sans-serif")
+       .style("text-anchor", "middle");
+
+
+      const rects = svgsymptom.selectAll("rect")
+        .data(symptoms)
+
+      rects.enter().append("rect")
+        .attr("x", d=> x(d.Seriousness))
+        .attr("y", d => y(d.HowSerious))
+        .attr("width",x.bandwidth)
+        .attr("height", d => HEIGHT3 - y(d.HowSerious))
+        .attr("fill", d=>{
+            if(d.HowSerious > 80){
+                return "#4169E1";
+            }
+            return "#FF4500";
+        })
+        .append("title")
+          .text(d=>`Mortality Rate : ${d.HowSerious} % in ${d.Seriousness}`);
+        
+
+      rects.enter().append("text")
+        .attr("class", "value")
+        .attr("x", d=> x(d.Seriousness)+ (x.bandwidth() / 2))
+        .attr("y", d => y(d.HowSerious))
+        .attr("dy", ".35em") //vertical align middle
+        .attr("width",x.bandwidth)
+        .attr("height", d => HEIGHT3 - y(d.HowSerious))
+        .attr("text-anchor", "middle")
+        .text(d=>d.HowSerious+ " %")
+        .attr("font-family" , "sans-serif")
+        .attr("font-size" , "22px")
+        .attr("fill" , "white")
+      
+      svgsymptom.append("text")
+        .attr("x", WIDTH2/3.5)
+        .attr("y", HEIGHT2 - 50)
+        .attr("text-anchor","middle")
+        .text("Like flu, stay at home")
+        .style("fill","#FAFAD2")
+        .style("stroke-width", ".4px")
+        .style("font", "17px sans-serif");
+
+      svgsymptom.append("text")
+        .attr("x", WIDTH2/1.4)
+        .attr("y", HEIGHT2 - 20)
+        .attr("text-anchor","middle")
+        .text("Hospitalization")
+        .style("fill","#FAFAD2")
+        .style("stroke-width", ".4px")
+        .style("font", "17px sans-serif");
+
+      svgsymptom.append("text")
+        .attr("x", WIDTH2/0.86)
+        .attr("y", HEIGHT2 )
+        .attr("text-anchor","middle")
+        .text("Intensive care")
+        .style("fill","#FAFAD2")
+        .style("stroke-width", ".4px")
+        .style("font", "17px sans-serif");
+  })//end covid19 symptoms
+
+  d3.json(url6).then(diffViruses=>{
+    //using max function, it will loop through the data and get the highest number of y value
+    const max3 = d3.max(diffViruses, d=> d.fatalityRate)
+    const min3 = d3.min(diffViruses, d=> d.fatalityRate) *0.55
+
+    const y = d3.scaleLinear()
+        .domain([min3, max3]) //highest y value
+        .range([HEIGHT,0]) //minimum and maximum value 
+
+    const x = d3.scaleBand()
+        .domain(diffViruses.map(d => d.virus))
+        .range([0,WIDTH])  
+        .padding(0.2)
+
+    const xAxisCall4 = d3.axisBottom(x)
+    svght.append("g")
+     .attr("transform",`translate(0, ${ HEIGHT })`)
+     .call(xAxisCall4)
+
+    const yAxisCall4 = d3.axisLeft(y)
+    svght.append("g").call(yAxisCall4)
+      
+    svght.append("text")
+        .attr("x", WIDTH/1.5)
+        .attr("y", HEIGHT - 320)
+        .attr("text-anchor","middle")
+        .text("The case fatality rate (CFR) only shows the")
+        .style("stroke", "white")
+        .style("fill","white")
+        .style("stroke-width", ".4px")
+        .style("font", "17px sans-serif");
+
+    svght.append("text")
+        .attr("x", WIDTH/1.5)
+        .attr("y", HEIGHT - 290)
+        .attr("text-anchor","middle")
+        .text("% of confirmed cases who have died")
+        .style("stroke", "white")
+        .style("fill","white")
+        .style("stroke-width", ".4px")
+        .style("font", "17px sans-serif");
+
+    svght.append("text")
+        .attr("x", WIDTH/1.5)
+        .attr("y", HEIGHT - 250)
+        .attr("text-anchor","middle")
+        .text("CFR is unreliable during a pandamic")
+        .style("stroke", "red")
+        .style("fill","red")
+        .style("stroke-width", ".4px")
+        .style("font", "17px sans-serif");
+
+    const rects4 = svght.selectAll("circle")
+    .data(diffViruses)
+
+    rects4.enter().append("circle")
+      .attr("cx", d=> x(d.virus)+ (x.bandwidth() / 2))
+      .attr("cy", d => y(d.fatalityRate))
+      .attr("r",10)
+      .attr("fill", "#2E8B57")
+      .append("title")
+        .text(d=>`fatality Rate : ${d.fatalityRate}  in ${d.virus}`);
+      
+
+    rects4.enter().append("text")
+          .attr("class", "value")
+          .attr("x", d=> x(d.virus)+ (x.bandwidth() / 2))
+          .attr("y", d => y(d.fatalityRate)+ (x.bandwidth() / 2))
+          .attr("dy", ".35em") //vertical align middle
+          .attr("width",x.bandwidth)
+          .attr("height", d => HEIGHT - y(d.fatalityRate))
+          .attr("text-anchor", "middle")
+          .text(d=>d.virus)
+          .attr("font-family" , "sans-serif")
+          .attr("font-size" , "14px")
+          .attr("fill" , "#C71585")
+})//comparisons of different viruses
+
+
     Promise.all([
       d3.json("https://covid19symptom-default-rtdb.firebaseio.com/Names.json"),
       d3.json("https://merssymptom-default-rtdb.firebaseio.com/Names.json"),

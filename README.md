@@ -17,11 +17,11 @@
 - [Referances](#referances)
 
 ## Group members
-|    Students   | G Number  |
+|    Students   | Student Number  |
 | ------------- |:-:|
-|    Jina Kim   | G00353420 | 
-|  Shirin Nagle | G00363458 | 
-|  Grace Keane  | G00359990 | 
+|    Jina Kim   |    G00353420    | 
+|  Shirin Nagle |    G00363458    | 
+|  Grace Keane  |    G00359990    | 
 
 <br>
 
@@ -32,17 +32,50 @@
 ## Software Requirements
 
 ## Running the Program
-Launch with:
-<br>
-`git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
-<br>
-`cd Final-Year-Project-Data-Visualization`
-<br>
-`npm install`
-<br>
-`npm start`
+To get started developing right away:
+
+* `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
+
+* install all project dependencies with  `npm install`
+
+* start the development server with `npm start`
+
+* Navigate to http://localhost:3000/ on your browser.
 
 - Screencast of how to run the program goes here
+
+
+## What You're Getting
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. 
+├── public
+│   ├── favicon.ico 
+│   └── index.html 
+└── src
+    ├── Components
+    │   ├── GlobalStyle.js # Global styles.
+    │   ├── App.js # This is the root of this app. 
+    │   ├── ChartWrapper1.js
+    │   ├── ChartWrapper2.js
+    │   ├── Header.js
+    │   └── Router.js
+    ├── D3
+    │   ├── D3Comparison.js 
+    │   ├── D3MersSars.js 
+    │   ├── D3Piechart.js
+    │   ├── SymptomDropdown.js
+    │   ├── VirusDropdown.js
+    │   └── Router.js
+    ├── Routes
+    │   ├── Comparison.js 
+    │   ├── Covid19.js 
+    │   ├── Home.js
+    │   ├── MersAndSars.js
+    │   ├── Smallpox.js
+    │   └── Upload.js
+    └── index.js # It is used for DOM rendering only.
+```
 
 <br>
 
@@ -51,7 +84,6 @@ Launch with:
 
 - [x] World Map using API
 - [x] Search 
-- [ ] Home screen
 - [ ] Covid-19 Line Graphs
 - [ ] Customize Graph
 
@@ -66,9 +98,8 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Add scatter plots.
 - [x] Add line charts.
 - [x] Add Pie charts.
-- [x] User Authentication using Firebase .
-- [ ] Add World Map.
-- [ ] Use Flask on the backend.
+- [x] User Authentication using Firebase .  -- Deleted!
+- [ ] User Authentication.
 
 
 <br>
@@ -89,7 +120,7 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Comparison
 - [x] Upload
 
-## Referances
+## API/ CSV file Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
 [2] COVID-19 map data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest#34f61547-12f7-4c8b-8326-c3894d9ceea7 <br>
 [3] COVID-19 line graph API data - https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical<br>
