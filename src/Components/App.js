@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Router from "./Router";
 import GlobalStyles from "./GlobalStyles";
-import {authService} from './Fbase';
+
 
 function App() {
-<<<<<<< Updated upstream
+
+
     const [init, setInit] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false); 
     useEffect( ()=>{  // Listen for a change on a user
@@ -17,7 +18,7 @@ function App() {
         setInit(true);
       })
     },[])
-=======
+
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() =>{
     fetch('/time').then(res => res.json()).then(data => {
@@ -31,11 +32,13 @@ function App() {
       setGetHello(data.hello);
     });
   },[]);
->>>>>>> Stashed changes
+
+    
+
 
     return (
       <>
-        {init ? <Router isLoggedIn={isLoggedIn} /> : "initializing..."}
+        <Router/> 
         <GlobalStyles />
         <p>The current time is {currentTime}</p>
         <p>This is from the flask api {getHello}</p>

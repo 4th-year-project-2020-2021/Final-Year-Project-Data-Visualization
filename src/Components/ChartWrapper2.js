@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
-import D3MersSars from '../D3/D3MersSars';
+import D3Comparison from '../D3/D3Comparison';
+import D3Piechart from '../D3/D3Piechart';
 
 export default class ChartWrapper extends Component{
 
     componentDidMount(){
         this.setState({
                     //To make an instance of D3Chart class
-            chart : new D3MersSars(this.refs.chart)
+            chart : new D3Comparison(this.refs.chart),
+            chart2 : new D3Piechart(this.refs.chart2)
         })
     }
 
@@ -25,6 +27,7 @@ export default class ChartWrapper extends Component{
         //lifecycle method uses the ref system to keep track of an element
         return <div>
             <div ref="chart"></div>
+            <div ref="chart2"></div>
         </div>
     }
 }

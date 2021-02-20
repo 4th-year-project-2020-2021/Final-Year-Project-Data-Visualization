@@ -6,6 +6,10 @@ import axios from "axios"
 import CardColumns from 'react-bootstrap/CardColumns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
+import NumberFormat from 'react-number-format';
+import Navbar from 'react-bootstrap/Navbar';
+import ReactApexChart from "react-apexcharts";
+import { color } from 'd3';
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -14,10 +18,54 @@ import GoogleMapReact from 'google-map-react';
 // Time formats - https://www.npmjs.com/package/react-moment
 // Search bar - https://react-bootstrap.github.io/components/forms/
 // Google map - https://www.npmjs.com/package/google-map-react
+// Number format - https://www.npmjs.com/package/react-number-format
+
+//  Reusable - <CardColumns> {countries} </CardColumns>
 
 function Covid19(){
-    // Storing data inside array
 
+    // Chart styling https://www.npmjs.com/package/react-apexcharts
+    const series = [{
+        name: 'Cases',
+        data: [557, 81376, 199970, 958586, 3368225, 6284173]
+      }, {
+        name: 'Recovered',
+        data: [30, 30386, 80830, 193096, 1051859, 378025]
+      },
+      {
+        name: 'Deaths',
+        data: [17, 2771, 7967, 50481, 242367, 2692028]
+      }];
+      const options = {
+        chart: {
+          height: 350,
+          type: 'area',
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'smooth'
+        },
+        xaxis: {
+          type: 'datetime',
+          categories: [
+              "1/22/20",
+              "2/26/20",
+              "3/17/20",
+              "4/1/20",
+              "5/1/20",
+              "6/1/20"
+            ]
+        },
+        tooltip: {
+          x: {
+            format: 'dd/MM/yy HH:mm'
+          },
+        },
+    };
+
+    // Storing data inside array
     // Top cards
     const[latest, setLatest] = useState([]);
     // Country cards
@@ -66,9 +114,13 @@ function Covid19(){
                     color: "black",
                     backgroundColor: "#FFF",
                     height: "25px",
-                    width: "35px",
+                    width: "42px",
+                    textAlign: "center",
+                    borderRadius: "20%",
                 }}
-            >
+            >   
+                
+                <img height="10px" src={data.countryInfo.flag}/>
                 {data.cases}
             </div>
         );
@@ -79,13 +131,14 @@ function Covid19(){
         return (
             <Card
             key={i}
-                bg="dark"
-                text="light"
+                bg="light"
+                text="dark"
                 className="text-center"
                 style={{margin: "10px"}}
             >
-
-            <Card.Img variant= "top" src={data.countryInfo.flag} height="350px"/>
+            lat={data.countryInfo.lat}
+            lng={data.countryInfo.long}
+            
             <Card.Body>
                 <Card.Title>{data.country}</Card.Title>
                 <Card.Text>Cases {data.cases}</Card.Text>
@@ -110,29 +163,21 @@ function Covid19(){
     }];
 
     return(
-        <div>
-            <br/>
-            <h3>Live Covid-19 Stats</h3>
-            <br/>
-        
-            <div style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-                    defaultCenter={{lat: 59.95, lng: 30.33}}
-                    defaultZoom={10}
-                >
-                    {countriesLocation}
-                </GoogleMapReact>
-        </div>
-
-      
+        <div> 
+            <Navbar bg="light">
+                <Navbar.Brand>COVID-19 Live Data & Visuals </Navbar.Brand>
+            </Navbar>
+            
+              
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
                     <Card.Title>Total Cases</Card.Title>
-                    <Card.Text>
-                        {latest.cases}
-                    </Card.Text>
+                    <NumberFormat
+                        value={latest.cases} 
+                        displayType={'text'} 
+                        thousandSeparator={true}>
+                    </NumberFormat>
                     </Card.Body>
                     <Card.Footer>
                     <small>Last updated {lastUpdated}</small>
@@ -141,9 +186,11 @@ function Covid19(){
                 <Card bg="danger" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
                     <Card.Title>Total Deaths</Card.Title>
-                    <Card.Text>
-                        {latest.deaths}
-                    </Card.Text>
+                    <NumberFormat
+                        value={latest.deaths} 
+                        displayType={'text'} 
+                        thousandSeparator={true}>
+                    </NumberFormat>
                     </Card.Body>
                     <Card.Footer>
                     <small>Last updated {lastUpdated}</small>
@@ -152,25 +199,46 @@ function Covid19(){
                 <Card bg="success" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
                     <Card.Title>Total Recovered</Card.Title>
-                    <Card.Text>
-                        {latest.recovered}
-                    </Card.Text>
+                    <NumberFormat
+                        value={latest.recovered} 
+                        displayType={'text'} 
+                        thousandSeparator={true}>
+                    </NumberFormat>
                     </Card.Body>
                     <Card.Footer>
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-            </CardDeck>
+            </CardDeck>  
 
-            <Form>
-                <Form.Group controlId="formGroupSearch">
-                    <Form.Label>Search Country</Form.Label>
-                    <br/>
-                    <Form.Control type="text" placeholder="Enter a Country by name" onChange={e => setSearchCountry(e.target.value)} />
-                </Form.Group>
-            </Form>
+             <div style={{ height: '100vh', width: '100%' }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
+                    defaultCenter={{lat: 28, lng: 3}}
+                    // Zoom level
+                    defaultZoom={3}
+                >
+                    {countriesLocation}
+                </GoogleMapReact>
+            </div>        
             <br/>
-            <CardColumns> {countries} </CardColumns>
+
+            <br></br>
+
+            <Navbar bg="light">
+                <Navbar.Brand>Line Graph </Navbar.Brand>
+            </Navbar>
+            <br></br>
+
+            <ReactApexChart options={options} series={series} type="area" height={500} />           
+
+            <br></br>
+
+            <Navbar bg="light">
+                <Navbar.Brand> Statistics </Navbar.Brand>
+            </Navbar>
+            <br></br>
+           
         </div>
     );
 }

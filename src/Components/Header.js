@@ -16,16 +16,16 @@ const Header = styled.header`
     display:flex;
     align-items:center;
     padding:0px 10px;
-    background-color:rgba(20,20,20,0.8);
     z-index:10;
-    box-shadow:0px 1px 5px 2px rgba(0,0,0,0.8);
+    background-color: #ddd;
+    color: black;
 `;
 
 const Item = styled.li`
     width:120px;
     height:50px;
     text-align:center;
-    border-bottom:5px solid ${props => props.current ? "#8B0000":"transparent"};
+    border-bottom:5px solid ${props => props.current ? "black":"transparent"};
     transition : border-bottom 0.5s ease-in-out;
 `;
 
@@ -34,14 +34,26 @@ const SLink = styled(Link)`
     display:flex;
     align-items:center;
     justify-content:center;
+    font-family: 'Nanum Gothic', sans-serif;
+`;
+
+const H1 = styled.h1`
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:right;
+    font-family: 'Myriad Pro Regular';
 `;
 
 export default withRouter(({ location : {pathname} })=>(
         <Header>
             <List>
-                <Item current={pathname === "/"}>
-                    <SLink to="/">Home </SLink>
-                </Item>
+                <SLink style={{ color: "white", textDecoration: "none" }} to="/">
+                    <div style={{ fontSize: "25px" }}>🌏</div>
+                </SLink>
+
                 <Item current={pathname === "/covid19"}>
                     <SLink to="/covid19">Covid-19 </SLink>
                 </Item>
@@ -54,11 +66,8 @@ export default withRouter(({ location : {pathname} })=>(
                 <Item current={pathname === "/comparison"}>
                     <SLink to="/comparison">Comparison </SLink>
                 </Item>
-                <Item current={pathname === "/search"}>
-                    <SLink to="/search">Search </SLink>
-                </Item>
-                <Item current={pathname === "/profile"}>
-                    <SLink to="/profile">Profile </SLink>
+                <Item current={pathname === "/upload"}>
+                    <SLink to="/upload">Upload </SLink>
                 </Item>
             </List>
         </Header>

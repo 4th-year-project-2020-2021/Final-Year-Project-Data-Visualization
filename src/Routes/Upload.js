@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import * as XLSX from 'xlsx';
@@ -12,6 +13,7 @@ function Upload() {
  
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
+
   const [currentTime, setCurrentTime] = useState(10);
   useEffect(() =>{
     fetch('/time').then(resp => resp.json()).then(data =>{
@@ -79,9 +81,11 @@ function Upload() {
   return (
     <div>
       <h3 style={paragraphStyle}>Upload a CSV file to the app</h3>
+
       <br></br>
       <h3>The current time is {currentTime}</h3>
       <br></br>
+
       <input
         type="file"
         accept=".csv,.xlsx,.xls"
