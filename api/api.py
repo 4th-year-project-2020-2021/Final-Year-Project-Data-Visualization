@@ -1,10 +1,17 @@
 import time
 from flask import Flask
-import matplotlib.pyplot as plt
-#from .models import SmallPox 
+from flask_cors import CORS
+#import matplotlib.pyplot as plt
+#from pymongo import MongoClient
+#from pymongo.errors import ConnectionFailure, InvalidName
+from routes import indexRoute
 
-
+connection_url = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
 app = Flask(__name__)
+CORS(app) # wrap app in cors - added 20/2
+
+# register the blueprints
+app.register_blueprint(indexRoute)
 
 @app.route('/time')
 def get_current_time():
@@ -15,16 +22,15 @@ def say_hello():
     s = "Finally got it to show from project api!!"
     return{'hello': s}
 
-#@app.route('/pox')
-#def show_list():
-    #pox_list = SmallPox.all()
-    #poxs = []
-    #for pox in pox_list:
-        #poxs.append()
-    #l = "Not working yet"
-    #return jsonify({'poxs': poxs})
+# To insert a single document into the database, 
+# insert_one() function is used 
 
 
+if __name__ == "__main__":
+    app.run(debug=True)
+# mongodb+srv://DVPSN:<CvnhJ5YPLxunTLs>@cluster0.s5kpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+# Replace <password> with the password for the DVPSN user. Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
+# CvnhJ5YPLxunTLs
 
 
 

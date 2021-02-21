@@ -5,20 +5,6 @@ import GlobalStyles from "./GlobalStyles";
 
 function App() {
 
-
-    const [init, setInit] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false); 
-    useEffect( ()=>{  // Listen for a change on a user
-      authService.onAuthStateChanged( (user)=> {
-        if(user){
-          setIsLoggedIn(true);
-        }else{
-          setIsLoggedIn(false);
-        }
-        setInit(true);
-      })
-    },[])
-
   const [currentTime, setCurrentTime] = useState(0);
   useEffect(() =>{
     fetch('/time').then(res => res.json()).then(data => {
@@ -32,9 +18,6 @@ function App() {
       setGetHello(data.hello);
     });
   },[]);
-
-    
-
 
     return (
       <>
