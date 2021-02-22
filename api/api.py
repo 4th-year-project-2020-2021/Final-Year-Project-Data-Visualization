@@ -4,7 +4,7 @@ from flask_cors import CORS
 #import matplotlib.pyplot as plt
 #from pymongo import MongoClient
 #from pymongo.errors import ConnectionFailure, InvalidName
-from routes import indexRoute
+from routes import indexRoute, createRoute
 
 connection_url = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
 app = Flask(__name__)
@@ -12,6 +12,7 @@ CORS(app) # wrap app in cors - added 20/2
 
 # register the blueprints
 app.register_blueprint(indexRoute)
+app.register_blueprint(createRoute)
 
 @app.route('/time')
 def get_current_time():
@@ -19,7 +20,7 @@ def get_current_time():
 
 @app.route('/hello')
 def say_hello():
-    s = "Finally got it to show from project api!!"
+    s = "Finally got it to show from project api yip yip!!"
     return{'hello': s}
 
 # To insert a single document into the database, 
