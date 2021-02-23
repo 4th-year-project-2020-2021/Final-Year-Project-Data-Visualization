@@ -8,6 +8,7 @@ import Comparison from '../Routes/Comparison';
 import Upload from '../Routes/Upload';
 import Header from './Header';
 
+
 function Router({isLoggedIn}){
     return (
         <Browser>
