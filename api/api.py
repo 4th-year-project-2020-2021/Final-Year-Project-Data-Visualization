@@ -23,8 +23,6 @@ def say_hello():
     s = "Finally got it to show from project api yip yip!!"
     return{'hello': s}
 
-# To insert a single document into the database, 
-# insert_one() function is used 
 
 
 if __name__ == "__main__":
