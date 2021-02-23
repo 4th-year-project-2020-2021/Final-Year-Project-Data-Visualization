@@ -12,6 +12,7 @@
 - [Program Overview](#program-overview)
 - [Software Requirements](#software-requirements)
 - [Running the Program](#running-the-program)
+- [Technology stack](#technology-stack)
 - [Designated Tasks](#designated-tasks)
 - [Screens](#screens)
 - [Referances](#referances)
@@ -43,6 +44,21 @@ To get started developing right away:
 * Navigate to http://localhost:3000/ on your browser.
 
 - Screencast of how to run the program goes here
+
+
+## Technology stack
+
+- React in the Client side.
+
+- Flask, MongoDB in the backend.
+
+- Mongo Atlas as Managed Mongo Database service in the cloud.
+
+- Heroku Cloud Platform for deploying API and React App.
+
+- Writing code using D3, JavaScript, and React Hooks.
+
+- JWT (Json Web Token) will be used to authenticate users.
 
 
 ## What You're Getting
@@ -99,7 +115,7 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Add line charts.
 - [x] Add Pie charts.
 - [x] User Authentication using Firebase .  -- Deleted!
-- [ ] User Authentication.
+- [ ] Implement JWT (Json Web Token) is used to authenticate users
 
 
 <br>
