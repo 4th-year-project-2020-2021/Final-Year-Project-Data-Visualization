@@ -16,8 +16,7 @@ class JSONEncoder(json.JSONEncoder):
 # mongodb config
 connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
 client = MongoClient(connection)
-db = client['Example'] # may need to change connection string to Example, or client to Cluster0
-# db = client.get_database('Example')
+db = client['Example'] 
 collections = db['sampleData']
 
 
@@ -45,6 +44,7 @@ def create():
         "description": description,
         "amount": amount
     }
+    # inserts a single document into the database, 
     collections.insert_one(item)
     return jsonify()
 
