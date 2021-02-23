@@ -6,7 +6,7 @@ import React from 'react'
           <div
             style={{
             textAlign: "center",
-            fontSize:"40px",
+            fontSize:"70px",
             fontFamily: "Nanum Gothic",
             color: "white"
          }}

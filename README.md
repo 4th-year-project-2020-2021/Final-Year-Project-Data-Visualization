@@ -24,44 +24,8 @@
 |  Shirin Nagle |    G00363458    | 
 |  Grace Keane  |    G00359990    | 
 
-<br>
-
 ## Repository Description 
 
-## Program Overview
-
-## Software Requirements
-
-## Running the Program
-To get started developing right away:
-
-* `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
-
-* install all project dependencies with  `npm install`
-
-* start the development server with `npm start`
-
-* Navigate to http://localhost:3000/ on your browser.
-
-- Screencast of how to run the program goes here
-
-
-## Technology stack
-
-- React in the Client side.
-
-- Flask, MongoDB in the backend.
-
-- Mongo Atlas as Managed Mongo Database service in the cloud.
-
-- Heroku Cloud Platform for deploying API and React App.
-
-- Writing code using D3, JavaScript, and React Hooks.
-
-- JWT (Json Web Token) will be used to authenticate users.
-
-
-## What You're Getting
 ```bash
 ├── README.md - This file.
 ├── package.json # npm package manager file. 
@@ -85,25 +49,62 @@ To get started developing right away:
     │   └── Router.js
     ├── Routes
     │   ├── Comparison.js 
-    │   ├── Covid19.js 
-    │   ├── Home.js
+    │   ├── Covid19.js # Live Covid-19 map, search & database statistics
+    │   ├── Home.js # Home screen code
     │   ├── MersAndSars.js
     │   ├── Smallpox.js
     │   └── Upload.js
     └── index.js # It is used for DOM rendering only.
 ```
 
-<br>
+
+## Program Overview
+Our final year project is based on the data visualization and analysis of various viruses.
+
+## Software Requirements
+1) Visual Studio Code
+2) 
+3)
+4)
+
+## Running the Program
+To get started developing right away:
+
+1) `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
+
+2) install all project dependencies with  `npm install`
+
+3) start the development server with `npm start`
+
+4) Navigate to http://localhost:3000/ on your browser.
+
+- Screencast of how to run the program goes here**
+
+
+## Technology stack
+
+- React in the Client side.
+
+- Flask, MongoDB in the backend.
+
+- Mongo Atlas as Managed Mongo Database service in the cloud.
+
+- Heroku Cloud Platform for deploying API and React App.
+
+- Writing code using D3, JavaScript, and React Hooks.
+
+- JWT (Json Web Token) will be used to authenticate users.
+
+- Architecture image goes here**
 
 ## Designated Tasks
 ### Grace - Covid-19 component & Home component
 
 - [x] World Map using API
 - [x] Search 
-- [ ] Covid-19 Line Graphs
-- [ ] Customize Graph
-
-<br>
+- [ ] Covid-19 Line Graph
+- [ ] Home Screen
+- [ ] Deploy to Heroku
 
 ### Jina - Mers and Sars component & Comparison component
 
@@ -117,15 +118,11 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] User Authentication using Firebase .  -- Deleted!
 - [ ] Implement JWT (Json Web Token) is used to authenticate users
 
-
-<br>
-
 ### Shirin - Smallpox component & Upload component
 
 - [x] World Map 
 - [ ] Auto Generated Graph
-
-<br>
+- [x] Connection to MongoDB Atlas
 
 ## Screens
 
@@ -145,4 +142,5 @@ The main purpose of every work is that making interactive visualization applicat
 [6] Sars - https://www.who.int/csr/sars/country/2003_07_11/en/<br>
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] <br>
+[9] <br>
 

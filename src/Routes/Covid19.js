@@ -3,13 +3,12 @@ import Card from 'react-bootstrap/Card'
 import CardDeck from 'react-bootstrap/CardDeck'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
-import CardColumns from 'react-bootstrap/CardColumns'
+import Columns from 'react-columns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
 import Navbar from 'react-bootstrap/Navbar';
 import ReactApexChart from "react-apexcharts";
-import { color } from 'd3';
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -19,8 +18,6 @@ import { color } from 'd3';
 // Search bar - https://react-bootstrap.github.io/components/forms/
 // Google map - https://www.npmjs.com/package/google-map-react
 // Number format - https://www.npmjs.com/package/react-number-format
-
-//  Reusable - <CardColumns> {countries} </CardColumns>
 
 function Covid19(){
 
@@ -71,7 +68,7 @@ function Covid19(){
     // Country cards
     const[results, setResults] = useState([]);
     // Search bar
-    const[searchCountry, setSearchCountry] = useState("");
+    const[searchCountry, setSearchCountries] = useState("");
         
     // Dealing with two APIs at once
     useEffect(() => {
@@ -99,7 +96,7 @@ function Covid19(){
     // Filter search
     const filterCountry = results.filter(item  =>{
         // If search and country the same -> return info
-        return searchCountry !== "" ? item.country.includes(searchCountry) : item;
+        return item.country  === searchCountry;
     })
 
     // Assigning country markers to cases 
@@ -119,7 +116,6 @@ function Covid19(){
                     borderRadius: "20%",
                 }}
             >   
-                
                 <img height="10px" src={data.countryInfo.flag}/>
                 {data.cases}
             </div>
@@ -131,14 +127,13 @@ function Covid19(){
         return (
             <Card
             key={i}
-                bg="light"
-                text="dark"
+                bg="dark"
+                text="light"
                 className="text-center"
                 style={{margin: "10px"}}
             >
-            lat={data.countryInfo.lat}
-            lng={data.countryInfo.long}
             
+            <Card.Img variant="top" src={data.countryInfo.flag}/>
             <Card.Body>
                 <Card.Title>{data.country}</Card.Title>
                 <Card.Text>Cases {data.cases}</Card.Text>
@@ -168,7 +163,6 @@ function Covid19(){
                 <Navbar.Brand>COVID-19 Live Data & Visuals </Navbar.Brand>
             </Navbar>
             
-              
             <CardDeck>
                 <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
                     <Card.Body>
@@ -209,7 +203,20 @@ function Covid19(){
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-            </CardDeck>  
+            </CardDeck> 
+
+            <Form>
+                <Form.Group controlId="formGroupSearch">
+                    <Form.Label> Search </Form.Label>
+                    <br></br>
+                    <Form.Control
+                        type="text"
+                        placeholder="Search a Country"
+                        onChange={e => setSearchCountries(e.target.value)}
+                    />
+                </Form.Group>
+                <Columns queries={queries}> {countries} </Columns>
+            </Form> 
 
              <div style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
@@ -220,25 +227,9 @@ function Covid19(){
                 >
                     {countriesLocation}
                 </GoogleMapReact>
+
+                <ReactApexChart options={options} series={series} type="area" height={500} />             
             </div>        
-            <br/>
-
-            <br></br>
-
-            <Navbar bg="light">
-                <Navbar.Brand>Line Graph </Navbar.Brand>
-            </Navbar>
-            <br></br>
-
-            <ReactApexChart options={options} series={series} type="area" height={500} />           
-
-            <br></br>
-
-            <Navbar bg="light">
-                <Navbar.Brand> Statistics </Navbar.Brand>
-            </Navbar>
-            <br></br>
-           
         </div>
     );
 }
