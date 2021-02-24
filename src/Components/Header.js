@@ -37,6 +37,28 @@ const SLink = styled(Link)`
     font-family: 'Nanum Gothic', sans-serif;
 `;
 
+const StyledLink = styled(Link)`
+  color: palevioletred;
+  display: block;
+  height:50px;
+  display:block;
+  align-items:center;
+  margin: 0.5em 0;
+  padding: 1rem 1.5rem;
+  font-size: 20px;
+  border: 2px solid #ffffff;
+  text-align: center;
+  background-color: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &.active {
+    color: red;
+  }
+`;
+
 const H1 = styled.h1`
     height:50px;
     display:flex;
@@ -71,6 +93,19 @@ export default withRouter(({ location : {pathname} })=>(
                 </Item>
                 <Item current={pathname === "/create"}>
                     <SLink to="/create">Create </SLink>
+                </Item>
+                <Item>
+                </Item>
+                <Item>
+                </Item>
+                <Item>
+                </Item>
+                <Item>
+                </Item>
+                <Item>
+                </Item>
+                <Item current={pathname === "/login"}>
+                    <StyledLink to="/login">Login </StyledLink>
                 </Item>
             </List>
         </Header>

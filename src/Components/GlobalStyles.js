@@ -30,6 +30,15 @@ const globalStyles = createGlobalStyle`
         display: inline-block;
         vertical-align: middle;
     }
+
+    .Login {
+        padding: 60px 0;
+    }
+    
+    .Login form {
+        margin: 0 auto;
+        max-width: 360px;
+    }
 `;
 
 export default globalStyles;

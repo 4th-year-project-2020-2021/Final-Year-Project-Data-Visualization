@@ -36,24 +36,25 @@
     ├── Components
     │   ├── GlobalStyle.js # Global styles.
     │   ├── App.js # This is the root of this app. 
-    │   ├── ChartWrapper1.js
-    │   ├── ChartWrapper2.js
-    │   ├── Header.js
-    │   └── Router.js
-    ├── D3
-    │   ├── D3Comparison.js 
-    │   ├── D3MersSars.js 
-    │   ├── D3Piechart.js
-    │   ├── SymptomDropdown.js
-    │   ├── VirusDropdown.js
-    │   └── Router.js
+    │   ├── ChartWrapper1.js # Container for D3MersSars.js
+    │   ├── ChartWrapper2.js # Container for D3Comparison.js
+    │   ├── Header.js # It displays Navbar
+    │   └── Router.js # It enables the navigation among views of various components in this web application.
+    ├── D3 # Data visualization with D3 - All codes are written in JavaScript.
+    │   ├── D3Comparison.js # It shows how COVID-19 compares to past epidemics. e.g. Mers, Sars and covid-19.
+    │   ├── D3MersSars.js # It displays various graphs and comparison of Mers and Sars viruses.
+    │   ├── D3Piechart.js # It displays a pie chart (% of covid-19 deaths between men and women).
+    │   ├── SymptomDropdown.js # It contains dropdown button to display three different datasets(Covid-19, Mers,Sars symptoms) flicking between them. 
+    │   └── VirusDropdown.js # It contains dropdown button to display two different datasets(Mers and Sars) flicking between them.
+    ├── LoginForm
+    │   └── Login.js # It contains login functionality.
     ├── Routes
-    │   ├── Comparison.js 
+    │   ├── Comparison.js # Container for D3Comparison.js
     │   ├── Covid19.js # Live Covid-19 map, search & database statistics
     │   ├── Home.js # Home screen code
-    │   ├── MersAndSars.js
-    │   ├── Smallpox.js
-    │   └── Upload.js
+    │   ├── MersAndSars.js  # Container for D3MerSars.js
+    │   ├── Smallpox.js 
+    │   └── Upload.js 
     └── index.js # It is used for DOM rendering only.
 ```
 
