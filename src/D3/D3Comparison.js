@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { svg } from 'd3';
 
-const url ="https://comparison3viruses.firebaseio.com/Comparison.json";
+const url ="https://differentviruses-d1ee0.firebaseio.com/Comparison.json";
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
 const WIDTH = 1050 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
@@ -16,6 +16,7 @@ const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
 const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.json";  //covid19 symptoms
 const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
+const urlagerisk ="https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
 
 export default class D3Comparison{
     constructor(element){
@@ -81,6 +82,13 @@ export default class D3Comparison{
             .append("g")
               .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
+        const svgcovid19flu = d3.select(element)  //covid19 symptoms
+            .append("svg")
+              .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
+              .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
+            .append("g")
+              .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
@@ -104,6 +112,34 @@ export default class D3Comparison{
 
         
         const svght = d3.select(element)
+            .append("svg")
+              .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+              .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+            .append("g")
+              .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+        d3.select(element)
+            .append("div")
+              .style("border", "1px lightgray solid;")
+              .style("background-color", "#6B8E23")
+              .style("font", "22px sans-serif")
+              .text("Who is most at risk for COVID-19?");
+
+        d3.select(element)
+            .append("div")
+              .style("border", "1px lightgray solid;")
+              .style("background-color", "#6B8E23")
+              .style("font", "22px sans-serif")
+              .text("Those Aged 60+ are Most At Risk");
+
+        d3.select(element)
+            .append("div")
+              .style("border", "1px lightgray solid;")
+              .style("background-color", "#808000")
+              .style("font", "23px sans-serif")
+              .text("%of deceased");
+
+        const svgrisk = d3.select(element)
             .append("svg")
               .attr("width",WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
               .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
@@ -469,8 +505,8 @@ export default class D3Comparison{
        .attr("y", HEIGHT - 290)
        .attr("text-anchor","middle")
        .text("The Majority of infections are Mild")
-       .style("stroke", "red")
-       .style("fill","red")
+       .style("stroke", "green")
+       .style("fill","green")
        .style("stroke-width", ".4px")
        .style("font", "17px sans-serif");
 
@@ -532,6 +568,142 @@ export default class D3Comparison{
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
   })//end covid19 symptoms
+
+  d3.json(url5).then(symptoms=>{
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 400)
+     .attr("text-anchor","middle")
+     .text("What is the difference between Influenza (Flu) and COVID-19?")
+     .style("stroke", "gold")
+     .style("fill","gold")
+     .style("stroke-width", ".4px")
+     .style("font", "17px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 370)
+     .attr("text-anchor","middle")
+     .text("Influenza (Flu) and COVID-19 are both contagious respiratory illnesses,")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "15px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 350)
+     .attr("text-anchor","middle")
+     .text("but they are caused by different viruses.")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "16px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 330)
+     .attr("text-anchor","middle")
+     .text("COVID-19 is caused by infection with a new coronavirus (called SARS-CoV-2),")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "13px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 310)
+     .attr("text-anchor","middle")
+     .text("and flu is caused by infection with influenza viruses.")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "16px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 260)
+     .attr("text-anchor","middle")
+     .text("How long someone can spread the virus")
+     .style("stroke", "lightblue")
+     .style("fill","lightblue")
+     .style("stroke-width", ".4px")
+     .style("font", "19px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 220)
+     .attr("text-anchor","middle")
+     .text("Similarities:")
+     .style("stroke", "gold")
+     .style("fill","gold")
+     .style("stroke-width", ".4px")
+     .style("font", "18px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 200)
+     .attr("text-anchor","middle")
+     .text("For both COVID-19 and flu, it’s possible to spread the virus for at least 1 day ")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "15px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 180)
+     .attr("text-anchor","middle")
+     .text("before experiencing any symptoms.")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "15px sans-serif");
+     
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 150)
+     .attr("text-anchor","middle")
+     .text("Differences:")
+     .style("stroke", "gold")
+     .style("fill","gold")
+     .style("stroke-width", ".4px")
+     .style("font", "18px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 130)
+     .attr("text-anchor","middle")
+     .text("If a person has COVID-19, ")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "15px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 110)
+     .attr("text-anchor","middle")
+     .text("they may be contagious for a longer period of time ")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "15px sans-serif");
+
+     svgcovid19flu.append("text")
+     .attr("x", WIDTH/4.9)
+     .attr("y", HEIGHT - 90)
+     .attr("text-anchor","middle")
+     .text("than if they had flu. ")
+     .style("stroke", "white")
+     .style("fill","white")
+     .style("stroke-width", ".4px")
+     .style("font", "15px sans-serif");
+      
+    
+})//end - explain how different between flu and covid-19
 
   d3.json(url6).then(diffViruses=>{
     //using max function, it will loop through the data and get the highest number of y value
@@ -611,6 +783,81 @@ export default class D3Comparison{
           .attr("fill" , "#C71585")
 })//comparisons of different viruses
 
+d3.json(urlagerisk).then(age=>{
+  //using max function, it will loop through the data and get the highest number of y value
+  const max = d3.max(age, d=> d.PercentOfdeceased)
+ 
+  const min = d3.min(age, d=> d.PercentOfdeceased) *0.55
+
+  const y = d3.scaleLinear()
+      .domain([min, max]) //highest y value
+      .range([HEIGHT,0]) //minimum and maximum value 
+
+  const x = d3.scaleBand()
+      .domain(age.map(d => d.AgeRange))
+      .range([0,WIDTH])  
+      .padding(0.2)
+
+  const xAxisCall = d3.axisBottom(x)
+  svgrisk.append("g")
+   .attr("transform",`translate(0, ${ HEIGHT })`)
+   .call(xAxisCall)
+   .style("fill","#C71585")
+   .style("font", "17px sans-serif")
+   .style("text-anchor", "middle");
+
+   svgrisk.append("text")
+   .attr("x", WIDTH/3.2)
+   .attr("y", HEIGHT - 290)
+   .attr("text-anchor","middle")
+   .text("COVID-19 is often more severe in people 60+yrs or with health conditions")
+   .style("stroke", "#800000")
+   .style("fill","#800000")
+   .style("stroke-width", ".4px")
+   .style("font", "20px sans-serif");
+
+   svgrisk.append("text")
+   .attr("x", WIDTH/3.2)
+   .attr("y", HEIGHT - 270)
+   .attr("text-anchor","middle")
+   .text("like lung or heart disease, diabetes or conditions that affect their immune system.​")
+   .style("stroke", "#800000")
+   .style("fill","#800000")
+   .style("stroke-width", ".4px")
+   .style("font", "20px sans-serif");
+
+  const rects = svgrisk.selectAll("rect")
+    .data(age)
+
+  rects.enter().append("rect")
+    .attr("x", d=> x(d.AgeRange))
+    .attr("y", d => y(d.PercentOfdeceased))
+    .attr("width",x.bandwidth)
+    .attr("height", d => HEIGHT - y(d.PercentOfdeceased))
+    .attr("fill", d=>{
+        if(d.PercentOfdeceased > 9){
+            return "#FF4500";
+        }
+        return "#008080";
+    })
+    .append("title")
+      .text(d=>`Mortality Rate : ${d.PercentOfdeceased} % in ${d.AgeRange}`);
+    
+
+  rects.enter().append("text")
+    .attr("class", "value")
+    .attr("x", d=> x(d.AgeRange)+ (x.bandwidth() / 2))
+    .attr("y", d => y(d.PercentOfdeceased))
+    .attr("dy", ".35em") //vertical align middle
+    .attr("width",x.bandwidth)
+    .attr("height", d => HEIGHT - y(d.PercentOfdeceased))
+    .attr("text-anchor", "middle")
+    .text(d=>d.PercentOfdeceased+ " %")
+    .attr("font-family" , "sans-serif")
+    .attr("font-size" , "22px")
+    .attr("fill" , "white")
+  
+})//end - Most at Risk
 
     Promise.all([
       d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
