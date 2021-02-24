@@ -1,11 +1,9 @@
 import * as d3 from 'd3';
 import { svg } from 'd3';
 
-const url ="https://merssummary-default-rtdb.firebaseio.com/Names.json";  // == Mers data.
-const url2 = "https://sarssummary-default-rtdb.firebaseio.com/Sars.json";  // == Sars data.
-const mersCountry = "https://reactproject1-3472c-default-rtdb.firebaseio.com/MersCountry.json";
-const sarsCountry = "https://reactproject11-c3541-default-rtdb.firebaseio.com/SarsCountry.json";
-const sarsOutbreak ="https://sarsoutbreak-7f6ec-default-rtdb.firebaseio.com/SarsOutbreak.json";
+const mersCountry = "https://merscountries.firebaseio.com/MersCountry.json";
+const sarsCountry = "https://sarscountries.firebaseio.com/SarsCountry.json";
+const sarsOutbreak ="https://sarsoutbreak.firebaseio.com/SarsOutbreak.json";
 
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
 const WIDTH = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
@@ -916,8 +914,8 @@ rects2.enter().append("text")
 
 
           Promise.all([
-            d3.json("https://merssummary-default-rtdb.firebaseio.com/Names.json"),
-            d3.json("https://sarssummary-default-rtdb.firebaseio.com/Sars.json")
+            d3.json("https://merssummary-d0933.firebaseio.com/MersSummary.json"),
+            d3.json("https://sarssummary-84e13.firebaseio.com/SarsSummary.json")
           ]).then((datasets)=>{
 
             vis.MersData=datasets[0]

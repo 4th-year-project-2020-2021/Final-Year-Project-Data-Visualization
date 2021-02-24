@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { svg } from 'd3';
 
-const url ="https://comparison-b6dac-default-rtdb.firebaseio.com/Names.json";
+const url ="https://comparison3viruses.firebaseio.com/Comparison.json";
 const MARGIN ={ TOP:10, BOTTOM:60, LEFT:70, RIGHT:10};
 const WIDTH = 1050 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
@@ -14,11 +14,8 @@ const HEIGHT2 = 380 - MARGIN2.TOP - MARGIN2.BOTTOM;
 const WIDTH3 = 500 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
-const url2 ="https://covid19symptom-default-rtdb.firebaseio.com/Names.json";  //covid-19 symptom
-const url3 ="https://merssymptom-default-rtdb.firebaseio.com/Names.json";  //mers
-const url4 ="https://sarssymptom-default-rtdb.firebaseio.com/Names.json";  //sars
-const url5 ="https://symptomsseriousness-default-rtdb.firebaseio.com/CovidSymptoms.json";  //covid19 symptoms
-const url6 ="https://diffviruses-default-rtdb.firebaseio.com/Names.json";  //different viruses comparison
+const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.json";  //covid19 symptoms
+const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 
 export default class D3Comparison{
     constructor(element){
@@ -69,20 +66,12 @@ export default class D3Comparison{
             .style("font", "20px sans-serif")
             .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
           
-          
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
             .style("background-color", "#9ACD32")
             .style("font", "20px sans-serif")
-            .text("The Majority of Infections are Mild");
-
-        d3.select(element)
-          .append("div")
-            .style("border", "1px lightgray solid;")
-            .style("background-color", "#9ACD32")
-            .style("font", "20px sans-serif")
-            .text("Seriousness of symptoms");
+            .text("Seriousness of Covid-19 symptoms");
 
               
         const svgsymptom = d3.select(element)  //covid19 symptoms
@@ -475,6 +464,15 @@ export default class D3Comparison{
        .style("font", "17px sans-serif")
        .style("text-anchor", "middle");
 
+      svgsymptom.append("text")
+       .attr("x", WIDTH/3.2)
+       .attr("y", HEIGHT - 290)
+       .attr("text-anchor","middle")
+       .text("The Majority of infections are Mild")
+       .style("stroke", "red")
+       .style("fill","red")
+       .style("stroke-width", ".4px")
+       .style("font", "17px sans-serif");
 
       const rects = svgsymptom.selectAll("rect")
         .data(symptoms)
@@ -615,9 +613,9 @@ export default class D3Comparison{
 
 
     Promise.all([
-      d3.json("https://covid19symptom-default-rtdb.firebaseio.com/Names.json"),
-      d3.json("https://merssymptom-default-rtdb.firebaseio.com/Names.json"),
-      d3.json("https://sarssymptom-default-rtdb.firebaseio.com/Names.json")
+      d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
+      d3.json("https://merssymptoms.firebaseio.com/MersSymptoms.json"),
+      d3.json("https://sarssymptoms.firebaseio.com/SarsSymptoms.json")
     ]).then((datasets)=>{
 
       vis.Covid19Data=datasets[0]
