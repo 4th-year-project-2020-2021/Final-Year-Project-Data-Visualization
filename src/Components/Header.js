@@ -48,7 +48,6 @@ const StyledLink = styled(Link)`
   font-size: 20px;
   border: 2px solid #ffffff;
   text-align: center;
-  background-color: #fff;
   font-family: Helvetica, Arial, sans-serif;
 
   &:hover {
@@ -78,6 +77,9 @@ export default withRouter(({ location : {pathname} })=>(
 
                 <Item current={pathname === "/covid19"}>
                     <SLink to="/covid19">Covid-19 </SLink>
+                </Item>
+                <Item current={pathname === "/DBCovidData"}>
+                    <SLink to="/DBCovidData">DB Covid </SLink>
                 </Item>
                 <Item current={pathname === "/mersandsars"}>
                     <SLink to="/mersandsars">Mers and Sars </SLink>
