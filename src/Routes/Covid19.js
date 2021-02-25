@@ -7,8 +7,7 @@ import Columns from 'react-columns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
-import Navbar from 'react-bootstrap/Navbar';
-import ReactApexChart from "react-apexcharts";
+import "../CSSFiles/map.css";
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -21,47 +20,6 @@ import ReactApexChart from "react-apexcharts";
 
 function Covid19(){
 
-    // Chart styling https://www.npmjs.com/package/react-apexcharts
-    const series = [{
-        name: 'Cases',
-        data: [557, 81376, 199970, 958586, 3368225, 6284173]
-      }, {
-        name: 'Recovered',
-        data: [30, 30386, 80830, 193096, 1051859, 378025]
-      },
-      {
-        name: 'Deaths',
-        data: [17, 2771, 7967, 50481, 242367, 2692028]
-      }];
-      const options = {
-        chart: {
-          height: 350,
-          type: 'area',
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: 'smooth'
-        },
-        xaxis: {
-          type: 'datetime',
-          categories: [
-              "1/22/20",
-              "2/26/20",
-              "3/17/20",
-              "4/1/20",
-              "5/1/20",
-              "6/1/20"
-            ]
-        },
-        tooltip: {
-          x: {
-            format: 'dd/MM/yy HH:mm'
-          },
-        },
-    };
-
     // Storing data inside array
     // Top cards
     const[latest, setLatest] = useState([]);
@@ -69,6 +27,15 @@ function Covid19(){
     const[results, setResults] = useState([]);
     // Search bar
     const[searchCountry, setSearchCountries] = useState("");
+    // Getting updated time by converting miliseconds
+    const date = new Date(parseInt(latest.updated))
+    const lastUpdated = date.toString();
+
+    // Filter search
+    const filterCountry = results.filter(item  =>{
+        // If search and country the same -> return info
+        return item.country  === searchCountry;
+    })
         
     // Dealing with two APIs at once
     useEffect(() => {
@@ -88,16 +55,6 @@ function Covid19(){
             console.log(err);
         });
     }, []);
-        
-    // Getting updated time by converting miliseconds
-    const date = new Date(parseInt(latest.updated))
-    const lastUpdated = date.toString();
-
-    // Filter search
-    const filterCountry = results.filter(item  =>{
-        // If search and country the same -> return info
-        return item.country  === searchCountry;
-    })
 
     // Assigning country markers to cases 
     const countriesLocation = results.map((data, i) => {
@@ -116,7 +73,7 @@ function Covid19(){
                     borderRadius: "20%",
                 }}
             >   
-                <img height="10px" src={data.countryInfo.flag}/>
+                <img className="ImgHeight"height="10px" src={data.countryInfo.flag}/>
                 {data.cases}
             </div>
         );
@@ -127,8 +84,8 @@ function Covid19(){
         return (
             <Card
             key={i}
-                bg="dark"
-                text="light"
+                bg="light"
+                text="dark"
                 className="text-center"
                 style={{margin: "10px"}}
             >
@@ -158,15 +115,11 @@ function Covid19(){
     }];
 
     return(
-        <div> 
-            <Navbar bg="light">
-                <Navbar.Brand>COVID-19 Live Data & Visuals </Navbar.Brand>
-            </Navbar>
-            
+        <div>           
             <CardDeck>
-                <Card bg="secondary" text="white" className="text-center" style={{margin: "10px"}} border="primary">
+                <Card className="totalC">
                     <Card.Body>
-                    <Card.Title>Total Cases</Card.Title>
+                    <Card.Title>Global Cases</Card.Title>
                     <NumberFormat
                         value={latest.cases} 
                         displayType={'text'} 
@@ -177,9 +130,9 @@ function Covid19(){
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-                <Card bg="danger" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
+                <Card className="totalD">
                     <Card.Body>
-                    <Card.Title>Total Deaths</Card.Title>
+                    <Card.Title>Global Deaths</Card.Title>
                     <NumberFormat
                         value={latest.deaths} 
                         displayType={'text'} 
@@ -190,9 +143,9 @@ function Covid19(){
                     <small>Last updated {lastUpdated}</small>
                     </Card.Footer>
                 </Card>
-                <Card bg="success" text={"white"} className="text-center" style={{margin: "10px"}} border="primary">
+                <Card className="totalR">
                     <Card.Body>
-                    <Card.Title>Total Recovered</Card.Title>
+                    <Card.Title>Global Recovered</Card.Title>
                     <NumberFormat
                         value={latest.recovered} 
                         displayType={'text'} 
@@ -218,7 +171,7 @@ function Covid19(){
                 <Columns queries={queries}> {countries} </Columns>
             </Form> 
 
-             <div style={{ height: '100vh', width: '100%' }}>
+             <div className="map" style={{ height: '100vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                     defaultCenter={{lat: 28, lng: 3}}
@@ -228,7 +181,6 @@ function Covid19(){
                     {countriesLocation}
                 </GoogleMapReact>
 
-                <ReactApexChart options={options} series={series} type="area" height={500} />             
             </div>        
         </div>
     );

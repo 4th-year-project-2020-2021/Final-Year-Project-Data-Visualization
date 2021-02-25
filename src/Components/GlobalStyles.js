@@ -12,8 +12,8 @@ const globalStyles = createGlobalStyle`
     }
     body{
         font-size:15px;
-        background-color:rgba(20, 20, 20, 1);
-        color:white;
+        //background-color:rgba(20, 20, 20, 1);
+        color:black;
         padding-top:70px;
         height:100%;
         font-family: 'Nanum Gothic', sans-serif;

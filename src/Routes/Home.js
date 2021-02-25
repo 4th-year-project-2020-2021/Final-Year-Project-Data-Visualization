@@ -8,7 +8,7 @@ import React from 'react'
             textAlign: "center",
             fontSize:"70px",
             fontFamily: "Nanum Gothic",
-            color: "white"
+            color: "dark"
          }}
         >
 
