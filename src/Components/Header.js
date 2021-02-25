@@ -94,7 +94,8 @@ export default withRouter(({ location : {pathname} })=>(
                 <Item current={pathname === "/create"}>
                     <SLink to="/create">Create </SLink>
                 </Item>
-                <Item>
+                <Item current={pathname === "/item"}>
+                    <SLink to="/item">Items</SLink>
                 </Item>
                 <Item>
                 </Item>

@@ -9,6 +9,7 @@ import Upload from '../Routes/Upload';
 import Header from './Header';
 import Login from '../LoginForm/Login';
 import Create from '../Routes/Create';
+import Item from '../Routes/Item'
 
 function Router({isLoggedIn}){
     return (
@@ -27,6 +28,7 @@ function Router({isLoggedIn}){
                    <Route path="/upload" component={Upload} />
                    <Route path="/create" component={Create}/>
                    <Route path="/login" component={Login}/>
+                   <Route path="/item" component={Item} />
                    <Redirect from="*" to="/" /> 
                 </>
           </Switch>
