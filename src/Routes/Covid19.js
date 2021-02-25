@@ -7,6 +7,8 @@ import Columns from 'react-columns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
+import Table from './Table';
+import { CardContent } from '@material-ui/core';
 import "../CSSFiles/map.css";
 
 // Referances
@@ -36,6 +38,9 @@ function Covid19(){
         // If search and country the same -> return info
         return item.country  === searchCountry;
     })
+    
+    // Table cases state
+    const [tableData, setTableData] = useState([]);
         
     // Dealing with two APIs at once
     useEffect(() => {
@@ -46,15 +51,22 @@ function Covid19(){
                 // API for countrys
                 axios.get("https://corona.lmao.ninja/v2/countries")
         ])
+
         .then(responceArr => {
             setLatest(responceArr[0].data);
             setResults(responceArr[1].data);
+
         })
+
         // Return an error (if any)
         .catch(err => {
             console.log(err);
+
         });
+
     }, []);
+
+
 
     // Assigning country markers to cases 
     const countriesLocation = results.map((data, i) => {
@@ -158,6 +170,7 @@ function Covid19(){
                 </Card>
             </CardDeck> 
 
+
             <Form>
                 <Form.Group controlId="formGroupSearch">
                     <Form.Label> Search </Form.Label>
@@ -181,8 +194,20 @@ function Covid19(){
                     {countriesLocation}
                 </GoogleMapReact>
 
-            </div>        
+            </div>   
+            <div>
+                <Card className="app_right">
+                    <CardContent>
+                        <h3> List Cases by Country </h3>
+                        <Table countries={tableData}/>
+                        {/* Graph */}
+                    
+                    </CardContent>
+                </Card>
+            </div>     
         </div>
+
+        
     );
 }
 
