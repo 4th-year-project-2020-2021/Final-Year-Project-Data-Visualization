@@ -5,6 +5,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SymptomDropdown from '../D3/SymptomDropdown';
 import ChartWrapper2 from '../Components/ChartWrapper2';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: black;
+    color:white;
+`;
 
 class Comparison extends React.Component{
 
@@ -19,8 +25,8 @@ class Comparison extends React.Component{
     }
 
     render(){
-        return <div className="App">
-            <Navbar bg="light">
+        return <Wrapper className="App">
+            <Navbar bg="secondary">
                 <Navbar.Brand>HOW COVID-19 compares to past epidemics</Navbar.Brand>
             </Navbar>
             <Container>
@@ -31,7 +37,7 @@ class Comparison extends React.Component{
                     <Col xs={12}><ChartWrapper2 virus={this.state.virus} /></Col>
                 </Row>
             </Container>
-        </div>
+        </Wrapper>
     }
 }
 export default Comparison;

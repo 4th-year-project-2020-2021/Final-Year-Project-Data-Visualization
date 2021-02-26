@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import styled from 'styled-components';
+import axios from 'axios';
+
+const Wrapper = styled.div`
+    background: #708090;
+`;
 
 
 const H1 = styled.h1`
@@ -9,54 +14,75 @@ const H1 = styled.h1`
     display:flex;
     align-items:center;
     justify-content:center;
-    color:white;
+    color:blue;
     text-align:right;
     font-size: 40px;
     font-family: Helvetica, Arial, sans-serif;
 `;
 
-export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Login = () => {
 
-  function validateForm() {
-    return email.length > 0 && password.length > 0;
+  // create state
+  const [state, setState]=useState({
+    name:'',
+    password:''
+  })
+
+  //destructure values from the state 
+  const {name, password}=state;
+
+  const handleChange = name => event => {
+    //console.log('name', name, 'event', event.target.value);
+    setState({...state, [name]: event.target.value});
   }
 
-  function handleSubmit(event) {
+  const handleSubmit = event => {
     event.preventDefault();
-  }
+    console.table({name, password});
+  };
 
   return (
-    <div className="Login">
+    <div class="container">
       <br />
       <H1>LOGIN</H1>
-      <br />
-      <Form onSubmit={handleSubmit}>
-        <Form.Group size="lg" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            autoFocus
-            type="email"
-            value={email}
-            placeholder="Enter email"
-            onChange={(e) => setEmail(e.target.value)}
+      <form onSubmit = {handleSubmit}>
+        <div className="form-group">
+          <label for="uname">Username</label>
+          <input 
+            onChange={handleChange('name')}
+            value={name}
+            type="text"
+            className="form-control"
+            placeholder="Enter Username"
+            required
           />
-        </Form.Group>
-        <Form.Group size="lg" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
+        </div>
+        <div class="form-group">
+          <label for="psw">Password</label>
+          <input
+            onChange={handleChange('password')}
             value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            className="form-control"
+            placeholder="Enter Password"
+            required
           />
-        </Form.Group>
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
-          Login
-        </Button>
-      </Form>
-    </div>
-  );
+        </div>
 
+        <div className="form-group">
+            <div className="custom-control custom-checkbox">
+                <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+            </div>
+        </div>
+
+        <div>
+          <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button>
+        </div>
+        
+      </form>
+    </div>
+  )
 }
+
+export default Login;

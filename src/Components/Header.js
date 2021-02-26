@@ -38,7 +38,7 @@ const SLink = styled(Link)`
 `;
 
 const StyledLink = styled(Link)`
-  color: palevioletred;
+  color: blue;
   display: block;
   height:50px;
   display:block;
@@ -46,7 +46,7 @@ const StyledLink = styled(Link)`
   margin: 0.5em 0;
   padding: 1rem 1.5rem;
   font-size: 20px;
-  border: 2px solid #ffffff;
+  border: 2px solid black;
   text-align: center;
   font-family: Helvetica, Arial, sans-serif;
 
@@ -95,10 +95,6 @@ export default withRouter(({ location : {pathname} })=>(
                 </Item>
                 <Item current={pathname === "/create"}>
                     <SLink to="/create">Create </SLink>
-                </Item>
-                <Item>
-                </Item>
-                <Item>
                 </Item>
                 <Item>
                 </Item>

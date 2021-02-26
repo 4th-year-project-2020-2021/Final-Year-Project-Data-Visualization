@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import D3Comparison from '../D3/D3Comparison';
 import D3Piechart from '../D3/D3Piechart';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: black;
+`;
 
 export default class ChartWrapper extends Component{
 
@@ -25,9 +30,9 @@ export default class ChartWrapper extends Component{
 
     render(){
         //lifecycle method uses the ref system to keep track of an element
-        return <div>
+        return <Wrapper>
             <div ref="chart"></div>
             <div ref="chart2"></div>
-        </div>
+        </Wrapper>
     }
 }

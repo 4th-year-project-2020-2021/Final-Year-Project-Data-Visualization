@@ -5,6 +5,12 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import VirusDropdown from '../D3/VirusDropdown';
 import ChartWrapper from '../Components/ChartWrapper';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: black;
+    color:white;
+`;
 
 class MersAndSars extends React.Component{
     
@@ -20,8 +26,8 @@ class MersAndSars extends React.Component{
     }
     
     render(){
-        return <div className="App">
-            <Navbar bg="light">
+        return <Wrapper className="App">
+            <Navbar bg="secondary">
                 <Navbar.Brand>MERS and SARS</Navbar.Brand>
             </Navbar>
             <Container>
@@ -32,7 +38,7 @@ class MersAndSars extends React.Component{
                     <Col xs={12}><ChartWrapper virus={this.state.virus} /></Col>
                 </Row>
             </Container>
-        </div>
+        </Wrapper>
     }
 }
 export default MersAndSars;

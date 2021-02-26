@@ -23,6 +23,7 @@ collections = db['sampleData']
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
+loginRoute = Blueprint("login",__name__)
 
 
 # routes
@@ -48,5 +49,17 @@ def create():
     collections.insert_one(item)
     return jsonify()
 
+@app.route('/src/LoginForm/login', methods=['POST'])
+def login():
+    """
+    Logs a user in by parsing a POST request containing user credentials and
+    issuing a JWT token.
+    """
+    req = flask.request.get_json(force=True)
+    username = req.get('username', None)
+    password = req.get('password', None)
+    user = guard.authenticate(username, password)
+    ret = {'access_token': guard.encode_jwt_token(user)}
+    return ret, 200
 
 #https://www.youtube.com/watch?v=s4vMgOfbBzs

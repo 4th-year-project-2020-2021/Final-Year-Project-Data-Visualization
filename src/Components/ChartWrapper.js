@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
 import D3MersSars from '../D3/D3MersSars';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: black;
+`;
 
 export default class ChartWrapper extends Component{
 
@@ -23,8 +28,8 @@ export default class ChartWrapper extends Component{
 
     render(){
         //lifecycle method uses the ref system to keep track of an element
-        return <div>
+        return <Wrapper>
             <div ref="chart"></div>
-        </div>
+        </Wrapper>
     }
 }
