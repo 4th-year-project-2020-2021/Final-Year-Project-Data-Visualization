@@ -9,7 +9,10 @@ import Upload from '../Routes/Upload';
 import Header from './Header';
 import Login from '../LoginForm/Login';
 import Create from '../Routes/Create';
+import Item from '../Routes/Item'
+
 import DBCovidData from 'Routes/DBCovidData';
+
 
 function Router({isLoggedIn}){
     return (
@@ -20,7 +23,7 @@ function Router({isLoggedIn}){
                 <>
                    <Route exact path="/">
                      <Home />
-                   </Route> 
+                   </Route>
                    <Route path="/covid19" component={Covid19} />
                    <Route path="/DBCovidData" component={DBCovidData} />
                    <Route path="/mersandsars" component={MersAndSars} />
@@ -29,12 +32,13 @@ function Router({isLoggedIn}){
                    <Route path="/upload" component={Upload} />
                    <Route path="/create" component={Create}/>
                    <Route path="/login" component={Login}/>
-                   <Redirect from="*" to="/" /> 
+                   <Route path="/item" component={Item} />
+                   <Redirect from="*" to="/" />
                 </>
           </Switch>
           </>
         </Browser>
     )
-    
+
 }
 export default Router;

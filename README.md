@@ -64,6 +64,9 @@ Our final year project is based on the data visualization and analysis of variou
 
 ## Software Requirements
 - Visual Studio Code
+- Anaconda
+- cmder
+- git
 
 ## Running the Program
 To get started developing right away:

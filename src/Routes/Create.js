@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { Redirect } from 'react-router';
 
 function Create(){
 
@@ -17,18 +17,19 @@ function Create(){
     });
   },[]);
 
-  const [productName, setproductName] = useState("");
+  const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
+  const [amount, setAmount] = useState("");
+   
 
   const createItem = (e) =>{
     e.preventDefault();
     console.log("data");
 
     const item = {
-     name : productName,
+     name : name,
      description : description,
-     amount: price
+     amount: amount
     }
 
     const options = { 
@@ -39,7 +40,7 @@ function Create(){
         body: JSON.stringify(item)
     } 
 
-    if(description  && productName && price ){
+    if(description  && name && amount ){
          fetch("/api/create", options)
          .then(res => {
              //response must be parsed to JSON format
@@ -52,6 +53,7 @@ function Create(){
          console.log("The form is empty")
      }
 }  
+
     return(
         <div>
         <p>The current time is {currentTime}</p>
@@ -62,7 +64,7 @@ function Create(){
             <br></br>
             <div className="control">
                 <label htmlFor="name">Name: </label>
-                <input type="text" name="name" onChange={e => setproductName(e.target.value)} />
+                <input type="text" name="name" onChange={e => setName(e.target.value)} />
                 </div>
                 <br></br>
                 <div className="control">
@@ -71,12 +73,13 @@ function Create(){
                 </div>
                 <br></br>
                 <div className="control">
-                <label htmlFor="price">Number of cases: </label>
-                <input type="number" name="price" onChange={e => setPrice(e.target.value)} />
+                <label htmlFor="amount">Number of cases: </label>
+                <input type="number" name="amount" onChange={e => setAmount(e.target.value)} />
                 </div>
                 
                 <input type="submit" value="create post" />
             </form>
+            
         </div>
     )
 

@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 import json
-import pymongo
+#import pymongo
+#from dotenv import load_dotenv
 import os
 import sys
 from pymongo import MongoClient
@@ -23,15 +24,14 @@ collections = db['sampleData']
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
+<<<<<<< HEAD
 loginRoute = Blueprint("login",__name__)
+=======
+itemRoute = Blueprint("item",__name__)
+>>>>>>> 37d6400d826c95de387aeb5b86301baea92025ab
 
 
 # routes
-@indexRoute.route('/api/sampleData')
-def index():
-    return jsonify(data = "something")
-    
-
 @createRoute.route('/api/create', methods=['POST'])
 def create():
     print(request.json, flush=True)
@@ -49,6 +49,7 @@ def create():
     collections.insert_one(item)
     return jsonify()
 
+<<<<<<< HEAD
 @app.route('/src/LoginForm/login', methods=['POST'])
 def login():
     """
@@ -61,5 +62,31 @@ def login():
     user = guard.authenticate(username, password)
     ret = {'access_token': guard.encode_jwt_token(user)}
     return ret, 200
+=======
+#single item route
+@itemRoute.route("/api/item/<id>", methods=["GET"])
+def item(id):
+    cursor = collections.find_one({"_id": ObjectId(id)})
+    print(cursor, flush=True)
+    
+    #return the encoded item
+    return jsonify(data=JSONEncoder().encode(cursor))
+
+#all items route
+@indexRoute.route("/api/items")
+def index():
+
+    items = []
+    #get all items from the collection
+    cursor = collections.find({})
+    #loop to get the needed data
+    for document in cursor:
+       #we need to encode the MongoDBId here
+       items.append({"_id": JSONEncoder().encode(document["_id"])})
+    #return the items
+    return jsonify(data= items)
+
+>>>>>>> 37d6400d826c95de387aeb5b86301baea92025ab
 
 #https://www.youtube.com/watch?v=s4vMgOfbBzs
+#items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"], "description": document["description "]})
