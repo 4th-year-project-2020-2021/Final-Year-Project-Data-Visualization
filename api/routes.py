@@ -24,11 +24,7 @@ collections = db['sampleData']
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
-<<<<<<< HEAD
-loginRoute = Blueprint("login",__name__)
-=======
 itemRoute = Blueprint("item",__name__)
->>>>>>> 37d6400d826c95de387aeb5b86301baea92025ab
 
 
 # routes
@@ -49,20 +45,6 @@ def create():
     collections.insert_one(item)
     return jsonify()
 
-<<<<<<< HEAD
-@app.route('/src/LoginForm/login', methods=['POST'])
-def login():
-    """
-    Logs a user in by parsing a POST request containing user credentials and
-    issuing a JWT token.
-    """
-    req = flask.request.get_json(force=True)
-    username = req.get('username', None)
-    password = req.get('password', None)
-    user = guard.authenticate(username, password)
-    ret = {'access_token': guard.encode_jwt_token(user)}
-    return ret, 200
-=======
 #single item route
 @itemRoute.route("/api/item/<id>", methods=["GET"])
 def item(id):
@@ -86,7 +68,6 @@ def index():
     #return the items
     return jsonify(data= items)
 
->>>>>>> 37d6400d826c95de387aeb5b86301baea92025ab
 
 #https://www.youtube.com/watch?v=s4vMgOfbBzs
 #items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"], "description": document["description "]})
