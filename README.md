@@ -12,6 +12,7 @@
 - [Program Overview](#program-overview)
 - [Software Requirements](#software-requirements)
 - [Running the Program](#running-the-program)
+- [Run web service](#run-web-service)
 - [Technology stack](#technology-stack)
 - [Designated Tasks](#designated-tasks)
 - [Screens](#screens)
@@ -81,6 +82,15 @@ To get started developing right away:
 
 - Screencast of how to run the program goes here**
 
+### Run web service
+
+```bash
+$ pip install -r requirements.txt
+$ cd api
+$ set FLASK_APP=api.py
+$ python -m flask run
+ * Running on http://127.0.0.1:5000/
+ ```
 
 ## Technology stack
 
