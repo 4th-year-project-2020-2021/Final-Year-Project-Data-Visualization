@@ -4,7 +4,7 @@ import D3Piechart from '../D3/D3Piechart';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: black;
+    background: #F0FFF0;
 `;
 
 export default class ChartWrapper extends Component{

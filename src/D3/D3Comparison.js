@@ -33,8 +33,8 @@ export default class D3Comparison{
 
       d3.select(element)
         .append("div")
-          .style("border", "1px lightgray solid;")
-          .style("background-color", "#A52A2A")
+          .style("border", "1px gray solid;")
+          .style("background-color", "#008080")
           .style("font", "20px sans-serif")
           .text("This is preliminary COVID-19 data. While SARS and MERS' mortality rates are well understood, the definition of COVID-19 diagnoses is still shifting and it may be years until the actual number of cases is known.");
 
@@ -63,7 +63,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#2F4F4F")
+            .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
             .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
           
@@ -150,8 +150,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-410)
             .attr("text-anchor","middle")
-            .style("stroke", "gold")
-            .style("fill","gold")
+            .style("stroke", "#3CB371")
+            .style("fill","#3CB371")
             .style("stroke-width", ".4px")
             .style("font", "35px sans-serif");
 
@@ -159,8 +159,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-380)
             .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -168,8 +168,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-360)
             .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -177,8 +177,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-340)
             .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -186,8 +186,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-320)
             .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -195,8 +195,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-300)
             .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -204,8 +204,8 @@ export default class D3Comparison{
             .attr("x", WIDTH/1.8)
             .attr("y", HEIGHT-280)
             .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -225,8 +225,8 @@ export default class D3Comparison{
             .attr("text-anchor","middle")
             .text("Percentage (%) of patients with symptoms")
             .attr("transform", "rotate(-90)")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".2px")
             .style("font", "20px sans-serif");
 
@@ -267,8 +267,8 @@ export default class D3Comparison{
               .attr("text-anchor","middle")
               .text("Mortality Rate (%)")
               .attr("transform","rotate(-90)")
-              .style("stroke", "white")
-              .style("fill","white")
+              .style("stroke", "black")
+              .style("fill","black")
               .style("stroke-width", ".4px")
               .style("font", "20px sans-serif")
               .style("pointer-events", "none");
@@ -312,7 +312,7 @@ export default class D3Comparison{
               .text(d=>d.Mortality+ " %")
               .attr("font-family" , "sans-serif")
               .attr("font-size" , "18px")
-              .attr("fill" , "white")
+              .attr("fill" , "black")
         })//end first
 
         d3.json(url).then(comparison2=>{
@@ -342,8 +342,8 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 + 50)
             .attr("text-anchor","middle")
             .text("Comparisons between the viruses were made")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
             .style("font", "15px sans-serif");
@@ -354,8 +354,8 @@ export default class D3Comparison{
             .attr("text-anchor","middle")
             .text("Number of Deaths")
             .attr("transform","rotate(-90)")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
@@ -397,7 +397,7 @@ export default class D3Comparison{
               .text(d=>"No. "+d.Deaths)
               .attr("font-family" , "sans-serif")
               .attr("font-size" , "18px")
-              .attr("fill" , "white")
+              .attr("fill" , "black")
       })//end second
 
       d3.json(url).then(comparison3=>{
@@ -429,8 +429,8 @@ export default class D3Comparison{
           .attr("text-anchor","middle")
           .text("Number of Cases")
           .attr("transform","rotate(-90)")
-          .style("stroke", "white")
-          .style("fill","white")
+          .style("stroke", "black")
+          .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "20px sans-serif");
           
@@ -474,7 +474,7 @@ export default class D3Comparison{
               .text(d=>"No. "+d.Cases)
               .attr("font-family" , "sans-serif")
               .attr("font-size" , "18px")
-              .attr("fill" , "white")
+              .attr("fill" , "black")
     })//end third
     
     d3.json(url5).then(symptoms=>{
@@ -539,14 +539,14 @@ export default class D3Comparison{
         .text(d=>d.HowSerious+ " %")
         .attr("font-family" , "sans-serif")
         .attr("font-size" , "22px")
-        .attr("fill" , "white")
+        .attr("fill" , "#000080")
       
       svgsymptom.append("text")
         .attr("x", WIDTH2/3.5)
         .attr("y", HEIGHT2 - 50)
         .attr("text-anchor","middle")
         .text("Like flu, stay at home")
-        .style("fill","#FAFAD2")
+        .style("fill","#FF4500")
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
 
@@ -555,7 +555,7 @@ export default class D3Comparison{
         .attr("y", HEIGHT2 - 20)
         .attr("text-anchor","middle")
         .text("Hospitalization")
-        .style("fill","#FAFAD2")
+        .style("fill","#6A5ACD")
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
 
@@ -564,7 +564,7 @@ export default class D3Comparison{
         .attr("y", HEIGHT2 )
         .attr("text-anchor","middle")
         .text("Intensive care")
-        .style("fill","#FAFAD2")
+        .style("fill","#6A5ACD")
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
   })//end covid19 symptoms
@@ -576,8 +576,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 400)
      .attr("text-anchor","middle")
      .text("What is the difference between Influenza (Flu) and COVID-19?")
-     .style("stroke", "gold")
-     .style("fill","gold")
+     .style("stroke", "#191970")
+     .style("fill","#191970")
      .style("stroke-width", ".4px")
      .style("font", "17px sans-serif");
 
@@ -586,8 +586,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 370)
      .attr("text-anchor","middle")
      .text("Influenza (Flu) and COVID-19 are both contagious respiratory illnesses,")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
 
@@ -596,8 +596,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 350)
      .attr("text-anchor","middle")
      .text("but they are caused by different viruses.")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "16px sans-serif");
 
@@ -606,8 +606,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 330)
      .attr("text-anchor","middle")
      .text("COVID-19 is caused by infection with a new coronavirus (called SARS-CoV-2),")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "13px sans-serif");
 
@@ -616,8 +616,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 310)
      .attr("text-anchor","middle")
      .text("and flu is caused by infection with influenza viruses.")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "16px sans-serif");
 
@@ -626,8 +626,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 260)
      .attr("text-anchor","middle")
      .text("How long someone can spread the virus")
-     .style("stroke", "lightblue")
-     .style("fill","lightblue")
+     .style("stroke", "#4169E1")
+     .style("fill","#4169E1")
      .style("stroke-width", ".4px")
      .style("font", "19px sans-serif");
 
@@ -636,8 +636,7 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 220)
      .attr("text-anchor","middle")
      .text("Similarities:")
-     .style("stroke", "gold")
-     .style("fill","gold")
+     .style("fill","#FF6347")
      .style("stroke-width", ".4px")
      .style("font", "18px sans-serif");
 
@@ -646,8 +645,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 200)
      .attr("text-anchor","middle")
      .text("For both COVID-19 and flu, it’s possible to spread the virus for at least 1 day ")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
 
@@ -656,8 +655,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 180)
      .attr("text-anchor","middle")
      .text("before experiencing any symptoms.")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
      
@@ -667,8 +666,7 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 150)
      .attr("text-anchor","middle")
      .text("Differences:")
-     .style("stroke", "gold")
-     .style("fill","gold")
+     .style("fill","#FF6347")
      .style("stroke-width", ".4px")
      .style("font", "18px sans-serif");
 
@@ -677,8 +675,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 130)
      .attr("text-anchor","middle")
      .text("If a person has COVID-19, ")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
 
@@ -687,8 +685,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 110)
      .attr("text-anchor","middle")
      .text("they may be contagious for a longer period of time ")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
 
@@ -697,8 +695,8 @@ export default class D3Comparison{
      .attr("y", HEIGHT - 90)
      .attr("text-anchor","middle")
      .text("than if they had flu. ")
-     .style("stroke", "white")
-     .style("fill","white")
+     .style("stroke", "black")
+     .style("fill","black")
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
       
@@ -732,8 +730,8 @@ export default class D3Comparison{
         .attr("y", HEIGHT - 320)
         .attr("text-anchor","middle")
         .text("The case fatality rate (CFR) only shows the")
-        .style("stroke", "white")
-        .style("fill","white")
+        .style("stroke", "black")
+        .style("fill","black")
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
 
@@ -742,8 +740,8 @@ export default class D3Comparison{
         .attr("y", HEIGHT - 290)
         .attr("text-anchor","middle")
         .text("% of confirmed cases who have died")
-        .style("stroke", "white")
-        .style("fill","white")
+        .style("stroke", "black")
+        .style("fill","black")
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
 
@@ -855,7 +853,7 @@ d3.json(urlagerisk).then(age=>{
     .text(d=>d.PercentOfdeceased+ " %")
     .attr("font-family" , "sans-serif")
     .attr("font-size" , "22px")
-    .attr("fill" , "white")
+    .attr("fill" , "black")
   
 })//end - Most at Risk
 

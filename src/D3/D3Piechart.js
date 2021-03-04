@@ -60,10 +60,11 @@ export default class D3Comparison{
                .attr("transform", "translate(" + (width  - 600) + "," + 120 + ")")
                .append("text")
                .text("WOMEN")
+               .attr("fill" , "#FF0000")
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
-               .attr("fill" , "white")
+               
 
             svg.append("g")
                .attr("transform", "translate(" + (width  - 300) + "," + 150 + ")")
@@ -81,7 +82,7 @@ export default class D3Comparison{
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
-               .attr("fill" , "white")
+               .attr("fill" , "blue")
 
             svg.append("g")
                .attr("transform", "translate(" + (width  - 480) + "," + 230 + ")")
@@ -95,7 +96,7 @@ export default class D3Comparison{
             d3.select(element)
                .append("div")
                  .style("border", "1px lightgray solid;")
-                 .style("background-color", "#A52A2A")
+                 .style("background-color", "#87CEEB")
                  .style("font", "20px sans-serif")
                  .text("Biological Sex is also a Risk-Factor");
 
