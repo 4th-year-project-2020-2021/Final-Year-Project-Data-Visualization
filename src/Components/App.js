@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Router from "./Router";
-import GlobalStyles from "./GlobalStyles";
-
+import GlobalStyles from "../Assets/GlobalStyles";
+import {login, authFetch, useAuth, logout} from "../auth"
 
 function App() {
 

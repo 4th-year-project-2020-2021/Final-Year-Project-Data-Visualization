@@ -7,7 +7,7 @@ import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
 import Upload from '../Routes/Upload';
 import Header from './Header';
-import Login from '../LoginForm/Login';
+import Login from '../Login';
 import Create from '../Routes/Create';
 import Item from '../Routes/Item'
 
