@@ -12,6 +12,7 @@
 - [Program Overview](#program-overview)
 - [Software Requirements](#software-requirements)
 - [Running the Program](#running-the-program)
+- [Run web service](#run-web-service)
 - [Technology stack](#technology-stack)
 - [Designated Tasks](#designated-tasks)
 - [Screens](#screens)
@@ -81,6 +82,15 @@ To get started developing right away:
 
 - Screencast of how to run the program goes here**
 
+### Run web service
+
+```bash
+$ pip install -r requirements.txt
+$ cd api
+$ set FLASK_APP=api.py
+$ python -m flask run
+ * Running on http://127.0.0.1:5000/
+ ```
 
 ## Technology stack
 
@@ -123,6 +133,8 @@ The main purpose of every work is that making interactive visualization applicat
 
 - [x] World Map 
 - [ ] Auto Generated Graph
+- [ ] Flask backend
+- [ ] API routes for connecting to MongoDB Atlas
 - [x] Connection to MongoDB Atlas
 
 ## Screens
@@ -143,5 +155,10 @@ The main purpose of every work is that making interactive visualization applicat
 [6] Sars - https://www.who.int/csr/sars/country/2003_07_11/en/<br>
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
+<<<<<<< HEAD
 [9] flask-praetorian - https://flask-praetorian.readthedocs.io/en/latest/index.html
+=======
+[9] Smallpox data https://ourworldindata.org/smallpox
+[10] <br>
+>>>>>>> 4d14c5e3b2fe906edd6cdff4f56cae079ce524cf
 
