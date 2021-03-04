@@ -155,10 +155,7 @@ The main purpose of every work is that making interactive visualization applicat
 [6] Sars - https://www.who.int/csr/sars/country/2003_07_11/en/<br>
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
-<<<<<<< HEAD
-[9] flask-praetorian - https://flask-praetorian.readthedocs.io/en/latest/index.html
-=======
-[9] Smallpox data https://ourworldindata.org/smallpox
-[10] <br>
->>>>>>> 4d14c5e3b2fe906edd6cdff4f56cae079ce524cf
+[9] flask-praetorian - https://flask-praetorian.readthedocs.io/en/latest/index.html<br>
+[10] Smallpox data https://ourworldindata.org/smallpox<br>
+[11] <br>
 
