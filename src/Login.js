@@ -9,7 +9,7 @@ const token = "Your JWT";
 
 
 const Wrapper = styled.div`
-    background: #708090;
+    background: #E0FFFF;
 `;
 
 
@@ -18,7 +18,7 @@ const H1 = styled.h1`
     display:flex;
     align-items:center;
     justify-content:center;
-    color:blue;
+    color:black;
     text-align:right;
     font-size: 40px;
     font-family: Helvetica, Arial, sans-serif;
@@ -63,7 +63,7 @@ function Login() {
   const [logged] = useAuth();
 
   return (
-    <div>
+    <Wrapper>
     <H1>Login</H1>
     {!logged? <form action="#">
       <div>
@@ -86,7 +86,7 @@ function Login() {
       </button>
     </form>
     : <button onClick={() => logout()}>Logout</button>}
-  </div>
+  </Wrapper>
   )
 }
 export default Login;

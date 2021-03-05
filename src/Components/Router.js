@@ -31,7 +31,9 @@ function Router({isLoggedIn}){
                    <Route path="/comparison" component={Comparison} />
                    <Route path="/upload" component={Upload} />
                    <Route path="/create" component={Create}/>
-                   <Route path="/login" component={Login}/>
+                   <Route path="/login">
+                     <Login />
+                   </Route> 
                    <Route path="/item" component={Item} />
                    <Redirect from="*" to="/" />
                 </>

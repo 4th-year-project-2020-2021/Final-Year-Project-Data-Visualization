@@ -11,6 +11,7 @@ import flask_sqlalchemy
 import flask_praetorian
 import flask_cors
 import jwt
+from flask_sqlalchemy import SQLAlchemy
 
 db = flask_sqlalchemy.SQLAlchemy()
 guard = flask_praetorian.Praetorian()
