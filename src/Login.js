@@ -1,3 +1,4 @@
+import {login, useAuth, logout} from "./auth"
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -5,6 +6,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { useJwt } from "react-jwt";
 const token = "Your JWT";
+
 
 const Wrapper = styled.div`
     background: #708090;
@@ -33,14 +35,16 @@ function Login() {
       'username': username,
       'password': password
     }
-    console.log(opts)
+    console.log("You typed :",opts)
     fetch('/api/login', {
       method: 'post',
       body: JSON.stringify(opts)
     }).then(r => r.json())
       .then(token => {
         if (token.access_token){
-          console.log(token)          
+          login(token)
+          console.log("Token :", token)     
+          console.log("You got a token")
         }
         else {
           console.log("Please type in correct username/password")
@@ -56,32 +60,33 @@ function Login() {
     setPassword(e.target.value)
   }
 
-  //const [logged] = useAuth();
+  const [logged] = useAuth();
 
   return (
     <div>
-      <H1>Login</H1>
-      <form action="#">
-        <div>
-          <input type="text" 
-            placeholder="Username" 
-            onChange={handleUsernameChange}
-            value={username} 
-          />
-        </div>
-        <div>
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={handlePasswordChange}
-            value={password}
-          />
-        </div>
-        <button onClick={onSubmitClick} type="submit">
-          Login Now
-        </button>
-      </form>
-    </div>
+    <H1>Login</H1>
+    {!logged? <form action="#">
+      <div>
+        <input type="text" 
+          placeholder="Enter Username" 
+          onChange={handleUsernameChange}
+          value={username} 
+        />
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          onChange={handlePasswordChange}
+          value={password}
+        />
+      </div>
+      <button onClick={onSubmitClick} type="submit">
+        Login Now
+      </button>
+    </form>
+    : <button onClick={() => logout()}>Logout</button>}
+  </div>
   )
 }
 export default Login;
