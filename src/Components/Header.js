@@ -71,15 +71,14 @@ const H1 = styled.h1`
 export default withRouter(({ location : {pathname} })=>(
         <Header>
             <List>
-                <SLink style={{ color: "white", textDecoration: "none" }} to="/">
-                    <div style={{ fontSize: "25px" }}>🌏</div>
-                </SLink>
-
+                <Item current={pathname === "/"}>
+                <SLink to="/">Home </SLink>
+                </Item>
                 <Item current={pathname === "/covid19"}>
                     <SLink to="/covid19">Covid-19 </SLink>
                 </Item>
-                <Item current={pathname === "/DBCovidData"}>
-                    <SLink to="/DBCovidData">DB Covid </SLink>
+                <Item current={pathname === "/stats"}>
+                    <SLink to="/stats">Stats </SLink>
                 </Item>
                 <Item current={pathname === "/mersandsars"}>
                     <SLink to="/mersandsars">Mers and Sars </SLink>

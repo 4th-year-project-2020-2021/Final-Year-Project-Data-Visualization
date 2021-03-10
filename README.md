@@ -61,13 +61,15 @@
 
 
 ## Program Overview
-Our final year project is based on the data visualization and analysis of various viruses.
+Our final year project is based on the data visualization and analysis of various viruses such as COVID-a9, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
 
 ## Software Requirements
-- Visual Studio Code
-- Anaconda
-- cmder
-- git
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Anaconda3 Version (Python 3.8.5)](https://www.anaconda.com/products/individual)
+- [cmder](https://cmder.net/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_emea_ireland_search_core_brand_atlas_desktop&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624527&gclid=Cj0KCQiA-aGCBhCwARIsAHDl5x8_dfnh9PWedNlnlRjFzg8yn4SIV5UxJTl9bBAb7SfrZy6IE2JXCdoaAp7tEALw_wcB)
+- [git](https://git-scm.com/downloads)
+
 
 ## Running the Program
 To get started developing right away:

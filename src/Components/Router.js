@@ -10,9 +10,7 @@ import Header from './Header';
 import Login from '../Login';
 import Create from '../Routes/Create';
 import Item from '../Routes/Item'
-
-import DBCovidData from 'Routes/DBCovidData';
-
+import Stats from 'Routes/Stats';
 
 function Router({isLoggedIn}){
     return (
@@ -25,7 +23,7 @@ function Router({isLoggedIn}){
                      <Home />
                    </Route>
                    <Route path="/covid19" component={Covid19} />
-                   <Route path="/DBCovidData" component={DBCovidData} />
+                   <Route path="/stats" component={Stats} />
                    <Route path="/mersandsars" component={MersAndSars} />
                    <Route path="/smallpox" component={Smallpox} />
                    <Route path="/comparison" component={Comparison} />
