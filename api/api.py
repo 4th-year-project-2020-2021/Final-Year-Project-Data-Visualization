@@ -1,19 +1,19 @@
 import time
 from flask import Flask
-from flask_cors import CORS
-#import matplotlib.pyplot as plt
-#from pymongo import MongoClient
-#from pymongo.errors import ConnectionFailure, InvalidName
-from routes import indexRoute, createRoute, itemRoute
+from flask_cors import CORS, cross_origin
+
+from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute
 
 
 app = Flask(__name__)
 CORS(app) # wrap app in CORS
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # register the blueprints
 app.register_blueprint(indexRoute)
 app.register_blueprint(createRoute)
 app.register_blueprint(itemRoute)
+app.register_blueprint(getDescriptionRoute)
 
 @app.route('/time')
 def get_current_time():

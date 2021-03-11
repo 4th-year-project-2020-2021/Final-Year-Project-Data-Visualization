@@ -25,7 +25,7 @@ collections = db['sampleData']
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
 itemRoute = Blueprint("item",__name__)
-
+getDescriptionRoute = Blueprint("getDescription",__name__)
 
 # routes
 @createRoute.route('/api/create', methods=['POST'])
@@ -67,6 +67,14 @@ def index():
        items.append({"_id": JSONEncoder().encode(document["_id"])})
     #return the items
     return jsonify(data= items)
+
+@getDescriptionRoute.route("/api/itemsDescriptions")
+def getDescription():
+    description_json = []
+    if collections.find({}):
+        for description in collections.find({}).sort("description"):
+            description_json.append({"description": description['description'], "id": str(description['_id'])})
+    return json.dumps(description_json)
 
 
 #https://www.youtube.com/watch?v=s4vMgOfbBzs

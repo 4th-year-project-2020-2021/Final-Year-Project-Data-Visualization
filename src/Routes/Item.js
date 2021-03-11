@@ -42,7 +42,7 @@ function Item() {
         </div>
     } else {
         itemsArray = <div className="message">
-            <p>No  items in the database</p>
+            No  items in the database
         </div>
     }
 
@@ -59,9 +59,10 @@ function Item() {
             </header>
            
             <p>
-            <h5>{itemsArray}</h5>
-            
+            {itemsArray}
             </p>
+            
+            
             
         </>
     )
