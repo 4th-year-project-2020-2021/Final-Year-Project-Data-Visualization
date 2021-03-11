@@ -81,9 +81,6 @@ function Login() {
           value={password}
         />
       </div>
-      <button onClick={onSubmitClick} type="submit">
-        Login Now
-      </button>
     </form>
     : <button onClick={() => logout()}>Logout</button>}
   </Wrapper>
