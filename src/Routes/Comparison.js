@@ -8,8 +8,8 @@ import ChartWrapper2 from '../Components/ChartWrapper2';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: black;
-    color:white;
+    background: #FFFFF0;
+    color:black;
 `;
 
 class Comparison extends React.Component{
@@ -26,7 +26,7 @@ class Comparison extends React.Component{
 
     render(){
         return <Wrapper className="App">
-            <Navbar bg="secondary">
+            <Navbar bg="success">
                 <Navbar.Brand>HOW COVID-19 compares to past epidemics</Navbar.Brand>
             </Navbar>
             <Container>

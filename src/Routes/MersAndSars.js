@@ -8,8 +8,8 @@ import ChartWrapper from '../Components/ChartWrapper';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: black;
-    color:white;
+    background: #FFFFF0;
+    color:black;
 `;
 
 class MersAndSars extends React.Component{
@@ -27,7 +27,7 @@ class MersAndSars extends React.Component{
     
     render(){
         return <Wrapper className="App">
-            <Navbar bg="secondary">
+            <Navbar bg="success">
                 <Navbar.Brand>MERS and SARS</Navbar.Brand>
             </Navbar>
             <Container>

@@ -30,22 +30,22 @@ export default class D3Comparison{
 
         d3.select(element)
           .append("div")
-            .style("border", "1px lightgray solid;")
-            .style("background-color", "#2F4F4F")
+            .style("border", "1px gray solid;")
+            .style("background-color", "#4682B4")
             .style("font", "20px sans-serif")
             .text("Since April 2012 and as of 12 January 2021, 2 581 cases of MERS-CoV, including 935 deaths,have been reported by health authorities worldwide.");
           
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#696969")
+            .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
             .text("SARS was first reported in Asia in February 2003. The illness spread to 29 countries, where 8,437 people got SARS and 774 of them died. The last known case of SARS was in 2004.");
           
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#2F4F4F")
+            .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
             .text("(It means the virus killed roughly one in 10 people who were infected.)")
 
@@ -59,7 +59,7 @@ export default class D3Comparison{
         const tsvg2 = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
-          .style("background-color", "#708090")
+          .style("background-color", "#87CEEB")
           .style("font", "20px sans-serif")
           .text("Middle East had the highest number cases (88.4%), followed by Asia (10.7%), Europe (0.8%) and USA with only 2 cases officially reported (0.1%).");
 
@@ -73,7 +73,7 @@ export default class D3Comparison{
         const tsvg3 = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
-          .style("background-color", "#708090")
+          .style("background-color", "#87CEEB")
           .style("font", "20px sans-serif")
           .text("The majority of SARS cases were from China, Canada and Singapore, among which, cases from China mainland presented the largest proportion, followed by that from Hong Kong and Taiwan.");
 
@@ -102,7 +102,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#2F4F4F")
+            .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
             .text("China has the most infected cases and deaths, yet the lowest mortality rate.")
 
@@ -137,8 +137,8 @@ export default class D3Comparison{
             .attr("text-anchor","middle")
             .text("Number of reported cases")
             .attr("transform", "rotate(-90)")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".2px")
             .style("font", "20px sans-serif");
 
@@ -186,8 +186,8 @@ export default class D3Comparison{
               .attr("y", HEIGHT2 + 50)
               .attr("text-anchor","middle")
               .text("Mers - Country")
-              .style("stroke", "white")
-              .style("fill","white")
+              .style("stroke", "black")
+              .style("fill","black")
               .style("stroke-width", ".4px")
               .style("text-decoration", "underline") 
               .style("font", "15px sans-serif");
@@ -207,8 +207,8 @@ export default class D3Comparison{
               .attr("y", HEIGHT2 - 270)
               .attr("text-anchor","middle")
               .text("First identified in Saudi Arabia in 2012.")
-              .style("stroke", "white")
-              .style("fill","white")
+              .style("stroke", "black")
+              .style("fill","black")
               .style("stroke-width", ".4px")
               .style("font", "17px sans-serif");
 
@@ -217,8 +217,8 @@ export default class D3Comparison{
               .attr("y", HEIGHT2 - 250)
               .attr("text-anchor","middle")
               .text("Since 2012, MERS has been reported in 27 countries")
-              .style("stroke", "white")
-              .style("fill","white")
+              .style("stroke", "black")
+              .style("fill","black")
               .style("stroke-width", ".4px")
               .style("font", "17px sans-serif");
 
@@ -228,8 +228,8 @@ export default class D3Comparison{
               .attr("text-anchor","middle")
               .text("No. of Confirmed Cases")
               .attr("transform","rotate(-90)")
-              .style("stroke", "white")
-              .style("fill","white")
+              .style("stroke", "black")
+              .style("fill","black")
               .style("stroke-width", ".4px")
               .style("font", "15px sans-serif");
 
@@ -324,8 +324,8 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 + 50)
             .attr("text-anchor","middle")
             .text("Sars - Country")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
             .style("font", "15px sans-serif");
@@ -345,8 +345,8 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 - 290)
             .attr("text-anchor","middle")
             .text("8,098 cases, resulting in 774 deaths reported in")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("font", "17px sans-serif");
 
@@ -355,8 +355,8 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 - 270)
             .attr("text-anchor","middle")
             .text("17 countries (9.6% fatality rate), with the majority of cases in mainland China and Hong Kong.")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("font", "17px sans-serif");
 
@@ -365,8 +365,8 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 - 250)
             .attr("text-anchor","middle")
             .text("No cases of SARS have been reported worldwide since 2004.")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("font", "17px sans-serif");
 
@@ -376,8 +376,8 @@ export default class D3Comparison{
             .attr("text-anchor","middle")
             .text("No. of Confirmed Cases")
             .attr("transform","rotate(-90)")
-            .style("stroke", "white")
-            .style("fill","white")
+            .style("stroke", "black")
+            .style("fill","black")
             .style("stroke-width", ".4px")
             .style("font", "15px sans-serif");
             
@@ -385,7 +385,7 @@ export default class D3Comparison{
           svg3.append("path")
           .datum(comparison3)
           .attr("fill", "grey")
-          .attr("stroke", "white")
+          .attr("stroke", "black")
           .attr("stroke-width", 1.5)
           .attr("d", d3.line()
             .x(function(d) { return x(d.Country) })
@@ -460,7 +460,7 @@ export default class D3Comparison{
          .attr("x", 9)
          .attr("dy", ".35em")
          .attr("transform", "rotate(30)")
-         .style("fill","white")
+         .style("fill","black")
          .style("font", "15px sans-serif")
          .style("text-anchor", "start");
 
@@ -473,8 +473,8 @@ export default class D3Comparison{
           .attr("y", HEIGHT3 - 150)
           .attr("text-anchor","middle")
           .text("Sars no. of total infected cases from main countries")
-          .style("stroke", "white")
-          .style("fill","white")
+          .style("stroke", "black")
+          .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "15px sans-serif");
 
@@ -484,8 +484,8 @@ export default class D3Comparison{
           .attr("text-anchor","middle")
           .text("No. of Total Infected")
           .attr("transform","rotate(-90)")
-          .style("stroke", "white")
-          .style("fill","white")
+          .style("stroke", "black")
+          .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "15px sans-serif");
 
@@ -493,7 +493,7 @@ export default class D3Comparison{
         svg4.append("path")
         .datum(outbreak1)
         .attr("fill", "none")
-        .attr("stroke", "white")
+        .attr("stroke", "black")
         .attr("stroke-width", 1.5)
         .attr("d", d3.line()
           .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
@@ -536,7 +536,7 @@ export default class D3Comparison{
         .text(d=>"No. "+ d.Cases)
         .attr("font-family" , "sans-serif")
         .attr("font-size" , "10px")
-        .attr("fill" , "white")
+        .attr("fill" , "black")
     })// End Sars outbreak 1
 
   
@@ -598,8 +598,8 @@ export default class D3Comparison{
         .attr("text-anchor","middle")
         .text("No. of Total Deaths")
         .attr("transform","rotate(-90)")
-        .style("stroke", "white")
-        .style("fill","white")
+        .style("stroke", "black")
+        .style("fill","black")
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
 
@@ -650,7 +650,7 @@ export default class D3Comparison{
       .text(d=>"No. "+ d.Deaths)
       .attr("font-family" , "sans-serif")
       .attr("font-size" , "10px")
-      .attr("fill" , "white")
+      .attr("fill" , "black")
   })// End Sars outbreak 2
 
   // Sars - outbreak3
@@ -677,7 +677,7 @@ export default class D3Comparison{
      .attr("x", 9)
      .attr("dy", ".35em")
      .attr("transform", "rotate(30)")
-     .style("fill","white")
+     .style("fill","black")
      .style("font", "15px sans-serif")
      .style("text-anchor", "start");
 
@@ -700,8 +700,8 @@ export default class D3Comparison{
       .attr("y", HEIGHT3 - 200)
       .attr("text-anchor","middle")
       .text("Hong Kong and Singapore present good cured rates,")
-      .style("stroke", "white")
-      .style("fill","white")
+      .style("stroke", "black")
+      .style("fill","black")
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
@@ -710,8 +710,8 @@ export default class D3Comparison{
       .attr("y", HEIGHT3 - 180)
       .attr("text-anchor","middle")
       .text("which are more than 82%, with China’s at 92.9%. ")
-      .style("stroke", "white")
-      .style("fill","white")
+      .style("stroke", "black")
+      .style("fill","black")
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
@@ -721,8 +721,8 @@ export default class D3Comparison{
       .attr("text-anchor","middle")
       .text("No. of Total Recovered Cases")
       .attr("transform","rotate(-90)")
-      .style("stroke", "white")
-      .style("fill","white")
+      .style("stroke", "black")
+      .style("fill","black")
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
@@ -801,7 +801,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
    .attr("x", 9)
    .attr("dy", ".35em")
    .attr("transform", "rotate(30)")
-   .style("fill","white")
+   .style("fill","black")
    .style("font", "15px sans-serif")
    .style("text-anchor", "start");
 
@@ -814,8 +814,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("y", HEIGHT3 - 200)
     .attr("text-anchor","middle")
     .text("Sars-Mortality Rate (%) from main countries")
-    .style("stroke", "yellow")
-    .style("fill","yellow")
+    .style("stroke", "blue")
+    .style("fill","blue")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
   
@@ -824,8 +824,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("y", HEIGHT3 - 140)
     .attr("text-anchor","middle")
     .text("Mortality rates tend to be between 10% to 17% till 11 July; ")
-    .style("stroke", "white")
-    .style("fill","white")
+    .style("stroke", "black")
+    .style("fill","black")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
 
@@ -835,8 +835,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("y", HEIGHT3 - 120)
     .attr("text-anchor","middle")
     .text("the worst is around 17% in Hong Kong and Canada, ")
-    .style("stroke", "white")
-    .style("fill","white")
+    .style("stroke", "black")
+    .style("fill","black")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
 
@@ -845,8 +845,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("y", HEIGHT3 - 100)
     .attr("text-anchor","middle")
     .text("yet China’s is only 6.6%. ")
-    .style("stroke", "white")
-    .style("fill","white")
+    .style("stroke", "black")
+    .style("fill","black")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
 
@@ -856,8 +856,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("text-anchor","middle")
     .text("Mortality Rate (%)")
     .attr("transform","rotate(-90)")
-    .style("stroke", "white")
-    .style("fill","white")
+    .style("stroke", "black")
+    .style("fill","black")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
 
@@ -865,7 +865,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
   svg7.append("path")
   .datum(outbreak4)
   .attr("fill", "none")
-  .attr("stroke", "yellow")
+  .attr("stroke", "blue")
   .attr("stroke-width", 1.5)
   .attr("d", d3.line()
     .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
@@ -908,7 +908,7 @@ rects2.enter().append("text")
   .text(d=>d.MortalityRate + " %")
   .attr("font-family" , "sans-serif")
   .attr("font-size" , "10px")
-  .attr("fill" , "white")
+  .attr("fill" , "black")
 })// End Sars outbreak 4
 
 
@@ -954,7 +954,7 @@ rects2.enter().append("text")
              .attr("x", 9)
              .attr("dy", ".35em")
              .attr("transform", "rotate(70)")
-             .style("fill","white")
+             .style("fill","black")
              .style("font", "10px sans-serif")
              .style("text-anchor", "start");
 
@@ -1011,7 +1011,7 @@ rects2.enter().append("text")
         .attr("dy", ".35em") //vertical align middle
         .attr("text-anchor", "end")
         .text(d=>"No. "+d.Number)
-        .attr("fill" , "white")
+        .attr("fill" , "red")
         .style("font", "15px sans-serif");
     }
 }

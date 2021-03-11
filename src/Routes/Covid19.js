@@ -7,9 +7,10 @@ import Columns from 'react-columns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
-import Table from './Table';
+import Table from "../Table";
 import { CardContent } from '@material-ui/core';
-import "../CSSFiles/map.css";
+import { sortData } from "../util";
+import "../CSSFiles/styling.css";
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -32,15 +33,13 @@ function Covid19(){
     // Getting updated time by converting miliseconds
     const date = new Date(parseInt(latest.updated))
     const lastUpdated = date.toString();
-
+    // Table
+    const [tableData, setTableData] = useState([]);
     // Filter search
     const filterCountry = results.filter(item  =>{
         // If search and country the same -> return info
         return item.country  === searchCountry;
     })
-    
-    // Table cases state
-    const [tableData, setTableData] = useState([]);
         
     // Dealing with two APIs at once
     useEffect(() => {
@@ -55,6 +54,8 @@ function Covid19(){
         .then(responceArr => {
             setLatest(responceArr[0].data);
             setResults(responceArr[1].data);
+         
+            setTableData(responceArr[2].data);
 
         })
 
@@ -65,8 +66,6 @@ function Covid19(){
         });
 
     }, []);
-
-
 
     // Assigning country markers to cases 
     const countriesLocation = results.map((data, i) => {
@@ -99,7 +98,7 @@ function Covid19(){
                 bg="light"
                 text="dark"
                 className="text-center"
-                style={{margin: "10px"}}
+                style={{margin: "4px"}}
             >
             
             <Card.Img variant="top" src={data.countryInfo.flag}/>
@@ -127,87 +126,91 @@ function Covid19(){
     }];
 
     return(
-        <div>           
-            <CardDeck>
-                <Card className="totalC">
-                    <Card.Body>
-                    <Card.Title>Global Cases</Card.Title>
-                    <NumberFormat
-                        value={latest.cases} 
-                        displayType={'text'} 
-                        thousandSeparator={true}>
-                    </NumberFormat>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small>Last updated {lastUpdated}</small>
-                    </Card.Footer>
-                </Card>
-                <Card className="totalD">
-                    <Card.Body>
-                    <Card.Title>Global Deaths</Card.Title>
-                    <NumberFormat
-                        value={latest.deaths} 
-                        displayType={'text'} 
-                        thousandSeparator={true}>
-                    </NumberFormat>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small>Last updated {lastUpdated}</small>
-                    </Card.Footer>
-                </Card>
-                <Card className="totalR">
-                    <Card.Body>
-                    <Card.Title>Global Recovered</Card.Title>
-                    <NumberFormat
-                        value={latest.recovered} 
-                        displayType={'text'} 
-                        thousandSeparator={true}>
-                    </NumberFormat>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small>Last updated {lastUpdated}</small>
-                    </Card.Footer>
-                </Card>
-            </CardDeck> 
+        <div>  
+            <div className="app">
+                <div className="app__left"> 
+                    <h1 className="app_header">COVID-19 Live</h1>
+                    <CardDeck>
+                        <Card className="totalC">
+                            <Card.Body>
+                            <Card.Title>Global Cases</Card.Title>
+                            <NumberFormat
+                                value={latest.cases} 
+                                displayType={'text'} 
+                                thousandSeparator={true}>
+                            </NumberFormat>
+                            </Card.Body>
+                            <Card.Footer>
+                            {lastUpdated}
+                            </Card.Footer>
+                        </Card>
+                        <Card className="totalD">
+                            <Card.Body>
+                            <Card.Title>Global Deaths</Card.Title>
+                            <NumberFormat
+                                value={latest.deaths} 
+                                displayType={'text'} 
+                                thousandSeparator={true}>
+                            </NumberFormat>
+                            </Card.Body>
+                            <Card.Footer>
+                            {lastUpdated}
+                            </Card.Footer>
+                        </Card>
+                        <Card className="totalR">
+                            <Card.Body>
+                            <Card.Title>Global Recovered</Card.Title>
+                            <NumberFormat
+                                value={latest.recovered} 
+                                displayType={'text'} 
+                                thousandSeparator={true}>
+                            </NumberFormat>
+                            </Card.Body>
+                            <Card.Footer>
+                            {lastUpdated}
+                            </Card.Footer>
+                        </Card>
+                    </CardDeck> 
+                
 
-
-            <Form>
-                <Form.Group controlId="formGroupSearch">
-                    <Form.Label> Search </Form.Label>
+                    <div className="map" style={{ height: '80vh', width: '70%' }}>
+                        <GoogleMapReact
+                            bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
+                            defaultCenter={{lat: 28, lng: 3}}
+                            // Zoom level
+                            defaultZoom={2}
+                        >
+                            {countriesLocation}
+                        </GoogleMapReact>
+                    </div>  
                     <br></br>
-                    <Form.Control
-                        type="text"
-                        placeholder="Search a Country"
-                        onChange={e => setSearchCountries(e.target.value)}
-                    />
-                </Form.Group>
-                <Columns queries={queries}> {countries} </Columns>
-            </Form> 
-
-             <div className="map" style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-                    defaultCenter={{lat: 28, lng: 3}}
-                    // Zoom level
-                    defaultZoom={3}
-                >
-                    {countriesLocation}
-                </GoogleMapReact>
-
-            </div>   
-            <div>
-                <Card className="app_right">
-                    <CardContent>
-                        <h3> List Cases by Country </h3>
-                        <Table countries={tableData}/>
-                        {/* Graph */}
+                    <Form>
+                        <Form.Group controlId="formGroupSearch">
+                            <h3> Search a single Country (Country data updated every evening)</h3>
+                            <br></br>
+                            <Form.Control
+                                type="text"
+                                font-size="20"
+                                placeholder="Search a Country"
+                                onChange={e => setSearchCountries(e.target.value)}
+                            />
+                        </Form.Group>
+                        <Columns queries={queries}> {countries} </Columns>
+                    </Form> 
                     
-                    </CardContent>
-                </Card>
-            </div>     
-        </div>
+                    </div>
 
-        
+                <Card className="app__right">
+                    <CardContent>
+                        <div className="app_information">
+                            <h2>Live Cases by Country</h2>
+                            <Table countries={latest.recovered} />
+                            <h3>Worldwide</h3>
+                        </div>
+                    </CardContent>
+                </Card>    
+            </div>
+            </div> 
     );
 }
 
