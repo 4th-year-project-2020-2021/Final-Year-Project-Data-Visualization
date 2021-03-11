@@ -106,8 +106,6 @@ $ python -m flask run
 
 - Writing code using D3, JavaScript, and React Hooks.
 
-- JWT (Json Web Token) will be used to authenticate users.
-
 - Architecture image goes here**
 
 ## Designated Tasks
@@ -129,7 +127,8 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Add line charts.
 - [x] Add Pie charts.
 - [x] User Authentication using Firebase .  -- Deleted!
-- [ ] Implement JWT (Json Web Token) is used to authenticate users
+- [ ] Firebase is used to authenticate users
+- [ ] Used Firestore
 
 ### Shirin - Smallpox component & Upload component
 
