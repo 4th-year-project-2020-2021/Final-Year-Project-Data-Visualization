@@ -7,7 +7,6 @@ import Smallpox from '../Routes/Smallpox';
 import Comparison from '../Routes/Comparison';
 import Upload from '../Routes/Upload';
 import Header from './Header';
-import Login from '../Login';
 import Create from '../Routes/Create';
 import Item from '../Routes/Item'
 import Stats from 'Routes/Stats';
@@ -29,9 +28,6 @@ function Router({isLoggedIn}){
                    <Route path="/comparison" component={Comparison} />
                    <Route path="/upload" component={Upload} />
                    <Route path="/create" component={Create}/>
-                   <Route path="/login">
-                     <Login />
-                   </Route> 
                    <Route path="/item" component={Item} />
                    <Redirect from="*" to="/" />
                 </>
