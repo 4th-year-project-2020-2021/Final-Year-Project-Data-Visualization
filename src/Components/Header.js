@@ -83,11 +83,11 @@ export default withRouter(({ location : {pathname} })=>(
                 <Item current={pathname === "/mersandsars"}>
                     <SLink to="/mersandsars">Mers and Sars </SLink>
                 </Item>
-                <Item current={pathname === "/smallpox"}>
-                    <SLink to="/smallpox">Smallpox </SLink>
-                </Item>
                 <Item current={pathname === "/comparison"}>
                     <SLink to="/comparison">Comparison </SLink>
+                </Item>
+                <Item current={pathname === "/smallpox"}>
+                    <SLink to="/smallpox">Smallpox </SLink>
                 </Item>
                 <Item current={pathname === "/upload"}>
                     <SLink to="/upload">Upload </SLink>
@@ -100,11 +100,9 @@ export default withRouter(({ location : {pathname} })=>(
                 </Item>
                 <Item>
                 </Item>
-                <Item>
-                </Item>
-                <Item current={pathname === "/login"}>
+                {/*<Item current={pathname === "/login"}>
                     <StyledLink to="/login">Login </StyledLink>
-                </Item>
+                </Item>*/}
             </List>
         </Header>
     )
