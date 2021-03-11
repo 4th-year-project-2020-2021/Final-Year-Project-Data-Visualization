@@ -36,11 +36,16 @@ export default function Navbar(){
                     <Link to="/smallpox">Smallpox </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <Link to="/create">Create </Link>
+                    <Link to="/sandbox" name="Sandbox">Sandbox </Link>
                 </Menu.Item>
+                {authenticated &&
+                <Menu.Item>
+                    <Link to="/create">Create </Link>
+                </Menu.Item>}
+                {authenticated &&
                 <Menu.Item>
                     <Link to="/item">Items</Link>
-                </Menu.Item>
+                </Menu.Item>}
                 {authenticated &&
                 <Menu.Item>
                     <Link to="/upload">Upload </Link>

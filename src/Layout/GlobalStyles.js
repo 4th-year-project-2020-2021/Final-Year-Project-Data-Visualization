@@ -28,11 +28,6 @@ const globalStyles = createGlobalStyle`
         width: 100%;
     }
 
-    /* Add a hover effect for buttons */
-    button:hover {
-        opacity: 0.8;
-    }
-
     svg {
         display: inline-block;
         vertical-align: middle;

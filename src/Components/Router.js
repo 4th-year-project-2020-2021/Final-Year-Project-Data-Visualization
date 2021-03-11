@@ -10,6 +10,7 @@ import Header from '../Nav/Navbar';
 import Create from '../Routes/Create';
 import Item from '../Routes/Item'
 import Stats from 'Routes/Stats';
+import Sandbox from '../sandbox/Sandbox';
 
 function Router(){
     return (
@@ -29,6 +30,7 @@ function Router(){
                    <Route path="/upload" component={Upload} />
                    <Route path="/create" component={Create}/>
                    <Route path="/item" component={Item} />
+                   <Route path="/sandbox" component={Sandbox} />
                    <Redirect from="*" to="/" />
                 </>
           </Switch>
