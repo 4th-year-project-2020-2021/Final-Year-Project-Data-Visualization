@@ -28,6 +28,7 @@ function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
+  /*
   const onSubmitClick = (e)=>{
     e.preventDefault()
     console.log("You pressed login")
@@ -51,7 +52,7 @@ function Login() {
         }
       })
   }
-
+*/
   const handleUsernameChange = (e) => {
     setUsername(e.target.value)
   }
@@ -81,6 +82,12 @@ function Login() {
           value={password}
         />
       </div>
+<<<<<<< HEAD
+=======
+      {/*<button onClick={onSubmitClick} type="submit">
+        Login Now
+  </button>*/}
+>>>>>>> 79868c48820c1a39bfe666b3124a9ac4b9766710
     </form>
     : <button onClick={() => logout()}>Logout</button>}
   </Wrapper>

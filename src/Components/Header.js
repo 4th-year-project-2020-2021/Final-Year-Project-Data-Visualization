@@ -100,6 +100,12 @@ export default withRouter(({ location : {pathname} })=>(
                 </Item>
                 <Item>
                 </Item>
+<<<<<<< HEAD
+=======
+                {/*<Item current={pathname === "/login"}>
+                    <StyledLink to="/login">Login </StyledLink>
+                </Item>*/}
+>>>>>>> 79868c48820c1a39bfe666b3124a9ac4b9766710
             </List>
         </Header>
     )
