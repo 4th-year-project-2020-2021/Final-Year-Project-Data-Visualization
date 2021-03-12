@@ -10,7 +10,7 @@ import {BrowserRouter} from 'react-router-dom';
 const store = configureStore();
 console.log(store.getState());
 
-ReactDOM.render( <Provider store={store}> <BrowserRouter><ScrollToTop /><App /></BrowserRouter></Provider>, document.getElementById('root'));
+ReactDOM.render( <Provider store={store}><BrowserRouter><ScrollToTop /><App /></BrowserRouter></Provider>, document.getElementById('root'));
 
 
 

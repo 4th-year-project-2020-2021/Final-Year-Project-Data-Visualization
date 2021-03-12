@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import { Menu, Container, Button } from 'semantic-ui-react';
-import SignedOutMenu from './SignedOutMenu';
-import SignedInMenu from './SignedInMenu';
+import { Menu, Container } from 'semantic-ui-react';
+import SignedOutMenu from '../SignInOutMenu/SignedOutMenu';
+import SignedInMenu from '../SignInOutMenu/SignedInMenu';
 
 export default function Navbar(){
 
@@ -36,16 +36,14 @@ export default function Navbar(){
                     <Link to="/smallpox">Smallpox </Link>
                 </Menu.Item>
                 <Menu.Item>
-                    <Link to="/sandbox" name="Sandbox">Sandbox </Link>
+                    <Link to="/loginForm" name="Sandbox">LoginForm </Link>
                 </Menu.Item>
-                {authenticated &&
                 <Menu.Item>
                     <Link to="/create">Create </Link>
-                </Menu.Item>}
-                {authenticated &&
+                </Menu.Item>
                 <Menu.Item>
                     <Link to="/item">Items</Link>
-                </Menu.Item>}
+                </Menu.Item>
                 {authenticated &&
                 <Menu.Item>
                     <Link to="/upload">Upload </Link>

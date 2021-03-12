@@ -11,11 +11,15 @@ import Create from '../Routes/Create';
 import Item from '../Routes/Item'
 import Stats from 'Routes/Stats';
 import Sandbox from '../sandbox/Sandbox';
+import LoginForm from '../auth/LoginForm';
+import ModalManager from '../modals/ModalManager';
+
 
 function Router(){
     return (
         <Browser>
           <>
+            <ModalManager />
             <Header />
             <Switch>
                 <>
@@ -31,6 +35,7 @@ function Router(){
                    <Route path="/create" component={Create}/>
                    <Route path="/item" component={Item} />
                    <Route path="/sandbox" component={Sandbox} />
+                   <Route path="/loginForm" component={LoginForm} />
                    <Redirect from="*" to="/" />
                 </>
           </Switch>

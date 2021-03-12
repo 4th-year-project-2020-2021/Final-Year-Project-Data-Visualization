@@ -15,19 +15,7 @@ const globalStyles = createGlobalStyle`
             rgb(32, 167, 172) 89%
         )
     };
-
-
-    /* Set a style for all buttons */
-    button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 100%;
-    }
-
+    
     svg {
         display: inline-block;
         vertical-align: middle;
