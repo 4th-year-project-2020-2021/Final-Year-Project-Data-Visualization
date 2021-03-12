@@ -35,18 +35,15 @@ export default function Navbar(){
                 <Menu.Item>
                     <Link to="/smallpox">Smallpox </Link>
                 </Menu.Item>
-                {authenticated &&
                 <Menu.Item>
                     <Link to="/create">Create </Link>
-                </Menu.Item>}
-                {authenticated &&
+                </Menu.Item>
                 <Menu.Item>
                     <Link to="/item">Items</Link>
-                </Menu.Item>}
-                {authenticated &&
+                </Menu.Item>
                 <Menu.Item>
                     <Link to="/upload">Upload </Link>
-                </Menu.Item>}
+                </Menu.Item>
                 {authenticated ? (
                     <SignedInMenu signOut={handleSignOut}/>
                 ) :  (
