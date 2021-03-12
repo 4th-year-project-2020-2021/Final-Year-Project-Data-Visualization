@@ -1,21 +1,26 @@
-.app_header {
+/* Flex box */
+.app__header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     justify-content: space-between;
 }
+/* Total cases card*/
 .totalC {
     text: black;
     margin: "10px"
 }
+/* Total deaths card*/
 .totalD {
     text: black;
     margin: "10px"
 }
+/* Total recovered card*/
 .totalR {
     text: black;
     margin: "10px"
 }
+/* Pins google map styling*/
 .map {
     height: 500px;
     background-color: white;
@@ -27,14 +32,19 @@
 .map .leaflet-container {
     height: 100%;
 }
+/* Aligning parts to left of the screen */
 .app__left {
     flex: 0.8;
 }
+
 .app {
     display: flex;
     justify-content: space-evenly;
     background-color: #f5f6fa;
     padding: 20px;
+}
+body {
+    background-color: #f5f6fa;
 }
 .app__information > h3 {
     color: #6a5d5d;
@@ -63,6 +73,15 @@
 .table tr:nth-of-type(odd) {
     background-color: #f3f2f8;
 }
+.app__stats{
+    display: flex;
+    justify-content: space-between;
+}
+.app__stats2{
+    display: flex;
+    justify-content: space-between;
+}
+/* Responsive app - min screen size set to 990px */
 @media (max-width: 990px) {
     .app {
         flex-direction: column;
