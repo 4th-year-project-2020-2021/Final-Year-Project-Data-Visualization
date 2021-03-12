@@ -8,8 +8,12 @@ import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
 import Table from "../Table";
-import { CardContent } from '@material-ui/core';
+import { CardContent, FormControlLabel, Select } from '@material-ui/core';
 import { sortData } from "../util";
+import { MenuItem, FormControl } from "@material-ui/core";
+import InfoBox from '../InfoBox';
+import InfoBox2 from '../InfoBox2';
+import Map from "../Map";
 import "../CSSFiles/styling.css";
 
 // Referances
@@ -40,7 +44,46 @@ function Covid19(){
         // If search and country the same -> return info
         return item.country  === searchCountry;
     })
+    // Select country, default = worldwide
+    const[country, setSelectCountry] = useState('worldwide');
+    // Drop down list
+    const [dropcountries, setDropDownCountries] = useState([]);
+    const[countryInfo, setCountryInfo] = useState({});
+
+
+    useEffect(() => {
+        fetch("https://disease.sh/v3/covid-19/all")
+          .then((response) => response.json())
+          .then((data) => {
+            setCountryInfo(data);
+          });
+      }, []);
+       
+    // useEffect runs a piece of code based
+    // on a given condition
+    useEffect(() => {
+        // Code run once when the component loads
+        // and not again
         
+        const getDropDownCountries = async() => {
+        // Send a req to server, wait, do something
+        await fetch("https://disease.sh/v3/covid-19/countries")
+        .then((response) => response.json())
+        .then((data) => {
+            // Restructure countries 
+            const dropcountries = data.map((country)=>({
+                name: country.country, // e.g. Ireland
+                value: country.countryInfo.iso2, // e.g. IRE
+            }));
+
+            setDropDownCountries(dropcountries);
+            setTableData(data);
+        });
+    };
+    // calling the function
+    getDropDownCountries();
+},[]);
+
     // Dealing with two APIs at once
     useEffect(() => {
         axios
@@ -125,55 +168,67 @@ function Covid19(){
         query: 'min-width: 1000px'
     }];
 
+    // When click country on a drop down it prints the 
+    // country code to console
+    const onCountryChange = async(event) => {
+        const countryCode = event.target.value;
+
+        // Testing
+        console.log("Testing code: ", countryCode);
+
+        // Allow selected country to be listed instead 
+        // of "Worldwide"
+        setSelectCountry(countryCode);
+
+        const url =
+        countryCode === "worldwide"
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+        
+        await fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            // Store selected country
+            setSelectCountry(countryCode);
+            // Store responce
+            setCountryInfo(data);
+        });
+    };
+
+    console.log("Country info", countryInfo);
+
     return(
         <div>  
             <div className="app">
-                <div className="app__left"> 
-                    <h1 className="app_header">COVID-19 Live</h1>
-                    <CardDeck>
-                        <Card className="totalC">
-                            <Card.Body>
-                            <Card.Title>Global Cases</Card.Title>
-                            <NumberFormat
-                                value={latest.cases} 
-                                displayType={'text'} 
-                                thousandSeparator={true}>
-                            </NumberFormat>
-                            </Card.Body>
-                            <Card.Footer>
-                            {lastUpdated}
-                            </Card.Footer>
-                        </Card>
-                        <Card className="totalD">
-                            <Card.Body>
-                            <Card.Title>Global Deaths</Card.Title>
-                            <NumberFormat
-                                value={latest.deaths} 
-                                displayType={'text'} 
-                                thousandSeparator={true}>
-                            </NumberFormat>
-                            </Card.Body>
-                            <Card.Footer>
-                            {lastUpdated}
-                            </Card.Footer>
-                        </Card>
-                        <Card className="totalR">
-                            <Card.Body>
-                            <Card.Title>Global Recovered</Card.Title>
-                            <NumberFormat
-                                value={latest.recovered} 
-                                displayType={'text'} 
-                                thousandSeparator={true}>
-                            </NumberFormat>
-                            </Card.Body>
-                            <Card.Footer>
-                            {lastUpdated}
-                            </Card.Footer>
-                        </Card>
-                    </CardDeck> 
-                
+            <div className="app__left">
+                    <div className="app_header">
+                        <h1>COVID-19 Live</h1>
+                        <br></br>
+                    <FormControl className="app__dropdown">
+                        <Select variant="outlined" onChange={onCountryChange} value={country}>
+                            <MenuItem value="worldwide">Worldwide</MenuItem>
+                            { dropcountries.map(country =>(
+                                <MenuItem value={country.value}>{country.name}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+                </div>
 
-                    <div className="map" style={{ height: '80vh', width: '70%' }}>
+                <br></br>
+
+                <div className="app__stats">
+                    <InfoBox title="Cases today & total cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
+                    <InfoBox title="Recovered today & total recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
+                    <InfoBox title="Deaths today & total deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+                </div>
+
+                <br></br>
+
+                <Map></Map>
+
+                <br></br>
+                    <h1 className="app__header">Total cases per country</h1>
+                    <div className="map" style={{ height: '80vh', width: '100%' }}>
                         <GoogleMapReact
                             bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                             defaultCenter={{lat: 28, lng: 3}}
@@ -184,33 +239,21 @@ function Covid19(){
                         </GoogleMapReact>
                     </div>  
                     <br></br>
-                    <Form>
-                        <Form.Group controlId="formGroupSearch">
-                            <h3> Search a single Country (Country data updated every evening)</h3>
-                            <br></br>
-                            <Form.Control
-                                type="text"
-                                font-size="20"
-                                placeholder="Search a Country"
-                                onChange={e => setSearchCountries(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Columns queries={queries}> {countries} </Columns>
-                    </Form> 
+                   </div> 
                     
-                    </div>
-
+                  
                 <Card className="app__right">
                     <CardContent>
                         <div className="app_information">
                             <h2>Live Cases by Country</h2>
-                            <Table countries={latest.recovered} />
+                            <Table countries={tableData} />
                             <h3>Worldwide</h3>
                         </div>
                     </CardContent>
                 </Card>    
             </div>
-            </div> 
+            </div>
+            
     );
 }
 
