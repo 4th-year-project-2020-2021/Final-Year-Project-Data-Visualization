@@ -61,7 +61,7 @@
 
 
 ## Program Overview
-Our final year project is based on the data visualization and analysis of various viruses such as COVID-a9, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
+Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
 
 ## Software Requirements
 - [Visual Studio Code](https://code.visualstudio.com/download)
@@ -69,16 +69,17 @@ Our final year project is based on the data visualization and analysis of variou
 - [cmder](https://cmder.net/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_emea_ireland_search_core_brand_atlas_desktop&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624527&gclid=Cj0KCQiA-aGCBhCwARIsAHDl5x8_dfnh9PWedNlnlRjFzg8yn4SIV5UxJTl9bBAb7SfrZy6IE2JXCdoaAp7tEALw_wcB)
 - [git](https://git-scm.com/downloads)
+- [Heroku](https://www.heroku.com/)
 
 
 ## Running the Program
-To get started developing right away:
+To get started developing the right away:
 
 1) `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
 
-2) install all project dependencies with  `npm install`
+2) Install all project dependencies with  `npm install`
 
-3) start the development server with `npm start`
+3) Start the development server with `npm start`
 
 4) Navigate to http://localhost:3000/ on your browser.
 
@@ -106,16 +107,20 @@ $ python -m flask run
 
 - Writing code using D3, JavaScript, and React Hooks.
 
+- JWT (Json Web Token) will be used to authenticate users.
+
 - Architecture image goes here**
 
 ## Designated Tasks
 ### Grace - Covid-19 component & Home component
 
-- [x] World Map using API
-- [x] Search 
+- [x] World Maps using API
+- [x] Glabal data cards
+- [x] Drop down function
+- [x] Covid-19 table
+- [ ] Interactive Covid-19 map
 - [ ] Covid-19 Line Graph
 - [ ] Home Screen
-- [ ] Deploy to Heroku
 
 ### Jina - Mers and Sars component & Comparison component & User login functionality
 
@@ -127,21 +132,21 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Add line charts.
 - [x] Add Pie charts.
 - [x] User Authentication using Firebase .  -- Deleted!
-- [ ] Firebase is used to authenticate users
-- [ ] Used Firestore
+- [ ] Implement JWT (Json Web Token) is used to authenticate users
 
 ### Shirin - Smallpox component & Upload component
 
 - [x] World Map 
+- [x] Connection to MongoDB Atlas
 - [ ] Auto Generated Graph
 - [ ] Flask backend
 - [ ] API routes for connecting to MongoDB Atlas
-- [x] Connection to MongoDB Atlas
 
 ## Screens
 
 - [x] Home
 - [x] Covid-19
+- [x] Stats
 - [x] Mers and Sars
 - [x] Small pox
 - [x] Comparison
@@ -158,5 +163,4 @@ The main purpose of every work is that making interactive visualization applicat
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
 [9] flask-praetorian - https://flask-praetorian.readthedocs.io/en/latest/index.html<br>
 [10] Smallpox data https://ourworldindata.org/smallpox<br>
-[11] <br>
 

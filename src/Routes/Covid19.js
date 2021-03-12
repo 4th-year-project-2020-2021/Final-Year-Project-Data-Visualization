@@ -7,14 +7,14 @@ import Columns from 'react-columns'
 import Form from 'react-bootstrap/Form'
 import GoogleMapReact from 'google-map-react';
 import NumberFormat from 'react-number-format';
-import Table from "../Table";
+import Table from "../CovidComponents/Table";
 import { CardContent, FormControlLabel, Select } from '@material-ui/core';
-import { sortData } from "../util";
+import { sortData } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
-import InfoBox from '../InfoBox';
-import InfoBox2 from '../InfoBox2';
-import Map from "../Map";
-import "../CSSFiles/styling.css";
+import InfoBox from '../CovidComponents/InfoBox';
+import InfoBox2 from '../CovidComponents/InfoBox2';
+import Map from "../CovidComponents/Map";
+import "../css/styling.css";
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/

@@ -1,6 +1,6 @@
 import React from "react";
 import numeral from "numeral";
-import "./CSSFiles/styling.css";
+import "../css/styling.css";
 
 function Table({ countries }) {
   return (
