@@ -7,7 +7,7 @@ const globalStyles = createGlobalStyle`
         background-color: #eaeaea;
     }
 
-    .ui.fixed.menu {
+    .ui.menu {
         background-image: linear-gradient(
             135deg, 
             rgb(24, 42, 115) 0%, 
@@ -15,7 +15,7 @@ const globalStyles = createGlobalStyle`
             rgb(32, 167, 172) 89%
         )
     };
-    
+
     svg {
         display: inline-block;
         vertical-align: middle;
