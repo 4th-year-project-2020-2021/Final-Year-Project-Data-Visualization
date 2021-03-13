@@ -15,6 +15,7 @@ import LoginForm from '../auth/LoginForm';
 import Sandbox from 'sandbox/Sandbox';
 import { Container } from 'semantic-ui-react';
 import ModalManager from 'modals/ModalManager';
+import RegisterForm from 'auth/RegisterForm';
 
 
 export default function Router() {
@@ -45,8 +46,8 @@ export default function Router() {
                 <Route path="/upload" component={Upload} />
                 <Route path="/create" component={Create}/>
                 <Route path="/item" component={Item} />
-                <Route path="/sandbox" component={Sandbox} />
                 <Route path="/loginForm" component={LoginForm} />
+                <Route path="/registerform" component={RegisterForm} />
                 <Redirect from="*" to="/" />
             </Container>
       </>

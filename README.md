@@ -94,12 +94,13 @@ $ python -m flask run
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-- [x] Interactive Bar charts.
+- [x] Interactive Bar charts with dropdown Flicking between datasets.
 - [x] Scatter plots.
-- [x] Line charts.
+- [x] Line graphs.
 - [x] Pie chart.
-- [x] Firebase is used for User Authentication 
+- [x] Login - Firebase is used for User Authentication 
 - [ ] Redux is used for managing states (User's data)
+- [ ] Register
 
 ### Shirin - Smallpox component & Upload component
 

@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { Menu, Container } from 'semantic-ui-react';
 import SignedOutMenu from '../SignInOutMenu/SignedOutMenu';
 import SignedInMenu from '../SignInOutMenu/SignedInMenu';
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 
-export default function Navbar({setFormOpen}){
-    //const { authenticated } = useSelector(state => state.auth);
+export default function Navbar({ setFormOpen }) {
+    //authenticated state from the store
+    //const { authenticated } = useSelector(state => state.auth); //it has a error
+
     const history = useHistory(); //temp --> this needs to be changed
     const [authenticated, setauthenticated] = useState(false); //--temp  --> this needs to be changed
-
+    
     return(
         <Menu inverted>
             <Container>
@@ -22,8 +24,8 @@ export default function Navbar({setFormOpen}){
                 <Menu.Item as={NavLink} to='/create'>Create</Menu.Item>
                 <Menu.Item as={NavLink} to='/item'>Items</Menu.Item>
                 <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item>
-                <Menu.Item as={NavLink} to='/sandbox'>Testing</Menu.Item>
-                <Menu.Item as={NavLink} to='/loginform'></Menu.Item>
+                <Menu.Item as={NavLink} to='/loginform'>LoginForm</Menu.Item>
+                <Menu.Item as={NavLink} to='/registerform'>RegisterForm</Menu.Item>
                 {authenticated ? (
                     <SignedInMenu />
                 ) :  (

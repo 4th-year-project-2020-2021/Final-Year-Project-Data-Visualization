@@ -8,14 +8,15 @@ export default function SignedOutMenu({setAuthenticated}) {
 
     const dispatch = useDispatch();
 
-    return (
-        //<Menu.Item position='right'>  -- modal not working at present
-
+    return (  
         //this is temp
-        <Menu.Item position='right' as={NavLink} to='/loginForm'>  
+        //<Menu.Item position='right' as={NavLink} to='/loginForm'> 
+
+        //modal doesn't work at present
+        <Menu.Item position='right'>
             <Button onClick={ () => dispatch(openModal({modalType: 'LoginForm'})) } basic inverted 
                 content='Login' />
-            <Button 
+            <Button onClick={ () => dispatch(openModal({modalType: 'RegisterForm'})) }
                 basic 
                 inverted 
                 content='Register' 
