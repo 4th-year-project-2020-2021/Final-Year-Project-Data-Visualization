@@ -69,13 +69,11 @@ $ python -m flask run
 
 - Heroku Cloud Platform for deploying API and React App.
 
-- D3 for Data visualization.
+- D3 for Data visualization. (Inside Mers,Sars,Comparison components)
 
-- Firebase Realtime Database for user authenticaton and storing datasets (Mers, Sars, Comparison)
+- Firebase Realtime Database for user authenticaton and storing Mers, Sars, Comparison datasets.
 
 - Redux to store the state of user's data
-
-- JWT (Json Web Token) will be used to authenticate users.
 
 - Architecture image goes here**
 
@@ -96,21 +94,12 @@ $ python -m flask run
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-<<<<<<< HEAD
 - [x] Interactive Bar charts.
 - [x] Scatter plots.
 - [x] Line charts.
 - [x] Pie chart.
-- [ ] Firebase is used for User Authentication 
-- [ ] Redux is used for managing user's data
-=======
-- [x] Create interactive bar charts.
-- [x] Add scatter plots.
-- [x] Add line charts.
-- [x] Add Pie charts.
-- [x] User Authentication using Firebase .  -- Deleted!
-- [ ] Implement JWT (Json Web Token) is used to authenticate users
->>>>>>> 1211dbca74b5d12ce6c713e161f850ef270caf54
+- [x] Firebase is used for User Authentication 
+- [ ] Redux is used for managing states (User's data)
 
 ### Shirin - Smallpox component & Upload component
 
@@ -130,6 +119,7 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Small pox
 - [x] Upload
 - [X] Login
+- [X] Register
 
 ## API/ CSV file and information Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
@@ -140,11 +130,6 @@ The main purpose of every work is that making interactive visualization applicat
 [6] Sars - https://www.who.int/csr/sars/country/2003_07_11/en/<br>
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
-<<<<<<< HEAD
 [9] Smallpox data https://ourworldindata.org/smallpox<br>
 [10] <br>
-=======
-[9] flask-praetorian - https://flask-praetorian.readthedocs.io/en/latest/index.html<br>
-[10] Smallpox data https://ourworldindata.org/smallpox<br>
->>>>>>> 1211dbca74b5d12ce6c713e161f850ef270caf54
 
