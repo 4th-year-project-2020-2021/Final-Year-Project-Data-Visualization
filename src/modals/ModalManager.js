@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import LoginForm from '../auth/LoginForm';
+import TestModal from '../sandbox/TestModal';
 
-export default function ModalManager(){
+export default function ModalManager() {
     const modalLookup = {
+        TestModal,
         LoginForm
     };
 
@@ -16,5 +18,5 @@ export default function ModalManager(){
         renderedModal = <ModalComponent {...modalProps} />;
     }
 
-    return <span>{renderedModal}</span>
+    return <span>{renderedModal}</span>;
 }

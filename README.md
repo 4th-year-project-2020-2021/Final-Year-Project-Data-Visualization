@@ -8,7 +8,6 @@
 
 ## Contents
 - [Group Members](#group-members)
-- [Repository Description](#repository-description)
 - [Program Overview](#program-overview)
 - [Software Requirements](#software-requirements)
 - [Running the Program](#running-the-program)
@@ -24,41 +23,6 @@
 |    Jina Kim   |    G00353420    | 
 |  Shirin Nagle |    G00363458    | 
 |  Grace Keane  |    G00359990    | 
-
-## Repository Description 
-
-```bash
-├── README.md - This file.
-├── package.json # npm package manager file. 
-├── public
-│   ├── favicon.ico 
-│   └── index.html 
-└── src
-    ├── Components
-    │   ├── GlobalStyle.js # Global styles.
-    │   ├── App.js # This is the root of this app. 
-    │   ├── ChartWrapper1.js # Container for D3MersSars.js
-    │   ├── ChartWrapper2.js # Container for D3Comparison.js
-    │   ├── Header.js # It displays Navbar
-    │   └── Router.js # It enables the navigation among views of various components in this web application.
-    ├── D3 # Data visualization with D3 - All codes are written in JavaScript.
-    │   ├── D3Comparison.js # It shows how COVID-19 compares to past epidemics. e.g. Mers, Sars and covid-19.
-    │   ├── D3MersSars.js # It displays various graphs and comparison of Mers and Sars viruses.
-    │   ├── D3Piechart.js # It displays a pie chart (% of covid-19 deaths between men and women).
-    │   ├── SymptomDropdown.js # It contains dropdown button to display three different datasets(Covid-19, Mers,Sars symptoms) flicking between them. 
-    │   └── VirusDropdown.js # It contains dropdown button to display two different datasets(Mers and Sars) flicking between them.
-    ├── LoginForm
-    │   └── Login.js # It contains login functionality.
-    ├── Routes
-    │   ├── Comparison.js # Container for D3Comparison.js
-    │   ├── Covid19.js # Live Covid-19 map, search & database statistics
-    │   ├── Home.js # Home screen code
-    │   ├── MersAndSars.js  # Container for D3MerSars.js
-    │   ├── Smallpox.js 
-    │   └── Upload.js 
-    └── index.js # It is used for DOM rendering only.
-```
-
 
 ## Program Overview
 Our final year project is based on the data visualization and analysis of various viruses such as COVID-a9, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
@@ -104,11 +68,16 @@ $ python -m flask run
 
 - Heroku Cloud Platform for deploying API and React App.
 
-- Writing code using D3, JavaScript, and React Hooks.
+- D3 for Data visualization.
+
+- Firebase Realtime Database for user authenticaton and storing datasets (Mers, Sars, Comparison)
+
+- Redux to store the state of user's data
 
 - Architecture image goes here**
 
 ## Designated Tasks
+
 ### Grace - Covid-19 component & Home component
 
 - [x] World Map using API
@@ -117,18 +86,17 @@ $ python -m flask run
 - [ ] Home Screen
 - [ ] Deploy to Heroku
 
-### Jina - Mers and Sars component & Comparison component & User login functionality
+### Jina - Mers and Sars component & Comparison component & User login functionality (Firebase & Redux)
 
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-- [x] Create interactive bar charts.
-- [x] Add scatter plots.
-- [x] Add line charts.
-- [x] Add Pie charts.
-- [x] User Authentication using Firebase .  -- Deleted!
-- [ ] Firebase is used to authenticate users
-- [ ] Used Firestore
+- [x] Interactive Bar charts.
+- [x] Scatter plots.
+- [x] Line charts.
+- [x] Pie chart.
+- [ ] Firebase is used for User Authentication 
+- [ ] Redux is used for managing user's data
 
 ### Shirin - Smallpox component & Upload component
 
@@ -143,9 +111,10 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Home
 - [x] Covid-19
 - [x] Mers and Sars
-- [x] Small pox
 - [x] Comparison
+- [x] Small pox
 - [x] Upload
+- [X] Login
 
 ## API/ CSV file and information Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
@@ -156,7 +125,6 @@ The main purpose of every work is that making interactive visualization applicat
 [6] Sars - https://www.who.int/csr/sars/country/2003_07_11/en/<br>
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
-[9] flask-praetorian - https://flask-praetorian.readthedocs.io/en/latest/index.html<br>
-[10] Smallpox data https://ourworldindata.org/smallpox<br>
-[11] <br>
+[9] Smallpox data https://ourworldindata.org/smallpox<br>
+[10] <br>
 

@@ -5,6 +5,8 @@ import MyTextInput from '../form/MyTextInput';
 import ModalWrapper from '../modals/ModalWrapper';
 import { Button } from 'semantic-ui-react';
 import { useDispatch } from 'react-redux';
+import { signInUser } from './authAction';
+import { closeModal } from 'modals/modalReducer';
 
 
 export default function LoginForm(){
@@ -18,8 +20,10 @@ export default function LoginForm(){
                     email: Yup.string().required().email(),
                     password: Yup.string().required()
                 })}
-                onSubmit={values =>{
-                    console.log(values);
+                onSubmit={(values, {setSubmitting}) =>{
+                    dispatch(signInUser(values));
+                    setSubmitting(false);
+                    dispatch(closeModal);
                 }}
             >
                 {({isSubmitting, isValid, dirty}) => (
