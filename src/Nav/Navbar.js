@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, Container } from 'semantic-ui-react';
 import SignedOutMenu from '../SignInOutMenu/SignedOutMenu';
 import SignedInMenu from '../SignInOutMenu/SignedInMenu';
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 
 export default function Navbar({ setFormOpen }) {
@@ -24,8 +24,6 @@ export default function Navbar({ setFormOpen }) {
                 <Menu.Item as={NavLink} to='/create'>Create</Menu.Item>
                 <Menu.Item as={NavLink} to='/item'>Items</Menu.Item>
                 <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item>
-                <Menu.Item as={NavLink} to='/loginform'>LoginForm</Menu.Item>
-                <Menu.Item as={NavLink} to='/registerform'>RegisterForm</Menu.Item>
                 {authenticated ? (
                     <SignedInMenu />
                 ) :  (

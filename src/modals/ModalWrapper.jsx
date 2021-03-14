@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Modal } from 'semantic-ui-react';
 import { closeModal } from './modalReducer';
 
-export default function ModalWrapper({children, size, header}){
+export default function ModalWrapper({children, size, header}) {
     const dispatch = useDispatch();
 
     return (

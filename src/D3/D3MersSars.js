@@ -13,7 +13,7 @@ const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
-const WIDTH3 = 560 - MARGIN.LEFT - MARGIN.RIGHT;
+const WIDTH3 = 540 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT3 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class D3Comparison{
@@ -173,7 +173,7 @@ export default class D3Comparison{
              .attr("x", 9)
              .attr("dy", ".35em")
              .attr("transform", "rotate(50)")
-             .style("fill","gold")
+             .style("fill","blue")
              .style("font", "15px sans-serif")
              .style("text-anchor", "start");
 
@@ -312,7 +312,7 @@ export default class D3Comparison{
              .attr("x", 9)
              .attr("dy", ".35em")
              .attr("transform", "rotate(50)")
-             .style("fill","gold")
+             .style("fill","blue")
              .style("font", "15px sans-serif")
              .style("text-anchor", "start");
   
@@ -564,7 +564,7 @@ export default class D3Comparison{
        .attr("x", 9)
        .attr("dy", ".35em")
        .attr("transform", "rotate(30)")
-       .style("fill","white")
+       .style("fill","black")
        .style("font", "15px sans-serif")
        .style("text-anchor", "start");
 
@@ -587,8 +587,8 @@ export default class D3Comparison{
         .attr("y", HEIGHT3 - 200)
         .attr("text-anchor","middle")
         .text("China has the most infected cases and deaths")
-        .style("stroke", "white")
-        .style("fill","white")
+        .style("stroke", "red")
+        .style("fill","red")
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
 
@@ -773,7 +773,7 @@ export default class D3Comparison{
     .text(d=>"No. "+ d.Recovered)
     .attr("font-family" , "sans-serif")
     .attr("font-size" , "10px")
-    .attr("fill" , "white")
+    .attr("fill" , "black")
 })// End Sars outbreak 3
 
 

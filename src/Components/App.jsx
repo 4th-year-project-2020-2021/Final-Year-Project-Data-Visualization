@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import Home from '../Routes/Home';
@@ -11,14 +10,11 @@ import Navbar from '../Nav/Navbar';
 import Create from '../Routes/Create';
 import Item from '../Routes/Item'
 import Stats from 'Routes/Stats';
-import LoginForm from '../auth/LoginForm';
-import Sandbox from 'sandbox/Sandbox';
 import { Container } from 'semantic-ui-react';
 import ModalManager from 'modals/ModalManager';
-import RegisterForm from 'auth/RegisterForm';
 
 
-export default function Router() {
+function App() {
   const [formOpen, setFormOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
 
@@ -35,7 +31,8 @@ export default function Router() {
   return (
     <>
       <ModalManager />
-            <Navbar setFormOpen={handleCreateFormOpen} />
+        <>
+          <Navbar setFormOpen={handleCreateFormOpen} />
             <Container className='main'>
                 <Route exact path='/' component={Home} />
                 <Route path="/covid19" component={Covid19} />
@@ -46,11 +43,11 @@ export default function Router() {
                 <Route path="/upload" component={Upload} />
                 <Route path="/create" component={Create}/>
                 <Route path="/item" component={Item} />
-                <Route path="/loginForm" component={LoginForm} />
-                <Route path="/registerform" component={RegisterForm} />
                 <Redirect from="*" to="/" />
             </Container>
-      </>
+        </>
+    </>
     )
 }
 
+export default App;
