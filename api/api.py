@@ -4,7 +4,7 @@ from flask_cors import CORS
 #import matplotlib.pyplot as plt
 #from pymongo import MongoClient
 #from pymongo.errors import ConnectionFailure, InvalidName
-from routes import indexRoute, createRoute, itemRoute
+from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute
 import os
 import flask
 import flask_sqlalchemy
@@ -13,6 +13,7 @@ import flask_cors
 import jwt
 from flask_sqlalchemy import SQLAlchemy
 
+app = flask.Flask(__name__)
 db = flask_sqlalchemy.SQLAlchemy()
 guard = flask_praetorian.Praetorian()
 cors = flask_cors.CORS()
@@ -48,7 +49,7 @@ class User(db.Model):
         return self.is_active
 
 # Initialize flask app for the example
-app = flask.Flask(__name__)
+
 app.debug = True
 app.config['SECRET_KEY'] = 'top secret'
 app.config['JWT_ACCESS_LIFESPAN'] = {'hours': 24}
