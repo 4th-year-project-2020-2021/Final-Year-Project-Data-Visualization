@@ -119,7 +119,7 @@ $ python -m flask run
 - [x] Drop down function
 - [x] Covid-19 table
 - [ ] Interactive Covid-19 map
-- [ ] Covid-19 Line Graph
+- [x] Covid-19 last 120 days Line Graph
 - [ ] Home Screen
 
 ### Jina - Mers and Sars component & Comparison component & User login functionality

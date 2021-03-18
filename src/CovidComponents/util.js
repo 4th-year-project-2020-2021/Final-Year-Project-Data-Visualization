@@ -1,12 +1,12 @@
-import React from "react";
-
+// Class to sort listed data from highest to lowest cases
 export const sortData = (data) => {
-    let sortedData = [...data];
+    const sortedData = [...data];
+    
     sortedData.sort((a, b) => {
       if (a.cases > b.cases) {
-        return -1;
+        return -1; // False
       } else {
-        return 1;
+        return 1; // True
       }
     });
     return sortedData;
