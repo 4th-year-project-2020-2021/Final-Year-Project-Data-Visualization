@@ -11,7 +11,6 @@ import InfoBox from '../CovidComponents/InfoBox';
 import Map from "../CovidComponents/Map";
 import LineGraph from "../CovidComponents/LineGraph";
 import "../css/styling.css";
-//import "leaflet/dist/leaflet.css";
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/

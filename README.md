@@ -49,16 +49,26 @@
     │   └── VirusDropdown.js # It contains dropdown button to display two different datasets(Mers and Sars) flicking between them.
     ├── LoginForm
     │   └── Login.js # It contains login functionality.
+    ├── css
+    │   ├── styling.css # Covid-19 page styling
+    ├── CovidComponents
+    │   ├── InfoBox.js
+    │   ├── InfoBox2.js  
+    │   ├── LineGraph.js 
+    │   ├── Map.js 
+    │   ├── Table.js 
+    │   ├── util.js 
     ├── Routes
     │   ├── Comparison.js # Container for D3Comparison.js
-    │   ├── Covid19.js # Live Covid-19 map, search & database statistics
+    │   ├── Covid19.js # Live interactive Covid-19 maps, cards and a line graph
+    │   ├── Stats.js # Database visuals & statistics
     │   ├── Home.js # Home screen code
     │   ├── MersAndSars.js  # Container for D3MerSars.js
     │   ├── Smallpox.js 
     │   └── Upload.js 
     └── index.js # It is used for DOM rendering only.
+    
 ```
-
 
 ## Program Overview
 Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
