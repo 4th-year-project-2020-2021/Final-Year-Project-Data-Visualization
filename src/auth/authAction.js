@@ -1,4 +1,4 @@
-import {SIGN_IN_USER, SIGN_OUT_USER} from './authConstants';
+import {SIGN_IN_USER, SIGN_OUT_USER} from './authConstants.js';
 import firebase from '../config/firebase';
 import { dispatch } from 'd3-dispatch';
 
