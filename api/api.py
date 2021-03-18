@@ -7,6 +7,14 @@ from flask_cors import CORS
 from routes import indexRoute, createRoute, itemRoute
 import os
 import flask
+
+app = Flask(__name__)
+CORS(app) # wrap app in CORS
+
+# register the blueprints
+app.register_blueprint(indexRoute)
+app.register_blueprint(createRoute)
+app.register_blueprint(itemRoute)
   
 @app.route('/time')
 def get_current_time():
