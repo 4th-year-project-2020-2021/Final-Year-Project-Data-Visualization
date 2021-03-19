@@ -2,9 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal } from 'semantic-ui-react';
 import { closeModal } from './modalReducer';
-//import LoginForm from '../auth/LoginForm';
 
-export default function ModalWrapper({children, size, header}){
+export default function ModalWrapper({children, size, header}) {
     const dispatch = useDispatch();
 
     return (
