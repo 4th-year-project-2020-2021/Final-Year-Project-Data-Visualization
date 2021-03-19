@@ -24,6 +24,52 @@
 |  Shirin Nagle |    G00363458    | 
 |  Grace Keane  |    G00359990    | 
 
+
+## Repository Description 
+
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. 
+├── public
+│   ├── favicon.ico 
+│   └── index.html 
+└── src
+    ├── Components
+    │   ├── GlobalStyle.js # Global styles.
+    │   ├── App.js # This is the root of this app. 
+    │   ├── ChartWrapper1.js # Container for D3MersSars.js
+    │   ├── ChartWrapper2.js # Container for D3Comparison.js
+    │   ├── Header.js # It displays Navbar
+    │   └── Router.js # It enables the navigation among views of various components in this web application.
+    ├── D3 # Data visualization with D3 - All codes are written in JavaScript.
+    │   ├── D3Comparison.js # It shows how COVID-19 compares to past epidemics. e.g. Mers, Sars and covid-19.
+    │   ├── D3MersSars.js # It displays various graphs and comparison of Mers and Sars viruses.
+    │   ├── D3Piechart.js # It displays a pie chart (% of covid-19 deaths between men and women).
+    │   ├── SymptomDropdown.js # It contains dropdown button to display three different datasets(Covid-19, Mers,Sars symptoms) flicking between them. 
+    │   └── VirusDropdown.js # It contains dropdown button to display two different datasets(Mers and Sars) flicking between them.
+    ├── LoginForm
+    │   └── Login.js # It contains login functionality.
+    ├── css
+    │   ├── styling.css # Covid-19 page styling
+    ├── CovidComponents
+    │   ├── InfoBox.js
+    │   ├── InfoBox2.js  
+    │   ├── LineGraph.js 
+    │   ├── Map.js 
+    │   ├── Table.js 
+    │   ├── util.js 
+    ├── Routes
+    │   ├── Comparison.js # Container for D3Comparison.js
+    │   ├── Covid19.js # Live interactive Covid-19 maps, cards and a line graph
+    │   ├── Stats.js # Database visuals & statistics
+    │   ├── Home.js # Home screen code
+    │   ├── MersAndSars.js  # Container for D3MerSars.js
+    │   ├── Smallpox.js 
+    │   └── Upload.js 
+    └── index.js # It is used for DOM rendering only.
+    
+```
+
 ## Program Overview
 Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
 
@@ -132,5 +178,5 @@ The main purpose of every work is that making interactive visualization applicat
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
 [9] Smallpox data https://ourworldindata.org/smallpox<br>
-[10] <br>
+
 
