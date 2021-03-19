@@ -8,10 +8,10 @@ import { CardContent, Select } from '@material-ui/core';
 import { sortData } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
 import InfoBox from '../CovidComponents/InfoBox';
-import Map from "../CovidComponents/Map";
+import MapContainer from "../CovidComponents/Map";
 import LineGraph from "../CovidComponents/LineGraph";
+import "leaflet/dist/leaflet";
 import "../css/styling.css";
-//import "leaflet/dist/leaflet.css";
 
 // Referances
 // Styling - https://react-bootstrap.github.io/components/cards/
@@ -44,9 +44,13 @@ function Covid19(){
     const [dropcountries, setDropDownCountries] = useState([]);
     const[countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
+    // Center of Pacific ocean
     const [mapCenter, setMapCenter] = 
         useState({ lat: 34.08746, lng: -40.4796 });
     const [mapZoom, setZoomCenter] = useState(3);
+
+    const [zoom, setZoom] = useState(3);
+
 
     useEffect(() => {
         fetch("https://disease.sh/v3/covid-19/all")
@@ -185,6 +189,14 @@ function Covid19(){
                     <InfoBox title="Deaths today & total deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
                 </div>
                 <br></br>
+
+                <MapContainer> 
+                    center={mapCenter}
+                    zoom={mapZoom}
+                    zoom={zoom}
+                    casesType={casesType}
+                    
+                </MapContainer>
                 
                 <br></br>
                     <h1 className="app__header">Total cases per country</h1>
