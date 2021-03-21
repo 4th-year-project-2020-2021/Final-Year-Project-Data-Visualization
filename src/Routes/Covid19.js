@@ -46,10 +46,10 @@ function Covid19(){
     const [casesType, setCasesType] = useState("cases");
     // Center of Pacific ocean
     const [mapCenter, setMapCenter] = 
-        useState({ lat: 34.08746, lng: -40.4796 });
+        useState({ lat: 34.80746, lng: -40.4796 });
     const [mapZoom, setZoomCenter] = useState(3);
 
-    const [zoom, setZoom] = useState(3);
+    //const [zoom, setZoom] = useState(3);
 
 
     useEffect(() => {
@@ -190,12 +190,10 @@ function Covid19(){
                 </div>
                 <br></br>
 
+                <h1 className="app__header">Interact with the Map</h1>
                 <MapContainer> 
                     center={mapCenter}
-                    zoom={mapZoom}
-                    zoom={zoom}
-                    casesType={casesType}
-                    
+                    zoom={mapZoom}                    
                 </MapContainer>
                 
                 <br></br>
@@ -205,7 +203,7 @@ function Covid19(){
                             bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                             defaultCenter={{lat: 28, lng: 3}}
                             // Zoom level
-                            defaultZoom={2}
+                            defaultZoom={1}
                         >
                             {countriesLocation}
                         </GoogleMapReact>

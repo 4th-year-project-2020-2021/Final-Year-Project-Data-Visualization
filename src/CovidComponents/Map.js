@@ -1,7 +1,7 @@
 import React from "react";
-import { MapContainer as LeafletMap, TileLayer, useMap } from 'react-leaflet'
+import { MapContainer as LeafletMap, TileLayer } from 'react-leaflet'
 import "../css/styling.css";
-import "leaflet/dist/leaflet";
+import 'leaflet/dist/leaflet';
 
 function MapContainer({ center, zoom }) {
   return (
