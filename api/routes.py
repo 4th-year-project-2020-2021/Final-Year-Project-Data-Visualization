@@ -19,6 +19,7 @@ connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Clu
 client = MongoClient(connection)
 db = client['Example'] 
 collections = db['sampleData']
+#collections = db['uploadData']
 
 
 # Blueprint - each blueprint will be 1 route
@@ -28,6 +29,10 @@ itemRoute = Blueprint("item",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
 # routes
+
+
+
+
 @createRoute.route('/api/create', methods=['POST'])
 def create():
     print(request.json, flush=True)

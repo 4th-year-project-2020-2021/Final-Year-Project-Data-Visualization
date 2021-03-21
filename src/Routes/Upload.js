@@ -13,6 +13,14 @@ function Upload() {
  
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
+  
+  const [count, setCount] = useState(0);
+  //similar to componentDidMount and componentDidUpdate
+  useEffect(() => {    
+    // Update the document title using the browser API    
+    document.title = `You clicked ${count} times`;  
+  });  
+
 
   const [currentTime, setCurrentTime] = useState(10);
   useEffect(() =>{
@@ -91,6 +99,13 @@ function Upload() {
         accept=".csv,.xlsx,.xls"
         onChange={handleFileUpload}
       />
+      <div>
+      
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+      <p>You clicked {count} times</p>
+    </div>
       <DataTable
         pagination
         highlightOnHover

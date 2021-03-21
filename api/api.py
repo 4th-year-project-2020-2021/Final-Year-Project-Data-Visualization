@@ -15,6 +15,7 @@ CORS(app) # wrap app in CORS
 app.register_blueprint(indexRoute)
 app.register_blueprint(createRoute)
 app.register_blueprint(itemRoute)
+app.register_blueprint(getDescriptionRoute)
   
 @app.route('/time')
 def get_current_time():
