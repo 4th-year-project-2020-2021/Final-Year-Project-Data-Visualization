@@ -32,7 +32,7 @@ getDescriptionRoute = Blueprint("getDescription",__name__)
 
 
 
-
+#create item 
 @createRoute.route('/api/create', methods=['POST'])
 def create():
     print(request.json, flush=True)
@@ -48,12 +48,12 @@ def create():
     }
     # inserts a single document into the database, 
     collections.insert_one(item)
-    return jsonify()
+    return jsonify(data = "items created successfully")
 
 #single item route
 @itemRoute.route("/api/item/<id>", methods=["GET"])
-def item(id):
-    cursor = collections.find_one({"_id": ObjectId(id)})
+def items(id):
+    cursor = collections.find_one({"_id": ObjectId(id)})#need to parse in order for Mongodb to read
     print(cursor, flush=True)
     
     #return the encoded item
@@ -64,14 +64,11 @@ def item(id):
 def index():
 
     items = []
-    #get all items from the collection
+    #get all the items
     cursor = collections.find({})
-    #loop to get the needed data
     for document in cursor:
-       #we need to encode the MongoDBId here
-       items.append({"_id": JSONEncoder().encode(document["_id"])})
-    #return the items
-    return jsonify(data= items)
+        items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"],"description": document["description"], "amount": document["amount"]})
+    return jsonify(data=items)
 
 @getDescriptionRoute.route("/api/itemsDescriptions")
 def getDescription():

@@ -1,73 +1,92 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import { Redirect } from 'react-router';
-import { Link } from "react-router-dom";
 
+const Item = () => {
+    //return single item variables
+    //const[item, setItem] = useState({});
+    //const[itemId, setItemId] = useState("");
+    //const[editMode, setEditMode] = useState(false);
 
-function Item() {
-    const [items, setItems] = useState([]);
+    //const [name, setName] = useState("");
+    //const [description, setDescription] = useState("");
+    //const [amount, setAmount] = useState("");
+   
 
-    const [routeRedirect, setRedirect] = useState("");
-
-    function getItems() {
+    //return all items from database
+    const[items, setItems] = useState([]);
+    const getItems = () =>{
         fetch("/api/items")
-            .then(res => {
-                return res.json();
-            }).then(items => {
-                console.log(items);
-                setItems(items.data);
-
-            }).catch(err => {
-                console.log(err);
-            })
+        .then(res => {
+            return res.json();
+        }).then(items => {
+            console.log(items);
+            setItems(items.data);
+        })
     }
 
     useEffect(() => {
         getItems();
-    }, []);
+    }, [])//empty array allows only one call
 
     let itemsArray;
-    if (items.length > 0) {
+    if(items.length > 0)
+    {
         itemsArray = <div className="items">
-            {items.map(item => {
-                return (
-                    <div className="item" key={item._id}>
-                        <Link to={"item/" + item._id}>
-                            <br></br>
-                        </Link>
-                        
-                    </div>
-                )
-            })}
-
+        {items.map(item =>{
+            return(
+                <div className = "item" key={item._id}>
+                <Link to={"item/" + item._id}>
+                </Link>
+                <p className="name">{item.name} {item.description} {item.amount}</p>
+                
+                </div>
+            )
+        })}
         </div>
-    } else {
+    }
+    else{
         itemsArray = <div className="message">
-            No  items in the database
+            <p>No items in the Database</p>
         </div>
     }
 
-    const redirect = routeRedirect;
-    if (redirect) {
-        return <Redirect to="/" />
+    //return 1 item from database
+    /*const getItem = (props) => {
+        let id = props.match.params.id;
+        let cleanId = id.replace(/["']+/g, "");  //id comes from flask with "" need to replace them
+        setItemId(cleanId);
+        fetch("api/item" + cleanId)
+        .then(res => {
+            return res.json();
+        }).then(res => {
+            let parsedResponse = JSON.parse(res.data);
+            setItem(parsedResponse)
+
+            setName(res.name);
+            setDescription(res.description);
+            setAmount(res.amount);
+        }).catch(err =>{
+            console.log(err);
+        })
     }
 
-    
+    useEffect(() => {
+        getItem();
+    },[]);*/
+
+
     return(
-        <>
-            <header>
-                <h1>React Flask <br/> Items</h1> 
-            </header>
-           
-            <p>
+        <div>
+        <React.Fragment>
+            <p>Place Holder</p>
             {itemsArray}
-            </p>
             
-            
-            
-        </>
+        </React.Fragment>
+        
+        </div>
     )
 
-//https://www.digitalocean.com/community/conceptual_articles/understanding-how-to-render-arrays-in-react
-
 }
+
 export default Item

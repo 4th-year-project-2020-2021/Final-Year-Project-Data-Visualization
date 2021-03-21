@@ -22,20 +22,21 @@ function Create(){
   const [amount, setAmount] = useState("");
    
 
-  const createItem = (e) =>{
+  const createItem = (e) =>{//e is the event
     e.preventDefault();
-    console.log("data");
+    console.log("data");//comment out when app is working, but keep for error checking 
 
     const item = {
-     name : name,
-     description : description,
-     amount: amount
+     name : name,//value is const name
+     description : description,//value is const description
+     amount: amount//value is const amount
     }
 
+    //send items to API
     const options = { 
      method: 'post',
      headers: {
-       'Content-Type': 'application/json'
+       'Content-Type': 'application/json'//API is expecting JSON
      },
         body: JSON.stringify(item)
     } 
@@ -50,7 +51,7 @@ function Create(){
              
          })
      }else {
-         console.log("The form is empty")
+         console.log("The form is empty")//lets user know if form isn't filled in
      }
 }  
 
