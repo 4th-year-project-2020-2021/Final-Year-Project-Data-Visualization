@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 /* Pins google map styling*/
-.map {
+.MapContainer {
     height: 500px;
     background-color: white;
     padding: 0.2rem;
@@ -109,6 +109,19 @@ body {
 .button:hover {
     background-color: #555555;
     color: white;
+}
+.text-box {
+    font-size: 25px;
+}
+#mapid { 
+    height: 600px;
+    flex-grow: 4;
+    width:100%;
+}
+#mapidd { 
+    height: 600px;
+    flex-grow: 4;
+    width:100%;
 }
 /* Responsive app - min screen size set to 990px */
 @media (max-width: 990px) {

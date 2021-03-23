@@ -8,8 +8,8 @@ import { CardContent, Select } from '@material-ui/core';
 import { sortData } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
 import InfoBox from '../CovidComponents/InfoBox';
-import MapContainer from "../CovidComponents/Map";
 import LineGraph from "../CovidComponents/LineGraph";
+import { MapContainer, CircleMarker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet";
 import "../css/styling.css";
 
@@ -44,9 +44,8 @@ function Covid19(){
     const [dropcountries, setDropDownCountries] = useState([]);
     const[countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
-    // Center of Pacific ocean
     const [mapCenter, setMapCenter] = 
-        useState({ lat: 34.80746, lng: -40.4796 });
+        useState({ lat: 60, lng: 7 });
     const [mapZoom, setZoomCenter] = useState(3);
 
     //const [zoom, setZoom] = useState(3);
@@ -191,11 +190,30 @@ function Covid19(){
                 <br></br>
 
                 <h1 className="app__header">Interact with the Map</h1>
-                <MapContainer> 
-                    center={mapCenter}
-                    zoom={mapZoom}                    
-                </MapContainer>
+
+                <div>
+                    <MapContainer
+                        className="mapidd"
+                        center={mapCenter}
+                        zoom={mapZoom}>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        />
+
+                        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+                        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+                        crossorigin=""/>
+
+                        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+                        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+                        crossorigin=""></script>
+
+                        <div id="mapid"></div>
                 
+                    </MapContainer>
+
+                </div>
                 <br></br>
                     <h1 className="app__header">Total cases per country</h1>
                     <div className="map" style={{ height: '80vh', width: '100%' }}>
