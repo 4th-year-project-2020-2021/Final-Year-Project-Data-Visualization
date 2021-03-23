@@ -24,7 +24,7 @@ const ratingItem = (e) =>{
   } 
 
   if(rating){
-    fetch("/api/rating", options)
+    fetch("/api/create", options)
     .then(res => {
         //response must be parsed to JSON format
         return res.json();
@@ -32,7 +32,7 @@ const ratingItem = (e) =>{
         console.log(res)
         
     })
-} else {
+}else {
     console.log("The form is empty")
   }
 }  
@@ -59,7 +59,7 @@ return (
         <form className="rating" onSubmit={ratingItem}>
           <div className="control">
             
-          <textarea name="rating" onChange={e => setRating(e.target.value)} ></textarea>
+          <textarea name="rating" className="text-box" onChange={e => setRating(e.target.value)} ></textarea>
           </div>
 
           <input className="button" type="submit" value="Submit" />
