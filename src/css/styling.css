@@ -6,7 +6,7 @@
     justify-content: space-between;
 }
 /* Pins google map styling*/
-.map {
+.MapContainer {
     height: 500px;
     background-color: white;
     padding: 0.2rem;
@@ -88,6 +88,40 @@ body {
 .app__stats2{
     display: flex;
     justify-content: space-between;
+}
+.button {
+    border: none;
+    color: white;
+    padding: 9px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+.button:hover {
+    background-color: #555555;
+    color: white;
+}
+.text-box {
+    font-size: 25px;
+}
+#mapid { 
+    height: 600px;
+    flex-grow: 4;
+    width:100%;
+}
+#mapidd { 
+    height: 600px;
+    flex-grow: 4;
+    width:100%;
 }
 /* Responsive app - min screen size set to 990px */
 @media (max-width: 990px) {
