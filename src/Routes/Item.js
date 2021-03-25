@@ -11,6 +11,44 @@ const Item = () => {
     //const [name, setName] = useState("");
     //const [description, setDescription] = useState("");
     //const [amount, setAmount] = useState("");
+
+    //return all smallpox data from database
+    const[numbers, setNumbers] = useState([]);
+    const getNumbers = () =>{
+        fetch("/api/smallpox")
+        .then(res => {
+            return res.json();
+        }).then(numbers => {
+            console.log(numbers);
+            setNumbers(numbers.data);
+        })
+    }
+    useEffect(() => {
+        getNumbers();
+    }, [])//empty array allows only one call
+
+    let numbersArray;
+    if(numbers.length > 0)
+    {
+        numbersArray = <div className="numbers">
+        {numbers.map(number =>{
+            return(
+                <div className = "number" key={number._id}>
+                <Link to={"number/" + number._id}>
+                </Link>
+                <p className="name">{number.Entity} {number.Code} {number.Year} {number.Cases}</p>
+                
+                </div>
+            )
+        })}
+        </div>
+    }
+    else{
+        numbersArray = <div className="message">
+            <p>No items in the Database</p>
+        </div>
+    }
+
    
 
     //return all items from database
@@ -78,6 +116,9 @@ const Item = () => {
 
     return(
         <div>
+        <React.Fragment>
+            {numbersArray}
+        </React.Fragment>
         <React.Fragment>
             <p>Place Holder</p>
             {itemsArray}
