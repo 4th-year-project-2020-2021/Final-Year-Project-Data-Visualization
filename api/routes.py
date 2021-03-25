@@ -19,8 +19,6 @@ connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Clu
 client = MongoClient(connection)
 db = client['Example'] 
 collections = db['sampleData']
-#collections = db['uploadData']
-
 
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
@@ -29,7 +27,6 @@ itemRoute = Blueprint("item",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
 # routes
-
 
 
 #create item 

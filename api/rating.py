@@ -25,7 +25,7 @@ collections = db['ratings']
 ratingRoute = Blueprint("rating", __name__)
 
 # routes
-@ratingRoute.route('/api/rating', methods=['POST'])
+@ratingRoute.route('/api/create', methods=['POST'])
 def rating():
     print(request.json, flush=True)
 
@@ -36,7 +36,7 @@ def rating():
     }
     # inserts a single document into the database, 
     collections.insert_one(item)
-    return jsonify()
+    return jsonify(data = "Successfully submitted rating")
 
 
 
