@@ -19,11 +19,13 @@ connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Clu
 client = MongoClient(connection)
 db = client['Example'] 
 collections = db['sampleData']
+collection = db['uploadedData']
 
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
 itemRoute = Blueprint("item",__name__)
+smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
 # routes
@@ -66,6 +68,16 @@ def index():
     for document in cursor:
         items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"],"description": document["description"], "amount": document["amount"]})
     return jsonify(data=items)
+
+@smallpoxRoute.route("/api/smallpox")
+def sp():
+
+    smallpox = []
+    #get all the items
+    cursor = collection.find({})
+    for document in cursor:
+        smallpox.append({"_id": JSONEncoder().encode(document["_id"]),"Entity": document["Entity"], "Year": document["Year"],"Cases": document["Smallpox cases"]})
+    return jsonify(data=smallpox)
 
 @getDescriptionRoute.route("/api/itemsDescriptions")
 def getDescription():

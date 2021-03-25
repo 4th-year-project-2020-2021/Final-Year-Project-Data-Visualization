@@ -4,7 +4,7 @@ from flask_cors import CORS
 #import matplotlib.pyplot as plt
 #from pymongo import MongoClient
 #from pymongo.errors import ConnectionFailure, InvalidName
-from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute
+from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute, smallpoxRoute
 import os
 import flask
 
@@ -15,6 +15,7 @@ CORS(app) # wrap app in CORS
 app.register_blueprint(indexRoute)
 app.register_blueprint(createRoute)
 app.register_blueprint(itemRoute)
+app.register_blueprint(smallpoxRoute)
 app.register_blueprint(getDescriptionRoute)
   
 @app.route('/time')
