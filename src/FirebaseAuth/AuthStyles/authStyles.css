@@ -1,6 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
 
-.container {
+.Formcontainer {
   width: 100%;
   max-width: 320px;
   display: flex;
