@@ -39,9 +39,18 @@ export default function Navbar() {
                 <Menu.Item as={NavLink} to='/smallpox'>Smallpox</Menu.Item>
                 <Menu.Item as={NavLink} to='/create'>Create</Menu.Item>
                 <Menu.Item as={NavLink} to='/item'>Items</Menu.Item>
-                {authenticated ? 
-                <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item> :"Initializing..."}
-                {authenticated ? <SignedInMenu signOut={onLogOutClick}/> : 
+                {authenticated ? (
+                    <div
+                    style={{
+                      maxWidth: 200,
+                      width: "100%",
+                      margin: "0 auto",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item> </div>) :"Initializing..."}
+                {authenticated ? <SignedInMenu className="formBtn cancelBtn logOut" signOut={onLogOutClick}/> : 
                 <SignedOutMenu setAuthenticated={setAuthenticated} />}
             </Container>
         </Menu>
