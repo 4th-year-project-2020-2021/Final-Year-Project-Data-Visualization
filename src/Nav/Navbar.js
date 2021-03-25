@@ -1,16 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Menu, Container } from 'semantic-ui-react';
-import SignedOutMenu from '../SignInOutMenu/SignedOutMenu';
-import SignedInMenu from '../SignInOutMenu/SignedInMenu';
-//import { useSelector } from 'react-redux';
+import SignedOutMenu from '../FirebaseAuth/SignedOutMenu';
+import SignedInMenu from '../FirebaseAuth/SignedInMenu';
 import { NavLink, useHistory } from 'react-router-dom';
+import firebase from "../FirebaseAuth/firebase";
 
-export default function Navbar({ setFormOpen }) {
-    //authenticated state from the store
-    //const { authenticated } = useSelector(state => state.auth); //it has a error
+export default function Navbar() {
+    const [init, setInit] = useState(false);
+    const history = useHistory();
+    const authService = firebase.auth();
+    const [ authenticated, setAuthenticated ] = useState(false); 
+    
+    useEffect( ()=>{
+        authService.onAuthStateChanged((user)=>{
+            if(user){
+                setAuthenticated(true);
+            }else{
+                setAuthenticated(false);
+            }
+            setInit(true);
+        });
+    }, [])
 
-    const history = useHistory(); //temp --> this needs to be changed
-    const [authenticated, setauthenticated] = useState(false); //--temp  --> this needs to be changed
+    const onLogOutClick = () => {
+        authService.signOut();
+        history.push('/');
+        //setAuthenticated(false);
+    }
     
     return(
         <Menu inverted>
@@ -23,13 +39,11 @@ export default function Navbar({ setFormOpen }) {
                 <Menu.Item as={NavLink} to='/smallpox'>Smallpox</Menu.Item>
                 <Menu.Item as={NavLink} to='/create'>Create</Menu.Item>
                 <Menu.Item as={NavLink} to='/item'>Items</Menu.Item>
-                <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item>
-                {authenticated ? (
-                    <SignedInMenu />
-                ) :  (
-                    <SignedOutMenu />
-                )}
+                {authenticated ? 
+                <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item> :"Initializing..."}
+                {authenticated ? <SignedInMenu signOut={onLogOutClick}/> : 
+                <SignedOutMenu setAuthenticated={setAuthenticated} />}
             </Container>
         </Menu>
-    );       
+    );
 }

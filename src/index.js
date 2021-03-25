@@ -1,21 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
-import App from './Components/App';
-import {Provider} from 'react-redux';
-import {configureStore} from './store/configureStore';
-//import ScrollToTop from 'Layout/ScrollToTop';
+import App from './App';
 import {BrowserRouter} from 'react-router-dom';
+import firebase from './FirebaseAuth/firebase';
 
-const store = configureStore();
-console.log(store.getState());
+console.log(firebase);
 
 ReactDOM.render( 
-    <Provider store={store}>
         <BrowserRouter>
             <App />
-        </BrowserRouter>
-    </Provider>, 
+        </BrowserRouter>,
     document.getElementById('root')
 );
 

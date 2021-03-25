@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import D3Comparison from '../D3/D3Comparison';
-import D3Piechart from '../D3/D3Piechart';
+import D3Comparison from './D3Components/D3Comparison';
+import D3Piechart from './D3Components/D3Piechart';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`

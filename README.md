@@ -29,26 +29,26 @@
 
 ```bash
 ├── README.md - This file.
-├── package.json # npm package manager file. 
+├── package.json 
 ├── public
 │   ├── favicon.ico 
 │   └── index.html 
 └── src
     ├── Components
-    │   ├── GlobalStyle.js # Global styles.
-    │   ├── App.js # This is the root of this app. 
-    │   ├── ChartWrapper1.js # Container for D3MersSars.js
-    │   ├── ChartWrapper2.js # Container for D3Comparison.js
-    │   ├── Header.js # It displays Navbar
-    │   └── Router.js # It enables the navigation among views of various components in this web application.
-    ├── D3 # Data visualization with D3 - All codes are written in JavaScript.
-    │   ├── D3Comparison.js # It shows how COVID-19 compares to past epidemics. e.g. Mers, Sars and covid-19.
-    │   ├── D3MersSars.js # It displays various graphs and comparison of Mers and Sars viruses.
-    │   ├── D3Piechart.js # It displays a pie chart (% of covid-19 deaths between men and women).
-    │   ├── SymptomDropdown.js # It contains dropdown button to display three different datasets(Covid-19, Mers,Sars symptoms) flicking between them. 
-    │   └── VirusDropdown.js # It contains dropdown button to display two different datasets(Mers and Sars) flicking between them.
+    │   ├── GlobalStyle.js 
+    │   ├── App.js 
+    │   ├── ChartWrapper1.js
+    │   ├── ChartWrapper2.js 
+    │   ├── Header.js 
+    │   └── Router.js 
+    ├── D3 
+    │   ├── D3Comparison.js 
+    │   ├── D3MersSars.js 
+    │   ├── D3Piechart.j
+    │   ├── SymptomDropdown.js between them. 
+    │   └── VirusDropdown.js 
     ├── LoginForm
-    │   └── Login.js # It contains login functionality.
+    │   └── Login.js 
     ├── css
     │   ├── styling.css # Covid-19 page styling
     ├── CovidComponents
@@ -59,14 +59,14 @@
     │   ├── Table.js 
     │   ├── util.js 
     ├── Routes
-    │   ├── Comparison.js # Container for D3Comparison.js
+    │   ├── Comparison.js 
     │   ├── Covid19.js # Live interactive Covid-19 maps, cards and a line graph
     │   ├── Stats.js # Database visuals & statistics
     │   ├── Home.js # Home screen code
-    │   ├── MersAndSars.js  # Container for D3MerSars.js
+    │   ├── MersAndSars.js  
     │   ├── Smallpox.js 
     │   └── Upload.js 
-    └── index.js # It is used for DOM rendering only.
+    └── index.js
     
 ```
 
@@ -119,8 +119,6 @@ $ python -m flask run
 
 - Firebase Realtime Database for user authenticaton and storing Mers, Sars, Comparison datasets.
 
-- Redux to store the state of user's data
-
 - Architecture image goes here**
 
 ## Designated Tasks
@@ -140,13 +138,14 @@ $ python -m flask run
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-- [x] Interactive Bar charts with dropdown Flicking between datasets.
+- [x] Interactive Bar charts with dropdown button Flicking between datasets.
 - [x] Scatter plots.
 - [x] Line graphs.
 - [x] Pie chart.
-- [x] Login - Firebase is used for User Authentication 
-- [ ] Redux is used for managing states (User's data)
-- [ ] Register
+- [x] Login component - Firebase is used for User Authentication 
+- [x] Register component - Firebase is used for User Authentication 
+- [x] Comparison component. (Comparisions of Covid-19, Mers and Sars)
+- [x] Mers and Sars component.
 
 ### Shirin - Smallpox component & Upload component
 

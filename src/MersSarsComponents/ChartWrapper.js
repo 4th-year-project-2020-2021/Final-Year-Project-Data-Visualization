@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import D3MersSars from '../D3/D3MersSars';
+import D3MersSars from './D3Components/D3MersSars';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
