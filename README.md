@@ -17,14 +17,6 @@
 - [Screens](#screens)
 - [Referances](#referances)
 
-## Group members
-|    Students   | Student Number  |
-| ------------- |:-:|
-|    Jina Kim   |    G00353420    | 
-|  Shirin Nagle |    G00363458    | 
-|  Grace Keane  |    G00359990    | 
-
-
 ## Repository Description 
 
 ```bash
@@ -34,21 +26,29 @@
 │   ├── favicon.ico 
 │   └── index.html 
 └── src
-    ├── Components
-    │   ├── GlobalStyle.js 
-    │   ├── App.js 
-    │   ├── ChartWrapper1.js
+    ├── D3ComparisonComponents
     │   ├── ChartWrapper2.js 
-    │   ├── Header.js 
-    │   └── Router.js 
-    ├── D3 
-    │   ├── D3Comparison.js 
-    │   ├── D3MersSars.js 
-    │   ├── D3Piechart.j
-    │   ├── SymptomDropdown.js between them. 
-    │   └── VirusDropdown.js 
-    ├── LoginForm
-    │   └── Login.js 
+    │   └── D3Components
+    │       ├── D3Comparison.js 
+    │       ├── D3PieChart.js
+    │       └── SymptomDropdown.js 
+    ├── D3MersSarsComponents
+    │   ├── ChartWrapper.js 
+    │   └── D3Components
+    │      ├── D3MersSars.js
+    │      └── VirusDropdown.js 
+    ├── FirebaseAuth
+    │   ├── Auth.js 
+    │   ├── AuthForm.js 
+    │   ├── firebase.js 
+    │   ├── Profile.js 
+    │   ├── SignInMenu.js 
+    │   ├── SignOutMenu.js
+    │   ├── AuthForm.js 
+    │   └── AuthStyles
+    │       └── authStyles.css
+    ├── Nav
+    │   └── Navbar.js
     ├── css
     │   ├── styling.css # Covid-19 page styling
     ├── CovidComponents
@@ -66,6 +66,7 @@
     │   ├── MersAndSars.js  
     │   ├── Smallpox.js 
     │   └── Upload.js 
+    ├── App.js
     └── index.js
     
 ```

@@ -3,8 +3,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import VirusDropdown from '../MersSarsComponents/D3Components/VirusDropdown';
-import ChartWrapper from '../MersSarsComponents/ChartWrapper';
+import VirusDropdown from '../D3MersSarsComponents/D3Components/VirusDropdown';
+import ChartWrapper from '../D3MersSarsComponents/ChartWrapper';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
