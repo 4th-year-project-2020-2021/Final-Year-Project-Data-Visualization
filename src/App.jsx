@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Redirect, Route} from 'react-router-dom';
-import Covid19 from '../Routes/Covid19';
+import Covid19 from './Routes/Covid19';
 import MersAndSars from './Routes/MersAndSars';
 import Smallpox from './Routes/Smallpox';
 import Comparison from './Routes/Comparison';
