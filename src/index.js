@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 import firebase from './FirebaseAuth/firebase';
+import authStyles from './FirebaseAuth/AuthStyles/authStyles.css';
 
 console.log(firebase);
 
