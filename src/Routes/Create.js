@@ -56,15 +56,25 @@ function Create(){
 }  
 
     return(
-        <div>
-        {/*<p>The current time is {currentTime}</p>
-        <p>This is from the flask api {getHello}</p>*/}
-        <br></br>
-        <form className="create" onSubmit={createItem}>
-            <h1>How're you feeling today?</h1>
+      
+        <div 
+        style={{
+      textAlign: "center",
+      fontSize:"30px",
+      fontFamily: "Nanum Gothic",
+      color: "dark"
+      }}
+        >
+        <h1>How're you feeling today?</h1>
             <br></br>
             <h2>Enter your vitals in the form below</h2>
             <br></br>
+        {/*<p>The current time is {currentTime}</p>
+        <p>This is from the flask api {getHello}</p>*/}
+        <br></br>
+        
+        <form className="create" onSubmit={createItem}>
+            
             <div className="control">
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" onChange={e => setName(e.target.value)} />
