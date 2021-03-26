@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 import json
 import pymongo
-#from dotenv import load_dotenv
 import os
 import sys
 from pymongo import MongoClient
@@ -21,7 +20,6 @@ db = client['Example']
 collections = db['sampleData']
 collection = db['uploadedData']
 
-
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
@@ -30,7 +28,6 @@ smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
 # routes
-
 
 #create item 
 @createRoute.route('/api/create', methods=['POST'])
@@ -49,7 +46,6 @@ def create():
     # inserts a single document into the database, 
     collections.insert_one(item)
     return jsonify(data = "items created successfully")
-
 
 #single item route
 @itemRoute.route("/api/item/<id>", methods=["GET"])

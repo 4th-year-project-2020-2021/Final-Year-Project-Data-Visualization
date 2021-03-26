@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Menu.Item as={NavLink} to='/mersandsars'>Mers and Sars</Menu.Item>
                 <Menu.Item as={NavLink} to='/comparison'>Comparison</Menu.Item>
                 <Menu.Item as={NavLink} to='/smallpox'>Smallpox</Menu.Item>
-                <Menu.Item as={NavLink} to='/create'>Create</Menu.Item>
+                <Menu.Item as={NavLink} to='/create'>Symptoms</Menu.Item>
                 <Menu.Item as={NavLink} to='/item'>Items</Menu.Item>
                 {authenticated ? (
                     <div
