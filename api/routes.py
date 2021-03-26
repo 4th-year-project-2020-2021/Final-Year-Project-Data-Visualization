@@ -21,6 +21,7 @@ db = client['Example']
 collections = db['sampleData']
 collection = db['uploadedData']
 
+
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
@@ -49,6 +50,7 @@ def create():
     collections.insert_one(item)
     return jsonify(data = "items created successfully")
 
+
 #single item route
 @itemRoute.route("/api/item/<id>", methods=["GET"])
 def items(id):
@@ -76,7 +78,7 @@ def sp():
     #get all the items
     cursor = collection.find({})
     for document in cursor:
-        smallpox.append({"_id": JSONEncoder().encode(document["_id"]),"Entity": document["Entity"], "Year": document["Year"],"Cases": document["Smallpox cases"]})
+        smallpox.append({"_id": JSONEncoder().encode(document["_id"]),"Entity": document["Entity"],"Code": document["Code"], "Year": document["Year"],"Cases": document["Smallpox cases"]})
     return jsonify(data=smallpox)
 
 @getDescriptionRoute.route("/api/itemsDescriptions")

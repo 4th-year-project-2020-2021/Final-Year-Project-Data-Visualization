@@ -5,6 +5,7 @@ from flask_cors import CORS
 #from pymongo import MongoClient
 #from pymongo.errors import ConnectionFailure, InvalidName
 from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute, smallpoxRoute
+from rating import ratingRoute
 import os
 import flask
 
@@ -17,6 +18,7 @@ app.register_blueprint(createRoute)
 app.register_blueprint(itemRoute)
 app.register_blueprint(smallpoxRoute)
 app.register_blueprint(getDescriptionRoute)
+app.register_blueprint(ratingRoute)
   
 @app.route('/time')
 def get_current_time():

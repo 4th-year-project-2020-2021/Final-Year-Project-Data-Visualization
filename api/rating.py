@@ -25,7 +25,7 @@ collections = db['ratings']
 ratingRoute = Blueprint("rating", __name__)
 
 # routes
-@ratingRoute.route('/api/create', methods=['POST'])
+@ratingRoute.route('/api/rating', methods=['POST'])
 def rating():
     print(request.json, flush=True)
 
