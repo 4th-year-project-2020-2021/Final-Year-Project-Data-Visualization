@@ -3,18 +3,22 @@ import { Menu, Container } from 'semantic-ui-react';
 import SignedOutMenu from '../FirebaseAuth/SignedOutMenu';
 import SignedInMenu from '../FirebaseAuth/SignedInMenu';
 import { NavLink, useHistory } from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom';
 import firebase from "../FirebaseAuth/firebase";
 
-export default function Navbar() {
+const Navbar = () => {
     const [init, setInit] = useState(false);
     const history = useHistory();
     const authService = firebase.auth();
     const [ authenticated, setAuthenticated ] = useState(false); 
+    const [userObj,setUserObj] = useState(null);
     
     useEffect( ()=>{
+        //When a user logs in, this function will be called
         authService.onAuthStateChanged((user)=>{
             if(user){
                 setAuthenticated(true);
+                setUserObj(user);
             }else{
                 setAuthenticated(false);
             }
@@ -49,10 +53,18 @@ export default function Navbar() {
                       justifyContent: "center",
                     }}
                   >
-                <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item> </div>) :"Initializing..."}
-                {authenticated ? <SignedInMenu className="formBtn cancelBtn logOut" signOut={onLogOutClick}/> : 
+                <Redirect from="*" to="/" /> 
+                <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item>
+                <Menu.Item as={NavLink} to='/profile' userObj={userObj}>Profile</Menu.Item>
+                </div>
+                ) : (
+                "Initializing..."
+                )}
+                {authenticated ? <SignedInMenu userObj={userObj} className="formBtn cancelBtn logOut" signOut={onLogOutClick}/> : 
                 <SignedOutMenu setAuthenticated={setAuthenticated} />}
             </Container>
         </Menu>
     );
 }
+
+export default Navbar;

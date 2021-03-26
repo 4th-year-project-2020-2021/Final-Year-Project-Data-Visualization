@@ -134,7 +134,7 @@ $ python -m flask run
 - [x] Covid-19 last 120 days Line Graph
 - [ ] Home Screen
 
-### Jina - Mers and Sars component & Comparison component & User login functionality (Firebase & Redux)
+### Jina - Mers_Sars component & Comparison component & User login functionality (Firebase)
 
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
