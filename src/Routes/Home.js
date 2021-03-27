@@ -24,7 +24,7 @@ const ratingItem = (e) =>{
   } 
 
   if(rating){
-    fetch("/api/create", options)
+    fetch("/api/rating", options)
     .then(res => {
         //response must be parsed to JSON format
         return res.json();

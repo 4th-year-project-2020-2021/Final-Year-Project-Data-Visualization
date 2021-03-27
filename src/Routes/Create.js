@@ -56,13 +56,25 @@ function Create(){
 }  
 
     return(
-        <div>
-        <p>The current time is {currentTime}</p>
-        <p>This is from the flask api {getHello}</p>
-        <br></br>
-        <form className="create" onSubmit={createItem}>
-            <h2>Create a new record</h2>
+      
+        <div 
+        style={{
+      textAlign: "center",
+      fontSize:"30px",
+      fontFamily: "Nanum Gothic",
+      color: "dark"
+      }}
+        >
+        <h1>How're you feeling today?</h1>
             <br></br>
+            <h2>Enter your vitals in the form below</h2>
+            <br></br>
+        {/*<p>The current time is {currentTime}</p>
+        <p>This is from the flask api {getHello}</p>*/}
+        <br></br>
+        
+        <form className="create" onSubmit={createItem}>
+            
             <div className="control">
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" onChange={e => setName(e.target.value)} />
@@ -74,11 +86,13 @@ function Create(){
                 </div>
                 <br></br>
                 <div className="control">
-                <label htmlFor="amount">Number of cases: </label>
+                <label htmlFor="amount">Temperature: </label>
                 <input type="number" name="amount" onChange={e => setAmount(e.target.value)} />
                 </div>
-                
-                <input type="submit" value="create post" />
+                <div>
+                <br></br>
+                <input type="submit" value="Save Symptoms" />
+                </div>
             </form>
             
         </div>

@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 import json
 import pymongo
-#from dotenv import load_dotenv
 import os
 import sys
 from pymongo import MongoClient
@@ -25,7 +24,7 @@ collections = db['ratings']
 ratingRoute = Blueprint("rating", __name__)
 
 # routes
-@ratingRoute.route('/api/create', methods=['POST'])
+@ratingRoute.route('/api/rating', methods=['POST'])
 def rating():
     print(request.json, flush=True)
 

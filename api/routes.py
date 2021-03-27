@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 import json
 import pymongo
-#from dotenv import load_dotenv
 import os
 import sys
 from pymongo import MongoClient
@@ -29,7 +28,6 @@ smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
 # routes
-
 
 #create item 
 @createRoute.route('/api/create', methods=['POST'])
@@ -76,7 +74,7 @@ def sp():
     #get all the items
     cursor = collection.find({})
     for document in cursor:
-        smallpox.append({"_id": JSONEncoder().encode(document["_id"]),"Entity": document["Entity"], "Year": document["Year"],"Cases": document["Smallpox cases"]})
+        smallpox.append({"_id": JSONEncoder().encode(document["_id"]),"Entity": document["Entity"],"Code": document["Code"], "Year": document["Year"],"Cases": document["Smallpox cases"]})
     return jsonify(data=smallpox)
 
 @getDescriptionRoute.route("/api/itemsDescriptions")
