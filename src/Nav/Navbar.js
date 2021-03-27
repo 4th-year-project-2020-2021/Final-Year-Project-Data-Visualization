@@ -18,7 +18,7 @@ const Navbar = () => {
         authService.onAuthStateChanged((user)=>{
             if(user){
                 setAuthenticated(true);
-                setUserObj(user);
+                setUserObj(user);  //save that user somewhere
             }else{
                 setAuthenticated(false);
             }
@@ -55,7 +55,7 @@ const Navbar = () => {
                   >
                 <Redirect from="*" to="/" /> 
                 <Menu.Item as={NavLink} to='/upload'>Upload</Menu.Item>
-                <Menu.Item as={NavLink} to='/profile' userObj={userObj}>Profile</Menu.Item>
+                <Menu.Item as={NavLink} to='/discussion'>Discussion</Menu.Item>
                 </div>
                 ) : (
                 "Initializing..."
