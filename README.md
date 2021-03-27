@@ -40,17 +40,14 @@
     ├── FirebaseAuth
     │   ├── Auth.js 
     │   ├── AuthForm.js 
+    │   ├── Discussion.js 
     │   ├── firebase.js 
+    │   ├── Message.js 
     │   ├── Profile.js 
     │   ├── SignInMenu.js 
     │   ├── SignOutMenu.js
-    │   ├── AuthForm.js 
     │   └── AuthStyles
     │       └── authStyles.css
-    ├── Nav
-    │   └── Navbar.js
-    ├── css
-    │   ├── styling.css # Covid-19 page styling
     ├── CovidComponents
     │   ├── InfoBox.js
     │   ├── InfoBox2.js  
@@ -58,6 +55,10 @@
     │   ├── Map.js 
     │   ├── Table.js 
     │   ├── util.js 
+    ├── css
+    │   ├── styling.css # Covid-19 page styling
+    ├── Nav
+    │   └── Navbar.js
     ├── Routes
     │   ├── Comparison.js 
     │   ├── Covid19.js # Live interactive Covid-19 maps, cards and a line graph
@@ -120,6 +121,8 @@ $ python -m flask run
 
 - Firebase Realtime Database for user authenticaton and storing Mers, Sars, Comparison datasets.
 
+- Cloud Firestore (cloud-hosted, NoSQL database) for discussion form.
+
 - Architecture image goes here**
 
 ## Designated Tasks
@@ -143,10 +146,12 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Scatter plots.
 - [x] Line graphs.
 - [x] Pie chart.
-- [x] Login component - Firebase is used for User Authentication 
-- [x] Register component - Firebase is used for User Authentication 
+- [x] Login component - Firebase was used for User Authentication. 
+- [x] Register component - Firebase was used for User Authentication. 
 - [x] Comparison component. (Comparisions of Covid-19, Mers and Sars)
 - [x] Mers and Sars component.
+- [x] Profile component.
+- [x] Discussion component - Cloud Firestore was used to save user messages.
 
 ### Shirin - Smallpox component & Upload component
 
@@ -167,6 +172,7 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Upload
 - [X] Login
 - [X] Register
+- [X] Discussion
 
 ## API/ CSV file and information Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>

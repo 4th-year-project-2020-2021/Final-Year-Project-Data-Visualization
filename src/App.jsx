@@ -13,6 +13,7 @@ import { Container } from 'semantic-ui-react';
 import Auth from 'FirebaseAuth/Auth';
 import Rating from 'Routes/Home';
 import Profile from 'FirebaseAuth/Profile';
+import Discussion from 'FirebaseAuth/Discussion';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/auth" component={Auth} />
                 <Route path="/profile" component={Profile} />
                 <Route path="/upload" component={Upload} />
+                <Route path="/discussion" component={Discussion} />
                 <Redirect from="*" to="/" />
             </Container>
         </>

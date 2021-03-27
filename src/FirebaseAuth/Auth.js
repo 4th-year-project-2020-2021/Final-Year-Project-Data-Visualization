@@ -4,6 +4,11 @@ import AuthForm from './AuthForm';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle,faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: #F0FFF0;
+`;
 
 const Auth = () => {
     const onSocialClick = async (e) => {
@@ -19,9 +24,9 @@ const Auth = () => {
     };
 
     return (
-
+    <Wrapper>
      <div className="authContainer">
-     <h3>Welcome</h3>
+     <h3 className="h4">Hi there!</h3>
       <FontAwesomeIcon
         icon={faCoffee}
         color={"#04AAFF"}
@@ -34,6 +39,7 @@ const Auth = () => {
             <button onClick={onSocialClick} name="github" className="authBtn">Continue with Github <FontAwesomeIcon icon={faGithub} /></button>
         </div>
      </div>
+     </Wrapper>
     );
 }
 export default Auth;
