@@ -91,7 +91,7 @@ function Create(){
                 </div>
                 <div>
                 <br></br>
-                <input type="submit" value="Save Symptoms" />
+                <input className="button" type="submit" value="Save Symptoms" />
                 </div>
             </form>
             
