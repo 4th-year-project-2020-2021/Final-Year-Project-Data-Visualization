@@ -7,6 +7,9 @@ const Navigation = ({ userObj }) => (
   <nav>
     <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
       <li>
+        <Link to="/" style={{ marginRight: 30 }}>Home</Link>
+      </li>
+      <li>
         <Link to="/covid19" style={{ marginRight: 30 }}>Covid-19</Link>
       </li>
       <li>
@@ -22,7 +25,7 @@ const Navigation = ({ userObj }) => (
         <Link to="/smallpox" style={{ marginRight: 30 }}>Smallpox</Link>
       </li>
       <li>
-        <Link to="/create" style={{ marginRight: 30 }}>Create</Link>
+        <Link to="/create" style={{ marginRight: 30 }}>Symptom</Link>
       </li>
       <li>
         <Link to="/item" style={{ marginRight: 30 }}>Item</Link>

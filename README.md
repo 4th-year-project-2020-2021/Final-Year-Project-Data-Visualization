@@ -138,21 +138,21 @@ $ python -m flask run
 - [x] Covid-19 last 120 days Line Graph
 - [ ] Home Screen
 
-### Jina - Mers_Sars component & Comparison component & User login functionality (Firebase)
+### Jina - Mers_Sars component & Comparison component & User login functionality (Firebase) & Discussion component (Firestore)
 
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-- [x] Interactive Bar charts with dropdown button Flicking between datasets.
+- [x] Interactive Bar charts with dropdown button Flicking between datasets. 
 - [x] Scatter plots.
 - [x] Line graphs.
 - [x] Pie chart.
 - [x] Login component - Firebase was used for User Authentication. 
 - [x] Register component - Firebase was used for User Authentication. 
-- [x] Comparison component. (Comparisions of Covid-19, Mers and Sars)
-- [x] Mers and Sars component.
-- [x] Profile component.
-- [x] Discussion component - Cloud Firestore was used to save user messages.
+- [x] Comparison component. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
+- [x] Mers and Sars component. - Data Visualization with D3
+- [x] Profile component. - users can edit their profiles.
+- [x] Discussion component - Cloud Firestore was used to save user messages. - Added CRUD(Create, read, update and delete) functionalities.
 
 ### Shirin - Smallpox component & Upload component
 
