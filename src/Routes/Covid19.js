@@ -169,7 +169,7 @@ function Covid19(){
         <div>  
             <div className="app">
             <div className="app__left">
-                    <div className="app_header">
+                    <div className="app__header">
                         <h1>COVID-19 Live</h1>
                         <br></br>
                     <FormControl className="app__dropdown">
@@ -230,7 +230,7 @@ function Covid19(){
                 </div> 
                 <Card className="app__right">
                     <CardContent>
-                        <div className="app_information">
+                        <div className="app__information">
                             <h2>Live Cases by Country</h2>
                             <Table countries={tableData} />
                             <br></br>

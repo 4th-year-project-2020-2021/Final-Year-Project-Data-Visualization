@@ -136,7 +136,10 @@ $ python -m flask run
 - [x] Covid-19 table
 - [ ] Interactive Covid-19 map
 - [x] Covid-19 last 120 days Line Graph
-- [ ] Home Screen
+- [x] Home Screen
+- [ ] Stats
+- [ ] Interactive cases list
+- [ ] Companison pie chart
 
 ### Jina - Mers_Sars component & Comparison component & User login functionality (Firebase) & Discussion component (Firestore)
 
