@@ -41,14 +41,14 @@ return (
     <div
       style={{
       textAlign: "center",
-      fontSize:"30px",
+      fontSize:"20px",
       fontFamily: "Nanum Gothic",
       color: "dark"
       }}
     >    
-    <h2>Data Visualization & Analysis</h2>
+    <h4>Data Visualization & Analysis</h4>
     <br/>
-        <img src={Doc} style={{ height: 350}}/>
+        <img src={Doc} style={{ height: 300}}/>
 
         <br></br>
         <br></br>
@@ -57,16 +57,15 @@ return (
         <br/>
 
         <form className="rating" onSubmit={ratingItem}>
-          <div className="control">
-            
+          <div className="control"> 
           <textarea name="rating" className="text-box" onChange={e => setRating(e.target.value)} ></textarea>
           </div>
-
           <input className="button" type="submit" value="Submit" />
-
+          <br></br>
+          <input className="button" type="submit" value="See all Reviews" />
         </form>
-        </div>
-        );
-    }
+      </div>
+    );
+  }
 
 export default Rating;

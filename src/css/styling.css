@@ -5,7 +5,7 @@
     margin-bottom: 20px;
     justify-content: space-between;
     font-family: sans-serif;
-    font-size: medium;
+    font-size: x-large;
 }
 /* Pins google map styling*/
 .MapContainer {
@@ -62,7 +62,7 @@ body {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     font-family: sans-serif;
-  }
+}
 .app__information > h3:last-of-type {
     margin-top: 1rem;
     font-family: sans-serif;
@@ -87,10 +87,6 @@ body {
     background-color: #f3f2f8;
 }
 .app__stats{
-    display: flex;
-    justify-content: space-between;
-}
-.app__stats2{
     display: flex;
     justify-content: space-between;
 }
@@ -119,12 +115,12 @@ body {
     font-size: 25px;
 }
 #mapid { 
-    height: 600px;
+    height: 500px;
     flex-grow: 4;
     width:100%;
 }
 #mapidd { 
-    height: 600px;
+    height: 500px;
     flex-grow: 4;
     width:100%;
 }

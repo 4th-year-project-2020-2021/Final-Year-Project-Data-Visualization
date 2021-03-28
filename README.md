@@ -3,7 +3,7 @@
 </h3>
 
 <h3 align="center">
-    A collection of react components to render common data visualization charts, such as line/area/bar charts, scatterplots, pie and donut charts.
+    A collection of react components to render common data visualizations such as line graphs, pie charts ect as well as live data visualizations and statistics.
 </h4>
 
 ## Contents
@@ -103,8 +103,7 @@ To get started developing the right away:
 ```bash
 $ pip install -r requirements.txt
 $ cd api
-$ set FLASK_APP=api.py
-$ python -m flask run
+$ flask run
  * Running on http://127.0.0.1:5000/
  ```
 
@@ -137,9 +136,10 @@ $ python -m flask run
 - [ ] Interactive Covid-19 map
 - [x] Covid-19 last 120 days Line Graph
 - [x] Home Screen
+- [x] Add review / see all rewiews
 - [ ] Stats
 - [ ] Interactive cases list
-- [ ] Companison pie chart
+- [ ] Comparison pie chart
 
 ### Jina - Mers_Sars component & Comparison component & User login functionality (Firebase) & Discussion component (Firestore)
 
@@ -164,6 +164,7 @@ The main purpose of every work is that making interactive visualization applicat
 - [ ] Auto Generated Graph
 - [ ] Flask backend
 - [ ] API routes for connecting to MongoDB Atlas
+- [ ] Stats
 
 ## Screens
 

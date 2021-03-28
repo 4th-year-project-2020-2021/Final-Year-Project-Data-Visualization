@@ -49,8 +49,7 @@ function Covid19(){
     const [mapZoom, setZoomCenter] = useState(3);
 
     //const [zoom, setZoom] = useState(3);
-
-
+    
     useEffect(() => {
         fetch("https://disease.sh/v3/covid-19/all")
           .then((response) => response.json())
@@ -170,7 +169,7 @@ function Covid19(){
             <div className="app">
             <div className="app__left">
                     <div className="app__header">
-                        <h1>COVID-19 Live</h1>
+                        <h3>COVID-19 Live</h3>
                         <br></br>
                     <FormControl className="app__dropdown">
                         <Select variant="outlined" onChange={onCountryChange} value={country}>
@@ -189,7 +188,7 @@ function Covid19(){
                 </div>
                 <br></br>
 
-                <h1 className="app__header">Interact with the Map</h1>
+                <h3 className="app__header">Interact with the Map</h3>
 
                 <div>
                     <MapContainer
@@ -216,7 +215,7 @@ function Covid19(){
                 </div>
                 <br></br>
                     <h1 className="app__header">Total cases per country</h1>
-                    <div className="map" style={{ height: '80vh', width: '100%' }}>
+                    <div className="map" style={{ height: '70vh', width: '100%' }}>
                         <GoogleMapReact
                             bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                             defaultCenter={{lat: 28, lng: 3}}
@@ -231,7 +230,7 @@ function Covid19(){
                 <Card className="app__right">
                     <CardContent>
                         <div className="app__information">
-                            <h2>Live Cases by Country</h2>
+                            <h3>Global Cases - High to Low</h3>
                             <Table countries={tableData} />
                             <br></br>
                             <br></br>
