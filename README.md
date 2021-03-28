@@ -119,9 +119,9 @@ $ flask run
 
 - D3 for Data visualization. (Inside Mers,Sars,Comparison components)
 
-- Firebase Realtime Database for user authenticaton and storing Mers, Sars, Comparison datasets.
+- Firebase Realtime Database for handling user authenticaton and storing Mers, Sars, Comparison datasets.
 
-- Cloud Firestore (cloud-hosted, NoSQL database) for discussion form.
+- Cloud Firestore (cloud-hosted, NoSQL database) for discussion page (User can Crate, Read, Update, Delete their messages in this page).
 
 - Architecture image goes here**
 
@@ -141,7 +141,7 @@ $ flask run
 - [ ] Interactive cases list
 - [ ] Comparison pie chart
 
-### Jina - Mers_Sars component & Comparison component & User login functionality (Firebase) & Discussion component (Firestore)
+### Jina - Mers_Sars page & Comparison page & User Authentication (Firebase) & Discussion page (Cloud Firestore)
 
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
@@ -150,12 +150,11 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Scatter plots.
 - [x] Line graphs.
 - [x] Pie chart.
-- [x] Login component - Firebase was used for User Authentication. 
-- [x] Register component - Firebase was used for User Authentication. 
-- [x] Comparison component. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
-- [x] Mers and Sars component. - Data Visualization with D3
-- [x] Profile component. - users can edit their profiles.
-- [x] Discussion component - Cloud Firestore was used to save user messages. - Added CRUD(Create, read, update and delete) functionalities.
+- [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
+- [x] Mers and Sars page. - Data Visualization with D3
+- [x] Login and Register functionalities - FIREBASE was used for User Authentication. 
+- [x] Profile page. - users can edit their profiles, e.g. user name (User can LogOut here).
+- [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. All the messages will be stored in firestore.
 
 ### Shirin - Smallpox component & Upload component
 
@@ -175,8 +174,8 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Comparison
 - [x] Small pox
 - [x] Upload
-- [X] Login
-- [X] Register
+- [X] Login & Register
+- [X] Profile
 - [X] Discussion
 
 ## API/ CSV file and information Referances

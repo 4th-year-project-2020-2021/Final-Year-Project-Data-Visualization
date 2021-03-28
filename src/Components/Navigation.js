@@ -37,7 +37,7 @@ const Navigation = ({ userObj }) => (
         <Link to="/discussion" style={{ marginRight: 30 }}>Discussion</Link>
       </li>
       <li>
-        <Link
+        <Link className="font"
           to="/profile"
           style={{
             marginLeft: 10,

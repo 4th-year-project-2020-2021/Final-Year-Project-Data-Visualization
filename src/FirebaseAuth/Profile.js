@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { authService } from './firebase';
+import styled from 'styled-components';
 
+const Wrapper = styled.div`
+    background: #F0FFF0;
+`;
 
 export default ({ refreshUser, userObj })=>{
     const history = useHistory();
@@ -30,6 +34,7 @@ export default ({ refreshUser, userObj })=>{
     };
 
     return (
+      <Wrapper className="authContainer">
         <div className="container">
           <form onSubmit={onSubmit} className="profileForm">
             <input
@@ -43,15 +48,16 @@ export default ({ refreshUser, userObj })=>{
             <input
               type="submit"
               value="Update Profile"
-              className="formBtn"
+              className="formBtn font"
               style={{
                 marginTop: 10,
               }}
             />
           </form>
-          <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+          <span className="formBtn cancelBtn logOut font" onClick={onLogOutClick}>
             Log Out
           </span>
         </div>
+        </Wrapper>
       );
     };

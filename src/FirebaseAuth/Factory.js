@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { dbService } from "./firebase";
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: #F0FFF0;
+`;
 
 const Factory = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
@@ -31,7 +36,8 @@ const Factory = ({ userObj }) => {
   
   
   return (
-    <form onSubmit={onSubmit} className="factoryForm">
+    <Wrapper>
+    <form onSubmit={onSubmit} >
       <div className="factoryInput__container">
         <input
           className="factoryInput__input"
@@ -43,8 +49,8 @@ const Factory = ({ userObj }) => {
         />
         <input type="submit" value="&rarr;" className="factoryInput__arrow" />
       </div>
-    
     </form>
+    </Wrapper>
   );
 };
 export default Factory;

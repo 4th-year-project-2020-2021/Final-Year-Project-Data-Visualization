@@ -8,14 +8,19 @@
 }
 
 .formInput {
-  width: 100%;
   padding: 10px 20px;
   border-radius: 20px;
   border: 1px solid black;
-  text-align: center;
-  background-color: white;
+  background-color: rgb(235, 235, 235);
   font-size: 17px;
-  color: #04aaff;
+  color: #008080;
+  width: 100%;
+  font-family: "Lucida Console", "Courier New", monospace;
+  
+}
+
+.font {
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .formBtn {
@@ -23,7 +28,7 @@
   width: 100%;
   padding: 7px 20px;
   text-align: center;
-  color: white;
+  color: rgb(95, 90, 90);
   border-radius: 20px;
   background-color: #04aaff;
   cursor: pointer;
@@ -36,6 +41,7 @@
 
 .authContainer {
   display: flex;
+  width: 100%;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
@@ -47,6 +53,7 @@
   justify-content: space-between;
   width: 100%;
   max-width: 320px;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .authBtn {
@@ -66,9 +73,10 @@
   width: 100%;
   padding: 10px;
   border-radius: 30px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(230, 227, 227);
   margin-bottom: 10px;
   font-size: 15px;
+  font-family: "Lucida Console", "Courier New", monospace;
   color: black;
 }
 
@@ -80,6 +88,7 @@
   background-color: #04aaff;
   margin-bottom: 10px;
   font-size: 12px;
+  font-family: "Lucida Console", "Courier New", monospace;
   color: white;
 }
 
@@ -87,6 +96,7 @@
   color: tomato;
   text-align: center;
   font-weight: 500;
+  font-family: "Lucida Console", "Courier New", monospace;
   font-size: 12px;
 }
 
@@ -97,6 +107,7 @@
   margin-bottom: 50px;
   display: block;
   font-size: 12px;
+  font-family: "Lucida Console", "Courier New", monospace;
   text-decoration: underline;
 }
 
@@ -109,9 +120,7 @@
 
 .nweet {
   margin-bottom: 20px;
-  background-color: white;
   width: 100%;
-  max-width: 320px;
   padding: 20px;
   border-radius: 10px;
   position: relative;
@@ -123,6 +132,7 @@
 .h4 {
   font-size: 15px;
   color: #04aaff;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .nweet__actions {
@@ -175,20 +185,22 @@
 .factoryInput__input {
   flex-grow: 1;
   height: 40px;
+  font-family: "Lucida Console", "Courier New", monospace;
   padding: 0px 20px;
   color: black;
   border: 1px solid #04aaff;
   border-radius: 20px;
   font-weight: 500;
   font-size: 17px;
+  width: 100%;
 }
 
 .factoryInput__arrow {
   position: absolute;
   right: 0;
-  background-color: #04aaff;
-  height: 40px;
-  width: 40px;
+  background-color: #5F9EA0;
+  height: 60px;
+  width: 60px;
   padding: 10px 0px;
   text-align: center;
   border-radius: 20px;

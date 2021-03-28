@@ -3,8 +3,9 @@ import { dbService, storageService } from './firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Message = ({nweetObj, isOwner}) => {
+const Message = ({nweetObj, isOwner, userObj}) => {
 
+  //console.log("What is user name ",userObj.displayName);
   const [editing, setEditing] = useState(false);
   const [newNweet, setNewNweet] = useState(nweetObj.text);
 
@@ -46,11 +47,11 @@ const Message = ({nweetObj, isOwner}) => {
               required
               autoFocus
               onChange={onChange}
-              className="formInput"
+              className="formInput font"
             />
-            <input type="submit" value="Update" className="formBtn" />
+            <input type="submit" value="Update" className="formBtn font" />
           </form>
-          <span onClick={toggleEditing} className="formBtn cancelBtn">
+          <span onClick={toggleEditing} className="formBtn cancelBtn font">
             Cancel
           </span>
         </>
@@ -59,11 +60,13 @@ const Message = ({nweetObj, isOwner}) => {
           <>ღ <h4 className="formInput" > ➤ {nweetObj.text}</h4></>
          {isOwner && (
             <div class="nweet__actions">
-              <span onClick={onDeleteClick}>
-                <FontAwesomeIcon icon={faTrash} />
+              <span onClick={onDeleteClick} className="font"> 
+                <FontAwesomeIcon icon={faTrash} size="1.5x" color={"#A52A2A"} />
+                Delete
               </span>
-              <span onClick={toggleEditing}>
-                <FontAwesomeIcon icon={faPencilAlt} />
+              <span onClick={toggleEditing} className="font"> 
+                <FontAwesomeIcon icon={faPencilAlt} size="1.5x" color={"#006400"} />
+                Edit
               </span>
             </div>
          )}

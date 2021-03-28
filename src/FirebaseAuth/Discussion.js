@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { dbService } from './firebase';
 import Factory from './Factory';
 import Message from './Message';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+    background: #F0FFF0;
+`;
 
 const Discussion = ({ userObj }) => {
     console.log("userObject is : ",userObj);
@@ -24,18 +29,23 @@ const Discussion = ({ userObj }) => {
   console.log("nweets : \n",nweets);
 
   return (
+   <Wrapper>
+     <div className="authContainer">
     <div className="container">
       <Factory userObj={userObj} />
-      <div style={{ marginTop: 30 }}>
+      <div style={{ marginTop: 20 }}>
         {nweets.map((nweet) => (
-          <Message
+          <Message style={{ marginTop: 20 }}
             key={nweet.id}
             nweetObj={nweet}
             isOwner={nweet.creatorId === userObj.uid}
+            userObj={userObj}
           />
         ))}
       </div>
     </div>
+    </div>
+  </Wrapper>
   );
 };
 export default Discussion;
