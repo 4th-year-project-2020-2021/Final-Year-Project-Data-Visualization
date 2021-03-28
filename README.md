@@ -44,8 +44,7 @@
     │   ├── firebase.js 
     │   ├── Message.js 
     │   ├── Profile.js 
-    │   ├── SignInMenu.js 
-    │   ├── SignOutMenu.js
+    │   ├── Factory.js 
     │   └── AuthStyles
     │       └── authStyles.css
     ├── CovidComponents
@@ -55,10 +54,12 @@
     │   ├── Map.js 
     │   ├── Table.js 
     │   ├── util.js 
+    ├── Components
+    │   ├── App.js
+    │   ├── Navigation.js  
+    │   └── Router.js 
     ├── css
     │   ├── styling.css # Covid-19 page styling
-    ├── Nav
-    │   └── Navbar.js
     ├── Routes
     │   ├── Comparison.js 
     │   ├── Covid19.js # Live interactive Covid-19 maps, cards and a line graph

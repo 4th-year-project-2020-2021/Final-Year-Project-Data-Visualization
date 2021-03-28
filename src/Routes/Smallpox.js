@@ -11,8 +11,9 @@ const paragraphStyle = {
 
 
 function Smallpox() {
+  
     return(
-        <div>
+      <div className="Formcontainer">
         <div>Smallpox</div>
         <p style={paragraphStyle}><h3>Smallpox cases - hover over country to see case numbers</h3></p>
         <div><select>

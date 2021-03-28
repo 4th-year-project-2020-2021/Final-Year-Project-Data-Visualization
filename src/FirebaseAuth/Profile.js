@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { authService } from './firebase';
-import styled from 'styled-components';
 
-const Wrapper = styled.div`
-    background: #F0FFF0;
-`;
 
-export default ()=>{
+export default ({ refreshUser, userObj })=>{
     const history = useHistory();
-    //const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
-     const [newDisplayName, setNewDisplayName] = useState("");
-    const onLogOutclick = () => {
+    const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+     
+    const onLogOutClick = () => {
         authService.signOut();
-        //authService.currentUser.uid();
         history.push("/");
     };
 
@@ -26,32 +21,37 @@ export default ()=>{
 
     const onSubmit = async (event) => {
         event.preventDefault();
-
-       /* if(userObj.displayName !== newDisplayName)
-        {
-            await userObj.updateProfile({
-                displayName : newDisplayName,
-            });
-        }*/
-    }
+        if (userObj.displayName !== newDisplayName) {
+          await userObj.updateProfile({
+            displayName: newDisplayName,
+          });
+          refreshUser();
+        }
+    };
 
     return (
-     <Wrapper>
-      <div className="authContainer">
-        <div className="Formcontainer">
+        <div className="container">
           <form onSubmit={onSubmit} className="profileForm">
-            <input 
-                onChange={onChange}
-                type="text" 
-                placeholder="Display name" 
-                value={newDisplayName}
-                className="formInput"
+            <input
+              onChange={onChange}
+              type="text"
+              autoFocus
+              placeholder="Display name"
+              value={newDisplayName}
+              className="formInput"
             />
-            <input type="submit" value="Update Profile"  className="formBtn" style={{marginTop: 10}}/>
+            <input
+              type="submit"
+              value="Update Profile"
+              className="formBtn"
+              style={{
+                marginTop: 10,
+              }}
+            />
           </form>
-          <button className="formBtn cancelBtn logOut" onClick={onLogOutclick}>Log Out</button>
+          <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+            Log Out
+          </span>
         </div>
-      </div>
-      </Wrapper>
-    )
-}
+      );
+    };

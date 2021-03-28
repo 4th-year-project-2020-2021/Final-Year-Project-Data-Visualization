@@ -2,9 +2,9 @@
 
 .Formcontainer {
   width: 100%;
-  max-width: 320px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .formInput {
@@ -14,7 +14,8 @@
   border: 1px solid black;
   text-align: center;
   background-color: white;
-  color: black;
+  font-size: 17px;
+  color: #04aaff;
 }
 
 .formBtn {
@@ -67,8 +68,19 @@
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 1);
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 15px;
   color: black;
+}
+
+.authSubmit {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: #04aaff;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: white;
 }
 
 .authError {
@@ -88,7 +100,6 @@
   text-decoration: underline;
 }
 
-/* Nweet */
 
 .nweetEdit .formBtn {
   cursor: pointer;
@@ -110,18 +121,8 @@
 }
 
 .h4 {
-  font-size: 18px;
-  color: green;
-}
-
-.nweet img {
-  right: -10px;
-  top: 20px;
-  position: absolute;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin-top: 10px;
+  font-size: 15px;
+  color: #04aaff;
 }
 
 .nweet__actions {
@@ -137,6 +138,7 @@
 .nweet__actions span:first-child {
   margin-right: 10px;
 }
+
 .logOut {
   margin-top: 50px;
   cursor: pointer;
@@ -152,7 +154,6 @@
   flex-direction: column;
 }
 
-/* Nwitter Factory */
 
 .factoryForm {
   display: flex;
@@ -175,11 +176,11 @@
   flex-grow: 1;
   height: 40px;
   padding: 0px 20px;
-  color: white;
+  color: black;
   border: 1px solid #04aaff;
   border-radius: 20px;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 17px;
 }
 
 .factoryInput__arrow {
@@ -208,12 +209,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.factoryForm__attachment img {
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
 }
 
 .factoryForm__clear {

@@ -115,7 +115,13 @@ const Item = () => {
 
 
     return(
-        <div>
+        <div 
+        style={{
+      textAlign: "center",
+      fontSize:"30px",
+      fontFamily: "Nanum Gothic",
+      color: "dark"
+      }}>
         <React.Fragment>
             {numbersArray}
         </React.Fragment>
