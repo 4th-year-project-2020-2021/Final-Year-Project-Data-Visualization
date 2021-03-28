@@ -1,136 +1,145 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
 const Item = () => {
-    //return single item variables
-    //const[item, setItem] = useState({});
-    //const[itemId, setItemId] = useState("");
-    //const[editMode, setEditMode] = useState(false);
-
-    //const [name, setName] = useState("");
-    //const [description, setDescription] = useState("");
-    //const [amount, setAmount] = useState("");
-
     //return all smallpox data from database
-    const[numbers, setNumbers] = useState([]);
-    const getNumbers = () =>{
+    const [numbers, setNumbers] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const getNumbers = () => {
+        setLoading(true);
         fetch("/api/smallpox")
-        .then(res => {
-            return res.json();
-        }).then(numbers => {
-            console.log(numbers);
-            setNumbers(numbers.data);
-        })
+            .then(res => res.json()
+            ).then(res => {
+                console.log(numbers);
+                setNumbers(res.data);
+                setLoading(false);
+            })
     }
-    useEffect(() => {
-        getNumbers();
-    }, [])//empty array allows only one call
+   // useEffect(() => {
+       // getNumbers();
+    //}, [])//empty array allows only one call
 
-    let numbersArray;
-    if(numbers.length > 0)
-    {
-        numbersArray = <div className="numbers">
-        {numbers.map(number =>{
-            return(
-                <div className = "number" key={number._id}>
-                <Link to={"number/" + number._id}>
-                </Link>
-                <p className="name">{number.Entity} {number.Code} {number.Year} {number.Cases}</p>
-                
-                </div>
-            )
-        })}
-        </div>
-    }
-    else{
-        numbersArray = <div className="message">
-            <p>No items in the Database</p>
-        </div>
-    }
-
-   
-
-    //return all items from database
-    const[items, setItems] = useState([]);
-    const getItems = () =>{
+    //return all symptoms from database
+    const [items, setItems] = useState([]);
+    const getItems = () => {
+        setLoading(true);
         fetch("/api/items")
-        .then(res => {
-            return res.json();
-        }).then(items => {
-            console.log(items);
-            setItems(items.data);
-        })
+            .then(res => res.json()
+            ).then(items => {
+                console.log(items);
+                setItems(items.data);
+                setLoading(false);
+            })
     }
 
-    useEffect(() => {
-        getItems();
-    }, [])//empty array allows only one call
+    //useEffect(() => {
+      //  getItems();
+    //}, [])//empty array allows only one call
 
     let itemsArray;
-    if(items.length > 0)
-    {
+    if (items.length > 0) {
         itemsArray = <div className="items">
-        {items.map(item =>{
-            return(
-                <div className = "item" key={item._id}>
-                <Link to={"item/" + item._id}>
-                </Link>
-                <p className="name">{item.name} {item.description} {item.amount}</p>
-                
-                </div>
-            )
-        })}
+            {items.map(item => {
+                return (
+                    <div className="item" key={item._id}>
+                        <Link to={"item/" + item._id}>
+                        </Link>
+                        <p className="name">{item.name} {item.description} {item.amount}</p>
+
+                    </div>
+                )
+            })}
         </div>
     }
-    else{
+    else {
         itemsArray = <div className="message">
             <p>No items in the Database</p>
         </div>
     }
 
-    //return 1 item from database
-    /*const getItem = (props) => {
-        let id = props.match.params.id;
-        let cleanId = id.replace(/["']+/g, "");  //id comes from flask with "" need to replace them
-        setItemId(cleanId);
-        fetch("api/item" + cleanId)
-        .then(res => {
-            return res.json();
-        }).then(res => {
-            let parsedResponse = JSON.parse(res.data);
-            setItem(parsedResponse)
+    return (
+        <div>
 
-            setName(res.name);
-            setDescription(res.description);
-            setAmount(res.amount);
-        }).catch(err =>{
-            console.log(err);
-        })
-    }
-
-    useEffect(() => {
-        getItem();
-    },[]);*/
+            <React.Fragment>
+                <button
+                    className="button"
+                    onClick={getNumbers}
+                    disabled={loading}
+                >
+                    {loading ? 'Loading...' : 'Get List of Countries'}
+                </button>
+                <div key={numbers._id}>
+                    <table>
+                        <thead>
+                            <th>Country </th>
+                            <th>Country Code</th>
+                            <th>Year</th>
+                            <th>No of Cases</th>
+                        </thead>
 
 
-    return(
-        <div 
-        style={{
-      textAlign: "center",
-      fontSize:"30px",
-      fontFamily: "Nanum Gothic",
-      color: "dark"
-      }}>
-        <React.Fragment>
-            {numbersArray}
-        </React.Fragment>
-        <React.Fragment>
-            <p>Place Holder</p>
-            {itemsArray}
-            
-        </React.Fragment>
-        
+                        <tbody>
+                            {numbers.map(x => <tr>
+                                <Link to={"number/" + numbers._id}>
+                                </Link>
+                                <td>{x.Entity}</td>
+                                <td>{x.Code}</td>
+                                <td>{x.Year}</td>
+                                <td>{x.Cases}</td>
+                            </tr>)}
+                            {numbers.length == 0 && <tr>
+
+                                <b>No data found to display.</b>
+
+                            </tr>}
+                        </tbody>
+                    </table>
+                </div>
+
+            </React.Fragment>
+            <React.Fragment>
+                <br />
+                {/*{itemsArray}*/}
+                <button
+                    className="button"
+                    onClick={getItems}
+                    disabled={loading}
+                >
+                    {loading ? 'Loading...' : 'Get Symptoms'}
+                </button>
+                <div key={items._id}>
+                    <table>
+                        <thead>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Temperature</th>
+                            
+                        </thead>
+
+
+                        <tbody>
+                            {items.map(x => <tr>
+                                <Link to={"item/" + items._id}>
+                                </Link>
+                                <td>{x.name}</td>
+                                <td>{x.description}</td>
+                                <td>{x.amount}</td>
+                                
+                            </tr>)}
+                            {items.length == 0 && <tr>
+
+                                <b>No data found to display.</b>
+
+                            </tr>}
+                        </tbody>
+                    </table>
+                </div>
+
+                
+            </React.Fragment>
+
         </div>
     )
 
