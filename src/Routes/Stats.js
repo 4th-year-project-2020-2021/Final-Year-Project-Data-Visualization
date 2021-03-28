@@ -7,7 +7,7 @@ class Stats extends React.Component{
         return <div>
             <div className="app">
                 <div className="app__left"> 
-                    <h1 className="app_header">COVID-19 Stats</h1>
+                    <h1 className="app__header">COVID-19 Stats</h1>
                 </div>
             </div>
         </div>
