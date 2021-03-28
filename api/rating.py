@@ -22,6 +22,7 @@ collections = db['ratings']
 
 # Blueprint - each blueprint will be 1 route
 ratingRoute = Blueprint("rating", __name__)
+indexRating = Blueprint("ratingIndex",__name__)
 
 # routes
 @ratingRoute.route('/api/rating', methods=['POST'])
@@ -36,6 +37,17 @@ def rating():
     # inserts a single document into the database, 
     collections.insert_one(item)
     return jsonify(data = "Successfully submitted rating")
+
+#all ratings route
+@indexRating.route("/api/rating")
+def ratingIndex():
+
+    ratings = []
+    #get all the items
+    cursor = collections.find({})
+    for document in cursor:
+        ratings.append({"_id": JSONEncoder().encode(document["_id"]),"rating": document["rating"]})
+    return jsonify(data=ratings)
 
 
 

@@ -1,15 +1,32 @@
 import Doc from "../Img/Doc.svg";
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
 
 function Rating(){
 
 const [rating, setRating] = useState("");
+const [loading, setLoading] = useState(false);
+const [ratings, setRatings] = useState([]);
+
+const getRatings = () => {
+  setLoading(true);
+  fetch("/api/rating")
+      .then(res => res.json()
+      ).then(res => {
+          console.log(rating);
+          setRating(res.data);
+          setLoading(false);
+      })
+}
+
 
 const ratingItem = (e) =>{
   e.preventDefault();
   console.log("data");
+
+  
 
   const item = {
    rating : rating
@@ -62,8 +79,47 @@ return (
           </div>
           <input className="button" type="submit" value="Submit" />
           <br></br>
-          <input className="button" type="submit" value="See all Reviews" />
+          {/*<input className="button" type="submit" value="See all Reviews" />*/}
         </form>
+        <React.Fragment>
+                <br />
+        
+                <button
+                    className="button"
+                    onClick={getRatings}
+                    disabled={loading}
+                >
+                    {loading ? 'Loading...' : 'Ratings'}
+                </button>
+                <div key={rating._id}>
+                    <table>
+                        <thead>
+                            <th>What the reviews say</th>
+                            
+                            
+                        </thead>
+
+
+                        <tbody>
+                            {rating.map(x => <tr>
+                                <Link to={"ratings/" + rating._id}>
+                                </Link>
+                                <td>{x.rating}</td>
+                                
+                                
+                            </tr>)}
+                            {rating.length == 0 && <tr>
+
+                                <b>No data found to display.</b>
+
+                            </tr>}
+                        </tbody>
+                    </table>
+                </div>
+
+                
+            </React.Fragment>
+
       </div>
     );
   }
