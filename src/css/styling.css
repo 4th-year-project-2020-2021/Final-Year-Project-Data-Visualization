@@ -1,4 +1,4 @@
-/* Flex box */
+/* App header Covid-a9 page - Flex box */
 .app__header {
     display: flex;
     align-items: center;
@@ -6,43 +6,8 @@
     justify-content: space-between;
     font-family: sans-serif;
     font-size: x-large;
-}
-/* Pins google map styling*/
-.MapContainer {
-    height: 500px;
-    background-color: white;
-    padding: 0.2rem;
-    border-radius: 5px;
-    margin-top: 16px;
-    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
 }  
-.map .leaflet-container {
-    height: 100%;
-}
-.info-flag img {
-    width: 100px;
-    border-radius: 5px;
-}
-.info-name {
-    font-size: 20px;
-    font-weight: bold;
-    color: #555;
-} 
-.info-container {
-    width: 150px;
-}  
-.info-flag {
-    height: 80px;
-    width: 100%;
-    background-size: cover;
-    border-radius: 8px;
-}  
-.info-confirmed,
-.info-recovered,
-.info-deaths {
-    font-size: 16px;
-    margin-top: 5px;
-}  
+
 /* Aligning parts to left of the screen */
 .app__left {
     flex: 0.8;
@@ -67,6 +32,8 @@ body {
     margin-top: 1rem;
     font-family: sans-serif;
 }
+
+/* Table on right of Covid-19 page */
 .table {
     margin-top: 20px;
     overflow: scroll;
@@ -86,10 +53,14 @@ body {
 .table tr:nth-of-type(odd) {
     background-color: #f3f2f8;
 }
+
+/* Spacing between features (flex left/ right) */
 .app__stats{
     display: flex;
     justify-content: space-between;
 }
+
+/* Buttons on Home page */
 .button {
     border: none;
     color: white;
@@ -98,7 +69,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 3px 1px;
     transition-duration: 0.4s;
     cursor: pointer;
 }
@@ -111,19 +82,12 @@ body {
     background-color: #555555;
     color: white;
 }
+
+/* Text box on home page */
 .text-box {
     font-size: 25px;
 }
-#mapid { 
-    height: 500px;
-    flex-grow: 4;
-    width:100%;
-}
-#mapidd { 
-    height: 500px;
-    flex-grow: 4;
-    width:100%;
-}
+
 /* Responsive app - min screen size set to 990px */
 @media (max-width: 990px) {
     .app {
@@ -131,4 +95,38 @@ body {
     }
 }
 
-
+/* Map styling on Covid-19 page */ 
+.map {
+    height: 600px;
+    background-color: white;
+    margin-top: 16px;
+    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+}  
+.map .leaflet-container {
+    height: 100%;
+    border-radius: 12px;
+}  
+.info-flag img {
+    width: 100px;
+    border-radius: 5px;
+} 
+.info-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+}  
+.info-container {
+    width: 150px;
+}  
+.info-flag {
+    height: 80px;
+    width: 100%;
+    background-size: cover;
+    border-radius: 8px;
+}  
+.info-confirmed,
+.info-recovered,
+.info-deaths {
+    font-size: 16px;
+    margin-top: 5px;
+}

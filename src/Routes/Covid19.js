@@ -9,8 +9,8 @@ import { sortData } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
 import InfoBox from '../CovidComponents/InfoBox';
 import LineGraph from "../CovidComponents/LineGraph";
-import { MapContainer, CircleMarker, TileLayer } from "react-leaflet";
-import "leaflet/dist/leaflet";
+import Map from "../CovidComponents/Map";
+import "leaflet/dist/leaflet.css";
 import "../css/styling.css";
 
 // Referances
@@ -45,10 +45,8 @@ function Covid19(){
     const[countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
     const [mapCenter, setMapCenter] = 
-        useState({ lat: 60, lng: 7 });
+        useState({ lat: 28, lng: 3 });
     const [mapZoom, setZoomCenter] = useState(3);
-
-    //const [zoom, setZoom] = useState(3);
     
     useEffect(() => {
         fetch("https://disease.sh/v3/covid-19/all")
@@ -191,26 +189,13 @@ function Covid19(){
                 <h3 className="app__header">Interact with the Map</h3>
 
                 <div>
-                    <MapContainer
-                        className="mapidd"
-                        center={mapCenter}
-                        zoom={mapZoom}>
-                        <TileLayer
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        />
 
-                        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-                        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-                        crossorigin=""/>
-
-                        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-                        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-                        crossorigin=""></script>
-
-                        <div id="mapid"></div>
-                
-                    </MapContainer>
+                <Map
+                    countries={countryInfo}
+                    casesType={casesType}
+                    center={mapCenter}
+                    zoom={mapZoom}
+                />
 
                 </div>
                 <br></br>
