@@ -23,6 +23,11 @@
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
+.big {
+  font-size: 20px;
+  color: #0d7c7c;
+}
+
 .formBtn {
   cursor: pointer;
   width: 100%;
