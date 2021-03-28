@@ -11,14 +11,14 @@ const [loading, setLoading] = useState(false);
 const [ratings, setRatings] = useState([]);
 
 const getRatings = () => {
-  setLoading(true);
-  fetch("/api/rating")
-      .then(res => res.json()
-      ).then(res => {
-          console.log(rating);
-          setRating(res.data);
-          setLoading(false);
-      })
+    setLoading(true);
+    fetch("/api/rating")
+        .then(res => res.json()
+        ).then(res => {
+            console.log(ratings);
+            setRatings(res.data);
+            setLoading(false);
+        })
 }
 
 
@@ -102,9 +102,9 @@ return (
 
                         <tbody>
                             {ratings.map(x => <tr>
-                                <Link to={"ratings/" + ratings._id}>
+                                <Link to={"rating/" + ratings._id}>
                                 </Link>
-                                <td>{x.ratings}</td>
+                                <td>{x.rating}</td>
                                 
                                 
                             </tr>)}

@@ -47,15 +47,6 @@ def create():
     collections.insert_one(item)
     return jsonify(data = "items created successfully")
 
-#single item route
-@itemRoute.route("/api/item/<id>", methods=["GET"])
-def items(id):
-    cursor = collections.find_one({"_id": ObjectId(id)})#need to parse in order for Mongodb to read
-    print(cursor, flush=True)
-    
-    #return the encoded item
-    return jsonify(data=JSONEncoder().encode(cursor))
-
 #all items route
 @indexRoute.route("/api/items")
 def index():
@@ -66,6 +57,19 @@ def index():
     for document in cursor:
         items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"],"description": document["description"], "amount": document["amount"]})
     return jsonify(data=items)
+
+
+
+#single item route
+@itemRoute.route("/api/item/<id>", methods=["GET"])
+def items(id):
+    cursor = collections.find_one({"_id": ObjectId(id)})#need to parse in order for Mongodb to read
+    print(cursor, flush=True)
+    
+    #return the encoded item
+    return jsonify(data=JSONEncoder().encode(cursor))
+
+
 
 @smallpoxRoute.route("/api/smallpox")
 def sp():
