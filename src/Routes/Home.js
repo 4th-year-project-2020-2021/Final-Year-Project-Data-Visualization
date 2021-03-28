@@ -91,7 +91,7 @@ return (
                 >
                     {loading ? 'Loading...' : 'Ratings'}
                 </button>
-                <div key={rating._id}>
+                <div key={ratings._id}>
                     <table>
                         <thead>
                             <th>What the reviews say</th>
@@ -101,14 +101,14 @@ return (
 
 
                         <tbody>
-                            {rating.map(x => <tr>
-                                <Link to={"ratings/" + rating._id}>
+                            {ratings.map(x => <tr>
+                                <Link to={"ratings/" + ratings._id}>
                                 </Link>
-                                <td>{x.rating}</td>
+                                <td>{x.ratings}</td>
                                 
                                 
                             </tr>)}
-                            {rating.length == 0 && <tr>
+                            {ratings.length == 0 && <tr>
 
                                 <b>No data found to display.</b>
 
