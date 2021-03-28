@@ -13,21 +13,6 @@ function Upload() {
  
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
-  
-  const [count, setCount] = useState(0);
-  //similar to componentDidMount and componentDidUpdate
-  useEffect(() => {    
-    // Update the document title using the browser API    
-    document.title = `You clicked ${count} times`;  
-  });  
-
-
-  const [currentTime, setCurrentTime] = useState(10);
-  useEffect(() =>{
-    fetch('/time').then(resp => resp.json()).then(data =>{
-        setCurrentTime(data.time);
-    });
-  }, []);
 
   // process CSV data
   const processData = dataString => {
@@ -91,7 +76,7 @@ function Upload() {
       <h3 style={paragraphStyle}>Upload a CSV file to the app</h3>
 
       <br></br>
-      <h3>The current time is {currentTime}</h3>
+      
       <br></br>
 
       <input
@@ -101,10 +86,7 @@ function Upload() {
       />
       <div>
       
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-      <p>You clicked {count} times</p>
+      
     </div>
       <DataTable
         pagination
