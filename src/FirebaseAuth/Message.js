@@ -58,7 +58,9 @@ const Message = ({nweetObj, isOwner, userObj}) => {
       ) : (
         <>
           <>ღ <h4 className="formInput" > ➤ {nweetObj.text}</h4></>
-         {isOwner && (
+         {isOwner ? (
+           <>
+           <div className="font big"> By you [{userObj.displayName}]</div>
             <div class="nweet__actions">
               <span onClick={onDeleteClick} className="font"> 
                 <FontAwesomeIcon icon={faTrash} size="1.5x" color={"#A52A2A"} />
@@ -69,7 +71,8 @@ const Message = ({nweetObj, isOwner, userObj}) => {
                 Edit
               </span>
             </div>
-         )}
+            </>
+         ): <div className="font big">By someone </div> }
         </>
       )}
     </div>

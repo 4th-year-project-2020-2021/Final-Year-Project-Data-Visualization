@@ -35,7 +35,7 @@ const Discussion = ({ userObj }) => {
       <Factory userObj={userObj} />
       <div style={{ marginTop: 20 }}>
         {nweets.map((nweet) => (
-          <Message style={{ marginTop: 20 }}
+          <Message style={{ marginTop: 20 }} 
             key={nweet.id}
             nweetObj={nweet}
             isOwner={nweet.creatorId === userObj.uid}

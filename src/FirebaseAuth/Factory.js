@@ -36,8 +36,8 @@ const Factory = ({ userObj }) => {
   
   
   return (
-    <Wrapper>
-    <h4 className="font big">Hey {userObj.displayName }!</h4>  
+    <Wrapper> 
+    <h1 className="Center big font">Share your thoughts with others</h1>
     <form onSubmit={onSubmit} >
       <div className="factoryInput__container">
         <input
@@ -45,7 +45,7 @@ const Factory = ({ userObj }) => {
           value={nweet}
           onChange={onChange}
           type="text"
-          placeholder= "Share your thoughts with others"
+          placeholder= "Leave your message!"
           maxLength={120}
         />
         <input type="submit" value="&rarr;" className="factoryInput__arrow" />
