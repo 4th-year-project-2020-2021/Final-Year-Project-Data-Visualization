@@ -152,9 +152,16 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Pie chart.
 - [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
 - [x] Mers and Sars page. - Data Visualization with D3
-- [x] Login and Register functionalities - FIREBASE was used for User Authentication. 
-- [x] Profile page. - users can edit their profiles, e.g. user name (User can LogOut here).
-- [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. All the messages will be stored in firestore.
+- [x] Login and Register functionalities ( Firebase ).
+- [x] Profile page. - users can edit their profile name.
+- [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. ( Firestore ).
+
+- Users can view our Message Board.
+- USers can create their own Account (Email, Google account, and Github account)
+- Users can log into their Account.
+- Logged in users can post their own messages on the Message Board.
+- Logged in users can edit and delete their messages they have created.
+- Logged in users can edit their profile name.
 
 ### Shirin - Smallpox component & Upload component
 
