@@ -26,27 +26,18 @@ function Covid19(){
     const[latest, setLatest] = useState([]);
     // Country cards
     const[results, setResults] = useState([]);
-    // Search bar
-    const[searchCountry, setSearchCountries] = useState("");
-    // Getting updated time by converting miliseconds
-    const date = new Date(parseInt(latest.updated))
-    const lastUpdated = date.toString();
     // Table
     const [tableData, setTableData] = useState([]);
-    // Filter search
-    const filterCountry = results.filter(item  =>{
-        // If search and country the same -> return info
-        return item.country  === searchCountry;
-    })
     // Select country, default = worldwide
     const[country, setSelectCountry] = useState('worldwide');
     // Drop down list
     const [dropcountries, setDropDownCountries] = useState([]);
-    const[countryInfo, setCountryInfo] = useState({});
+    const [countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
     const [mapCenter, setMapCenter] = 
         useState({ lat: 28, lng: 3 });
-    const [mapZoom, setZoomCenter] = useState(3);
+    const [mapZoom, setZoomCenter] = useState(2);
+    const [mapCountries, setMapCountries] = useState([]);
     
     useEffect(() => {
         fetch("https://disease.sh/v3/covid-19/all")
@@ -75,6 +66,8 @@ function Covid19(){
                 const sortedData = sortData(data);
                 setDropDownCountries(dropcountries);
                 setTableData(sortedData);
+                //setMapCountries(dropcountries);
+                setMapCountries(data);
             });
         };
         // calling the function
@@ -93,7 +86,6 @@ function Covid19(){
         .then(responceArr => {
             setLatest(responceArr[0].data);
             setResults(responceArr[1].data);
-         
             setTableData(responceArr[2].data);
         })
         // Return an error (if any)
@@ -158,6 +150,11 @@ function Covid19(){
             setSelectCountry(countryCode);
             // Store responce
             setCountryInfo(data);
+
+            // Map zooms in to scecific country when selected from drop down
+            setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+            // Set zoom level
+            setZoomCenter(4);
         });
     };
     console.log("Country info", countryInfo);
@@ -191,7 +188,7 @@ function Covid19(){
                 <div>
 
                 <Map
-                    countries={countryInfo}
+                    countries={mapCountries}
                     casesType={casesType}
                     center={mapCenter}
                     zoom={mapZoom}
@@ -205,7 +202,7 @@ function Covid19(){
                             bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                             defaultCenter={{lat: 28, lng: 3}}
                             // Zoom level
-                            defaultZoom={1}
+                            defaultZoom={2}
                         >
                             {countriesLocation}
                         </GoogleMapReact>
