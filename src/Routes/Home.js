@@ -63,6 +63,7 @@ return (
       color: "dark"
       }}
     >    
+
     <h4>Data Visualization & Analysis</h4>
     <br/>
         <img src={Doc} style={{ height: 300}}/>
@@ -93,24 +94,27 @@ return (
                 </button>
                 <div key={ratings._id}>
                     <table>
-                        <thead>
-                            <th>What the reviews say</th>
+                        <div class="review__Heading">
+                            <td>Past reviews</td>
                             
                             
-                        </thead>
+                        </div>
 
 
                         <tbody>
                             {ratings.map(x => <tr>
                                 <Link to={"rating/" + ratings._id}>
                                 </Link>
-                                <td>{x.rating}</td>
-                                
+                                <div>
+                                    <td className="reviews">{x.rating}</td>
+                                </div>
                                 
                             </tr>)}
                             {ratings.length == 0 && <tr>
 
                                 <b>No data found to display.</b>
+
+                                
 
                             </tr>}
                         </tbody>
