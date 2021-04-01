@@ -6,6 +6,10 @@
     A collection of react components to render common data visualizations such as line graphs, pie charts ect as well as live data visualizations and statistics.
 </h4>
 
+<p align="center">
+  <img src="./Images/GMIT.jpeg" width=600 height=250/>
+</p>
+
 ## Contents
 - [Group Members](#group-members)
 - [Program Overview](#program-overview)
@@ -86,20 +90,14 @@ Our final year project is based on the data visualization and analysis of variou
 
 
 ## Running the Program
-To get started developing the right away:
-
-1) `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
-
-2) Install all project dependencies with  `npm install`
-
-3) Start the development server with `npm start`
-
+1) In your command line terminal: `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
+2) Install all project dependencies: `npm install`
+3) Start the development server: `npm start`
 4) Navigate to http://localhost:3000/ on your browser.
 
 - Screencast of how to run the program goes here**
 
 ### Run web service
-
 ```bash
 $ pip install -r requirements.txt
 $ cd api
@@ -110,20 +108,16 @@ $ flask run
 ## Technology stack
 
 - React in the Client side.
-
 - Flask, MongoDB in the backend.
-
 - Mongo Atlas as Managed Mongo Database service in the cloud.
-
 - Heroku Cloud Platform for deploying API and React App.
-
 - D3 for Data visualization. (Inside Mers,Sars,Comparison components)
-
 - Firebase Realtime Database for handling user authenticaton and storing Mers, Sars, Comparison datasets.
-
 - Cloud Firestore (cloud-hosted, NoSQL database) for discussion page (User can Crate, Read, Update, Delete their messages in this page).
 
-- Architecture image goes here**
+<p align="center">
+  <img src="./Images/fremp.png" width=600 height=300/>
+</p>
 
 ## Designated Tasks
 
@@ -140,21 +134,22 @@ $ flask run
 - [ ] Stats
 - [ ] Interactive cases list
 - [ ] Comparison pie chart
+- [ ] Dissertation writing
 
 ### Jina - Mers_Sars page & Comparison page & User Authentication (Firebase) & Discussion page (Cloud Firestore)
 
 I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-- [x] Interactive Bar charts with dropdown button Flicking between datasets. 
-- [x] Scatter plots.
-- [x] Line graphs.
-- [x] Pie chart.
+- [x] Interactive Bar charts with dropdown button Flicking between datasets
+- [x] Scatter plots
+- [x] Line graphs
+- [x] Pie chart
 - [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
 - [x] Mers and Sars page. - Data Visualization with D3
-- [x] Login and Register functionalities ( Firebase ).
-- [x] Profile page. - users can edit their profile name.
-- [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. ( Firestore ).
+- [x] Login and Register functionalities ( Firebase )
+- [x] Profile page. - users can edit their profile name
+- [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. ( Firestore )
 
 - Users can view our Message Board.
 - USers can create their own Account (Email, Google account, and Github account)
@@ -171,19 +166,20 @@ The main purpose of every work is that making interactive visualization applicat
 - [ ] Flask backend
 - [ ] API routes for connecting to MongoDB Atlas
 - [ ] Stats
+- [ ] Dissertation writing
+
 
 ## Screens
-
-- [x] Home
-- [x] Covid-19
-- [x] Stats
-- [x] Mers and Sars
-- [x] Comparison
-- [x] Small pox
-- [x] Upload
-- [X] Login & Register
-- [X] Profile
-- [X] Discussion
+- Home
+- Covid-19
+- Stats
+- Mers and Sars
+- Comparison
+- Small pox
+- Upload
+- Login & Register
+- Profile
+- Discussion
 
 ## API/ CSV file and information Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
@@ -195,5 +191,3 @@ The main purpose of every work is that making interactive visualization applicat
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
 [9] Smallpox data https://ourworldindata.org/smallpox<br>
-
-
