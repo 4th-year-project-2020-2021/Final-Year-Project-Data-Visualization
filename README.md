@@ -116,7 +116,7 @@ $ flask run
 - Cloud Firestore (cloud-hosted, NoSQL database) for discussion page (User can Crate, Read, Update, Delete their messages in this page).
 
 <p align="center">
-  <img src="./Images/fremp.png" width=600 height=300/>
+  <img src="./Images/fremp.PNG" width=600 height=300/>
 </p>
 
 ## Designated Tasks

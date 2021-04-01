@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { color } from "d3-color";
 
 const Navigation = ({ userObj }) => (
   <nav>
-    <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
+    <ul style={{ display: "flex", justifyContent: "center", marginTop: 50, fontFamily: "Sans-serif"}}>
       <li>
         <Link to="/" style={{ marginRight: 30 }}>Home</Link>
       </li>
