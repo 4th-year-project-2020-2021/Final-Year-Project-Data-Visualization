@@ -5,8 +5,10 @@
     margin-bottom: 20px;
     justify-content: space-between;
     font-family: sans-serif;
-    font-size: x-large;
-}  
+} 
+.Heading {
+    font-size: 2rem;
+}
 
 /* Aligning parts to left of the screen */
 .app__left {
@@ -41,6 +43,7 @@ body {
     background-color: white;
     height: 400px;
     font-family: sans-serif;
+    cursor: pointer;
 } 
 .table tr {
     display: flex;
@@ -142,8 +145,9 @@ body {
     float: left;
 }
 
-.infBox {
+.infoBox {
     flex: 1;
+    cursor: pointer;
 }
 .infoBox:not(:last-child){
     margin-right: 15px;
@@ -161,3 +165,10 @@ body {
     margin-top: 15px !important;
 }
 
+/* Selected card styling */
+.infoBox--selected {
+    border-top: 10px solid yellow;
+}
+.infoBox--black {
+    border-color: black;
+}
