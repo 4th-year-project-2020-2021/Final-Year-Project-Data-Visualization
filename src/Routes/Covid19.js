@@ -139,7 +139,7 @@ function Covid19(){
         setSelectCountry(countryCode);
 
         const url =
-        countryCode === "worldwide"
+        countryCode === "worldwide" 
         ? "https://disease.sh/v3/covid-19/all"
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
         
@@ -151,8 +151,11 @@ function Covid19(){
             // Store responce
             setCountryInfo(data);
 
+            countryCode === "worldwide"
+          ? setMapCenter([34.80746, -40.4796])
+
             // Map zooms in to scecific country when selected from drop down
-            setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+            : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
             // Set zoom level
             setZoomCenter(4);
         });
