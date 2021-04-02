@@ -180,9 +180,22 @@ function Covid19(){
                 </div>
                 <br></br>
                 <div className="app__stats">
-                    <InfoBox title="Cases today & total cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases}/>
-                    <InfoBox title="Recovered today & total recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={countryInfo.recovered}/>
-                    <InfoBox title="Deaths today & total deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={countryInfo.deaths}/>
+                    <InfoBox
+                        onClick={e => setCasesType('cases')}
+                            title="Cases today & total cases"
+                            cases={prettyPrintStat(countryInfo.todayCases)}
+                            total={prettyPrintStat(countryInfo.cases)}/>
+                    <InfoBox 
+                        onClick={e => setCasesType('recovered')}
+                            title="Recovered today & total recovered" 
+                            cases={prettyPrintStat(countryInfo.todayRecovered)} 
+                            total={prettyPrintStat(countryInfo.recovered)}/>
+
+                    <InfoBox 
+                        onClick={e => setCasesType('deaths')}
+                            title="Deaths today & total deaths" 
+                            cases={prettyPrintStat(countryInfo.todayDeaths)} 
+                            total={prettyPrintStat(countryInfo.deaths)}/>
                 </div>
                 <br></br>
 
