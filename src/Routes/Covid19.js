@@ -5,7 +5,7 @@ import axios from "axios"
 import GoogleMapReact from 'google-map-react';
 import Table from "../CovidComponents/Table";
 import { CardContent, Select } from '@material-ui/core';
-import { sortData } from "../CovidComponents/util";
+import { sortData, prettyPrintStat } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
 import InfoBox from '../CovidComponents/InfoBox';
 import LineGraph from "../CovidComponents/LineGraph";
@@ -180,9 +180,9 @@ function Covid19(){
                 </div>
                 <br></br>
                 <div className="app__stats">
-                    <InfoBox title="Cases today & total cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
-                    <InfoBox title="Recovered today & total recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
-                    <InfoBox title="Deaths today & total deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+                    <InfoBox title="Cases today & total cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases}/>
+                    <InfoBox title="Recovered today & total recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={countryInfo.recovered}/>
+                    <InfoBox title="Deaths today & total deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={countryInfo.deaths}/>
                 </div>
                 <br></br>
 
