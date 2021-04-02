@@ -5,11 +5,11 @@ import "../css/styling.css";
 function Table({ countries }) {
   return (
     <div className="table">
-        {countries.map((country) => (
+        {countries.map(({country, cases}) => (
         <tr>
-          <td>{country.country}</td>
+          <td>{country}</td>
           <td>
-            <strong>{numeral(country.cases).format("0,0")}</strong>
+            <strong>{numeral(cases).format("000,000")}</strong>
           </td>
         </tr>
       ))}
