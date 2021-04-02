@@ -167,7 +167,7 @@ function Covid19(){
             <div className="app">
             <div className="app__left">
                     <div className="app__header">
-                        <h3>COVID-19 Live</h3>
+                        <h3 className="Heading">COVID-19</h3>
                         <br></br>
                     <FormControl className="app__dropdown">
                         <Select variant="outlined" onChange={onCountryChange} value={country}>
@@ -181,18 +181,24 @@ function Covid19(){
                 <br></br>
                 <div className="app__stats">
                     <InfoBox
+                        isBlack
                         onClick={e => setCasesType('cases')}
+                        active={casesType === "cases"}
                             title="Cases today & total cases"
                             cases={prettyPrintStat(countryInfo.todayCases)}
                             total={prettyPrintStat(countryInfo.cases)}/>
                     <InfoBox 
+                        isBlack
                         onClick={e => setCasesType('recovered')}
+                        active={casesType === "recovered"}
                             title="Recovered today & total recovered" 
                             cases={prettyPrintStat(countryInfo.todayRecovered)} 
                             total={prettyPrintStat(countryInfo.recovered)}/>
 
-                    <InfoBox 
+                    <InfoBox
+                        isBlack 
                         onClick={e => setCasesType('deaths')}
+                        active={casesType === "deaths"}
                             title="Deaths today & total deaths" 
                             cases={prettyPrintStat(countryInfo.todayDeaths)} 
                             total={prettyPrintStat(countryInfo.deaths)}/>
@@ -200,9 +206,7 @@ function Covid19(){
                 <br></br>
 
                 <h3 className="app__header">Interact with the Map</h3>
-
                 <div>
-
                 <Map
                     countries={mapCountries}
                     casesType={casesType}
@@ -232,7 +236,7 @@ function Covid19(){
                             <Table countries={tableData} />
                             <br></br>
                             <br></br>
-                            <h3>Worldwide past 120 days cases</h3>
+                            <h3>Worldwide past 120 days {casesType}</h3>
                             <br></br>
                             <br></br>
                             <LineGraph casesType={casesType} />
