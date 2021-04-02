@@ -13,6 +13,7 @@ import Upload from 'Routes/Upload';
 import Discussion from 'FirebaseAuth/Discussion';
 import Profile from 'FirebaseAuth/Profile';
 import Navigation from './Navigation';
+import Navigation2 from './Navigation2';
 
 const AppRouter = ({refreshUser, authenticated , userObj}) => {
    
@@ -66,9 +67,31 @@ const AppRouter = ({refreshUser, authenticated , userObj}) => {
                   <Redirect from="*" to="/" />
                 </div>
                  ) : (
-                  <Route exact path="/"> 
-                      <Auth />
+                   <div>
+                     <Navigation2 />
+                     <Route exact path="/">
+                        <Rating />
+                    </Route>
+                    <Route exact path="/covid19">
+                        <Covid19 />
+                    </Route>
+                  <Route exact path="/stats">
+                    <Stats />
                   </Route>
+                  <Route exact path="/mersandsars">
+                    <MersAndSars />
+                  </Route>
+                  <Route exact path="/comparison">
+                    <Comparison />
+                  </Route>
+                  <Route exact path="/smallpox">
+                    <Smallpox />
+                  </Route>
+                  <Route exact path="/auth">
+                    <Auth />
+                  </Route>
+                   </div>
+            
                  )}
             </Switch>
         </Router>
