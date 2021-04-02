@@ -4,7 +4,7 @@ import { Circle, Popup } from "react-leaflet";
 
 const casesTypeColors = {
   cases: {
-    hex: "#CC1034",
+    hex: "#00F7FF",
     mulitiplier: 800,
   },
 
@@ -35,7 +35,7 @@ export const sortData = (data) => {
 };
 
 // Draw circles on interactive map
-/*export const showDataOnMap = (data, casesType='cases') =>
+export const showDataOnMap = (data, casesType) =>
 data.map((country) => (
   <Circle
     center={[country.countryInfo.lat, country.countryInfo.long]}
@@ -45,7 +45,7 @@ data.map((country) => (
       fillColor: casesTypeColors[casesType].hex,
     }}
     radius={
-      Math.sqrt(data[casesType] / 10) *
+      Math.sqrt(country[casesType] / 10) *
       casesTypeColors[casesType].mulitiplier
     }
   >
@@ -56,4 +56,4 @@ data.map((country) => (
     </Popup>
   </Circle>
   
-));*/
+));
