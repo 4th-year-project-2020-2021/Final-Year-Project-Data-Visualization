@@ -19,9 +19,11 @@ const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.
 const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 const urlagerisk ="https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
 const diffRaces = "https://diffraces.firebaseio.com/DiffRaces.json";
+//const covidSymptoms = "https://covid19symptoms.firebaseio.com/Covid19Symptoms.json";
 
 export default class D3Comparison{
     constructor(element){
+      
       const vis = this;
 
       // D3 code goes here--!
@@ -32,6 +34,125 @@ export default class D3Comparison{
           .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
         .append("g")
           .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+        vis.svgg.append("text")
+          .attr("x",-(HEIGHT/2))
+          .attr("y",-50)
+          .attr("text-anchor","middle")
+          .text("Percentage (%) of patients with symptoms")
+          .attr("transform", "rotate(-90)")
+          .style("stroke", "black")
+          .style("fill","black")
+          .style("stroke-width", ".2px")
+          .style("font", "20px sans-serif");
+
+        
+        vis.svgg.append("text")
+          .attr("x", WIDTH/2)
+          .attr("y", HEIGHT+50)
+          .attr("text-anchor","middle")
+          .style("stroke", "black")
+          .style("fill","black")
+          .text("Symptoms - Covid19, Mers and Sars")
+          .style("stroke-width", ".2px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-410)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .text("Shortness of breath was less common in COVID‐19 patients (17%),")
+          .style("stroke-width", ".2px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-380)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .text("in comparison to SARS (32%) and MERS (51%). ")
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-360)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .text("Likewise, chills were less common in COVID‐19 patients (17%),")
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-340)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .text("in comparison to SARS (57.5%) and MERS (41%).")
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-320)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .text("Therefore, these clinical symptoms should help distinguish")
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-300)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .text("the various coronavirus infections from each other.")
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-280)
+          .attr("text-anchor","middle")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+      vis.xAxisGroup = vis.svgg.append("g")
+        .attr("transform",`translate(0, ${HEIGHT})`)
+
+      vis.yAxisGroup = vis.svgg.append("g")
+
+    Promise.all([
+      d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
+      d3.json("https://merssymptoms.firebaseio.com/MersSymptoms.json"),
+      d3.json("https://sarssymptoms.firebaseio.com/SarsSymptoms.json")
+    ]).then((datasets)=>{
+
+      const [Covid19Data, MersData, SarsData] = datasets
+
+      let flag = true
+
+      vis.data = Covid19Data
+      vis.update()
+
+      d3.interval(()=>{
+        //This needs to be updated!!!!!!!!!!!!
+        vis.data = flag ?  MersData :  SarsData 
+        vis.update()
+        flag  =! flag
+      },1000)
+
+    })
+
 
       d3.select(element)
         .append("div")
@@ -185,95 +306,6 @@ export default class D3Comparison{
             .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died (Figure 4). Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
 
 
-          vis.xLabel = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-410)
-            .attr("text-anchor","middle")
-            .style("stroke", "#3CB371")
-            .style("fill","#3CB371")
-            .style("stroke-width", ".4px")
-            .style("font", "35px sans-serif");
-
-          vis.xLabel2 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-380)
-            .attr("text-anchor","middle")
-            .style("stroke", "#191970")
-            .style("fill","#191970")
-            .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
-
-          vis.xLabel3 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-360)
-            .attr("text-anchor","middle")
-            .style("stroke", "#191970")
-            .style("fill","#191970")
-            .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
-
-          vis.xLabel4 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-340)
-            .attr("text-anchor","middle")
-            .style("stroke", "#191970")
-            .style("fill","#191970")
-            .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
-
-          vis.xLabel5 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-320)
-            .attr("text-anchor","middle")
-            .style("stroke", "#191970")
-            .style("fill","#191970")
-            .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
-
-          vis.xLabel6 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-300)
-            .attr("text-anchor","middle")
-            .style("stroke", "#191970")
-            .style("fill","#191970")
-            .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
-
-          vis.xLabel7 = vis.svgg.append("text")
-            .attr("x", WIDTH/1.8)
-            .attr("y", HEIGHT-280)
-            .attr("text-anchor","middle")
-            .style("stroke", "#191970")
-            .style("fill","#191970")
-            .style("stroke-width", ".4px")
-            .style("font", "20px sans-serif");
-
-          vis.svgg.append("text")
-            .attr("x", WIDTH/2)
-            .attr("y", HEIGHT+50)
-            .attr("text-anchor","middle")
-            .style("stroke", "white")
-            .style("fill","white")
-            .text("Symptoms")
-            .style("stroke-width", ".2px")
-            .style("font", "20px sans-serif");
-
-          vis.svgg.append("text")
-            .attr("x",-(HEIGHT/2))
-            .attr("y",-50)
-            .attr("text-anchor","middle")
-            .text("Percentage (%) of patients with symptoms")
-            .attr("transform", "rotate(-90)")
-            .style("stroke", "black")
-            .style("fill","black")
-            .style("stroke-width", ".2px")
-            .style("font", "20px sans-serif");
-
-          vis.xAxisGroup = vis.svgg.append("g")
-            .attr("transform",`translate(0, ${ HEIGHT })`)
-
-          vis.yAxisGroup = vis.svgg.append("g")
-          //--------------
 
 
         d3.json(url).then(comparison=>{
@@ -1062,37 +1094,14 @@ d3.json(diffRaces).then(race2=>{
   
 })//end - Races2
 
-    Promise.all([
-      d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
-      d3.json("https://merssymptoms.firebaseio.com/MersSymptoms.json"),
-      d3.json("https://sarssymptoms.firebaseio.com/SarsSymptoms.json")
-    ]).then((datasets)=>{
 
-      vis.Covid19Data=datasets[0]
-      vis.MersData=datasets[1]
-      vis.SarsData=datasets[2]
-
-      console.log(vis.Covid19Data)
-      console.log(vis.MersData)
-      console.log(vis.SarsData)
-      vis.update("covid19")
-      
-  })
-}
+}//end of constructor
 
 // This update() method gets called you change your data.
-update(virus){
+update(){
 const vis = this;
 
-vis.data = (virus === "covid19") ? vis.Covid19Data : (virus === "mers") ? vis.MersData : vis.SarsData;
-vis.xLabel.text(`${virus} symptoms`)  
-vis.xLabel2.text(`Shortness of breath was less common in COVID‐19 patients (17%),`)  
-vis.xLabel3.text(`in comparison to SARS (32%) and MERS (51%). `)  
-vis.xLabel4.text(`Likewise, chills were less common in COVID‐19 patients (17%), `)  
-vis.xLabel5.text(`in comparison to SARS (57.5%) and MERS (41%). `) 
-vis.xLabel6.text(`Therefore, these clinical symptoms should help distinguish`)  
-vis.xLabel7.text(`the various coronavirus infections from each other. `) 
-
+//vis.data = (virus === "covid19") ? vis.Covid19Data : (virus === "mers") ? vis.MersData : vis.SarsData;
 
 
 //using max function, it will loop through the data and get the highest number of y value.
@@ -1111,10 +1120,10 @@ const x = d3.scaleBand()
     .padding(0.4)
 
 const xAxisCall = d3.axisBottom(x)
-  vis.xAxisGroup.transition().duration(500).call(xAxisCall)
+vis.xAxisGroup.call(xAxisCall)
 
 const yAxisCall = d3.axisLeft(y)
- vis.yAxisGroup.transition().duration(500).call(yAxisCall)
+vis.yAxisGroup.call(yAxisCall)
 
 // DATA JOIN
 const rects = vis.svgg.selectAll("rect")
@@ -1139,7 +1148,7 @@ rects.transition().duration(500)
 rects.enter().append("rect")
   .attr("x", d => x(d.Name))
   .attr("width", x.bandwidth)
-  //.attr("fill", "#69b3a2")
+  .attr("fill", "#69b3a2")
   .attr("y",HEIGHT)
   .transition().duration(500)
   .attr("height", d => HEIGHT-y(d.Number))
