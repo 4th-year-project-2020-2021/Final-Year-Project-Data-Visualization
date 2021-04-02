@@ -34,7 +34,9 @@
     │   ├── ChartWrapper2.js 
     │   └── D3Components
     │       ├── D3Comparison.js 
-    │       ├── D3PieChart.js
+    │       ├── D3PieChartCovid19.js 
+    │       ├── D3PieChartMers.js
+    │       ├── D3PieChartSars.js
     │       └── SymptomDropdown.js 
     ├── D3MersSarsComponents
     │   ├── ChartWrapper.js 
@@ -130,7 +132,6 @@ $ flask run
 - [ ] Interactive Covid-19 map
 - [x] Covid-19 last 120 days Line Graph
 - [x] Home Screen
-- [x] Add review / see all rewiews
 - [ ] Stats
 - [ ] Interactive cases list
 - [ ] Comparison pie chart
@@ -144,12 +145,13 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Interactive Bar charts with dropdown button Flicking between datasets
 - [x] Scatter plots
 - [x] Line graphs
-- [x] Pie chart
+- [x] Comparison pie chart (Covid19, Mers and Sars)
 - [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
 - [x] Mers and Sars page. - Data Visualization with D3
 - [x] Login and Register functionalities ( Firebase )
 - [x] Profile page. - users can edit their profile name
 - [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. ( Firestore )
+- [ ] Dissertation writing
 
 - Users can view our Message Board.
 - USers can create their own Account (Email, Google account, and Github account)
@@ -166,7 +168,9 @@ The main purpose of every work is that making interactive visualization applicat
 - [ ] Flask backend
 - [ ] API routes for connecting to MongoDB Atlas
 - [ ] Stats
+- [x] Add review / see all rewiews
 - [ ] Dissertation writing
+
 
 
 ## Screens
@@ -191,3 +195,5 @@ The main purpose of every work is that making interactive visualization applicat
 [7] Used to get information for Sars and Mers) - https://journals.sagepub.com/doi/full/10.1177/0165551520954674<br>
 [8] Difference between Flu and COVID-19 - https://www.cdc.gov/flu/symptoms/flu-vs-covid19.htm<br>
 [9] Smallpox data https://ourworldindata.org/smallpox<br>
+[10] Mers data https://www.hindawi.com/journals/bmri/2020/9629747/<br>
+[11] Comparisons of Mers,Sars,Covid-19 https://pulmonarychronicles.com/index.php/pulmonarychronicles/article/view/795/1687 <br>

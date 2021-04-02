@@ -7,10 +7,17 @@ export default class D3Comparison{
 
     constructor(element){
 
+         d3.select(element)
+            .append("div")
+               .style("border", "1px lightgray solid;")
+               .style("background-color", "#87CEEB")
+               .style("font", "20px sans-serif")
+               .text("Biological Sex is also a Risk-Factor  -- Covid-19 --");
+
             const width = 700   
             const height = 300
 
-            var data = [63,37];
+            var data = [70.3,29.7];
 
 
             const svg = d3.select(element)
@@ -22,7 +29,7 @@ export default class D3Comparison{
                 radius = Math.min(width, height) / 2,
                 g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-             var color = d3.scaleOrdinal(['#ff7f00','#984ea3','#e41a1c']);
+             var color = d3.scaleOrdinal(['#6B8E23','#CD853F','#e41a1c']);
 
             // Generate the pie
             var pie = d3.pie()
@@ -50,7 +57,7 @@ export default class D3Comparison{
             svg.append("g")
                .attr("transform", "translate(" + (width  - 430) + "," + 120 + ")")
                .append("text")
-               .text("37%")
+               .text("29.7%")
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
@@ -60,7 +67,7 @@ export default class D3Comparison{
                .attr("transform", "translate(" + (width  - 600) + "," + 120 + ")")
                .append("text")
                .text("WOMEN")
-               .attr("fill" , "#FF0000")
+               .attr("fill" , "#CD853F")
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
@@ -69,7 +76,7 @@ export default class D3Comparison{
             svg.append("g")
                .attr("transform", "translate(" + (width  - 300) + "," + 150 + ")")
                .append("text")
-               .text("63%")
+               .text("70.3%")
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
@@ -82,7 +89,7 @@ export default class D3Comparison{
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
-               .attr("fill" , "blue")
+               .attr("fill" , "#6B8E23")
 
             svg.append("g")
                .attr("transform", "translate(" + (width  - 480) + "," + 230 + ")")
@@ -95,10 +102,10 @@ export default class D3Comparison{
 
             d3.select(element)
                .append("div")
-                 .style("border", "1px lightgray solid;")
-                 .style("background-color", "#87CEEB")
-                 .style("font", "20px sans-serif")
-                 .text("Biological Sex is also a Risk-Factor");
+                  .style("border", "1px lightgray solid;")
+                  .style("background-color", "#008B8B")
+                  .style("font", "20px sans-serif")
+                  .text(" The number of men was 2.4 times that of women in the deceased patients. While men and women had the same susceptibility, men were more prone to dying (χ2 test, P = 0.016)");
 
     }
 }

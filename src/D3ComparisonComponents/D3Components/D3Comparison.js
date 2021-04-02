@@ -12,11 +12,13 @@ const WIDTH2 = 350 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT2 = 380 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
 const WIDTH3 = 500 - MARGIN2.LEFT - MARGIN2.RIGHT;
+const WIDTH4 = 550 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
 const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.json";  //covid19 symptoms
 const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 const urlagerisk ="https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
+const diffRaces = "https://diffraces.firebaseio.com/DiffRaces.json";
 
 export default class D3Comparison{
     constructor(element){
@@ -145,6 +147,43 @@ export default class D3Comparison{
               .attr("height",HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
             .append("g")
               .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
+
+        
+        d3.select(element)
+            .append("div")
+              .style("border", "1px lightgray solid;")
+              .style("background-color", "green")
+              .style("font", "23px sans-serif")
+              .text("With both the SARS-CoV and MERS-CoV outbreaks, most cases occurred in the region in which it began, i.e., Asia and the Middle East, respectively. Both of these viruses spread globally, but the total caseload for each virus were under 10,000.10 Yet the global spread of COVID-19 infection is much larger, with over 3 million cases worldwide thus far. The COVID-19 virus has not affected all ethnicities and races in the same proportion. ");      
+
+        d3.select(element)
+            .append("div")
+              .style("border", "1px lightgray solid;")
+              .style("background-color", "#808000")
+              .style("font", "23px sans-serif")
+              .text("Age-adjusted Case Rate Per 100,000");
+
+        const svgraces = d3.select(element)  //covid19 symptoms
+            .append("svg")
+              .attr("width",WIDTH4 + MARGIN2.LEFT + MARGIN2.RIGHT)
+              .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
+            .append("g")
+              .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+
+        const svgraces2 = d3.select(element)  //covid19 symptoms
+            .append("svg")
+              .attr("width",WIDTH4 + MARGIN2.LEFT + MARGIN2.RIGHT)
+              .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
+            .append("g")
+              .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+
+        d3.select(element)
+          .append("div")
+            .style("border", "1px lightgray solid;")
+            .style("background-color", "#808000")
+            .style("font", "23px sans-serif")
+            .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died (Figure 4). Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
+
 
           vis.xLabel = vis.svgg.append("text")
             .attr("x", WIDTH/1.8)
@@ -856,6 +895,172 @@ d3.json(urlagerisk).then(age=>{
     .attr("fill" , "black")
   
 })//end - Most at Risk
+
+//Start -- Different races
+d3.json(diffRaces).then(race=>{
+  //using max function, it will loop through the data and get the highest number of y value
+  const max = d3.max(race, d=> d.Cases)
+ 
+  const min = d3.min(race, d=> d.Cases) *0.55
+
+  const y = d3.scaleLinear()
+      .domain([min, max]) //highest y value
+      .range([HEIGHT3,0]) //minimum and maximum value 
+
+  const x = d3.scaleBand()
+      .domain(race.map(d => d.Races))
+      .range([0,WIDTH4])  
+      .padding(0.2)
+
+  const xAxisCall = d3.axisBottom(x)
+  svgraces.append("g")
+   .attr("transform",`translate(0, ${ HEIGHT3 })`)
+   .call(xAxisCall)
+   .style("fill","black")
+
+   .selectAll("text")
+      .attr("y", 0)
+      .attr("x", 9)
+      .attr("dy", ".45em")
+      .attr("transform", "rotate(20)")
+      .style("fill","black")
+      .style("font", "15px sans-serif")
+      .style("text-anchor", "start");
+
+  const yAxisCall = d3.axisLeft(y)
+    svgraces.append("g").call(yAxisCall)
+
+  const rects = svgraces.selectAll("rect")
+    .data(race)
+
+  svgraces.append("text")
+    .attr("x", WIDTH/3.2)
+    .attr("y", HEIGHT - 400)
+    .attr("text-anchor","middle")
+    .text("Non-Hospitalized Patients")
+    .style("stroke", "#800000")
+    .style("fill","#800000")
+    .style("stroke-width", ".4px")
+    .style("font", "20px sans-serif");
+
+  rects.enter().append("rect")
+    .attr("x", d=> x(d.Races))
+    .attr("y", d => y(d.Cases))
+    .attr("width",x.bandwidth)
+    .attr("height", d => HEIGHT3 - y(d.Cases))
+    .attr("fill", d=>{
+        if(d.Cases > 300){
+            return "#DAA520";
+        }else if(d.Cases > 270){
+          return "#008000";
+        }else if(d.Cases > 190){
+          return "#D2691E";
+        }else{
+          return "#1E90FF";
+        }
+    })
+    .append("title")
+      .text(d=>`Cases : ${d.Cases} % in ${d.Races}`);
+    
+
+  rects.enter().append("text")
+    .attr("class", "value")
+    .attr("x", d=> x(d.Races)+ (x.bandwidth() / 2))
+    .attr("y", d => y(d.Cases))
+    .attr("dy", ".35em") //vertical align middle
+    .attr("width",x.bandwidth)
+    .attr("height", d => HEIGHT - y(d.Cases))
+    .attr("text-anchor", "middle")
+    .text(d=>d.Cases+ " %")
+    .attr("font-family" , "sans-serif")
+    .attr("font-size" , "22px")
+    .attr("fill" , "black")
+  
+})//end - Races
+
+//Start -- Different races2
+d3.json(diffRaces).then(race2=>{
+  //using max function, it will loop through the data and get the highest number of y value
+  const max = d3.max(race2, d=> d.Death)
+ 
+  const min = d3.min(race2, d=> d.Death) *0.55
+
+  const y = d3.scaleLinear()
+      .domain([min, max]) //highest y value
+      .range([HEIGHT3,0]) //minimum and maximum value 
+
+  const x = d3.scaleBand()
+      .domain(race2.map(d => d.Races))
+      .range([0,WIDTH4])  
+      .padding(0.2)
+
+  const xAxisCall = d3.axisBottom(x)
+  svgraces2.append("g")
+   .attr("transform",`translate(0, ${ HEIGHT3 })`)
+   .call(xAxisCall)
+   .style("fill","black")
+
+  .selectAll("text")
+   .attr("y", 0)
+   .attr("x", 9)
+   .attr("dy", ".45em")
+   .attr("transform", "rotate(20)")
+   .style("fill","black")
+   .style("font", "15px sans-serif")
+   .style("text-anchor", "start");
+
+  const yAxisCall = d3.axisLeft(y)
+  svgraces2.append("g").call(yAxisCall)
+
+
+  const rects = svgraces2.selectAll("rect")
+    .data(race2)
+
+  
+  svgraces2.append("text")
+    .attr("x", WIDTH/3.2)
+    .attr("y", HEIGHT - 400)
+    .attr("text-anchor","middle")
+    .text("Patient Deaths")
+    .style("stroke", "#800000")
+    .style("fill","#800000")
+    .style("stroke-width", ".4px")
+    .style("font", "20px sans-serif");
+
+  rects.enter().append("rect")
+    .attr("x", d=> x(d.Races))
+    .attr("y", d => y(d.Death))
+    .attr("width",x.bandwidth)
+    .attr("height", d => HEIGHT3 - y(d.Death))
+    .attr("fill", d=>{
+      if(d.Death > 90){
+          return "#DAA520";
+      }else if(d.Death > 70){
+        return "#008000";
+      }else if(d.Death > 40){
+        return "#D2691E";
+      }else{
+        return "#1E90FF";
+      }
+  })
+    .append("title")
+      .text(d=>`Mortality Rate : ${d.Death} % in ${d.Races}`);
+    
+
+  rects.enter().append("text")
+    .attr("class", "value")
+    .attr("x", d=> x(d.Races)+ (x.bandwidth() / 2))
+    .attr("y", d => y(d.Death))
+    .attr("dy", ".35em") //vertical align middle
+    .attr("width",x.bandwidth)
+    .attr("height", d => HEIGHT - y(d.Death))
+    .attr("text-anchor", "middle")
+    .text(d=>d.Death+ " %")
+    .attr("font-family" , "sans-serif")
+    .attr("font-size" , "22px")
+    .attr("fill" , "black")
+  
+})//end - Races2
 
     Promise.all([
       d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
