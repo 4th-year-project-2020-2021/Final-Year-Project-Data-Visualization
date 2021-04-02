@@ -129,11 +129,11 @@ $ flask run
 - [x] Glabal data cards
 - [x] Drop down function
 - [x] Covid-19 table
-- [ ] Interactive Covid-19 map
+- [x] Interactive Covid-19 map
 - [x] Covid-19 last 120 days Line Graph
 - [x] Home Screen
 - [ ] Stats
-- [ ] Interactive cases list
+- [x] Interactive cases list
 - [ ] Comparison pie chart
 - [ ] Dissertation writing
 
