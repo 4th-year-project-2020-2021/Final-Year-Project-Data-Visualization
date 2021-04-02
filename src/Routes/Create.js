@@ -3,20 +3,7 @@ import { Redirect } from 'react-router';
 
 function Create(){
 
-    const [currentTime, setCurrentTime] = useState(0);
-  useEffect(() =>{
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  },[]);
-  // fetch tasks
-  const [getHello, setGetHello] = useState(0);
-  useEffect(() =>{
-    fetch('/hello').then(res =>res.json()).then(data =>{
-      setGetHello(data.hello);
-    });
-  },[]);
-
+  const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
@@ -27,6 +14,7 @@ function Create(){
     console.log("data");//comment out when app is working, but keep for error checking 
 
     const item = {
+     date : date,
      name : name,//value is const name
      description : description,//value is const description
      amount: amount//value is const amount
@@ -41,7 +29,7 @@ function Create(){
         body: JSON.stringify(item)
     } 
 
-    if(description  && name && amount ){
+    if(description  && name && amount && date ){
          fetch("/api/create", options)
          .then(res => {
              //response must be parsed to JSON format
@@ -76,10 +64,14 @@ function Create(){
         <form className="create" onSubmit={createItem}>
             
             <div className="control">
-                <label htmlFor="name">Name: </label>
-                <input type="text" name="name" onChange={e => setName(e.target.value)} />
+                <label htmlFor="name">Date: </label>
+                <input type="date" name="date" onChange={e => setDate(e.target.value)} />
                 </div>
                 <br></br>
+                <div className="control">
+                <label htmlFor="name">Name: </label>
+                <input type="text" name = "name" onChange={e => setName(e.target.value)} ></input>
+                </div>
                 <div className="control">
                 <label htmlFor="description">Description: </label>
                 <textarea name="description" onChange={e => setDescription(e.target.value)} ></textarea>
@@ -87,7 +79,12 @@ function Create(){
                 <br></br>
                 <div className="control">
                 <label htmlFor="amount">Temperature: </label>
-                <input type="number" name="amount" onChange={e => setAmount(e.target.value)} />
+                <input type="number"
+                min="30.00"
+                step="0.01"
+                max="42.00"
+                presicion={2} 
+                name="amount" onChange={e => setAmount(e.target.value)} />
                 </div>
                 <div>
                 <br></br>

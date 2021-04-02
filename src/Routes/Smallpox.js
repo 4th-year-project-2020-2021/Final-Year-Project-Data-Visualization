@@ -4,6 +4,7 @@ import Chart from "react-google-charts";
 import PropTypes from 'prop-types';
 import Dropdown from 'react-bootstrap/Dropdown';
 //import {omit} from 'ramda';
+
 const paragraphStyle = {
   marginTop: '10px',
   marginBottom: '10px'

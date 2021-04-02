@@ -37,8 +37,10 @@ def create():
     name = request.json.get("name")
     description = request.json.get("description")
     amount = request.json.get("amount")
+    date = request.json.get("date")
 
     item ={
+        "date": date,
         "name": name,
         "description": description,
         "amount": amount
@@ -55,7 +57,7 @@ def index():
     #get all the items
     cursor = collections.find({})
     for document in cursor:
-        items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"],"description": document["description"], "amount": document["amount"]})
+        items.append({"_id": JSONEncoder().encode(document["_id"]),"date": document["date"], "name": document["name"],"description": document["description"], "amount": document["amount"]})
     return jsonify(data=items)
 
 
