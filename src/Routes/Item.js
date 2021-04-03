@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import {Line} from 'react-chartjs-2';
 import { Redirect } from 'react-router';
 
 const Item = () => {
     //return all smallpox data from database
     const [numbers, setNumbers] = useState([]);
     const [loading, setLoading] = useState(false);
+    //const [ages, setAges] = useState([]);//need to figure out how to access array - stored as a single object.
 
     const getNumbers = () => {
         setLoading(true);
@@ -34,9 +36,23 @@ const Item = () => {
             })
     }
 
-    //useEffect(() => {
-      //  getItems();
-    //}, [])//empty array allows only one call
+    
+
+    const state = {
+        labels: ['January', 'February', 'March',
+                 'April', 'May'],
+        datasets: [
+          {
+            label: 'Temperature',
+            fill: false,
+            lineTension: 0.5,
+            backgroundColor: 'rgba(75,192,192,1)',
+            borderColor: 'rgba(0,0,0,1)',
+            borderWidth: 2,
+            data: [36.5, 37.2, 36.5, 36.2, 38.9]
+          }
+        ]
+      }
 
     let itemsArray;
     if (items.length > 0) {
@@ -112,6 +128,7 @@ const Item = () => {
                 <div key={items._id}>
                     <table>
                         <thead>
+                            <th>Date</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Temperature</th>
@@ -123,6 +140,7 @@ const Item = () => {
                             {items.map(x => <tr>
                                 <Link to={"item/" + items._id}>
                                 </Link>
+                                <td>{x.date}</td>
                                 <td>{x.name}</td>
                                 <td>{x.description}</td>
                                 <td>{x.amount}</td>
@@ -139,6 +157,25 @@ const Item = () => {
 
                 
             </React.Fragment>
+            <React.Fragment>
+            <div>
+        <Line
+          data={state}
+          options={{
+            title:{
+              display:true,
+              text:'Temperature per Day',
+              fontSize:20
+            },
+            legend:{
+              display:true,
+              position:'right'
+            }
+          }}
+        />
+      </div>
+            </React.Fragment>
+            
 
         </div>
     )

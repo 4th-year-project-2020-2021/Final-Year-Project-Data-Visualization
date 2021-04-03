@@ -18,6 +18,7 @@ const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.
 const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 const urlagerisk ="https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
 
+
 export default class D3Comparison{
     constructor(element){
       const vis = this;

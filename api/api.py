@@ -3,6 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute, smallpoxRoute
 from rating import ratingRoute, indexRating
+from age import ageRisk
 import os
 import flask
 
@@ -17,6 +18,7 @@ app.register_blueprint(smallpoxRoute)
 app.register_blueprint(getDescriptionRoute)
 app.register_blueprint(ratingRoute)
 app.register_blueprint(indexRating)
+app.register_blueprint(ageRisk)
   
 #@app.route('/time')
 #def get_current_time():

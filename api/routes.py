@@ -23,7 +23,7 @@ collection = db['uploadedData']
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
-itemRoute = Blueprint("item",__name__)
+itemRoute = Blueprint("items",__name__)
 smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
