@@ -26,10 +26,6 @@ function App() {
     });
   }, []);
 
-  const onLogOutClick = () => {
-      authService.signOut();
-      history.push('/');
-  }
 
   const refreshUser = () => {
     const user = authService.currentUser;
@@ -42,15 +38,11 @@ function App() {
 
   return (
         <>
-          {authenticated ? (
           <AppRouter 
             refreshUser={refreshUser}
             authenticated={Boolean(userObj)} 
             userObj={userObj} 
           /> 
-          ):(
-             "Initializing.."
-          )}
         </>
     );
 }

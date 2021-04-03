@@ -1,5 +1,7 @@
+import { axisLeft } from 'd3-axis';
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router';
+import "../css/styling.css";
 
 function Create(){
 
@@ -30,70 +32,64 @@ function Create(){
     } 
 
     if(description  && name && amount && date ){
-         fetch("/api/create", options)
-         .then(res => {
-             //response must be parsed to JSON format
-             return res.json();
-         }).then(res => {
-             console.log(res)
+        fetch("/api/create", options)
+        .then(res => {
+            //response must be parsed to JSON format
+            return res.json();
+        }).then(res => {
+            console.log(res)
              
-         })
-     }else {
-         console.log("The form is empty")//lets user know if form isn't filled in
-     }
+        })
+    }else {
+        console.log("The form is empty")//lets user know if form isn't filled in
+    }
 }  
-
-    return(
-      
+    return(  
         <div 
-        style={{
-      textAlign: "center",
-      fontSize:"30px",
-      fontFamily: "Nanum Gothic",
-      color: "dark"
-      }}
+            style={{
+            fontSize:"22px",
+            fontFamily: "Nanum Gothic",
+            color: "dark",
+            position: 'absolute',
+            }}
         >
-        <h1>How're you feeling today?</h1>
-            <br></br>
-            <h2>Enter your vitals in the form below</h2>
-            <br></br>
+
+        <h2>How're you feeling today?</h2>
         {/*<p>The current time is {currentTime}</p>
         <p>This is from the flask api {getHello}</p>*/}
         <br></br>
         
-        <form className="create" onSubmit={createItem}>
-            
+        <form className="create" onSubmit={createItem}>        
             <div className="control">
-                <label htmlFor="name">Date: </label>
+                <label htmlFor="name">Date:</label> <br></br>
                 <input type="date" name="date" onChange={e => setDate(e.target.value)} />
-                </div>
-                <br></br>
-                <div className="control">
-                <label htmlFor="name">Name: </label>
+            </div>
+            <br></br>
+            <div className="control">
+                <label htmlFor="name">Name: </label> <br></br>
                 <input type="text" name = "name" onChange={e => setName(e.target.value)} ></input>
-                </div>
-                <div className="control">
-                <label htmlFor="description">Description: </label>
+            </div>
+            <br></br>
+            <div className="control">
+                <label htmlFor="description">Description: </label> <br></br>
                 <textarea name="description" onChange={e => setDescription(e.target.value)} ></textarea>
-                </div>
-                <br></br>
-                <div className="control">
-                <label htmlFor="amount">Temperature: </label>
+            </div>
+            <br></br>
+            <div className="control"> 
+                <label htmlFor="amount">Temperature: </label> 
                 <input type="number"
-                min="30.00"
-                step="0.01"
-                max="42.00"
-                presicion={2} 
-                name="amount" onChange={e => setAmount(e.target.value)} />
-                </div>
-                <div>
-                <br></br>
+                    min="30.00"
+                    step="0.01"
+                    max="42.00"
+                    presicion={2} 
+                    name="amount" onChange={e => setAmount(e.target.value)} />
+            </div>
+            <div>
+            <br></br>
                 <input className="button" type="submit" value="Save Symptoms" />
-                </div>
-            </form>
-            
+            </div>
+        </form>  
         </div>
     )
-
 }
 export default Create;

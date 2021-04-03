@@ -1,8 +1,8 @@
-import Doc from "../Img/Doc.svg";
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
+import Home from "../Img/Home.svg";
 
 function Rating(){
 
@@ -66,7 +66,7 @@ return (
 
     <h4>Data Visualization & Analysis</h4>
     <br/>
-        <img src={Doc} style={{ height: 300}}/>
+        <img src={Home} style={{ height: 300}}/>
 
         <br></br>
         <br></br>

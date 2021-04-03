@@ -4,17 +4,17 @@ import { Circle, Popup } from "react-leaflet";
 
 const casesTypeColors = {
   cases: {
-    hex: "#CC1034",
+    hex: "#0080FF",
     mulitiplier: 800,
   },
 
   recovered: {
-    hex: "#7DD71D",
+    hex: "#00FF08",
     mulitiplier: 1200,
   },
 
   deaths: {
-    hex: "#C0C0C0",
+    hex: "#FF0000",
     mulitiplier: 2000,
   },
 };
@@ -34,26 +34,44 @@ export const sortData = (data) => {
     return sortedData;
 };
 
+export const prettyPrintStat = (stat) =>
+  stat ? `+${numeral(stat).format("0.0a")}` : "+0";
+
 // Draw circles on interactive map
-/*export const showDataOnMap = (data, casesType='cases') =>
+export const showDataOnMap = (data, casesType) =>
 data.map((country) => (
   <Circle
     center={[country.countryInfo.lat, country.countryInfo.long]}
-    fillOpacity={0.4}
+    fillOpacity={0.1}
     pathOptions={{
       color: casesTypeColors[casesType].hex,
       fillColor: casesTypeColors[casesType].hex,
     }}
     radius={
-      Math.sqrt(data[casesType] / 10) *
+      Math.sqrt(country[casesType] / 10) *
       casesTypeColors[casesType].mulitiplier
     }
   >
     <Popup>
         <div className="info__container">
-          <h1>Simple pop up</h1>
+          <div
+            // Getting the country details and adding them to a pop up
+            className="info-flag"
+            style={{ backgroundImage: `url(${country.countryInfo.flag})` }}
+          />
+          <div className="info-name">{country.country}</div>
+          <div className="info-confirmed">
+            Cases: {numeral(country.cases).format("0,0")}
+          </div>
+          <div className="info-recovered">
+            Recovered: {numeral(country.recovered).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Deaths: {numeral(country.deaths).format("0,0")}
+          </div>
         </div>
+
     </Popup>
   </Circle>
   
-));*/
+));

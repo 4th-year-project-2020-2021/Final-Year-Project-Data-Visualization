@@ -5,7 +5,7 @@ import axios from "axios"
 import GoogleMapReact from 'google-map-react';
 import Table from "../CovidComponents/Table";
 import { CardContent, Select } from '@material-ui/core';
-import { sortData } from "../CovidComponents/util";
+import { sortData, prettyPrintStat } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
 import InfoBox from '../CovidComponents/InfoBox';
 import LineGraph from "../CovidComponents/LineGraph";
@@ -20,7 +20,6 @@ import "../css/styling.css";
 // Google map - https://www.npmjs.com/package/google-map-react
 
 function Covid19(){
-
     // Storing data inside array
     // Top cards
     const[latest, setLatest] = useState([]);
@@ -34,8 +33,7 @@ function Covid19(){
     const [dropcountries, setDropDownCountries] = useState([]);
     const [countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
-    const [mapCenter, setMapCenter] = 
-        useState({ lat: 28, lng: 3 });
+    const [mapCenter, setMapCenter] = useState({ lat: 28, lng: 3 });
     const [mapZoom, setZoomCenter] = useState(2);
     const [mapCountries, setMapCountries] = useState([]);
     
@@ -111,8 +109,9 @@ function Covid19(){
                     borderRadius: "20%",
                 }}
             >   
-                <img className="ImgHeight"height="10px" src={data.countryInfo.flag}/>
-                {data.cases}
+                <img className="ImgHeight"height="10px" src={data.countryInfo.flag}/><br/>
+                {/* Return todays cases for each country - returns 0 if data has not been updated yet */}
+                {data.todayCases}
             </div>
         );
     });
@@ -139,7 +138,7 @@ function Covid19(){
         setSelectCountry(countryCode);
 
         const url =
-        countryCode === "worldwide"
+        countryCode === "worldwide" 
         ? "https://disease.sh/v3/covid-19/all"
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
         
@@ -151,8 +150,11 @@ function Covid19(){
             // Store responce
             setCountryInfo(data);
 
+            countryCode === "worldwide"
+          ? setMapCenter([34.80746, -40.4796])
+
             // Map zooms in to scecific country when selected from drop down
-            setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+            : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
             // Set zoom level
             setZoomCenter(4);
         });
@@ -164,7 +166,7 @@ function Covid19(){
             <div className="app">
             <div className="app__left">
                     <div className="app__header">
-                        <h3>COVID-19 Live</h3>
+                        <h3 className="Heading">COVID-19</h3>
                         <br></br>
                     <FormControl className="app__dropdown">
                         <Select variant="outlined" onChange={onCountryChange} value={country}>
@@ -177,37 +179,52 @@ function Covid19(){
                 </div>
                 <br></br>
                 <div className="app__stats">
-                    <InfoBox title="Cases today & total cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
-                    <InfoBox title="Recovered today & total recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
-                    <InfoBox title="Deaths today & total deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+                    <InfoBox
+                        isBlack
+                        onClick={e => setCasesType('cases')}
+                        active={casesType === "cases"}
+                            title="Cases today & total cases"
+                            cases={prettyPrintStat(countryInfo.todayCases)}
+                            total={prettyPrintStat(countryInfo.cases)}/>
+                    <InfoBox 
+                        isBlack
+                        onClick={e => setCasesType('recovered')}
+                        active={casesType === "recovered"}
+                            title="Recovered today & total recovered" 
+                            cases={prettyPrintStat(countryInfo.todayRecovered)} 
+                            total={prettyPrintStat(countryInfo.recovered)}/>
+
+                    <InfoBox
+                        isBlack 
+                        onClick={e => setCasesType('deaths')}
+                        active={casesType === "deaths"}
+                            title="Deaths today & total deaths" 
+                            cases={prettyPrintStat(countryInfo.todayDeaths)} 
+                            total={prettyPrintStat(countryInfo.deaths)}/>
                 </div>
                 <br></br>
-
                 <h3 className="app__header">Interact with the Map</h3>
-
                 <div>
-
-                <Map
-                    countries={mapCountries}
-                    casesType={casesType}
-                    center={mapCenter}
-                    zoom={mapZoom}
-                />
-
+                    <Map
+                        countries={mapCountries}
+                        casesType={casesType}
+                        center={mapCenter}
+                        zoom={mapZoom}
+                    />
                 </div>
                 <br></br>
-                    <h1 className="app__header">Total cases per country</h1>
-                    <div className="map" style={{ height: '70vh', width: '100%' }}>
-                        <GoogleMapReact
-                            bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-                            defaultCenter={{lat: 28, lng: 3}}
-                            // Zoom level
-                            defaultZoom={2}
-                        >
+                <h1 className="app__header">Today's cases per country</h1>
+                <div className="map" style={{ height: '70vh', width: '100%' }}>
+                    <GoogleMapReact
+                        bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
+                        defaultCenter={{lat: 28, lng: 3}}
+                        // Zoom level
+                        defaultZoom={2}
+                    >
                             {countriesLocation}
-                        </GoogleMapReact>
-                    </div>  
-                    <br></br>
+                    </GoogleMapReact>
+                </div>  
+                <br></br>
                 </div> 
                 <Card className="app__right">
                     <CardContent>
@@ -216,7 +233,7 @@ function Covid19(){
                             <Table countries={tableData} />
                             <br></br>
                             <br></br>
-                            <h3>Worldwide past 120 days cases</h3>
+                            <h3>Worldwide past 120 days {casesType}</h3>
                             <br></br>
                             <br></br>
                             <LineGraph casesType={casesType} />

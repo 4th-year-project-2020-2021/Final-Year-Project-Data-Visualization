@@ -5,8 +5,11 @@
     margin-bottom: 20px;
     justify-content: space-between;
     font-family: sans-serif;
-    font-size: x-large;
-}  
+    font-size: 1.5rem;
+} 
+.Heading {
+    font-size: 2rem;
+}
 
 /* Aligning parts to left of the screen */
 .app__left {
@@ -39,8 +42,9 @@ body {
     overflow: scroll;
     color: #6a5d5d;
     background-color: white;
-    height: 400px;
+    height: 450px;
     font-family: sans-serif;
+    cursor: pointer;
 } 
 .table tr {
     display: flex;
@@ -136,4 +140,36 @@ body {
     border-bottom: 1px solid #ddd;
     vertical-align: top;
     text-align: left;
+}
+
+.create {
+    float: left;
+}
+
+.infoBox {
+    flex: 1;
+    cursor: pointer;
+}
+.infoBox:not(:last-child){
+    margin-right: 15px;
+}
+.infoBox__cases {
+    color: #5B5B5B;
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+.infoBox__total {
+    color: #ff0000;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    margin-top: 15px !important;
+}
+
+/* Selected card styling */
+.infoBox--selected {
+    border-top: 10px solid yellow;
+}
+.infoBox--black {
+    border-color: black;
 }
