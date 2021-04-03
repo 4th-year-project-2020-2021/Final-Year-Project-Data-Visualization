@@ -94,13 +94,7 @@ return (
                 </button>
                 <div key={ratings._id}>
                     <table>
-                        <div class="review__Heading">
-                            <td>Past reviews</td>
-                            
-                            
-                        </div>
-
-
+                        
                         <tbody>
                             {ratings.map(x => <tr>
                                 <Link to={"rating/" + ratings._id}>
@@ -111,9 +105,6 @@ return (
                                 
                             </tr>)}
                             {ratings.length == 0 && <tr>
-
-                                <b>No data found to display.</b>
-
                                 
 
                             </tr>}
