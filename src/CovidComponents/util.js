@@ -54,20 +54,40 @@ data.map((country) => (
   >
     <Popup>
         <div className="info__container">
-          <div
-            // Getting the country details and adding them to a pop up
-            className="info-flag"
-            style={{ backgroundImage: `url(${country.countryInfo.flag})` }}
-          />
+          
           <div className="info-name">{country.country}</div>
           <div className="info-confirmed">
-            Cases: {numeral(country.cases).format("0,0")}
+            Total Covid-19 Tests: {numeral(country.tests).format("0,0")}
+          </div>
+          <div className="info-confirmed">
+            Total Cases: {numeral(country.cases).format("0,0")}
           </div>
           <div className="info-recovered">
-            Recovered: {numeral(country.recovered).format("0,0")}
+            Total Recovered: {numeral(country.recovered).format("0,0")}
           </div>
           <div className="info-deaths">
-            Deaths: {numeral(country.deaths).format("0,0")}
+            Total Deaths: {numeral(country.deaths).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Active: {numeral(country.active).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Critical: {numeral(country.critical).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Cases per 1M: {numeral(country.casesPerOneMillion).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Deaths per 1M: {numeral(country.deathsPerOneMillion).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Recovered per 1M: {numeral(country.recoveredPerOneMillion).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Critical per 1M: {numeral(country.criticalPerOneMillion).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Active per 1M: {numeral(country.activePerOneMillion).format("0,0")}
           </div>
         </div>
 

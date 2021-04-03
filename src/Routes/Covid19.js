@@ -151,7 +151,7 @@ function Covid19(){
             setCountryInfo(data);
 
             countryCode === "worldwide"
-          ? setMapCenter([34.80746, -40.4796])
+          ? setZoomCenter(2)
 
             // Map zooms in to scecific country when selected from drop down
             : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
@@ -219,7 +219,7 @@ function Covid19(){
                         bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
                         defaultCenter={{lat: 28, lng: 3}}
                         // Zoom level
-                        defaultZoom={2}
+                        defaultZoom={1}
                     >
                             {countriesLocation}
                     </GoogleMapReact>

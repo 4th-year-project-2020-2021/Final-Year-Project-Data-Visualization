@@ -7,6 +7,7 @@
     font-family: sans-serif;
     font-size: 1.5rem;
 } 
+/* App heading */
 .Heading {
     font-size: 2rem;
 }
@@ -15,6 +16,7 @@
 .app__left {
     flex: 0.8;
 }
+/* Setting background styling */
 .app {
     display: flex;
     justify-content: space-evenly;
@@ -24,6 +26,7 @@
 body {
     background-color: #f5f6fa;
 }
+/* Table header styling */
 .app__information > h3 {
     color: #6a5d5d;
     font-weight: 400;
@@ -31,11 +34,6 @@ body {
     margin-bottom: 1rem;
     font-family: sans-serif;
 }
-.app__information > h3:last-of-type {
-    margin-top: 1rem;
-    font-family: sans-serif;
-}
-
 /* Table on right of Covid-19 page */
 .table {
     margin-top: 20px;
@@ -82,6 +80,7 @@ body {
     color: black;
     border: 2px solid #555555;
 }
+/* Setting the buttons to have a hover affect */
 .button:hover {
     background-color: #555555;
     color: white;
@@ -106,28 +105,34 @@ body {
     margin-top: 16px;
     box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
 }  
+/* Need to set a hight for the map or else error */
 .map .leaflet-container {
     height: 100%;
     border-radius: 12px;
 }  
+/* Flag styling */
 .info-flag img {
     width: 100px;
     border-radius: 5px;
 } 
+/* Pop up styling */
 .info-name {
     font-size: 20px;
     font-weight: bold;
     color: #555;
 }  
 .info-container {
-    width: 150px;
+    width: 200px;
 }  
 .info-flag {
     height: 80px;
     width: 100%;
     background-size: cover;
     border-radius: 8px;
-}  
+} 
+.info-name {
+    text-align: center;
+} 
 .info-confirmed,
 .info-recovered,
 .info-deaths {
@@ -135,6 +140,7 @@ body {
     margin-top: 5px;
 }
 
+/* Home page reviews styling */
 .reviews {
     padding: 15px;
     border-bottom: 1px solid #ddd;
@@ -142,10 +148,7 @@ body {
     text-align: left;
 }
 
-.create {
-    float: left;
-}
-
+/* Setting cards styling and spacing */
 .infoBox {
     flex: 1;
     cursor: pointer;
@@ -168,7 +171,7 @@ body {
 
 /* Selected card styling */
 .infoBox--selected {
-    border-top: 10px solid yellow;
+    border-top: 10px solid rgb(0, 0, 0);
 }
 .infoBox--black {
     border-color: black;
