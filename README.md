@@ -3,7 +3,7 @@
 </h3>
 
 <h3 align="center">
-    A collection of react components to render common data visualizations such as line graphs, pie charts ect as well as live data visualizations and statistics.
+    Data Visualisation & Analysis
 </h4>
 
 <p align="center">
@@ -15,7 +15,8 @@
 - [Program Overview](#program-overview)
 - [Software Requirements](#software-requirements)
 - [Running the Program](#running-the-program)
-- [Run web service](#run-web-service)
+- [Running the Tests](#running-the-tests)
+- [Run the Web Service](#run-web-service)
 - [Technology stack](#technology-stack)
 - [Designated Tasks](#designated-tasks)
 - [Screens](#screens)
@@ -80,16 +81,16 @@
 ```
 
 ## Program Overview
-Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API that is recorded in MongoDB Atlas. GET and POST requests will be used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
+Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas, Firebase) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API and stored data from MongoDB Atlas. GET and POST requests are used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
 
 ## Software Requirements
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Anaconda3 Version (Python 3.8.5)](https://www.anaconda.com/products/individual)
 - [cmder](https://cmder.net/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/lp/try2?utm_source=google&utm_campaign=gs_emea_ireland_search_core_brand_atlas_desktop&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624527&gclid=Cj0KCQiA-aGCBhCwARIsAHDl5x8_dfnh9PWedNlnlRjFzg8yn4SIV5UxJTl9bBAb7SfrZy6IE2JXCdoaAp7tEALw_wcB)
-- [git](https://git-scm.com/downloads)
+- [Firebase](https://firebase.google.com/)
 - [Heroku](https://www.heroku.com/)
-
+- [git](https://git-scm.com/downloads)
 
 ## Running the Program
 1) In your command line terminal: `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
@@ -99,13 +100,23 @@ Our final year project is based on the data visualization and analysis of variou
 
 - Screencast of how to run the program goes here**
 
-### Run web service
+## Running the Tests
+1) cd into the <b>/program/</b> directory
+2) `cd api`
+3) `cd Tests`
+4) In the terminal type: `pytest`
+
+- Screencast of how to run the tests goes here**
+
+### Running the Web Service
 ```bash
 $ pip install -r requirements.txt
 $ cd api
 $ flask run
  * Running on http://127.0.0.1:5000/
  ```
+
+ - Screencast of how to run the web servise goes here**
 
 ## Technology stack
 
@@ -115,7 +126,7 @@ $ flask run
 - Heroku Cloud Platform for deploying API and React App.
 - D3 for Data visualization. (Inside Mers,Sars,Comparison components)
 - Firebase Realtime Database for handling user authenticaton and storing Mers, Sars, Comparison datasets.
-- Cloud Firestore (cloud-hosted, NoSQL database) for discussion page (User can Crate, Read, Update, Delete their messages in this page).
+- Cloud Firestore (cloud-hosted, NoSQL database) for discussion page (User can Create, Read, Update, Delete their messages in this page).
 
 <p align="center">
   <img src="./Images/fremp.PNG" width=600 height=300/>
@@ -131,7 +142,8 @@ $ flask run
 - [x] Covid-19 table
 - [x] Interactive Covid-19 map
 - [x] Covid-19 last 120 days Line Graph
-- [x] Home Screen
+- [x] Home Screen styling
+- [x] Add review functionality
 - [ ] Stats
 - [x] Interactive cases list
 - [ ] Comparison pie chart
@@ -165,13 +177,11 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] World Map 
 - [x] Connection to MongoDB Atlas
 - [ ] Auto Generated Graph
-- [ ] Flask backend
+- [x] Flask backend
 - [ ] API routes for connecting to MongoDB Atlas
 - [ ] Stats
-- [x] Add review / see all rewiews
+- [x] Home Screen see all reviews functionality
 - [ ] Dissertation writing
-
-
 
 ## Screens
 - Home
