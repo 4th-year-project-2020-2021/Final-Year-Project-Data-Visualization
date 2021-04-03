@@ -5,6 +5,7 @@ import os
 import sys
 from pymongo import MongoClient
 from bson import ObjectId
+import pytest
 
 #json encoder to manage MongoDB ObjectID
 class JSONEncoder(json.JSONEncoder):
