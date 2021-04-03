@@ -151,7 +151,7 @@ function Covid19(){
             setCountryInfo(data);
 
             countryCode === "worldwide"
-          ? setZoomCenter(2)
+          ? setZoomCenter(2) 
 
             // Map zooms in to scecific country when selected from drop down
             : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
