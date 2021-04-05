@@ -19,12 +19,9 @@ const Item = () => {
                 setLoading(false);
             })
     }
-   // useEffect(() => {
-       // getNumbers();
-    //}, [])//empty array allows only one call
-
     //return all symptoms from database
     const [items, setItems] = useState([]);
+
     const getItems = () => {
         setLoading(true);
         fetch("/api/items")
@@ -36,7 +33,52 @@ const Item = () => {
             })
     }
 
+    //Chart for Temperature
+    const [chartData, setChartData] = useState({});
+    //const [temperature, setTemperature] = useState([]);
+    //const [date, setDate] = useState([]);
+
+    const chart = () => {
+        let temp = [];
+        let tempDate = [];
+
+        fetch("/api/items")
+        .then(res => res.json()
+        ).then(items => {
+            console.log(items);
+            for (const dataObj of items.data) {
+                temp.push(dataObj.amount);
+                tempDate.push(dataObj.date);
+              }
+              setChartData({
+                labels: tempDate,
+                datasets:[
+                    {
+                        label: 'Temperature',
+                        fill: false,
+                        lineTension: 0.5,
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(0,0,0,1)',
+                        borderWidth: 2,
+                        data: temp
+                      }
     
+                ]
+            })   
+        })
+        .catch(err => {
+            console.log(err);
+        });
+        console.log(temp, tempDate);
+
+        
+    };
+
+    useEffect(() =>{
+        chart();
+    },[]);
+    
+
 
     const state = {
         labels: ['January', 'February', 'March',
@@ -157,19 +199,37 @@ const Item = () => {
 
                 
             </React.Fragment>
+            
             <React.Fragment>
             <div>
         <Line
-          data={state}
+          data={chartData}
           options={{
-            title:{
-              display:true,
-              text:'Temperature per Day',
-              fontSize:20
-            },
+            responsive: true,
+            title: { text: "Temperature per Day", display: true, fontSize:20},
             legend:{
               display:true,
               position:'right'
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 10,
+                  },
+                  gridLines: {
+                    display: true
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  gridLines: {
+                    display: true
+                  }
+                }
+              ]
             }
           }}
         />
