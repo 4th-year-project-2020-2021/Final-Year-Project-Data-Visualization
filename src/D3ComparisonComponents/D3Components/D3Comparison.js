@@ -274,8 +274,8 @@ export default class D3Comparison{
         d3.select(element)
             .append("div")
               .style("border", "1px lightgray solid;")
-              .style("background-color", "green")
-              .style("font", "23px sans-serif")
+              .style("background-color", "lightgrey")
+              .style("font", "20px sans-serif")
               .text("With both the SARS-CoV and MERS-CoV outbreaks, most cases occurred in the region in which it began, i.e., Asia and the Middle East, respectively. Both of these viruses spread globally, but the total caseload for each virus were under 10,000.10 Yet the global spread of COVID-19 infection is much larger, with over 3 million cases worldwide thus far. The COVID-19 virus has not affected all ethnicities and races in the same proportion. ");      
 
         d3.select(element)
@@ -302,8 +302,8 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#808000")
-            .style("font", "23px sans-serif")
+            .style("background-color", "lightblue")
+            .style("font", "20px sans-serif")
             .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died (Figure 4). Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
 
 
