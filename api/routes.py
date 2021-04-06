@@ -23,7 +23,7 @@ collection = db['uploadedData']
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
-itemRoute = Blueprint("items",__name__)
+itemRoute = Blueprint("item",__name__)
 smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 
@@ -55,7 +55,7 @@ def index():
 
     items = []
     #get all the items
-    cursor = collections.find({})
+    cursor = collections.find({})#empty object returns all documents in the collection
     for document in cursor:
         items.append({"_id": JSONEncoder().encode(document["_id"]),"date": document["date"], "name": document["name"],"description": document["description"], "amount": document["amount"]})
     return jsonify(data=items)
@@ -67,7 +67,6 @@ def index():
 def items(id):
     cursor = collections.find_one({"_id": ObjectId(id)})#need to parse in order for Mongodb to read
     print(cursor, flush=True)
-    
     #return the encoded item
     return jsonify(data=JSONEncoder().encode(cursor))
 

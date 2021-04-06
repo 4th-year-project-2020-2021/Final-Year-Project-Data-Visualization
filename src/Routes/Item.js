@@ -7,7 +7,8 @@ const Item = () => {
     //return all smallpox data from database
     const [numbers, setNumbers] = useState([]);
     const [loading, setLoading] = useState(false);
-    //const [ages, setAges] = useState([]);//need to figure out how to access array - stored as a single object.
+    const [itemId, setItemId] = useState("");
+    const [item, setItem] = useState({});
 
     const getNumbers = () => {
         setLoading(true);
@@ -32,6 +33,31 @@ const Item = () => {
                 setLoading(false);
             })
     }
+    //Get one Symptom from DB
+    /*const getItem = (props) =>{
+        let id  = props.match.params.id;
+        let cleanId = id.replace(/['"]+/g, "");
+        setItemId(cleanId);
+        fetch("/api/item" + cleanId)
+        .then(res => {
+            return res.json();
+        }).then(res =>{
+            let parsedResponse = JSON.parse(res.data);
+            setItem(parsedResponse)
+
+            setItems(parsedResponse.name);
+            setItems(parsedResponse.description);
+            setItems(parsedResponse.amount);
+            setItems(parsedResponse.date);
+
+        }).catch(err =>{
+            console.log(err);
+        })
+    }
+
+    useEffect(()=>{
+        getItem();
+    }, []);*/
 
     //Chart for Temperature
     const [chartData, setChartData] = useState({});
@@ -69,33 +95,13 @@ const Item = () => {
         .catch(err => {
             console.log(err);
         });
-        console.log(temp, tempDate);
-
-        
+        //console.log(temp, tempDate);        
     };
 
     useEffect(() =>{
         chart();
     },[]);
     
-
-
-    const state = {
-        labels: ['January', 'February', 'March',
-                 'April', 'May'],
-        datasets: [
-          {
-            label: 'Temperature',
-            fill: false,
-            lineTension: 0.5,
-            backgroundColor: 'rgba(75,192,192,1)',
-            borderColor: 'rgba(0,0,0,1)',
-            borderWidth: 2,
-            data: [36.5, 37.2, 36.5, 36.2, 38.9]
-          }
-        ]
-      }
-
     let itemsArray;
     if (items.length > 0) {
         itemsArray = <div className="items">

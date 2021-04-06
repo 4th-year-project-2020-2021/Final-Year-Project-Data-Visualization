@@ -1,6 +1,7 @@
 
-import React, {Component} from 'react';
+import React, { useEffect, useState } from 'react';
 import Chart from "react-google-charts";
+import Filter from "../OtherDiseaseComponents/Filter";
 import PropTypes from 'prop-types';
 import Dropdown from 'react-bootstrap/Dropdown';
 //import {omit} from 'ramda';
@@ -10,11 +11,61 @@ const paragraphStyle = {
   marginBottom: '10px'
 };
 
+//function Smallpox()
+const Smallpox = () =>
+ {
+  const [chartData, setChartData] = useState({});
 
-function Smallpox() {
-  
+  const chart = () => {
+    let country = [];
+    let numberOfCases = [];
+    let year = [];
+
+    fetch("/api/smallpox")
+    .then(res => res.json()
+    ).then(years => {
+        console.log(years);
+        for (const dataObj of years.data) {
+            country.push(dataObj.Entity);
+            numberOfCases.push(dataObj.Cases);
+            year.push(dataObj.Year);
+          }
+          /*setChartData({
+            labels: tempDate,
+            datasets:[
+                {
+                    label: 'Temperature',
+                    fill: false,
+                    lineTension: 0.5,
+                    backgroundColor: 'rgba(75,192,192,1)',
+                    borderColor: 'rgba(0,0,0,1)',
+                    borderWidth: 2,
+                    data: temp
+                  }
+
+            ]
+        })*/   
+    })
+    .catch(err => {
+        console.log(err);
+    });
+    console.log(country, numberOfCases, year);
+
+    
+};
+
+useEffect(() =>{
+    chart();
+},[]);
+
+
+
+
+
+
     return(
       <div className="Formcontainer">
+      
         <div>Smallpox</div>
         <p style={paragraphStyle}><h3>Smallpox cases - hover over country to see case numbers</h3></p>
         <div><select>
