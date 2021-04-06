@@ -3,7 +3,6 @@ import D3Comparison from './D3Components/D3Comparison';
 import D3Piechart from './D3Components/D3PieChartCovid19';
 import D3PieChartSars from './D3Components/D3PieChartSars';
 import D3PieChartMers from './D3Components/D3PieChartMers';
-import Comp from "./Images/comparison.PNG";
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -40,7 +39,6 @@ export default class ChartWrapper extends Component{
             <div ref="chart2"></div>
             <div ref="chart3"></div>
             <div ref="chart4"></div>
-            <img src={Comp} style={{ height: 150, width:1100}}/>
         </Wrapper>
     }
 }

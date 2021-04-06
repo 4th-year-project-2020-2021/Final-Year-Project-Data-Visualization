@@ -110,26 +110,10 @@ export default class D3Comparison{
             d3.select(element)
                 .append("div")
                     .style("border", "1px lightgray solid;")
-                    .style("background-color", "#5F9EA0")
+                    .style("background-color", "lightblue")
                     .style("font", "20px sans-serif")
                     .text("case fatality rate in males was significantly high (52%) as compared to women (48%).");
 
-
-            d3.select(element)
-               .append("div")
-                  .style("border", "1px lightgray solid;")
-                  .style("background-color", "#808080")
-                  .style("font", "20px sans-serif")
-                  .text("Based on the sequencing of its genome from early patient samples, this new virus shared 79% similarity to the SARS-CoV virus from 2003, and 50% similarity to the MERS-CoV virus from 2012.2 Therefore, the virus was placed within the Coronaviridae family and named SARS-CoV-2 or COVID-19, as it has become more commonly known.");
-    
-            d3.select(element)
-               .append("div")
-                  .style("border", "1px lightgray solid;")
-                  .style("background-color", "#808080")
-                  .style("font", "20px sans-serif")
-                  .text("The Coronaviridae family includes seven coronaviruses that can infect humans: four (HKU1, NL63, OC43, and 229E) cause mild symptoms, and three cause severe respiratory illnesses that include SARS-CoV, MERS-CoV, and now COVID-19.5 All three of these viruses’ mechanism of entry involves spreading from person to person by contact with origination from bats contracting such coronaviruses.6 Prior pathogens SARS-CoV and MERS-CoV were transmitted from bats to civet cats and dromedary camels, respectively, while the animal of transmission for SARS-CoV-2 has been linked to a pangolin due to their genetic similarities ");
-  
-    
     
       }
 }
