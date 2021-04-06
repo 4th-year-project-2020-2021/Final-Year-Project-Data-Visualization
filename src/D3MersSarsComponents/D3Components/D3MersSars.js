@@ -128,6 +128,15 @@ export default class D3Comparison{
             .attr("text-anchor","middle")
             .style("stroke", "gold")
             .style("fill","gold")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "90px sans-serif")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "35px sans-serif")
+            })
             .style("stroke-width", ".4px")
             .style("font", "35px sans-serif");
 
@@ -140,6 +149,18 @@ export default class D3Comparison{
             .style("stroke", "black")
             .style("fill","black")
             .style("stroke-width", ".2px")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "25px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "20px sans-serif")
+             .style("fill","black")
+             .style("stroke", "none")
+            })
             .style("font", "20px sans-serif");
 
           vis.xAxisGroup = vis.svg.append("g")
@@ -174,6 +195,18 @@ export default class D3Comparison{
              .attr("dy", ".35em")
              .attr("transform", "rotate(50)")
              .style("fill","blue")
+             .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "18px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "15px sans-serif")
+             .style("fill","blue")
+             .style("stroke", "none")
+            })
              .style("font", "15px sans-serif")
              .style("text-anchor", "start");
 
@@ -200,6 +233,15 @@ export default class D3Comparison{
               .style("stroke", "gold")
               .style("fill","gold")
               .style("stroke-width", ".4px")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "70px sans-serif")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "35px sans-serif")
+              })
               .style("font", "35px sans-serif");
 
             svg2.append("text")
@@ -207,6 +249,18 @@ export default class D3Comparison{
               .attr("y", HEIGHT2 - 270)
               .attr("text-anchor","middle")
               .text("First identified in Saudi Arabia in 2012.")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "20px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "black")
+               .style("fill","black")
+              })
               .style("stroke", "black")
               .style("fill","black")
               .style("stroke-width", ".4px")
@@ -218,6 +272,18 @@ export default class D3Comparison{
               .attr("text-anchor","middle")
               .text("Since 2012, MERS has been reported in 27 countries")
               .style("stroke", "black")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "20px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "black")
+               .style("fill","black")
+              })
               .style("fill","black")
               .style("stroke-width", ".4px")
               .style("font", "17px sans-serif");
@@ -227,6 +293,18 @@ export default class D3Comparison{
               .attr("y",-40)
               .attr("text-anchor","middle")
               .text("No. of Confirmed Cases")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "25px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "15px sans-serif")
+               .style("fill","black")
+               .style("stroke", "none")
+              })
               .attr("transform","rotate(-90)")
               .style("stroke", "black")
               .style("fill","black")
@@ -236,9 +314,25 @@ export default class D3Comparison{
             // Add the line
             svg2.append("path")
             .datum(comparison2)
-            .attr("fill", "grey")
+            .attr("fill", "#008B8B")
             .attr("stroke", "blue")
             .attr("stroke-width", 1.5)
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+                .style("fill","#6495ED")
+                .attr("stroke", "#00008B")
+                .style("opacity","2")
+                .style("stroke-width","10")
+                .attr("r",35)
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+                .attr("r",20)
+                .attr("fill", "#008B8B")
+                .attr("stroke", "black")
+                .style("stroke-width","2")
+            })
             .attr("d", d3.line()
               .x(function(d) { return x(d.Country) })
               .y(function(d) { return y(d.Confirmed) })
@@ -261,14 +355,29 @@ export default class D3Comparison{
                 }
                 return "green";
               })
-              .on("mouseover", function() {
+              .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
                 d3.select(this)
-                  .attr("fill", "rgb(95, 109, 148)");
+                  .style("stroke","lightblue")
+                  .style("opacity","2")
+                  .style("stroke-width","5")
+                  .attr("r",35)
+                  .attr("fill", d=>{
+                    if(d.Confirmed > 2000){
+                        return "red";
+                    }
+                    return "green";
+                  })
               })
               .on("mouseout", function(d) {
                 d3.select(this)
-                  .attr("fill", "red");
+                  .attr("r",20)
+                  .attr("fill", d=>{
+                    if(d.Confirmed > 2000){
+                        return "red";
+                    }
+                    return "green";
+                  })
               })
               .append("title")
                 .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
@@ -313,6 +422,18 @@ export default class D3Comparison{
              .attr("dy", ".35em")
              .attr("transform", "rotate(50)")
              .style("fill","blue")
+             .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "18px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "15px sans-serif")
+             .style("fill","blue")
+             .style("stroke", "none")
+            })
              .style("font", "15px sans-serif")
              .style("text-anchor", "start");
   
@@ -338,6 +459,15 @@ export default class D3Comparison{
             .style("stroke", "gold")
             .style("fill","gold")
             .style("stroke-width", ".4px")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "70px sans-serif")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "35px sans-serif")
+            })
             .style("font", "35px sans-serif");
             
           svg3.append("text")
@@ -345,6 +475,18 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 - 290)
             .attr("text-anchor","middle")
             .text("8,098 cases, resulting in 774 deaths reported in")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "15px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "black")
+             .style("fill","black")
+            })
             .style("stroke", "black")
             .style("fill","black")
             .style("stroke-width", ".4px")
@@ -357,6 +499,18 @@ export default class D3Comparison{
             .text("17 countries (9.6% fatality rate), with the majority of cases in mainland China and Hong Kong.")
             .style("stroke", "black")
             .style("fill","black")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "15px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "black")
+             .style("fill","black")
+            })
             .style("stroke-width", ".4px")
             .style("font", "17px sans-serif");
 
@@ -366,6 +520,18 @@ export default class D3Comparison{
             .attr("text-anchor","middle")
             .text("No cases of SARS have been reported worldwide since 2004.")
             .style("stroke", "black")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "15px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "black")
+             .style("fill","black")
+            })
             .style("fill","black")
             .style("stroke-width", ".4px")
             .style("font", "17px sans-serif");
@@ -375,6 +541,18 @@ export default class D3Comparison{
             .attr("y",-40)
             .attr("text-anchor","middle")
             .text("No. of Confirmed Cases")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "25px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "15px sans-serif")
+             .style("fill","black")
+             .style("stroke", "none")
+            })
             .attr("transform","rotate(-90)")
             .style("stroke", "black")
             .style("fill","black")
@@ -384,9 +562,25 @@ export default class D3Comparison{
           // Add the line
           svg3.append("path")
           .datum(comparison3)
-          .attr("fill", "grey")
+          .attr("fill", "#008B8B")
           .attr("stroke", "black")
           .attr("stroke-width", 1.5)
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+              .style("fill","#6495ED")
+              .attr("stroke", "#00008B")
+              .style("opacity","2")
+              .style("stroke-width","10")
+              .attr("r",35)
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+              .attr("r",20)
+              .attr("fill", "#008B8B")
+              .attr("stroke", "black")
+              .style("stroke-width","2")
+          })
           .attr("d", d3.line()
             .x(function(d) { return x(d.Country) })
             .y(function(d) { return y(d.Confirmed) })
@@ -410,14 +604,29 @@ export default class D3Comparison{
               }
               return "green";
             })
-            .on("mouseover", function() {
+            .on("mouseover", function(d) {
               //Do something on mouseover of any bar
               d3.select(this)
-                .attr("fill", "rgb(95, 109, 148)");
+                .style("stroke","lightblue")
+                .style("opacity","2")
+                .style("stroke-width","5")
+                .attr("r",35)
+                .attr("fill", d=>{
+                  if(d.Confirmed > 2000){
+                      return "red";
+                  }
+                  return "green";
+                })
             })
             .on("mouseout", function(d) {
               d3.select(this)
-                .attr("fill", "red");
+                .attr("r",20)
+                .attr("fill", d=>{
+                  if(d.Confirmed > 2000){
+                      return "red";
+                  }
+                  return "green";
+                })
             })
             .append("title")
               .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
@@ -461,6 +670,18 @@ export default class D3Comparison{
          .attr("dy", ".35em")
          .attr("transform", "rotate(30)")
          .style("fill","black")
+         .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "18px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "15px sans-serif")
+         .style("fill","black")
+         .style("stroke", "none")
+        })
          .style("font", "15px sans-serif")
          .style("text-anchor", "start");
 
@@ -474,6 +695,18 @@ export default class D3Comparison{
           .attr("text-anchor","middle")
           .text("Sars no. of total infected cases from main countries")
           .style("stroke", "black")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "16px sans-serif")
+            .style("stroke", "#4682B4")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("font", "17px sans-serif")
+            .style("stroke", "black")
+           .style("fill","black")
+          })
           .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "15px sans-serif");
@@ -483,6 +716,18 @@ export default class D3Comparison{
           .attr("y",-40)
           .attr("text-anchor","middle")
           .text("No. of Total Infected")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "15px sans-serif")
+            .style("stroke", "#4682B4")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("font", "17px sans-serif")
+            .style("stroke", "black")
+           .style("fill","black")
+          })
           .attr("transform","rotate(-90)")
           .style("stroke", "black")
           .style("fill","black")
@@ -495,6 +740,17 @@ export default class D3Comparison{
         .attr("fill", "none")
         .attr("stroke", "black")
         .attr("stroke-width", 1.5)
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+            .style("stroke-width","10")
+            .attr("r",35)
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+            .attr("stroke", "black")
+            .style("stroke-width","2")
+        })
         .attr("d", d3.line()
           .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
           .y(function(d) { return y(d.Cases) })
@@ -565,6 +821,18 @@ export default class D3Comparison{
        .attr("dy", ".35em")
        .attr("transform", "rotate(30)")
        .style("fill","black")
+       .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "18px sans-serif")
+        .style("stroke", "#4682B4")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "15px sans-serif")
+       .style("fill","black")
+       .style("stroke", "none")
+      })
        .style("font", "15px sans-serif")
        .style("text-anchor", "start");
 
@@ -578,6 +846,18 @@ export default class D3Comparison{
         .attr("text-anchor","middle")
         .text("Sars no. of total Deaths cases from main countries")
         .style("stroke", "red")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "15px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "17px sans-serif")
+          .style("stroke", "black")
+         .style("fill","black")
+        })
         .style("fill","red")
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
@@ -589,6 +869,18 @@ export default class D3Comparison{
         .text("China has the most infected cases and deaths")
         .style("stroke", "red")
         .style("fill","red")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "15px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "17px sans-serif")
+          .style("stroke", "black")
+         .style("fill","black")
+        })
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
 
@@ -597,6 +889,18 @@ export default class D3Comparison{
         .attr("y",-40)
         .attr("text-anchor","middle")
         .text("No. of Total Deaths")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "15px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "17px sans-serif")
+          .style("stroke", "black")
+         .style("fill","black")
+        })
         .attr("transform","rotate(-90)")
         .style("stroke", "black")
         .style("fill","black")
@@ -609,6 +913,15 @@ export default class D3Comparison{
       .attr("fill", "none")
       .attr("stroke", "red")
       .attr("stroke-width", 1.5)
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+          .style("stroke-width","10")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+          .style("stroke-width","2")
+      })
       .attr("d", d3.line()
         .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
         .y(function(d) { return y(d.Deaths) })
@@ -678,6 +991,18 @@ export default class D3Comparison{
      .attr("dy", ".35em")
      .attr("transform", "rotate(30)")
      .style("fill","black")
+     .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "18px sans-serif")
+      .style("stroke", "#4682B4")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "15px sans-serif")
+     .style("fill","black")
+     .style("stroke", "none")
+    })
      .style("font", "15px sans-serif")
      .style("text-anchor", "start");
 
@@ -692,6 +1017,18 @@ export default class D3Comparison{
       .text("Sars no. of total Recovered cases from confirmed cases")
       .style("stroke", "green")
       .style("fill","green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "16px sans-serif")
+        .style("stroke", "#4682B4")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "15px sans-serif")
+        .style("stroke", "black")
+       .style("fill","black")
+      })
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
@@ -701,6 +1038,18 @@ export default class D3Comparison{
       .attr("text-anchor","middle")
       .text("Hong Kong and Singapore present good cured rates,")
       .style("stroke", "black")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "16px sans-serif")
+        .style("stroke", "#4682B4")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "15px sans-serif")
+        .style("stroke", "black")
+       .style("fill","black")
+      })
       .style("fill","black")
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
@@ -712,6 +1061,18 @@ export default class D3Comparison{
       .text("which are more than 82%, with China’s at 92.9%. ")
       .style("stroke", "black")
       .style("fill","black")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "16px sans-serif")
+        .style("stroke", "#4682B4")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "15px sans-serif")
+        .style("stroke", "black")
+       .style("fill","black")
+      })
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
@@ -720,6 +1081,18 @@ export default class D3Comparison{
       .attr("y",-40)
       .attr("text-anchor","middle")
       .text("No. of Total Recovered Cases")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "15px sans-serif")
+        .style("stroke", "#4682B4")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "black")
+       .style("fill","black")
+      })
       .attr("transform","rotate(-90)")
       .style("stroke", "black")
       .style("fill","black")
@@ -732,6 +1105,15 @@ export default class D3Comparison{
     .attr("fill", "none")
     .attr("stroke", "green")
     .attr("stroke-width", 1.5)
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+        .style("stroke-width","10")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+        .style("stroke-width","2")
+    })
     .attr("d", d3.line()
       .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
       .y(function(d) { return y(d.Recovered) })
@@ -802,6 +1184,18 @@ d3.json(sarsOutbreak).then(outbreak4=>{
    .attr("dy", ".35em")
    .attr("transform", "rotate(30)")
    .style("fill","black")
+   .on("mouseover", function(d) {
+    //Do something on mouseover of any bar
+    d3.select(this)
+    .style("font", "18px sans-serif")
+    .style("stroke", "#4682B4")
+  })
+  .on("mouseout", function(d) {
+    d3.select(this)
+    .style("font", "15px sans-serif")
+   .style("fill","black")
+   .style("stroke", "none")
+  })
    .style("font", "15px sans-serif")
    .style("text-anchor", "start");
 
@@ -816,6 +1210,18 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .text("Sars-Mortality Rate (%) from main countries")
     .style("stroke", "blue")
     .style("fill","blue")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "16px sans-serif")
+      .style("stroke", "#4682B4")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "15px sans-serif")
+      .style("stroke", "black")
+     .style("fill","black")
+    })
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
   
@@ -825,6 +1231,18 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("text-anchor","middle")
     .text("Mortality rates tend to be between 10% to 17% till 11 July; ")
     .style("stroke", "black")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "16px sans-serif")
+      .style("stroke", "#4682B4")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "15px sans-serif")
+      .style("stroke", "black")
+     .style("fill","black")
+    })
     .style("fill","black")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
@@ -836,6 +1254,18 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("text-anchor","middle")
     .text("the worst is around 17% in Hong Kong and Canada, ")
     .style("stroke", "black")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "16px sans-serif")
+      .style("stroke", "#4682B4")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "15px sans-serif")
+      .style("stroke", "black")
+     .style("fill","black")
+    })
     .style("fill","black")
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
@@ -845,6 +1275,18 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("y", HEIGHT3 - 100)
     .attr("text-anchor","middle")
     .text("yet China’s is only 6.6%. ")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "16px sans-serif")
+      .style("stroke", "#4682B4")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "15px sans-serif")
+      .style("stroke", "black")
+     .style("fill","black")
+    })
     .style("stroke", "black")
     .style("fill","black")
     .style("stroke-width", ".4px")
@@ -855,6 +1297,18 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("y",-40)
     .attr("text-anchor","middle")
     .text("Mortality Rate (%)")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "15px sans-serif")
+      .style("stroke", "#4682B4")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "17px sans-serif")
+      .style("stroke", "black")
+     .style("fill","black")
+    })
     .attr("transform","rotate(-90)")
     .style("stroke", "black")
     .style("fill","black")
@@ -867,6 +1321,15 @@ d3.json(sarsOutbreak).then(outbreak4=>{
   .attr("fill", "none")
   .attr("stroke", "blue")
   .attr("stroke-width", 1.5)
+   .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+          .style("stroke-width","10")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+          .style("stroke-width","2")
+      })
   .attr("d", d3.line()
     .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
     .y(function(d) { return y(d.MortalityRate) })
@@ -1012,6 +1475,19 @@ rects2.enter().append("text")
         .attr("text-anchor", "end")
         .text(d=>"No. "+d.Number)
         .attr("fill" , "red")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "22px sans-serif")
+          .style("stroke", "blue")
+          .style("fill","blue")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "15px sans-serif")
+         .style("fill","blue")
+         .style("stroke", "blue")
+        })
         .style("font", "15px sans-serif");
     }
 }

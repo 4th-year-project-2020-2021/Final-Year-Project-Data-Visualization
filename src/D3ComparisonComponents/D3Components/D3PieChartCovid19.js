@@ -48,9 +48,25 @@ export default class D3Comparison{
 
             //Draw arc paths
             arcs.append("path")
+               .attr("stroke", "white")
+               .style("stroke-width", "10px")
+               .style("opacity", 7)
                 .attr("fill", function(d, i) {
                     return color(i);
-            })
+               })
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                    .style("stroke","lightblue")
+                    .style("opacity","1")
+                    .style("stroke-width","30")
+                    .attr("fill", "#6B8E23");
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                    .style("stroke-width","10")
+                    .attr("fill", "#CD853F");
+                })
             .attr("d", arc);
 
             
@@ -62,6 +78,7 @@ export default class D3Comparison{
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
                .attr("fill" , "white")
+               .attr("stroke", "white")
 
             svg.append("g")
                .attr("transform", "translate(" + (width  - 600) + "," + 120 + ")")
@@ -81,6 +98,7 @@ export default class D3Comparison{
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
                .attr("fill" , "white")
+               .attr("stroke", "white")
 
             svg.append("g")
                .attr("transform", "translate(" + (width  - 180) + "," + 150 + ")")
@@ -99,6 +117,7 @@ export default class D3Comparison{
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "25px")
                .attr("fill" , "#FAFAD2")
+               .attr("stroke", "white")
 
             d3.select(element)
                .append("div")
