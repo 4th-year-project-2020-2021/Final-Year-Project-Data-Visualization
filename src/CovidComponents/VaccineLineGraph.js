@@ -89,7 +89,7 @@ function VaccineLineGraph({ vaccineType }) {
         data={{
             datasets: [
               {
-                backgroundColor: "blue",
+                backgroundColor: "grey",
                 data: data,
               },
             ],

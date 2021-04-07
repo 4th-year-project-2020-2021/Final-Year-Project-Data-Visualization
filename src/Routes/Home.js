@@ -64,6 +64,8 @@ return (
       }}
     >    
 
+<div className="app">
+<div className="app__left">
     <h4>Data Visualization & Analysis</h4>
     <br/>
         <img src={Home} style={{ height: 300}}/>
@@ -73,47 +75,50 @@ return (
         <h3>Leave a rating when you're done?</h3>
 
         <br/>
-
+        
         <form className="rating" onSubmit={ratingItem}>
           <div className="control"> 
           <textarea name="rating" className="text-box" onChange={e => setRating(e.target.value)} ></textarea>
+            <br></br>
+            <input className="button" type="submit" value="Submit" />
+            <br></br>
+          <button className="button" onClick={getRatings} disabled={loading} >Review Ratings</button>
           </div>
-          <input className="button" type="submit" value="Submit" />
           <br></br>
+          
           {/*<input className="button" type="submit" value="See all Reviews" />*/}
         </form>
+        </div>
+        
         <React.Fragment>
+        <div className="app__information">
                 <br />
         
-                <button
-                    className="button"
-                    onClick={getRatings}
-                    disabled={loading}
-                >
-                    {loading ? 'Loading...' : 'Ratings'}
-                </button>
+                {loading ? 'Loading...' : 'Ratings'}
                 <div key={ratings._id}>
                     <table>
                         
-                        <tbody>
+                        <tbody className="reviewTable">
                             {ratings.map(x => <tr>
                                 <Link to={"rating/" + ratings._id}>
                                 </Link>
                                 <div>
-                                    <td className="reviews">{x.rating}</td>
+                                    <td>{x.rating}</td>
                                 </div>
                                 
                             </tr>)}
                             {ratings.length == 0 && <tr>
                                 
-
                             </tr>}
                         </tbody>
                     </table>
                 </div>
+                </div>
 
-                
+  
             </React.Fragment>
+            </div>
+
 
       </div>
     );
