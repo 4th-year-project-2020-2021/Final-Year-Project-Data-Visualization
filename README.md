@@ -102,13 +102,13 @@ I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
 - [x] Interactive Bar charts with dropdown button Flicking between datasets
-- [x] Scatter plots
-- [x] Line graphs
-- [x] Comparison pie chart (Covid19, Mers and Sars)
+- [x] Interactive Scatter plots
+- [x] Interactive Line graphs
+- [x] Interactive pie chart
 - [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
 - [x] Mers and Sars page. - Data Visualization with D3
 - [x] Login and Register functionalities ( Firebase )
-- [x] Profile page. - users can edit their profile name
+- [x] Profile page. - users can edit their profile name ( Firebase )
 - [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. ( Firestore )
 - [ ] Dissertation writing
 

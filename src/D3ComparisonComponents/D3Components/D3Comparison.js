@@ -69,7 +69,7 @@ export default class D3Comparison{
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
-            .style("font", "22px sans-serif")
+            .style("font", "40px sans-serif")
             .style("stroke", "#008080")
             .style("fill","#008080")
           })
@@ -77,10 +77,10 @@ export default class D3Comparison{
             d3.select(this)
             .style("stroke", "#3CB371")
             .style("fill","black")
-            .style("font", "20px sans-serif")
+            .style("font", "30px sans-serif")
           })
           .style("stroke-width", ".4px")
-          .style("font", "35px sans-serif");
+          .style("font", "30px sans-serif");
       
         vis.xLabel2 = vis.svgg.append("text")
           .attr("x", WIDTH/1.8)
@@ -589,6 +589,21 @@ export default class D3Comparison{
             const yAxisCall = d3.axisLeft(y)
             svg.append("g").call(yAxisCall)
 
+            svg.append('g')
+              .attr('class', 'grid')
+              .attr('transform', `translate(0, ${HEIGHT2})`)
+              .call(d3.axisBottom()
+                .scale(x)
+                .tickSize(-HEIGHT2, 0, 0)
+                .tickFormat(''))
+
+          svg.append('g')
+            .attr('class', 'grid')
+            .call(d3.axisLeft()
+            .scale(y)
+              .tickSize(-WIDTH2, 0, 0)
+              .tickFormat(''))
+
             svg.append("text")
               .attr("x", WIDTH/7)
               .attr("y", HEIGHT - 290)
@@ -601,29 +616,28 @@ export default class D3Comparison{
 
 
             svg.append("text")
-              .attr("x",-(HEIGHT2/2))
+              .attr("x",-(HEIGHT3/2))
               .attr("y",-40)
               .attr("text-anchor","middle")
-              .text("Mortality Rate (%)")
-              .attr("transform","rotate(-90)")
+              .text("Motality Rate (%)")
+              .attr("transform", "rotate(-90)")
               .style("stroke", "black")
               .style("fill","black")
-              .style("stroke-width", ".4px")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
                 d3.select(this)
-                .style("font", "22px sans-serif")
-                .style("stroke", "blue")
-                .style("fill","blue")
+                .style("font", "19px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
               })
               .on("mouseout", function(d) {
                 d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
                 .style("font", "20px sans-serif")
-               .style("fill","blue")
-               .style("stroke", "blue")
               })
-              .style("font", "20px sans-serif")
-              .style("pointer-events", "none");
+              .style("stroke-width", ".2px")
+              .style("font", "20px sans-serif");
 
             const rects = svg.selectAll("circle")
               .data(comparison)
@@ -698,6 +712,21 @@ export default class D3Comparison{
               .domain(comparison2.map(d => d.Name))
               .range([0,WIDTH2])  
               .padding(0.2)
+
+          svg2.append('g')
+              .attr('class', 'grid')
+              .attr('transform', `translate(0, ${HEIGHT2})`)
+              .call(d3.axisBottom()
+                .scale(x)
+                .tickSize(-HEIGHT2, 0, 0)
+                .tickFormat(''))
+
+          svg2.append('g')
+            .attr('class', 'grid')
+            .call(d3.axisLeft()
+            .scale(y)
+              .tickSize(-WIDTH2, 0, 0)
+              .tickFormat(''))
 
           const xAxisCall2 = d3.axisBottom(x)
           svg2.append("g")
@@ -839,6 +868,21 @@ export default class D3Comparison{
             .range([0,WIDTH2])  
             .padding(0.2)
 
+        svg3.append('g')
+            .attr('class', 'grid')
+            .attr('transform', `translate(0, ${HEIGHT2})`)
+            .call(d3.axisBottom()
+              .scale(x)
+              .tickSize(-HEIGHT2, 0, 0)
+              .tickFormat(''))
+
+        svg3.append('g')
+          .attr('class', 'grid')
+          .call(d3.axisLeft()
+          .scale(y)
+            .tickSize(-WIDTH2, 0, 0)
+            .tickFormat(''))
+
         const xAxisCall3 = d3.axisBottom(x)
         svg3.append("g")
          .attr("transform",`translate(0, ${ HEIGHT2 })`)
@@ -966,6 +1010,49 @@ export default class D3Comparison{
        .style("font", "17px sans-serif")
        .style("text-anchor", "middle");
 
+       svgsymptom.append('line')
+       .attr('x1', 0)
+       .attr('y1', y)
+       .attr('x2', WIDTH3)
+       .attr('y2', y)
+       .attr('stroke', 'red')
+
+       //----------------------
+
+      svgsymptom.append('g')
+        .attr('class', 'grid')
+        .call(d3.axisLeft()
+          .scale(y)
+          .tickSize(-WIDTH3, 0, 0)
+          .tickFormat(''))
+
+      //========================
+
+      svgsymptom.append("text")
+          .attr("x",-(HEIGHT3/2))
+          .attr("y",-40)
+          .attr("text-anchor","middle")
+          .text("Percentage (%) of patients with symptoms")
+          .attr("transform", "rotate(-90)")
+          .style("stroke", "black")
+          .style("fill","black")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "19px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","black")
+            .style("font", "20px sans-serif")
+          })
+          .style("stroke-width", ".2px")
+          .style("font", "20px sans-serif");
+
+
       svgsymptom.append("text")
        .attr("x", WIDTH/3.2)
        .attr("y", HEIGHT - 290)
@@ -1018,6 +1105,7 @@ export default class D3Comparison{
         .on("mouseout", function(d) {
           d3.select(this)
           .style("stroke-width","5")
+          .style("opacity","1")
             .attr("fill", d=>{
               if(d.HowSerious > 80){
                   return "#4169E1";
@@ -1038,6 +1126,18 @@ export default class D3Comparison{
         .attr("height", d => HEIGHT3 - y(d.HowSerious))
         .attr("text-anchor", "middle")
         .text(d=>d.HowSerious+ " %")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "24px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "22px sans-serif")
+          .style("stroke", "#000080")
+         .style("fill","#000080")
+        })
         .attr("font-family" , "sans-serif")
         .attr("font-size" , "22px")
         .attr("fill" , "#000080")
@@ -1049,6 +1149,18 @@ export default class D3Comparison{
         .text("Like flu, stay at home")
         .style("fill","#FF4500")
         .style("stroke-width", ".4px")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "20px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "17px sans-serif")
+          .style("stroke", "#FF4500")
+         .style("fill","#FF4500")
+        })
         .style("font", "17px sans-serif");
 
       svgsymptom.append("text")
@@ -1058,6 +1170,18 @@ export default class D3Comparison{
         .text("Hospitalization")
         .style("fill","#6A5ACD")
         .style("stroke-width", ".4px")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "20px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "17px sans-serif")
+          .style("stroke", "#6A5ACD")
+         .style("fill","#6A5ACD")
+        })
         .style("font", "17px sans-serif");
 
       svgsymptom.append("text")
@@ -1067,6 +1191,18 @@ export default class D3Comparison{
         .text("Intensive care")
         .style("fill","#6A5ACD")
         .style("stroke-width", ".4px")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "20px sans-serif")
+          .style("stroke", "#4682B4")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "17px sans-serif")
+          .style("stroke", "#6A5ACD")
+         .style("fill","")
+        })
         .style("font", "17px sans-serif");
   })//end covid19 symptoms
 
@@ -1337,6 +1473,8 @@ export default class D3Comparison{
     })
      .style("font", "15px sans-serif");
 
+
+
      svgcovid19flu.append("text")
      .attr("x", WIDTH/4.9)
      .attr("y", HEIGHT - 90)
@@ -1358,6 +1496,7 @@ export default class D3Comparison{
     })
      .style("stroke-width", ".4px")
      .style("font", "15px sans-serif");
+     
       
     
 })//end - explain how different between flu and covid-19
@@ -1381,12 +1520,53 @@ export default class D3Comparison{
      .attr("transform",`translate(0, ${ HEIGHT })`)
      .call(xAxisCall4)
 
+  svght.append('g')
+    .attr('class', 'grid')
+    .attr('transform', `translate(0, ${HEIGHT})`)
+    .call(d3.axisBottom()
+        .scale(x)
+        .tickSize(-HEIGHT, 0, 0)
+        .tickFormat(''))
+
+  svght.append('g')
+     .attr('class', 'grid')
+     .call(d3.axisLeft()
+        .scale(y)
+        .tickSize(-WIDTH, 0, 0)
+        .tickFormat(''))
+
     const yAxisCall4 = d3.axisLeft(y)
     svght.append("g").call(yAxisCall4)
+
+    
+    svght.append("text")
+    .attr("x",-(HEIGHT3/2))
+    .attr("y",-40)
+    .attr("text-anchor","middle")
+    .text("Motality Rate (%)")
+    .attr("transform", "rotate(-90)")
+    .style("stroke", "black")
+    .style("fill","black")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "19px sans-serif")
+      .style("stroke", "#008080")
+      .style("fill","#008080")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("stroke", "#3CB371")
+      .style("fill","black")
+      .style("font", "20px sans-serif")
+    })
+    .style("stroke-width", ".2px")
+    .style("font", "20px sans-serif");
+
       
     svght.append("text")
         .attr("x", WIDTH/1.5)
-        .attr("y", HEIGHT - 320)
+        .attr("y", HEIGHT - 330)
         .attr("text-anchor","middle")
         .text("The case fatality rate (CFR) only shows the")
         .on("mouseover", function(d) {
@@ -1430,7 +1610,7 @@ export default class D3Comparison{
 
     svght.append("text")
         .attr("x", WIDTH/1.5)
-        .attr("y", HEIGHT - 250)
+        .attr("y", HEIGHT - 255)
         .attr("text-anchor","middle")
         .text("CFR is unreliable during a pandamic")
         .style("stroke", "red")
@@ -1489,6 +1669,17 @@ export default class D3Comparison{
           .attr("height", d => HEIGHT - y(d.fatalityRate))
           .attr("text-anchor", "middle")
           .text(d=>d.virus)
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "20px sans-serif")
+            .style("fill","#000080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("font", "17px sans-serif")
+            .style("fill","#C71585")
+          })
           .attr("font-family" , "sans-serif")
           .attr("font-size" , "14px")
           .attr("fill" , "#C71585")
@@ -1515,7 +1706,23 @@ d3.json(urlagerisk).then(age=>{
    .call(xAxisCall)
    .style("fill","#C71585")
    .style("font", "17px sans-serif")
-   .style("text-anchor", "middle");
+   .style("text-anchor", "middle")
+
+   .selectAll("text")
+   .style("fill","black")
+   .on("mouseover", function(d) {
+     //Do something on mouseover of any bar
+     d3.select(this)
+     .style("font", "30px sans-serif")
+     .style("fill","black")
+   })
+   .on("mouseout", function(d) {
+     d3.select(this)
+     .style("font", "17px sans-serif")
+     .style("fill","black")
+   })
+   .style("font", "17px sans-serif")
+   .style("text-anchor", "start");
 
    svgrisk.append("text")
    .attr("x", WIDTH/3.2)
@@ -1603,6 +1810,17 @@ d3.json(urlagerisk).then(age=>{
     .text(d=>d.PercentOfdeceased+ " %")
     .attr("font-family" , "sans-serif")
     .attr("font-size" , "22px")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "30px sans-serif")
+      .style("fill","blue")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "22px sans-serif")
+      .style("fill","black")
+    })
     .attr("fill" , "black")
   
 })//end - Most at Risk
@@ -1623,18 +1841,37 @@ d3.json(diffRaces).then(race=>{
       .range([0,WIDTH4])  
       .padding(0.2)
 
+
+  svgraces.append('g')
+    .attr('class', 'grid')
+    .call(d3.axisLeft()
+    .scale(y)
+      .tickSize(-WIDTH3, 0, 0)
+      .tickFormat(''))
+
+  
+
   const xAxisCall = d3.axisBottom(x)
   svgraces.append("g")
-   .attr("transform",`translate(0, ${ HEIGHT3 })`)
-   .call(xAxisCall)
-   .style("fill","black")
+  .attr("transform",`translate(0, ${ HEIGHT3 })`)
+  .call(xAxisCall)
+  .style("fill","#C71585")
+  .style("font", "17px sans-serif")
+  .style("text-anchor", "middle")
 
    .selectAll("text")
-      .attr("y", 0)
-      .attr("x", 9)
-      .attr("dy", ".45em")
-      .attr("transform", "rotate(20)")
       .style("fill","black")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "25px sans-serif")
+        .style("fill","blue")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("fill","black")
+      })
       .style("font", "15px sans-serif")
       .style("text-anchor", "start");
 
@@ -1646,7 +1883,7 @@ d3.json(diffRaces).then(race=>{
 
   svgraces.append("text")
     .attr("x", WIDTH/3.2)
-    .attr("y", HEIGHT - 400)
+    .attr("y", HEIGHT - 390)
     .attr("text-anchor","middle")
     .text("Non-Hospitalized Patients")
     .on("mouseover", function(d) {
@@ -1719,7 +1956,7 @@ d3.json(diffRaces).then(race=>{
   rects.enter().append("text")
     .attr("class", "value")
     .attr("x", d=> x(d.Races)+ (x.bandwidth() / 2))
-    .attr("y", d => y(d.Cases))
+    .attr("y", d => y(d.Cases)+ (x.bandwidth() / 2))
     .attr("dy", ".35em") //vertical align middle
     .attr("width",x.bandwidth)
     .attr("height", d => HEIGHT - y(d.Cases))
@@ -1727,6 +1964,17 @@ d3.json(diffRaces).then(race=>{
     .text(d=>d.Cases+ " %")
     .attr("font-family" , "sans-serif")
     .attr("font-size" , "22px")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "30px sans-serif")
+      .style("fill","blue")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "22px sans-serif")
+      .style("fill","black")
+    })
     .attr("fill" , "black")
   
 })//end - Races
@@ -1747,19 +1995,35 @@ d3.json(diffRaces).then(race2=>{
       .range([0,WIDTH4])  
       .padding(0.2)
 
+    svgraces2.append('g')
+      .attr('class', 'grid')
+      .call(d3.axisLeft()
+      .scale(y)
+        .tickSize(-WIDTH3, 0, 0)
+        .tickFormat(''))
+
   const xAxisCall = d3.axisBottom(x)
   svgraces2.append("g")
-   .attr("transform",`translate(0, ${ HEIGHT3 })`)
-   .call(xAxisCall)
-   .style("fill","black")
+  .attr("transform",`translate(0, ${ HEIGHT3 })`)
+  .call(xAxisCall)
+  .style("fill","#C71585")
+  .style("font", "17px sans-serif")
+  .style("text-anchor", "middle")
 
   .selectAll("text")
-   .attr("y", 0)
-   .attr("x", 9)
-   .attr("dy", ".45em")
-   .attr("transform", "rotate(20)")
    .style("fill","black")
-   .style("font", "15px sans-serif")
+   .on("mouseover", function(d) {
+    //Do something on mouseover of any bar
+    d3.select(this)
+    .style("font", "25px sans-serif")
+    .style("fill","blue")
+  })
+  .on("mouseout", function(d) {
+    d3.select(this)
+    .style("font", "17px sans-serif")
+    .style("fill","black")
+  })
+   .style("font", "17px sans-serif")
    .style("text-anchor", "start");
 
   const yAxisCall = d3.axisLeft(y)
@@ -1772,7 +2036,7 @@ d3.json(diffRaces).then(race2=>{
   
   svgraces2.append("text")
     .attr("x", WIDTH/3.2)
-    .attr("y", HEIGHT - 400)
+    .attr("y", HEIGHT - 390)
     .attr("text-anchor","middle")
     .text("Patient Deaths")
     .on("mouseover", function(d) {
@@ -1845,7 +2109,7 @@ d3.json(diffRaces).then(race2=>{
   rects.enter().append("text")
     .attr("class", "value")
     .attr("x", d=> x(d.Races)+ (x.bandwidth() / 2))
-    .attr("y", d => y(d.Death))
+    .attr("y", d => y(d.Death)+ (x.bandwidth() / 2))
     .attr("dy", ".35em") //vertical align middle
     .attr("width",x.bandwidth)
     .attr("height", d => HEIGHT - y(d.Death))
@@ -1853,12 +2117,22 @@ d3.json(diffRaces).then(race2=>{
     .text(d=>d.Death+ " %")
     .attr("font-family" , "sans-serif")
     .attr("font-size" , "22px")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "30px sans-serif")
+      .style("fill","blue")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "22px sans-serif")
+      .style("fill","black")
+    })
     .attr("fill" , "black")
   
 })//end - Races2
 
 
-////////////////////////////////
 Promise.all([
   d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
   d3.json("https://merssymptoms.firebaseio.com/MersSymptoms.json"),

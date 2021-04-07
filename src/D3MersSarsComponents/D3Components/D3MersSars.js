@@ -276,6 +276,13 @@ export default class D3Comparison{
                 .range([0,WIDTH2])  
                 .padding(0.2)
 
+            svg2.append('g')
+              .attr('class', 'grid')
+              .call(d3.axisLeft()
+              .scale(y)
+                .tickSize(-WIDTH2, 0, 0)
+                .tickFormat(''))
+
             const xAxisCall2 = d3.axisBottom(x)
             svg2.append("g")
              .attr("transform",`translate(0, ${ HEIGHT2 })`)
@@ -331,7 +338,7 @@ export default class D3Comparison{
 
             svg2.append("text")
               .attr("x", WIDTH2/2)
-              .attr("y", HEIGHT2 - 320)
+              .attr("y", HEIGHT2 - 340)
               .attr("text-anchor","middle")
               .text("Mers")
               .style("stroke", "gold")
@@ -350,7 +357,7 @@ export default class D3Comparison{
 
             svg2.append("text")
               .attr("x", WIDTH2/2)
-              .attr("y", HEIGHT2 - 270)
+              .attr("y", HEIGHT2 - 275)
               .attr("text-anchor","middle")
               .text("First identified in Saudi Arabia in 2012.")
               .on("mouseover", function(d) {
@@ -372,7 +379,7 @@ export default class D3Comparison{
 
             svg2.append("text")
               .attr("x", WIDTH2/2)
-              .attr("y", HEIGHT2 - 250)
+              .attr("y", HEIGHT2 - 255)
               .attr("text-anchor","middle")
               .text("Since 2012, MERS has been reported in 27 countries")
               .style("stroke", "black")
@@ -465,7 +472,7 @@ export default class D3Comparison{
                   .style("stroke","lightblue")
                   .style("opacity","2")
                   .style("stroke-width","5")
-                  .attr("r",35)
+                  .attr("r",50)
                   .attr("fill", d=>{
                     if(d.Confirmed > 2000){
                         return "red";
@@ -515,6 +522,13 @@ export default class D3Comparison{
               .domain(comparison3.map(d => d.Country))
               .range([0,WIDTH2])  
               .padding(0.2)
+
+          svg3.append('g')
+            .attr('class', 'grid')
+            .call(d3.axisLeft()
+            .scale(y)
+              .tickSize(-WIDTH2, 0, 0)
+              .tickFormat(''))
   
           const xAxisCall3 = d3.axisBottom(x)
           svg3.append("g")
@@ -570,7 +584,7 @@ export default class D3Comparison{
 
           svg3.append("text")
             .attr("x", WIDTH2/2)
-            .attr("y", HEIGHT2 - 340)
+            .attr("y", HEIGHT2 - 365)
             .attr("text-anchor","middle")
             .text("Sars")
             .style("stroke", "gold")
@@ -589,7 +603,7 @@ export default class D3Comparison{
             
           svg3.append("text")
             .attr("x", WIDTH2/2)
-            .attr("y", HEIGHT2 - 290)
+            .attr("y", HEIGHT2 - 300)
             .attr("text-anchor","middle")
             .text("8,098 cases, resulting in 774 deaths reported in")
             .on("mouseover", function(d) {
@@ -610,8 +624,8 @@ export default class D3Comparison{
             .style("font", "17px sans-serif");
 
           svg3.append("text")
-            .attr("x", WIDTH2/2)
-            .attr("y", HEIGHT2 - 270)
+            .attr("x", WIDTH2/1.7)
+            .attr("y", HEIGHT2 - 267)
             .attr("text-anchor","middle")
             .text("17 countries (9.6% fatality rate), with the majority of cases in mainland China and Hong Kong.")
             .style("stroke", "black")
@@ -619,7 +633,7 @@ export default class D3Comparison{
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
               d3.select(this)
-              .style("font", "15px sans-serif")
+              .style("font", "16px sans-serif")
               .style("stroke", "#4682B4")
             })
             .on("mouseout", function(d) {
@@ -633,7 +647,7 @@ export default class D3Comparison{
 
           svg3.append("text")
             .attr("x", WIDTH2/2)
-            .attr("y", HEIGHT2 - 250)
+            .attr("y", HEIGHT2 - 245)
             .attr("text-anchor","middle")
             .text("No cases of SARS have been reported worldwide since 2004.")
             .style("stroke", "black")
@@ -727,7 +741,7 @@ export default class D3Comparison{
                 .style("stroke","lightblue")
                 .style("opacity","2")
                 .style("stroke-width","5")
-                .attr("r",35)
+                .attr("r",50)
                 .attr("fill", d=>{
                   if(d.Confirmed > 2000){
                       return "red";
@@ -908,7 +922,20 @@ export default class D3Comparison{
         .attr("text-anchor", "middle")
         .text(d=>"No. "+ d.Cases)
         .attr("font-family" , "sans-serif")
-        .attr("font-size" , "10px")
+        .attr("font-size" , "15px")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "25px sans-serif")
+          .style("stroke", "blue")
+          .style("fill","blue")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("font", "15px sans-serif")
+         .style("fill","blue")
+         .style("stroke", "blue")
+        })
         .attr("fill" , "black")
     })// End Sars outbreak 1
 
@@ -1079,7 +1106,20 @@ export default class D3Comparison{
       .attr("text-anchor", "middle")
       .text(d=>"No. "+ d.Deaths)
       .attr("font-family" , "sans-serif")
-      .attr("font-size" , "10px")
+      .attr("font-size" , "15px")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "25px sans-serif")
+        .style("stroke", "blue")
+        .style("fill","blue")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "15px sans-serif")
+       .style("fill","blue")
+       .style("stroke", "blue")
+      })
       .attr("fill" , "black")
   })// End Sars outbreak 2
 
@@ -1271,7 +1311,20 @@ export default class D3Comparison{
     .attr("text-anchor", "middle")
     .text(d=>"No. "+ d.Recovered)
     .attr("font-family" , "sans-serif")
-    .attr("font-size" , "10px")
+    .attr("font-size" , "15px")
+    .on("mouseover", function(d) {
+      //Do something on mouseover of any bar
+      d3.select(this)
+      .style("font", "25px sans-serif")
+      .style("stroke", "blue")
+      .style("fill","blue")
+    })
+    .on("mouseout", function(d) {
+      d3.select(this)
+      .style("font", "15px sans-serif")
+     .style("fill","blue")
+     .style("stroke", "blue")
+    })
     .attr("fill" , "black")
 })// End Sars outbreak 3
 
@@ -1487,7 +1540,20 @@ rects2.enter().append("text")
   .attr("text-anchor", "middle")
   .text(d=>d.MortalityRate + " %")
   .attr("font-family" , "sans-serif")
-  .attr("font-size" , "10px")
+  .attr("font-size" , "15px")
+  .on("mouseover", function(d) {
+    //Do something on mouseover of any bar
+    d3.select(this)
+    .style("font", "25px sans-serif")
+    .style("stroke", "blue")
+    .style("fill","blue")
+  })
+  .on("mouseout", function(d) {
+    d3.select(this)
+    .style("font", "15px sans-serif")
+   .style("fill","blue")
+   .style("stroke", "blue")
+  })
   .attr("fill" , "black")
 })// End Sars outbreak 4
 
@@ -1532,10 +1598,10 @@ rects2.enter().append("text")
         .selectAll("text")
              .attr("y", 0)
              .attr("x", 9)
-             .attr("dy", ".35em")
+             .attr("dy", ".50em")
              .attr("transform", "rotate(70)")
-             .style("fill","black")
-             .style("font", "10px sans-serif")
+             .style("fill","blue")
+             .style("font", "13px sans-serif")
              .style("text-anchor", "start");
 
       const yAxisCall = d3.axisLeft(y)

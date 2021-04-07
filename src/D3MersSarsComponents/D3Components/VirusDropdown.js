@@ -4,9 +4,10 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export default function VirusDropdown({virusSelected}){
     return (
         <Dropdown>
-            <Dropdown.Toggle variant="danger" id="dropdown-basic" size="sm" >
+            <Dropdown.Toggle variant="primary" id="dropdown-basic" size="lg" >
                 Please select virus
             </Dropdown.Toggle>
+            <strong class="text-danger font-weight-bold h3"> ⬅️ Click Here!</strong>
 
             <Dropdown.Menu style={{backgroundColor:'lightblue'}} >
                 <Dropdown.Item disabled>Coronavirus</Dropdown.Item>
