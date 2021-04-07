@@ -11,7 +11,6 @@
 </p>
 
 ## Contents
-- [Group Members](#group-members)
 - [Program Overview](#program-overview)
 - [Software Requirements](#software-requirements)
 - [Running the Program](#running-the-program)
@@ -20,68 +19,16 @@
 - [Technology stack](#technology-stack)
 - [Designated Tasks](#designated-tasks)
 - [Screens](#screens)
-- [Referances](#referances)
-
-## Repository Description 
-
-```bash
-├── README.md - This file.
-├── package.json 
-├── public
-│   ├── favicon.ico 
-│   └── index.html 
-└── src
-    ├── D3ComparisonComponents
-    │   ├── ChartWrapper2.js 
-    │   └── D3Components
-    │       ├── D3Comparison.js 
-    │       ├── D3PieChartCovid19.js 
-    │       ├── D3PieChartMers.js
-    │       ├── D3PieChartSars.js
-    │       └── SymptomDropdown.js 
-    ├── D3MersSarsComponents
-    │   ├── ChartWrapper.js 
-    │   └── D3Components
-    │      ├── D3MersSars.js
-    │      └── VirusDropdown.js 
-    ├── FirebaseAuth
-    │   ├── Auth.js 
-    │   ├── AuthForm.js 
-    │   ├── Discussion.js 
-    │   ├── firebase.js 
-    │   ├── Message.js 
-    │   ├── Profile.js 
-    │   ├── Factory.js 
-    │   └── AuthStyles
-    │       └── authStyles.css
-    ├── CovidComponents
-    │   ├── InfoBox.js
-    │   ├── InfoBox2.js  
-    │   ├── LineGraph.js 
-    │   ├── Map.js 
-    │   ├── Table.js 
-    │   ├── util.js 
-    ├── Components
-    │   ├── App.js
-    │   ├── Navigation.js  
-    │   └── Router.js 
-    ├── css
-    │   ├── styling.css # Covid-19 page styling
-    ├── Routes
-    │   ├── Comparison.js 
-    │   ├── Covid19.js # Live interactive Covid-19 maps, cards and a line graph
-    │   ├── Stats.js # Database visuals & statistics
-    │   ├── Home.js # Home screen code
-    │   ├── MersAndSars.js  
-    │   ├── Smallpox.js 
-    │   └── Upload.js 
-    ├── App.js
-    └── index.js
-    
-```
+- [Referances](#API-and-CSV-file-and-information-referances)
 
 ## Program Overview
-Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers, Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas, Firebase) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API and stored data from MongoDB Atlas. GET and POST requests are used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
+Data visualisation and analysis techniques have been the front and center in the efforts to communicate the statistics as well as the science around the COVID-19 virus. Interactive dashboards with several charts and graphs surfaced in different formats to offer concise ways to make sense of complex and overwhelming pandemic data sets. These techniques have become essential in informing the general public as well as healthcare providers, scientists and governments of the overall COVID-19 growth. 
+
+As a result, the team felt it would be beneficial as well as informative to create a web application that would take large COVID-19 data sets as well as other epidemic data and create a series of data visualisations from it. As well as compare past and present viruses to distinguish similarities along with differences. This would provide a clear view of COVID-19 and how similar viruses have spread.
+
+Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers and Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas, Firebase) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts, tables etc, using JavaScript, Python and D3. Statistics and live graphs are generated using continuously updating data from a given API and stored data from MongoDB Atlas. GET and POST requests are used to send and receive data from the database. Data comparisons and auto-generated graphs are also incorporated into this project. There is also a login functionality that uses Firebase to record user log in data. Once our project is fully completed it will be diploid to Heroku. 
+
+- Screencast goes here 
 
 ## Software Requirements
 - [Visual Studio Code](https://code.visualstudio.com/download)
@@ -195,7 +142,7 @@ The main purpose of every work is that making interactive visualization applicat
 - Profile
 - Discussion
 
-## API/ CSV file and information Referances
+## API and CSV file and information Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
 [2] COVID-19 map data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest#34f61547-12f7-4c8b-8326-c3894d9ceea7 <br>
 [3] COVID-19 line graph API data - https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical<br>
