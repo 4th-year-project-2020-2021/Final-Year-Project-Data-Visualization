@@ -33,6 +33,19 @@ export default class D3Comparison{
             .style("border", "1px gray solid;")
             .style("background-color", "#4682B4")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("Since April 2012 and as of 12 January 2021, 2 581 cases of MERS-CoV, including 935 deaths,have been reported by health authorities worldwide.");
           
         d3.select(element)
@@ -40,6 +53,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("SARS was first reported in Asia in February 2003. The illness spread to 29 countries, where 8,437 people got SARS and 774 of them died. The last known case of SARS was in 2004.");
           
         d3.select(element)
@@ -47,6 +73,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("(It means the virus killed roughly one in 10 people who were infected.)")
 
         const svg2 = d3.select(element)
@@ -61,6 +100,19 @@ export default class D3Comparison{
           .style("border", "1px lightgray solid;")
           .style("background-color", "#87CEEB")
           .style("font", "20px sans-serif")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","black")
+            .style("font", "20px sans-serif")
+          })
           .text("Middle East had the highest number cases (88.4%), followed by Asia (10.7%), Europe (0.8%) and USA with only 2 cases officially reported (0.1%).");
 
         const svg3 = d3.select(element)
@@ -75,6 +127,19 @@ export default class D3Comparison{
           .style("border", "1px lightgray solid;")
           .style("background-color", "#87CEEB")
           .style("font", "20px sans-serif")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","black")
+            .style("font", "20px sans-serif")
+          })
           .text("The majority of SARS cases were from China, Canada and Singapore, among which, cases from China mainland presented the largest proportion, followed by that from Hong Kong and Taiwan.");
 
         d3.select(element)
@@ -82,6 +147,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "orange")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("features are compared in 5 main areas. (China, Hong Kong, Taiwan, Singapore, Canada)")
 
           
@@ -104,6 +182,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("China has the most infected cases and deaths, yet the lowest mortality rate.")
 
               
@@ -219,6 +310,19 @@ export default class D3Comparison{
               .attr("y", HEIGHT2 + 50)
               .attr("text-anchor","middle")
               .text("Mers - Country")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
+                .style("font", "15px sans-serif")
+              })
               .style("stroke", "black")
               .style("fill","black")
               .style("stroke-width", ".4px")
@@ -445,6 +549,19 @@ export default class D3Comparison{
             .attr("y", HEIGHT2 + 50)
             .attr("text-anchor","middle")
             .text("Sars - Country")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "15px sans-serif")
+            })
             .style("stroke", "black")
             .style("fill","black")
             .style("stroke-width", ".4px")

@@ -12,6 +12,19 @@ export default class D3Comparison{
                .style("border", "1px lightgray solid;")
                .style("background-color", "#87CEEB")
                .style("font", "20px sans-serif")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "22px sans-serif")
+                  .style("stroke", "#008080")
+                  .style("fill","#008080")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("stroke", "#3CB371")
+                  .style("fill","black")
+                  .style("font", "20px sans-serif")
+                })
                .text("Biological Sex is also a Risk-Factor  -- Covid-19 --");
 
             const width = 700   
@@ -124,6 +137,19 @@ export default class D3Comparison{
                   .style("border", "1px lightgray solid;")
                   .style("background-color", "#008B8B")
                   .style("font", "20px sans-serif")
+                  .on("mouseover", function(d) {
+                     //Do something on mouseover of any bar
+                     d3.select(this)
+                     .style("font", "22px sans-serif")
+                     .style("stroke", "#008080")
+                     .style("fill","#008080")
+                   })
+                   .on("mouseout", function(d) {
+                     d3.select(this)
+                     .style("stroke", "#3CB371")
+                     .style("fill","black")
+                     .style("font", "20px sans-serif")
+                   })
                   .text(" The number of men was 2.4 times that of women in the deceased patients. While men and women had the same susceptibility, men were more prone to dying (χ2 test, P = 0.016)");
 
     }

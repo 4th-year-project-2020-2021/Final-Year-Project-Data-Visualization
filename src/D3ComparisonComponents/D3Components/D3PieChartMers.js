@@ -12,6 +12,19 @@ export default class D3Comparison{
                .style("border", "1px lightgray solid;")
                .style("background-color", "#87CEEB")
                .style("font", "20px sans-serif")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "22px sans-serif")
+                  .style("stroke", "#008080")
+                  .style("fill","#008080")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("stroke", "#3CB371")
+                  .style("fill","black")
+                  .style("font", "20px sans-serif")
+                })
                .text("Biological Sex is also a Risk-Factor  --> Mers");
 
             const width = 700   
@@ -124,6 +137,19 @@ export default class D3Comparison{
                   .style("border", "1px lightgray solid;")
                   .style("background-color", "#5F9EA0")
                   .style("font", "20px sans-serif")
+                  .on("mouseover", function(d) {
+                     //Do something on mouseover of any bar
+                     d3.select(this)
+                     .style("font", "22px sans-serif")
+                     .style("stroke", "#008080")
+                     .style("fill","#008080")
+                   })
+                   .on("mouseout", function(d) {
+                     d3.select(this)
+                     .style("stroke", "#3CB371")
+                     .style("fill","black")
+                     .style("font", "20px sans-serif")
+                   })
                   .text("The death rate of MERS also showed a predisposition towards males.");
 
             d3.select(element)
@@ -131,6 +157,19 @@ export default class D3Comparison{
                     .style("border", "1px lightgray solid;")
                     .style("background-color", "lightblue")
                     .style("font", "20px sans-serif")
+                    .on("mouseover", function(d) {
+                     //Do something on mouseover of any bar
+                     d3.select(this)
+                     .style("font", "22px sans-serif")
+                     .style("stroke", "#008080")
+                     .style("fill","#008080")
+                   })
+                   .on("mouseout", function(d) {
+                     d3.select(this)
+                     .style("stroke", "#3CB371")
+                     .style("fill","black")
+                     .style("font", "20px sans-serif")
+                   })
                     .text("case fatality rate in males was significantly high (52%) as compared to women (48%).");
 
     

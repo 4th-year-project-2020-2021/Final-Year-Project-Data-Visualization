@@ -60,14 +60,12 @@ export default class D3Comparison{
           .style("stroke-width", ".2px")
           .style("font", "20px sans-serif");
 
-        
-        vis.svgg.append("text")
-          .attr("x", WIDTH/2)
-          .attr("y", HEIGHT+50)
+        vis.xLabel = vis.svgg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-410)
           .attr("text-anchor","middle")
-          .style("stroke", "black")
-          .style("fill","black")
-          .text("Symptoms - Covid19, Mers and Sars")
+          .style("stroke", "#3CB371")
+          .style("fill","#3CB371")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
@@ -81,40 +79,15 @@ export default class D3Comparison{
             .style("fill","black")
             .style("font", "20px sans-serif")
           })
-          .style("stroke-width", ".2px")
-          .style("font", "20px sans-serif");
-
-        vis.svgg.append("text")
-          .attr("x", WIDTH/1.8)
-          .attr("y", HEIGHT-410)
-          .attr("text-anchor","middle")
-          .style("stroke", "#3CB371")
-          .style("fill","#3CB371")
-          .text("Shortness of breath was less common in COVID‐19 patients (17%),")
-          .on("mouseover", function(d) {
-            //Do something on mouseover of any bar
-            d3.select(this)
-            .style("font", "22px sans-serif")
-            .style("stroke", "#008080")
-            .style("fill","#008080")
-          })
-          .on("mouseout", function(d) {
-            d3.select(this)
-            .style("stroke", "#3CB371")
-            .style("fill","#3CB371")
-            .style("font", "20px sans-serif")
-          })
-          .style("stroke-width", ".2px")
-          .style("font", "20px sans-serif");
-
-        vis.svgg.append("text")
+          .style("stroke-width", ".4px")
+          .style("font", "35px sans-serif");
+      
+        vis.xLabel2 = vis.svgg.append("text")
           .attr("x", WIDTH/1.8)
           .attr("y", HEIGHT-380)
           .attr("text-anchor","middle")
-          .style("stroke", "#3CB371")
-          .style("fill","#3CB371")
-          .text("in comparison to SARS (32%) and MERS (51%). ")
-          .style("stroke-width", ".4px")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
@@ -128,15 +101,16 @@ export default class D3Comparison{
             .style("fill","#3CB371")
             .style("font", "20px sans-serif")
           })
+          .style("stroke-width", ".4px")
           .style("font", "20px sans-serif");
 
-        vis.svgg.append("text")
+        
+        vis.xLabel3 = vis.svgg.append("text")
           .attr("x", WIDTH/1.8)
           .attr("y", HEIGHT-360)
           .attr("text-anchor","middle")
-          .style("stroke", "#3CB371")
-          .style("fill","#3CB371")
-          .text("Likewise, chills were less common in COVID‐19 patients (17%),")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
           .style("stroke-width", ".4px")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
@@ -153,14 +127,12 @@ export default class D3Comparison{
           })
           .style("font", "20px sans-serif");
 
-        vis.svgg.append("text")
+        vis.xLabel4 = vis.svgg.append("text")
           .attr("x", WIDTH/1.8)
           .attr("y", HEIGHT-340)
           .attr("text-anchor","middle")
-          .style("stroke", "#3CB371")
-          .style("fill","#3CB371")
-          .text("in comparison to SARS (57.5%) and MERS (41%).")
-          .style("stroke-width", ".4px")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
@@ -174,16 +146,15 @@ export default class D3Comparison{
             .style("fill","#3CB371")
             .style("font", "20px sans-serif")
           })
+          .style("stroke-width", ".4px")
           .style("font", "20px sans-serif");
 
-        vis.svgg.append("text")
+        vis.xLabel5 = vis.svgg.append("text")
           .attr("x", WIDTH/1.8)
           .attr("y", HEIGHT-320)
           .attr("text-anchor","middle")
-          .style("stroke", "#3CB371")
-          .style("fill","#3CB371")
-          .text("Therefore, these clinical symptoms should help distinguish")
-          .style("stroke-width", ".4px")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
@@ -197,16 +168,16 @@ export default class D3Comparison{
             .style("fill","#3CB371")
             .style("font", "20px sans-serif")
           })
+          .style("stroke-width", ".4px")
           .style("font", "20px sans-serif");
 
-        vis.svgg.append("text")
+
+        vis.xLabel6 = vis.svgg.append("text")
           .attr("x", WIDTH/1.8)
           .attr("y", HEIGHT-300)
           .attr("text-anchor","middle")
-          .style("stroke", "#3CB371")
-          .style("fill","#3CB371")
-          .text("the various coronavirus infections from each other.")
-          .style("stroke-width", ".4px")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
@@ -220,10 +191,35 @@ export default class D3Comparison{
             .style("fill","#3CB371")
             .style("font", "20px sans-serif")
           })
+          .style("stroke-width", ".4px")
           .style("font", "20px sans-serif");
 
+        
+        vis.xLabel7 = vis.svgg.append("text")
+            .attr("x", WIDTH/1.8)
+            .attr("y", HEIGHT-280)
+            .attr("text-anchor","middle")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","#3CB371")
+              .style("font", "20px sans-serif")
+            })
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+
         vis.svgg.append("text")
-          .attr("x", WIDTH/1.8)
+          .attr("x", WIDTH/2)
           .attr("y", HEIGHT-280)
           .attr("text-anchor","middle")
           .style("stroke", "#3CB371")
@@ -231,32 +227,33 @@ export default class D3Comparison{
           .style("stroke-width", ".4px")
           .style("font", "20px sans-serif");
 
+          vis.svgg.append("text")
+            .attr("x", WIDTH/2)
+            .attr("y", HEIGHT+50)
+            .attr("text-anchor","middle")
+            .style("stroke", "black")
+            .style("fill","black")
+            .text("Symptoms")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
+            .style("stroke-width", ".2px")
+            .style("font", "20px sans-serif");
+
       vis.xAxisGroup = vis.svgg.append("g")
         .attr("transform",`translate(0, ${HEIGHT})`)
 
       vis.yAxisGroup = vis.svgg.append("g")
-
-    Promise.all([
-      d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
-      d3.json("https://merssymptoms.firebaseio.com/MersSymptoms.json"),
-      d3.json("https://sarssymptoms.firebaseio.com/SarsSymptoms.json")
-    ]).then((datasets)=>{
-
-      const [Covid19Data, MersData, SarsData] = datasets
-
-      let flag = true
-
-      vis.data = Covid19Data
-      vis.update()
-
-      d3.interval(()=>{
-        //This needs to be updated!!!!!!!!!!!!
-        vis.data = flag ?  MersData :  SarsData 
-        vis.update()
-        flag  =! flag
-      },1000)
-
-    })
 
 
       d3.select(element)
@@ -264,6 +261,19 @@ export default class D3Comparison{
           .style("border", "1px gray solid;")
           .style("background-color", "#008080")
           .style("font", "20px sans-serif")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","black")
+            .style("font", "20px sans-serif")
+          })
           .text("This is preliminary COVID-19 data. While SARS and MERS' mortality rates are well understood, the definition of COVID-19 diagnoses is still shifting and it may be years until the actual number of cases is known.");
 
           
@@ -293,6 +303,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
           
         d3.select(element)
@@ -300,6 +323,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#9ACD32")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("Seriousness of Covid-19 symptoms");
 
               
@@ -322,6 +358,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#20B2AA")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("How Contagious & Deadly is it?");
 
         d3.select(element)
@@ -329,6 +378,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#20B2AA")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("We don't fully know yet but it's in this range");
 
         d3.select(element)
@@ -336,6 +398,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "#87CEEB")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("% who die (CASE FAFALITY RATE)");
 
         
@@ -351,6 +426,19 @@ export default class D3Comparison{
               .style("border", "1px lightgray solid;")
               .style("background-color", "#6B8E23")
               .style("font", "22px sans-serif")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "22px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
+                .style("font", "20px sans-serif")
+              })
               .text("Who is most at risk for COVID-19?");
 
         d3.select(element)
@@ -358,6 +446,19 @@ export default class D3Comparison{
               .style("border", "1px lightgray solid;")
               .style("background-color", "#6B8E23")
               .style("font", "22px sans-serif")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "22px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
+                .style("font", "20px sans-serif")
+              })
               .text("Those Aged 60+ are Most At Risk");
 
         d3.select(element)
@@ -365,6 +466,19 @@ export default class D3Comparison{
               .style("border", "1px lightgray solid;")
               .style("background-color", "#808000")
               .style("font", "23px sans-serif")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "22px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
+                .style("font", "20px sans-serif")
+              })
               .text("%of deceased");
 
         const svgrisk = d3.select(element)
@@ -380,6 +494,19 @@ export default class D3Comparison{
               .style("border", "1px lightgray solid;")
               .style("background-color", "lightgrey")
               .style("font", "20px sans-serif")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "22px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
+                .style("font", "20px sans-serif")
+              })
               .text("With both the SARS-CoV and MERS-CoV outbreaks, most cases occurred in the region in which it began, i.e., Asia and the Middle East, respectively. Both of these viruses spread globally, but the total caseload for each virus were under 10,000.10 Yet the global spread of COVID-19 infection is much larger, with over 3 million cases worldwide thus far. The COVID-19 virus has not affected all ethnicities and races in the same proportion. ");      
 
         d3.select(element)
@@ -387,6 +514,19 @@ export default class D3Comparison{
               .style("border", "1px lightgray solid;")
               .style("background-color", "#808000")
               .style("font", "23px sans-serif")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "22px sans-serif")
+                .style("stroke", "#008080")
+                .style("fill","#008080")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("stroke", "#3CB371")
+                .style("fill","black")
+                .style("font", "20px sans-serif")
+              })
               .text("Age-adjusted Case Rate Per 100,000");
 
         const svgraces = d3.select(element)  //covid19 symptoms
@@ -408,6 +548,19 @@ export default class D3Comparison{
             .style("border", "1px lightgray solid;")
             .style("background-color", "lightblue")
             .style("font", "20px sans-serif")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "20px sans-serif")
+            })
             .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died (Figure 4). Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
 
 
@@ -460,14 +613,14 @@ export default class D3Comparison{
                 //Do something on mouseover of any bar
                 d3.select(this)
                 .style("font", "22px sans-serif")
-                .style("stroke", "#008080")
-                .style("fill","#008080")
+                .style("stroke", "blue")
+                .style("fill","blue")
               })
               .on("mouseout", function(d) {
                 d3.select(this)
-                .style("stroke", "black")
-                .style("fill","black")
                 .style("font", "20px sans-serif")
+               .style("fill","blue")
+               .style("stroke", "blue")
               })
               .style("font", "20px sans-serif")
               .style("pointer-events", "none");
@@ -572,6 +725,19 @@ export default class D3Comparison{
             .text("Comparisons between the viruses were made")
             .style("stroke", "black")
             .style("fill","black")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "15px sans-serif")
+            })
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
             .style("font", "15px sans-serif");
@@ -1692,14 +1858,39 @@ d3.json(diffRaces).then(race2=>{
 })//end - Races2
 
 
-}//end of constructor
+////////////////////////////////
+Promise.all([
+  d3.json("https://covid19symptoms.firebaseio.com/Covid19Symptoms.json"),
+  d3.json("https://merssymptoms.firebaseio.com/MersSymptoms.json"),
+  d3.json("https://sarssymptoms.firebaseio.com/SarsSymptoms.json")
+]).then((datasets)=>{
+
+  vis.Covid19Data=datasets[0]
+  vis.MersData=datasets[1]
+  vis.SarsData=datasets[2]
+
+  console.log(vis.Covid19Data)
+  console.log(vis.MersData)
+  console.log(vis.SarsData)
+  vis.update("covid19")
+
+})
+}
 
 // This update() method gets called you change your data.
-update(){
+update(virus){
 const vis = this;
 
-//vis.data = (virus === "covid19") ? vis.Covid19Data : (virus === "mers") ? vis.MersData : vis.SarsData;
+vis.xLabel.text(`${virus} symptoms`)  
+vis.xLabel2.text(`Shortness of breath was less common in COVID‐19 patients (17%),`)  
+vis.xLabel3.text(`in comparison to SARS (32%) and MERS (51%). `)  
+vis.xLabel4.text(`Likewise, chills were less common in COVID‐19 patients (17%), `)  
+vis.xLabel5.text(`in comparison to SARS (57.5%) and MERS (41%). `) 
+vis.xLabel6.text(`Therefore, these clinical symptoms should help distinguish`)  
+vis.xLabel7.text(`the various coronavirus infections from each other. `) 
 
+vis.data = (virus === "covid19") ? vis.Covid19Data : (virus === "mers") ? vis.MersData : vis.SarsData;
+vis.xLabel.text(` ${virus}`)  
 
 //using max function, it will loop through the data and get the highest number of y value.
 const max = d3.max(vis.data, d=> d.Number)
@@ -1717,10 +1908,10 @@ const x = d3.scaleBand()
     .padding(0.4)
 
 const xAxisCall = d3.axisBottom(x)
-vis.xAxisGroup.call(xAxisCall)
+vis.xAxisGroup.transition().duration(500).call(xAxisCall)
 
 const yAxisCall = d3.axisLeft(y)
-vis.yAxisGroup.call(yAxisCall)
+ vis.yAxisGroup.transition().duration(500).call(yAxisCall)
 
 // DATA JOIN
 const rects = vis.svgg.selectAll("rect")
@@ -1767,6 +1958,19 @@ rects.enter().append("text")
   .attr("text-anchor", "middle")
   .text(d=>d.Number+ " %")
   .attr("fill" , "red")
+  .on("mouseover", function(d) {
+    //Do something on mouseover of any bar
+    d3.select(this)
+    .style("font", "25px sans-serif")
+    .style("stroke", "blue")
+    .style("fill","blue")
+  })
+  .on("mouseout", function(d) {
+    d3.select(this)
+    .style("font", "22px sans-serif")
+   .style("fill","blue")
+   .style("stroke", "blue")
+  })
   .style("font", "22px sans-serif");
     
   
