@@ -9,6 +9,7 @@ import { sortData, prettyPrintStat } from "../CovidComponents/util";
 import { MenuItem, FormControl } from "@material-ui/core";
 import InfoBox from '../CovidComponents/InfoBox';
 import LineGraph from "../CovidComponents/LineGraph";
+import VaccineLineGraph from "../CovidComponents/VaccineLineGraph";
 import Map from "../CovidComponents/Map";
 import "leaflet/dist/leaflet.css";
 import "../css/styling.css";
@@ -33,6 +34,7 @@ function Covid19(){
     const [dropcountries, setDropDownCountries] = useState([]);
     const [countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
+    const [vaccineType, setVaccineType] = useState("timeline");
     const [mapCenter, setMapCenter] = useState({ lat: 28, lng: 3 });
     const [mapZoom, setZoomCenter] = useState(2);
     const [mapCountries, setMapCountries] = useState([]);
@@ -237,6 +239,11 @@ function Covid19(){
                             <br></br>
                             <br></br>
                             <LineGraph casesType={casesType} />
+                            <br></br>
+                            <br></br>
+                            <h3>Ireland Vaccinations past 120 days</h3>
+                            <VaccineLineGraph vaccineType={vaccineType} />
+                            
                         </div>
                     </CardContent>
                 </Card>    

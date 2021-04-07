@@ -47,49 +47,49 @@ const options = {
   },
 };
 
-const buildChartData = (data, casesType) => {
+const buildChartData = (data, vaccineType) => {
   let chartData = [];
   let lastDataPoint;
-  for (let date in data.cases) {
+  for (let date in data.timeline) {
     if (lastDataPoint) {
       let newDataPoint = {
         x: date,
-        y: data[casesType][date] - lastDataPoint,
+        y: data[vaccineType][date] - lastDataPoint,
       };
       chartData.push(newDataPoint);
     }
-    lastDataPoint = data[casesType][date];
+    lastDataPoint = data[vaccineType][date];
   }
   return chartData;
 };
 
-function LineGraph({ casesType }) {
-  const [data, setData] = useState({});
+function VaccineLineGraph({ vaccineType }) {
+  const [data, setVaccineType] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
+      await fetch("https://disease.sh/v3/covid-19/vaccine/coverage/countries/Ireland?lastdays=120")
         .then((response) => {
           return response.json();
         })
         .then((data) => {
-          let chartData = buildChartData(data, casesType);
-          setData(chartData);
-          console.log(chartData);
+          let chartData = buildChartData(data, vaccineType);
+          setVaccineType(chartData);
+          console.log("TESTTT" + vaccineType);
         });
     };
 
     fetchData();
-  }, [casesType]);
+  }, [vaccineType]);
 
   return (
     <div>
       {data?.length > 0 && (
         <Line
-          data={{
+        data={{
             datasets: [
               {
-                backgroundColor: "red",
+                backgroundColor: "blue",
                 data: data,
               },
             ],
@@ -101,4 +101,4 @@ function LineGraph({ casesType }) {
   );
 }
 
-export default LineGraph;
+export default VaccineLineGraph;
