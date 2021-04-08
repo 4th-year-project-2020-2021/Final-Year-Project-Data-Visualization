@@ -73,12 +73,10 @@ export default class D3Comparison{
                  .style("stroke","lightblue")
                  .style("opacity","1")
                  .style("stroke-width","30")
-                 .attr("fill", "#20B2AA");
              })
              .on("mouseout", function(d) {
                d3.select(this)
                .style("stroke-width","10")
-                 .attr("fill", "#BC8F8F");
              })
             .attr("d", arc);
 
@@ -90,6 +88,19 @@ export default class D3Comparison{
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "25px sans-serif")
+                  .style("stroke", "#008080")
+                  .style("fill","#008080")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("stroke", "white")
+                  .style("fill","white")
+                  .style("font", "20px sans-serif")
+                })
                .attr("fill" , "white")
                .attr("stroke", "white")
 
@@ -100,6 +111,17 @@ export default class D3Comparison{
                .attr("fill" , "#BC8F8F")
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "25px sans-serif")
+                  .style("stroke", "#BC8F8F")
+                  .style("fill","#BC8F8F")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("font", "20px sans-serif")
+                })
                .attr("font-size" , "20px")
                
 
@@ -110,6 +132,19 @@ export default class D3Comparison{
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "20px")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "25px sans-serif")
+                  .style("stroke", "#008080")
+                  .style("fill","#008080")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("stroke", "white")
+                  .style("fill","white")
+                  .style("font", "20px sans-serif")
+                })
                .attr("fill" , "white")
                .attr("stroke", "white")
 
@@ -119,6 +154,17 @@ export default class D3Comparison{
                .text("MEN")
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "25px sans-serif")
+                  .style("stroke", "#008080")
+                  .style("fill","#008080")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("font", "20px sans-serif")
+                })
                .attr("font-size" , "20px")
                .attr("fill" , "#20B2AA")
 
@@ -129,6 +175,19 @@ export default class D3Comparison{
                .attr("class", "title")
                .attr("font-family" , "sans-serif")
                .attr("font-size" , "25px")
+               .on("mouseover", function(d) {
+                  //Do something on mouseover of any bar
+                  d3.select(this)
+                  .style("font", "25px sans-serif")
+                  .style("stroke", "#008080")
+                  .style("fill","#008080")
+                })
+                .on("mouseout", function(d) {
+                  d3.select(this)
+                  .style("stroke", "white")
+                  .style("fill","white")
+                  .style("font", "20px sans-serif")
+                })
                .attr("fill" , "white")
                .attr("stroke", "white")
 

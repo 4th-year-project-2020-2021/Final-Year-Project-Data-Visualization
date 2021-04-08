@@ -254,6 +254,33 @@ export default class D3Comparison{
             })
             .style("font", "20px sans-serif");
 
+          
+            //=
+            vis.svg.append("text")
+            .attr("x", WIDTH/2.07)
+            .attr("y", HEIGHT + 15)
+            .attr("text-anchor","middle")
+            .text("Date")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "black")
+              .style("fill","black")
+              .style("font", "15px sans-serif")
+            })
+            .style("stroke", "black")
+            .style("fill","black")
+            .style("stroke-width", ".4px")
+            .style("text-decoration", "underline") 
+            .style("font", "15px sans-serif");
+            //=
+
           vis.xAxisGroup = vis.svg.append("g")
             .attr("transform",`translate(0, ${ HEIGHT })`)
 
@@ -316,7 +343,7 @@ export default class D3Comparison{
               .attr("x", WIDTH2/2)
               .attr("y", HEIGHT2 + 50)
               .attr("text-anchor","middle")
-              .text("Mers - Country")
+              .text("Country")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
                 d3.select(this)
@@ -475,9 +502,9 @@ export default class D3Comparison{
                   .attr("r",50)
                   .attr("fill", d=>{
                     if(d.Confirmed > 2000){
-                        return "red";
+                        return "#FF4500";
                     }
-                    return "green";
+                    return "#556B2F";
                   })
               })
               .on("mouseout", function(d) {
@@ -562,7 +589,7 @@ export default class D3Comparison{
             .attr("x", WIDTH2/2)
             .attr("y", HEIGHT2 + 50)
             .attr("text-anchor","middle")
-            .text("Sars - Country")
+            .text("Country")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
               d3.select(this)
@@ -744,9 +771,9 @@ export default class D3Comparison{
                 .attr("r",50)
                 .attr("fill", d=>{
                   if(d.Confirmed > 2000){
-                      return "red";
+                      return "#FF8C00";
                   }
-                  return "green";
+                  return "#556B2F";
                 })
             })
             .on("mouseout", function(d) {
@@ -819,6 +846,30 @@ export default class D3Comparison{
 
         const yAxisCall2 = d3.axisLeft(y)
         svg4.append("g").call(yAxisCall2)
+
+        svg4.append("text")
+            .attr("x", WIDTH3/1.9)
+            .attr("y", HEIGHT3 + 50)
+            .attr("text-anchor","middle")
+            .text("Country")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "15px sans-serif")
+            })
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+            .style("stroke-width", ".4px")
+            .style("text-decoration", "underline") 
+            .style("font", "15px sans-serif");
 
         svg4.append("text")
           .attr("x", WIDTH3/2)
@@ -983,6 +1034,30 @@ export default class D3Comparison{
 
       const yAxisCall2 = d3.axisLeft(y)
       svg5.append("g").call(yAxisCall2)
+
+      svg5.append("text")
+            .attr("x", WIDTH3/1.9)
+            .attr("y", HEIGHT3 + 50)
+            .attr("text-anchor","middle")
+            .text("Country")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "15px sans-serif")
+            })
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+            .style("stroke-width", ".4px")
+            .style("text-decoration", "underline") 
+            .style("font", "15px sans-serif");
 
       svg5.append("text")
         .attr("x", WIDTH3/2)
@@ -1166,6 +1241,30 @@ export default class D3Comparison{
 
     const yAxisCall2 = d3.axisLeft(y)
     svg6.append("g").call(yAxisCall2)
+
+    svg6.append("text")
+            .attr("x", WIDTH3/1.9)
+            .attr("y", HEIGHT3 + 50)
+            .attr("text-anchor","middle")
+            .text("Country")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","black")
+              .style("font", "15px sans-serif")
+            })
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+            .style("stroke-width", ".4px")
+            .style("text-decoration", "underline") 
+            .style("font", "15px sans-serif");
 
     svg6.append("text")
       .attr("x", WIDTH3/2)
@@ -1372,6 +1471,30 @@ d3.json(sarsOutbreak).then(outbreak4=>{
 
   const yAxisCall2 = d3.axisLeft(y)
   svg7.append("g").call(yAxisCall2)
+
+  svg7.append("text")
+    .attr("x", WIDTH3/1.9)
+    .attr("y", HEIGHT3 + 50)
+    .attr("text-anchor","middle")
+      .text("Country")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+            .style("font", "17px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","black")
+            .style("font", "15px sans-serif")
+        })
+          .style("stroke", "#008080")
+          .style("fill","#008080")
+          .style("stroke-width", ".4px")
+          .style("text-decoration", "underline") 
+          .style("font", "15px sans-serif");
 
   svg7.append("text")
     .attr("x", WIDTH3/2)
@@ -1603,6 +1726,7 @@ rects2.enter().append("text")
              .style("fill","blue")
              .style("font", "13px sans-serif")
              .style("text-anchor", "start");
+             
 
       const yAxisCall = d3.axisLeft(y)
        vis.yAxisGroup.transition().duration(500).call(yAxisCall)

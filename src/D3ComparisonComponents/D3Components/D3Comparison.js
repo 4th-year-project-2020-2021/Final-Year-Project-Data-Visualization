@@ -666,9 +666,9 @@ export default class D3Comparison{
                   .attr("r",70)
                   .attr("fill", d=>{
                     if(d.Mortality > 20){
-                        return "red";
+                        return "#FF4500";
                     }
-                    return "green";
+                    return "#6B8E23";
                 })
               })
               .on("mouseout", function(d) {
@@ -821,17 +821,17 @@ export default class D3Comparison{
                 .style("stroke-width","10")
                 .attr("r",70)
                 .attr("fill", d=>{
-                  if(d.Mortality > 20){
-                      return "red";
+                  if(d.Deaths > 1000){
+                      return "#FF4500";
                   }
-                  return "green";
+                  return "#808000";
               })
             })
             .on("mouseout", function(d) {
               d3.select(this)
                 .attr("r",35)
                 .attr("fill", d=>{
-                  if(d.Mortality > 20){
+                  if(d.Deaths > 1000){
                       return "red";
                   }
                   return "green";
@@ -953,17 +953,17 @@ export default class D3Comparison{
               .style("stroke-width","10")
               .attr("r",70)
               .attr("fill", d=>{
-                if(d.Mortality > 20){
-                    return "red";
+                if(d.Cases > 10000){
+                    return "#FF4500";
                 }
-                return "green";
+                return "#808000";
             })
           })
           .on("mouseout", function(d) {
             d3.select(this)
               .attr("r",35)
               .attr("fill", d=>{
-                if(d.Mortality > 20){
+                if(d.Cases > 10000){
                     return "red";
                 }
                 return "green";
@@ -1097,9 +1097,9 @@ export default class D3Comparison{
             .style("stroke-width","20")
             .attr("fill", d=>{
               if(d.HowSerious > 80){
-                  return "#4169E1";
+                  return "#483D8B";
               }
-              return "#FF4500";
+              return "#FFA500";
           })
         })
         .on("mouseout", function(d) {
@@ -1646,7 +1646,7 @@ export default class D3Comparison{
           .style("opacity","2")
           .style("stroke-width","10")
           .attr("r",70)
-          .attr("fill", "#2E8B57");
+          .attr("fill", "#2E8B57")
       })
       .on("mouseout", function(d) {
         d3.select(this)
@@ -1672,13 +1672,15 @@ export default class D3Comparison{
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
-            .style("font", "20px sans-serif")
+            .style("font", "30px sans-serif")
             .style("fill","#000080")
+            .text(d=>d.fatalityRate +"%")
           })
           .on("mouseout", function(d) {
             d3.select(this)
             .style("font", "17px sans-serif")
             .style("fill","#C71585")
+            .text(d=>d.virus)
           })
           .attr("font-family" , "sans-serif")
           .attr("font-size" , "14px")
@@ -1723,6 +1725,34 @@ d3.json(urlagerisk).then(age=>{
    })
    .style("font", "17px sans-serif")
    .style("text-anchor", "start");
+
+
+   //==
+   svgrisk.append("text")
+      .attr("x",-(HEIGHT/1.7))
+      .attr("y",-40)
+      .attr("text-anchor","middle")
+      .text("Motality Rate (%)")
+      .attr("transform", "rotate(-90)")
+      .style("stroke", "black")
+      .style("fill","black")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+           d3.select(this)
+            .style("font", "19px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("stroke", "#3CB371")
+          .style("fill","black")
+          .style("font", "20px sans-serif")
+        })
+        .style("stroke-width", ".2px")
+        .style("font", "20px sans-serif");
+//==
+   
 
    svgrisk.append("text")
    .attr("x", WIDTH/3.2)
@@ -1777,7 +1807,7 @@ d3.json(urlagerisk).then(age=>{
     .attr("width",x.bandwidth)
     .attr("height", d => HEIGHT - y(d.PercentOfdeceased))
     .attr("fill", d=>{
-        if(d.PercentOfdeceased > 9){
+        if(d.PercentOfdeceased > 10){
             return "#FF4500";
         }
         return "#008080";
@@ -1788,12 +1818,22 @@ d3.json(urlagerisk).then(age=>{
         .style("stroke","lightblue")
         .style("opacity","2")
         .style("stroke-width","15")
-        .attr("fill", "#008080");
+        .attr("fill", d=>{
+          if(d.PercentOfdeceased > 10){
+              return "#FF8C00";
+          }
+          return "#556B2F";
+      })
     })
     .on("mouseout", function(d) {
       d3.select(this)
         .style("stroke","none")
-        .attr("fill", "#FF4500");
+        .attr("fill", d=>{
+          if(d.PercentOfdeceased > 10){
+              return "#FF4500";
+          }
+          return "#008080";
+      })
     })
     .append("title")
       .text(d=>`Mortality Rate : ${d.PercentOfdeceased} % in ${d.AgeRange}`);
@@ -1924,13 +1964,13 @@ d3.json(diffRaces).then(race=>{
         .style("stroke-width","15")
         .attr("fill", d=>{
           if(d.Cases > 300){
-              return "#DAA520";
+              return "#FF8C00";
           }else if(d.Cases > 270){
-            return "#008000";
+            return "#006400";
           }else if(d.Cases > 190){
-            return "#D2691E";
+            return "#FFA07A";
           }else{
-            return "#1E90FF";
+            return "#4169E1";
           }
       })
     })
@@ -2077,13 +2117,13 @@ d3.json(diffRaces).then(race2=>{
       .style("stroke-width","15")
       .attr("fill", d=>{
         if(d.Cases > 300){
-            return "#DAA520";
+            return "#FF8C00";
         }else if(d.Cases > 270){
-          return "#008000";
+          return "#006400";
         }else if(d.Cases > 190){
-          return "#D2691E";
+          return "#FFA07A";
         }else{
-          return "#1E90FF";
+          return "#4169E1";
         }
     })
   })
