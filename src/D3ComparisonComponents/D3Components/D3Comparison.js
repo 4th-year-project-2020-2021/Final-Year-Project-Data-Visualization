@@ -15,6 +15,10 @@ const WIDTH3 = 500 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const WIDTH4 = 550 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
+/********
+ * Data *
+ ********/
+
 const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.json";  //covid19 symptoms
 const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 const urlagerisk ="https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
@@ -682,7 +686,9 @@ export default class D3Comparison{
                 })
               })
               .append("title")
-                .text(d=>`Mortality Rate : ${d.Mortality} % in ${d.Name}`);
+              .style('fill', 'darkOrange')
+
+                .text(d=>`Mortality Rate (%): \n${d.Mortality} %\nin ${d.Name} virus`);
               
 
             rects.enter().append("text")
@@ -696,6 +702,19 @@ export default class D3Comparison{
               .text(d=>d.Mortality+ " %")
               .attr("font-family" , "sans-serif")
               .attr("font-size" , "18px")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "28px sans-serif")
+                .style("stroke", "black")
+                .style("fill","black")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "18px sans-serif")
+                .style("fill","blue")
+                .style("stroke", "none")
+              })
               .attr("fill" , "blue")
         })//end first
 
@@ -838,7 +857,7 @@ export default class D3Comparison{
               })
             })
             .append("title")
-              .text(d=>`Number of Deaths : ${d.Deaths}  in ${d.Name}`);
+              .text(d=>`Number of Deaths :\nNo. ${d.Deaths}\nin ${d.Name} virus`);
 
             rects2.enter().append("text")
               .attr("class", "value")
@@ -851,6 +870,19 @@ export default class D3Comparison{
               .text(d=>"No. "+d.Deaths)
               .attr("font-family" , "sans-serif")
               .attr("font-size" , "18px")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "28px sans-serif")
+                .style("stroke", "black")
+                .style("fill","black")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "18px sans-serif")
+                .style("fill","blue")
+                .style("stroke", "none")
+              })
               .attr("fill" , "blue")
       })//end second
 
@@ -970,7 +1002,7 @@ export default class D3Comparison{
             })
           })
           .append("title")
-            .text(d=>`Number of Cases : ${d.Cases}  in ${d.Name}`);
+            .text(d=>`Number of Cases :\nNo.${d.Cases} \nin ${d.Name} virus`);
           
 
           rects3.enter().append("text")
@@ -984,6 +1016,19 @@ export default class D3Comparison{
               .text(d=>"No. "+d.Cases)
               .attr("font-family" , "sans-serif")
               .attr("font-size" , "18px")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "28px sans-serif")
+                .style("stroke", "black")
+                .style("fill","black")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "18px sans-serif")
+                .style("fill","blue")
+                .style("stroke", "none")
+              })
               .attr("fill" , "blue")
     })//end third
     
@@ -1114,7 +1159,7 @@ export default class D3Comparison{
           })
         })
         .append("title")
-          .text(d=>`Mortality Rate : ${d.HowSerious} % in ${d.Seriousness}`);
+          .text(d=>`Mortality Rate :\n${d.HowSerious} % \nof patients with symptoms are ${d.Seriousness}`);
         
 
       rects.enter().append("text")
@@ -1655,7 +1700,7 @@ export default class D3Comparison{
           .attr("fill", "#2F4F4F");
       })
       .append("title")
-        .text(d=>`fatality Rate : ${d.fatalityRate}  in ${d.virus}`);
+        .text(d=>`fatality Rate :\n${d.fatalityRate}%\nin ${d.virus}`);
 
       
       
@@ -1672,14 +1717,14 @@ export default class D3Comparison{
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
             d3.select(this)
-            .style("font", "30px sans-serif")
+            .style("font", "28px sans-serif")
             .style("fill","#000080")
-            .text(d=>d.fatalityRate +"%")
+            .text(d=>d.fatalityRate +"%" +` in ${d.virus}`)
           })
           .on("mouseout", function(d) {
             d3.select(this)
             .style("font", "17px sans-serif")
-            .style("fill","#C71585")
+            .style("fill","blue")
             .text(d=>d.virus)
           })
           .attr("font-family" , "sans-serif")
@@ -1836,7 +1881,7 @@ d3.json(urlagerisk).then(age=>{
       })
     })
     .append("title")
-      .text(d=>`Mortality Rate : ${d.PercentOfdeceased} % in ${d.AgeRange}`);
+      .text(d=>`Mortality Rate :\n${d.PercentOfdeceased}%\nin ${d.AgeRange}`);
     
 
   rects.enter().append("text")
@@ -1990,7 +2035,7 @@ d3.json(diffRaces).then(race=>{
       })
     })
     .append("title")
-      .text(d=>`Cases : ${d.Cases} % in ${d.Races}`);
+      .text(d=>`Cases : \n${d.Cases} % \nin ${d.Races}`);
     
 
   rects.enter().append("text")
@@ -2143,7 +2188,7 @@ d3.json(diffRaces).then(race2=>{
     })
   })
     .append("title")
-      .text(d=>`Mortality Rate : ${d.Death} % in ${d.Races}`);
+      .text(d=>`Mortality Rate : \n${d.Death} %\nin ${d.Races}`);
     
 
   rects.enter().append("text")
@@ -2285,7 +2330,9 @@ rects.enter().append("text")
    .style("fill","blue")
    .style("stroke", "blue")
   })
-  .style("font", "22px sans-serif");
+  .style("font", "22px sans-serif")
+  .append("title")
+      .text(d=>`There are ${d.Number}% of patients \nwith ${d.Name} symptom`);
     
   
 

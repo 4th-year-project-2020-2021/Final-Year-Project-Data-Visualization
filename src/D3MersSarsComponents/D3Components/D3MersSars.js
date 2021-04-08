@@ -1,6 +1,10 @@
 import * as d3 from 'd3';
 import { svg } from 'd3';
 
+/**************
+ * Load Data  *
+ **************/
+
 const mersCountry = "https://merscountries.firebaseio.com/MersCountry.json";
 const sarsCountry = "https://sarscountries.firebaseio.com/SarsCountry.json";
 const sarsOutbreak ="https://sarsoutbreak.firebaseio.com/SarsOutbreak.json";
@@ -518,7 +522,7 @@ export default class D3Comparison{
                   })
               })
               .append("title")
-                .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
+                .text(d=>`Number of Confirmed Cases :\nNo. ${d.Confirmed}\nin ${d.Country} country`);
 
                 
           rects2.enter().append("text")
@@ -532,6 +536,19 @@ export default class D3Comparison{
             .text(d=>"No. "+ d.Confirmed)
             .attr("font-family" , "sans-serif")
             .attr("font-size" , "10px")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "20px sans-serif")
+              .style("stroke", "black")
+              .style("fill","black")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "11px sans-serif")
+              .style("fill","white")
+              .style("stroke", "none")
+            })
             .attr("fill" , "white")
         })// End Mers - Country
 
@@ -787,7 +804,7 @@ export default class D3Comparison{
                 })
             })
             .append("title")
-              .text(d=>`Number of Confirmed Cases : ${d.Confirmed}  in ${d.Country}`);
+              .text(d=>`Number of Confirmed Cases :\nNo. ${d.Confirmed} \nin ${d.Country} country`);
 
             rects3.enter().append("text")
             .attr("class", "value")
@@ -800,6 +817,19 @@ export default class D3Comparison{
             .text(d=>"No. "+ d.Confirmed)
             .attr("font-family" , "sans-serif")
             .attr("font-size" , "10px")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "20px sans-serif")
+              .style("stroke", "black")
+              .style("fill","black")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "11px sans-serif")
+              .style("fill","white")
+              .style("stroke", "none")
+            })
             .attr("fill" , "white")
       })//end third
 
@@ -988,6 +1018,8 @@ export default class D3Comparison{
          .style("stroke", "blue")
         })
         .attr("fill" , "black")
+        .append("title")
+              .text(d=>`Number of Total Infected Cases:\nNo. ${d.Cases} \nin ${d.Country} country`);
     })// End Sars outbreak 1
 
   
@@ -1196,6 +1228,8 @@ export default class D3Comparison{
        .style("stroke", "blue")
       })
       .attr("fill" , "black")
+      .append("title")
+              .text(d=>`Number of Total Deaths:\nNo. ${d.Cases} \nin ${d.Country} country`);
   })// End Sars outbreak 2
 
   // Sars - outbreak3
@@ -1425,6 +1459,8 @@ export default class D3Comparison{
      .style("stroke", "blue")
     })
     .attr("fill" , "black")
+    .append("title")
+    .text(d=>`Number of Total Recovered Cases:\nNo. ${d.Cases} \nin ${d.Country} country`);
 })// End Sars outbreak 3
 
 
@@ -1650,7 +1686,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
         .attr("fill", "red");
     })
     .append("title")
-      .text(d=>`Number of Confirmed Cases : ${d.MortalityRate}  in ${d.Country}`);
+      .text(d=>`Mortality Rate : ${d.MortalityRate}  in ${d.Country}`);
 
       
 rects2.enter().append("text")
@@ -1678,6 +1714,8 @@ rects2.enter().append("text")
    .style("stroke", "blue")
   })
   .attr("fill" , "black")
+  .append("title")
+    .text(d=>`Mortality Rate (%):\n${d.Cases}% \nin ${d.Country} country`);
 })// End Sars outbreak 4
 
 
@@ -1795,6 +1833,8 @@ rects2.enter().append("text")
          .style("fill","blue")
          .style("stroke", "blue")
         })
-        .style("font", "15px sans-serif");
+        .style("font", "15px sans-serif")
+        .append("title")
+         .text(d=>`${d.Number} patients were in ${d.Year} `);
     }
 }

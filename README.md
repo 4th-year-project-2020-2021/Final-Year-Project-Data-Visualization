@@ -98,13 +98,13 @@ $ flask run
 
 ### Jina - Mers_Sars page & Comparison page & User Authentication (Firebase) & Discussion page (Cloud Firestore)
 
-I consider D3 to be the standard library for data visualization on the web.
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 
-- [x] Interactive Bar charts with dropdown button Flicking between datasets
-- [x] Interactive Scatter plots
-- [x] Interactive Line graphs
-- [x] Interactive pie chart
+- [x] Interactive D3 Bar charts with dropdown function Flicking between datasets
+- [x] Interactive D3 Scatter plots
+- [x] Interactive D3 Line graphs
+- [x] Interactive D3 pie chart
+- [x] D3 Mouse Events: mouseover, mouseout
 - [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
 - [x] Mers and Sars page. - Data Visualization with D3
 - [x] Login and Register functionalities ( Firebase )
@@ -119,7 +119,7 @@ The main purpose of every work is that making interactive visualization applicat
 - Logged in users can edit and delete their messages they have created.
 - Logged in users can edit their profile name.
 
-### Shirin - Smallpox component & Upload component
+### Shirin - Smallpox component & Home component & Upload component 
 
 - [x] World Map 
 - [x] Connection to MongoDB Atlas

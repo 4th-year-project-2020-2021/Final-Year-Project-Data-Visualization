@@ -221,4 +221,17 @@
   color: white;
 }
 
+.navbar-brand
+{
+  font-family: 'Lato', sans-serif;
+  color: white !important;
+  font-size: 35px !important;
+  margin: 0px;
+  border-bottom:  2px solid blueviolet;
+  line-height: inherit;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
 
