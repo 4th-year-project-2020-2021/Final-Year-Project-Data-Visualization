@@ -3,12 +3,17 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
 import Home from "../Img/Home.svg";
+//import Rating from "../OtherDiseaseComponents/StarRating";
+import Rating from "react-rating";
 
-function Rating(){
+function Ratings(){
 
 const [rating, setRating] = useState("");
 const [loading, setLoading] = useState(false);
 const [ratings, setRatings] = useState([]);
+const [rating1, setRating1] = useState(0);
+const [rating2, setRating2] = useState(0);
+const [rating3, setRating3] = useState(0);
 
 const getRatings = () => {
     setLoading(true);
@@ -76,6 +81,21 @@ return (
 
         <br/>
         
+        <div className="App">
+        
+      <Rating
+        fractions={2}
+        stop={5}
+        color="red"
+        initialRating={rating2}
+        onClick={rate => setRating2(rate)}
+      />
+      <p>Rating: {rating2}</p>
+      
+      
+    </div>
+        <br></br>
+        
         <form className="rating" onSubmit={ratingItem}>
           <div className="control"> 
           <textarea name="rating" className="text-box" onChange={e => setRating(e.target.value)} ></textarea>
@@ -124,4 +144,4 @@ return (
     );
   }
 
-export default Rating;
+export default Ratings;

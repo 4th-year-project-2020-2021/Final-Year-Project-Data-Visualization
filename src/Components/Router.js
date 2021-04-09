@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import Auth from 'FirebaseAuth/Auth';
-import Rating from 'Routes/Home';
+import Ratings from 'Routes/Home';
 import Covid19 from 'Routes/Covid19';
 import Stats from 'Routes/Stats';
 import MersAndSars from 'Routes/MersAndSars';
@@ -32,7 +32,7 @@ const AppRouter = ({refreshUser, authenticated , userObj}) => {
                     }}
                 >
                   <Route exact path="/">
-                    <Rating />
+                    <Ratings />
                   </Route>
                   <Route exact path="/covid19">
                     <Covid19 />
@@ -70,7 +70,7 @@ const AppRouter = ({refreshUser, authenticated , userObj}) => {
                    <div>
                      <Navigation2 />
                      <Route exact path="/">
-                        <Rating />
+                        <Ratings />
                     </Route>
                     <Route exact path="/covid19">
                         <Covid19 />
