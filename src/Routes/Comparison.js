@@ -8,7 +8,6 @@ import SymptomsDropdown from '../D3ComparisonComponents/D3Components/SymptomsDro
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: #FFFFF0;
     color:black;
 `;
 
@@ -26,7 +25,7 @@ class Comparison extends React.Component{
     }
     render(){
         return <Wrapper className="App">
-            <Navbar bg="success">
+            <Navbar bg="light">
             <Navbar.Brand>HOW COVID-19 compares to past epidemics</Navbar.Brand>
             </Navbar>
             <Container>

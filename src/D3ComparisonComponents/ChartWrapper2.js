@@ -6,7 +6,7 @@ import D3PieChartMers from './D3Components/D3PieChartMers';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: #F0FFF0;
+    background: #f5f6fa;
 `;
 
 export default class ChartWrapper extends Component{

@@ -17,8 +17,8 @@ const WIDTH2 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT2 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
-const WIDTH3 = 540 - MARGIN.LEFT - MARGIN.RIGHT;
-const HEIGHT3 = 400 - MARGIN.TOP - MARGIN.BOTTOM;
+const WIDTH3 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
+const HEIGHT3 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 export default class D3Comparison{
     // This constructor function gets called only once when you first load up this visualization.
@@ -173,14 +173,14 @@ export default class D3Comparison{
             .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-
+/*
         const svg5 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
             .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-
+*/
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
@@ -201,14 +201,14 @@ export default class D3Comparison{
             })
             .text("China has the most infected cases and deaths, yet the lowest mortality rate.")
 
-              
+ /*             
         const svg6 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
             .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-
+*/
         const svg7 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
@@ -874,8 +874,8 @@ export default class D3Comparison{
          .style("text-anchor", "start");
 
 
-        const yAxisCall2 = d3.axisLeft(y)
-        svg4.append("g").call(yAxisCall2)
+        //const yAxisCall2 = d3.axisLeft(y)
+        //svg4.append("g").call(yAxisCall2)
 
         svg4.append("text")
             .attr("x", WIDTH3/1.9)
@@ -902,10 +902,10 @@ export default class D3Comparison{
             .style("font", "15px sans-serif");
 
         svg4.append("text")
-          .attr("x", WIDTH3/2)
-          .attr("y", HEIGHT3 - 150)
+          .attr("x", WIDTH3/1.5)
+          .attr("y", HEIGHT3 - 400)
           .attr("text-anchor","middle")
-          .text("Sars no. of total infected cases from main countries")
+          .text("⚫ Sars no. of total infected cases")
           .style("stroke", "black")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
@@ -922,7 +922,7 @@ export default class D3Comparison{
           .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "15px sans-serif");
-
+/*
         svg4.append("text")
           .attr("x",-(HEIGHT3/2))
           .attr("y",-40)
@@ -945,7 +945,7 @@ export default class D3Comparison{
           .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "15px sans-serif");
-
+*/
         // Add the line
         svg4.append("path")
         .datum(outbreak1)
@@ -957,6 +957,8 @@ export default class D3Comparison{
           d3.select(this)
             .style("stroke-width","10")
             .attr("r",35)
+             //const yAxisCall2 = d3.axisLeft(y)
+             //svg4.append("g").call(yAxisCall2)
         })
         .on("mouseout", function(d) {
           d3.select(this)
@@ -1001,21 +1003,21 @@ export default class D3Comparison{
         .attr("width",x.bandwidth)
         .attr("height", d => HEIGHT - y(d.Cases))
         .attr("text-anchor", "middle")
-        .text(d=>"No. "+ d.Cases)
+        .text(d=>"⚫ No. "+ d.Cases)
         .attr("font-family" , "sans-serif")
         .attr("font-size" , "15px")
         .on("mouseover", function(d) {
           //Do something on mouseover of any bar
           d3.select(this)
           .style("font", "25px sans-serif")
-          .style("stroke", "blue")
-          .style("fill","blue")
+          .style("stroke", "black")
+          .style("fill","black")
         })
         .on("mouseout", function(d) {
           d3.select(this)
           .style("font", "15px sans-serif")
-         .style("fill","blue")
-         .style("stroke", "blue")
+         .style("fill","black")
+         .style("stroke", "black")
         })
         .attr("fill" , "black")
         .append("title")
@@ -1037,9 +1039,9 @@ export default class D3Comparison{
           .domain(outbreak2.map(d => d.Country))
           .range([0,WIDTH3])  
           .padding(0.2)
-
+/*
       const xAxisCall2 = d3.axisBottom(x)
-      svg5.append("g")
+      svg4.append("g")
        .attr("transform",`translate(0, ${ HEIGHT3 })`)
        .call(xAxisCall2)
        .selectAll("text")
@@ -1062,12 +1064,13 @@ export default class D3Comparison{
       })
        .style("font", "15px sans-serif")
        .style("text-anchor", "start");
+*/
 
+      //const yAxisCall2 = d3.axisLeft(y)
+      //svg4.append("g").call(yAxisCall2)
 
-      const yAxisCall2 = d3.axisLeft(y)
-      svg5.append("g").call(yAxisCall2)
-
-      svg5.append("text")
+      /*
+      svg4.append("text")
             .attr("x", WIDTH3/1.9)
             .attr("y", HEIGHT3 + 50)
             .attr("text-anchor","middle")
@@ -1089,13 +1092,13 @@ export default class D3Comparison{
             .style("fill","#008080")
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
-            .style("font", "15px sans-serif");
+            .style("font", "15px sans-serif");*/
 
-      svg5.append("text")
-        .attr("x", WIDTH3/2)
-        .attr("y", HEIGHT3 - 240)
+      svg4.append("text")
+        .attr("x", WIDTH3/1.5)
+        .attr("y", HEIGHT3 - 370)
         .attr("text-anchor","middle")
-        .text("Sars no. of total Deaths cases from main countries")
+        .text("🔴 Sars no. of total Deaths cases")
         .style("stroke", "red")
         .on("mouseover", function(d) {
           //Do something on mouseover of any bar
@@ -1106,36 +1109,152 @@ export default class D3Comparison{
         .on("mouseout", function(d) {
           d3.select(this)
           .style("font", "17px sans-serif")
-          .style("stroke", "black")
-         .style("fill","black")
+          .style("stroke", "red")
+         .style("fill","red")
         })
         .style("fill","red")
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
 
-      svg5.append("text")
-        .attr("x", WIDTH3/2)
-        .attr("y", HEIGHT3 - 200)
+       //x labels
+       
+      svg4.append("text")
+      .attr("x", WIDTH3/4.8)
+      .attr("y", HEIGHT3 - 425)
+      .attr("text-anchor","middle")
+      .text("🔺No. Death : 348")
+      .style("stroke", "red")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "red")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "red")
+       .style("fill","red")
+      })
+      .style("fill","red")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      //2
+      svg4.append("text")
+      .attr("x", WIDTH3/2.8)
+      .attr("y", HEIGHT3 - 355)
+      .attr("text-anchor","middle")
+      .text("🔺No. Death : 298")
+      .style("stroke", "red")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "red")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "red")
+       .style("fill","red")
+      })
+      .style("fill","red")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      //3
+      svg4.append("text")
+      .attr("x", WIDTH3/1.8)
+      .attr("y", HEIGHT3 - 90)
+      .attr("text-anchor","middle")
+      .text("🔺No. Death : 84")
+      .style("stroke", "red")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "red")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "red")
+       .style("fill","red")
+      })
+      .style("fill","red")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      //4
+      svg4.append("text")
+      .attr("x", WIDTH3/1.35)
+      .attr("y", HEIGHT3 - 30)
+      .attr("text-anchor","middle")
+      .text("🔺No. Death : 32")
+      .style("stroke", "red")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "red")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "red")
+       .style("fill","red")
+      })
+      .style("fill","red")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      //5
+      svg4.append("text")
+      .attr("x", WIDTH3/1.07)
+      .attr("y", HEIGHT3 - 30)
+      .attr("text-anchor","middle")
+      .text("🔺No. Death : 38")
+      .style("stroke", "red")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "red")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "red")
+       .style("fill","red")
+      })
+      .style("fill","red")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      svg4.append("text")
+        .attr("x", WIDTH3/1.37)
+        .attr("y", HEIGHT3 - 340)
         .attr("text-anchor","middle")
-        .text("China has the most infected cases and deaths")
+        .text("🔴 China has the most infected cases and deaths")
         .style("stroke", "red")
         .style("fill","red")
         .on("mouseover", function(d) {
           //Do something on mouseover of any bar
           d3.select(this)
           .style("font", "15px sans-serif")
-          .style("stroke", "#4682B4")
+          .style("stroke", "red")
         })
         .on("mouseout", function(d) {
           d3.select(this)
           .style("font", "17px sans-serif")
-          .style("stroke", "black")
-         .style("fill","black")
+          .style("stroke", "red")
+         .style("fill","red")
         })
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
-
-      svg5.append("text")
+/*
+      svg4.append("text")
         .attr("x",-(HEIGHT3/2))
         .attr("y",-40)
         .attr("text-anchor","middle")
@@ -1157,9 +1276,9 @@ export default class D3Comparison{
         .style("fill","black")
         .style("stroke-width", ".4px")
         .style("font", "15px sans-serif");
-
+*/
       // Add the line
-      svg5.append("path")
+      svg4.append("path")
       .datum(outbreak2)
       .attr("fill", "none")
       .attr("stroke", "red")
@@ -1168,6 +1287,8 @@ export default class D3Comparison{
         //Do something on mouseover of any bar
         d3.select(this)
           .style("stroke-width","10")
+             //const yAxisCall2 = d3.axisLeft(y)
+      //svg4.append("g").call(yAxisCall2)
       })
       .on("mouseout", function(d) {
         d3.select(this)
@@ -1179,31 +1300,31 @@ export default class D3Comparison{
       )
       // Add the points
 
-      const rects2 = svg5.selectAll("circle")
+      const rects3 = svg4.selectAll("circle")
       .data(outbreak2)
 
-      rects2.enter().append("circle")
+      rects3.enter().append("circle")
         .attr("cx", d=> x(d.Country)+ (x.bandwidth() / 2))
         .attr("cy", d => y(d.Deaths))
         .attr("r",5)
         //.attr("width",x.bandwidth)
         //.attr("height", d => HEIGHT2 - y(d.Confirmed))
         //.attr("fill", "red")
-        .attr("fill","red")
+        .attr("fill","black")
         .on("mouseover", function() {
           //Do something on mouseover of any bar
           d3.select(this)
-            .attr("fill", "rgb(95, 109, 148)");
+            .attr("fill", "black");
         })
         .on("mouseout", function(d) {
           d3.select(this)
-            .attr("fill", "red");
+            .attr("fill", "black");
         })
         .append("title")
           .text(d=>`Number of Confirmed Cases : ${d.Deaths}  in ${d.Country}`);
 
           
-    rects2.enter().append("text")
+    rects3.enter().append("text")
       .attr("class", "value")
       .attr("x", d=> x(d.Country)+ (x.bandwidth() / 2))
       .attr("y", d => y(d.Deaths))
@@ -1246,9 +1367,9 @@ export default class D3Comparison{
         .domain(outbreak3.map(d => d.Country))
         .range([0,WIDTH3])  
         .padding(0.2)
-
+/*
     const xAxisCall2 = d3.axisBottom(x)
-    svg6.append("g")
+    svg4.append("g")
      .attr("transform",`translate(0, ${ HEIGHT3 })`)
      .call(xAxisCall2)
      .selectAll("text")
@@ -1270,13 +1391,13 @@ export default class D3Comparison{
      .style("stroke", "none")
     })
      .style("font", "15px sans-serif")
-     .style("text-anchor", "start");
+     .style("text-anchor", "start");*/
 
 
     const yAxisCall2 = d3.axisLeft(y)
-    svg6.append("g").call(yAxisCall2)
-
-    svg6.append("text")
+    svg4.append("g").call(yAxisCall2)
+/*
+    svg4.append("text")
             .attr("x", WIDTH3/1.9)
             .attr("y", HEIGHT3 + 50)
             .attr("text-anchor","middle")
@@ -1298,75 +1419,193 @@ export default class D3Comparison{
             .style("fill","#008080")
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
-            .style("font", "15px sans-serif");
+            .style("font", "15px sans-serif");*/
 
-    svg6.append("text")
-      .attr("x", WIDTH3/2)
-      .attr("y", HEIGHT3 - 240)
+    svg4.append("text")
+      .attr("x", WIDTH3/1.33)
+      .attr("y", HEIGHT3 - 300)
       .attr("text-anchor","middle")
-      .text("Sars no. of total Recovered cases from confirmed cases")
+      .text("🟢 Sars no. of total Recovered cases from confirmed cases")
       .style("stroke", "green")
       .style("fill","green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "16px sans-serif")
-        .style("stroke", "#4682B4")
+        .style("font", "18px sans-serif")
+        .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "15px sans-serif")
-        .style("stroke", "black")
-       .style("fill","black")
+        .style("font", "16px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
       })
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
-    svg6.append("text")
-      .attr("x", WIDTH3/2)
-      .attr("y", HEIGHT3 - 200)
+      //x labels
+      //1
+      svg4.append("text")
+      .attr("x", WIDTH3/7)
+      .attr("y", HEIGHT3 - 400)
       .attr("text-anchor","middle")
-      .text("Hong Kong and Singapore present good cured rates,")
-      .style("stroke", "black")
+      .text("🟩 No. Recovered : 4951")
+      .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "16px sans-serif")
-        .style("stroke", "#4682B4")
+        .style("font", "20px sans-serif")
+        .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "15px sans-serif")
-        .style("stroke", "black")
-       .style("fill","black")
+        .style("font", "17px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
       })
-      .style("fill","black")
+      .style("fill","green")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif");
+      .style("font", "15px sans-serif"); 
 
-    svg6.append("text")
-      .attr("x", WIDTH3/2)
-      .attr("y", HEIGHT3 - 180)
+      //2
+      svg4.append("text")
+      .attr("x", WIDTH3/5)
+      .attr("y", HEIGHT3 - 120)
       .attr("text-anchor","middle")
-      .text("which are more than 82%, with China’s at 92.9%. ")
-      .style("stroke", "black")
-      .style("fill","black")
+      .text("🟩 No. Recovered : 1433")
+      .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "16px sans-serif")
-        .style("stroke", "#4682B4")
+        .style("font", "20px sans-serif")
+        .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "15px sans-serif")
-        .style("stroke", "black")
-       .style("fill","black")
+        .style("font", "17px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
       })
+      .style("fill","green")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      //3
+      svg4.append("text")
+      .attr("x", WIDTH3/2)
+      .attr("y", HEIGHT3 - 15)
+      .attr("text-anchor","middle")
+      .text("🟩 No. Recovered : 507")
+      .style("stroke", "green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("fill","green")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+      //4
+      svg4.append("text")
+      .attr("x", WIDTH3/1.31)
+      .attr("y", HEIGHT3 - 54)
+      .attr("text-anchor","middle")
+      .text("🟩 No. Recovered : 172")
+      .style("stroke", "green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("fill","green")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+
+      //5
+      svg4.append("text")
+      .attr("x", WIDTH3/1.05)
+      .attr("y", HEIGHT3 - 54)
+      .attr("text-anchor","middle")
+      .text("🟩 No. Recovered : 194")
+      .style("stroke", "green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "20px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "17px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("fill","green")
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif"); 
+
+
+    svg4.append("text")
+      .attr("x", WIDTH3/1.35)
+      .attr("y", HEIGHT3 - 260)
+      .attr("text-anchor","middle")
+      .text("🟢 Hong Kong and Singapore present good cured rates,")
+      .style("stroke", "green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "18px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "16px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("fill","green")
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
 
-    svg6.append("text")
+    svg4.append("text")
+      .attr("x", WIDTH3/1.35)
+      .attr("y", HEIGHT3 - 220)
+      .attr("text-anchor","middle")
+      .text("🟢 which are more than 82%, with China’s at 92.9%. ")
+      .style("stroke", "green")
+      .style("fill","green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "18px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "16px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("stroke-width", ".4px")
+      .style("font", "15px sans-serif");
+/*
+    svg4.append("text")
       .attr("x",-(HEIGHT3/2))
       .attr("y",-40)
       .attr("text-anchor","middle")
@@ -1388,9 +1627,9 @@ export default class D3Comparison{
       .style("fill","black")
       .style("stroke-width", ".4px")
       .style("font", "15px sans-serif");
-
+*/
     // Add the line
-    svg6.append("path")
+    svg4.append("path")
     .datum(outbreak3)
     .attr("fill", "none")
     .attr("stroke", "green")
@@ -1410,7 +1649,7 @@ export default class D3Comparison{
     )
     // Add the points
 
-    const rects2 = svg6.selectAll("circle")
+    const rects2 = svg4.selectAll("circle")
     .data(outbreak3)
 
     rects2.enter().append("circle")
@@ -1420,7 +1659,7 @@ export default class D3Comparison{
       //.attr("width",x.bandwidth)
       //.attr("height", d => HEIGHT2 - y(d.Confirmed))
       //.attr("fill", "red")
-      .attr("fill","red")
+      .attr("fill","black")
       .on("mouseover", function() {
         //Do something on mouseover of any bar
         d3.select(this)
@@ -1461,7 +1700,7 @@ export default class D3Comparison{
     .attr("fill" , "black")
     .append("title")
     .text(d=>`Number of Total Recovered Cases:\nNo. ${d.Cases} \nin ${d.Country} country`);
-})// End Sars outbreak 3
+})// End Sars outbreak 3.
 
 
 // Sars - outbreak4
@@ -1536,7 +1775,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("x", WIDTH3/2)
     .attr("y", HEIGHT3 - 200)
     .attr("text-anchor","middle")
-    .text("Sars-Mortality Rate (%) from main countries")
+    .text("🔵 Sars-Mortality Rate (%) ")
     .style("stroke", "blue")
     .style("fill","blue")
     .on("mouseover", function(d) {
@@ -1547,9 +1786,9 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     })
     .on("mouseout", function(d) {
       d3.select(this)
-      .style("font", "15px sans-serif")
-      .style("stroke", "black")
-     .style("fill","black")
+      .style("font", "18px sans-serif")
+      .style("stroke", "#4682B4")
+     .style("fill","#4682B4")
     })
     .style("stroke-width", ".4px")
     .style("font", "15px sans-serif");
@@ -1569,8 +1808,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .on("mouseout", function(d) {
       d3.select(this)
       .style("font", "15px sans-serif")
-      .style("stroke", "black")
-     .style("fill","black")
+      .style("stroke", "#4682B4")
+     .style("fill","#4682B4")
     })
     .style("fill","black")
     .style("stroke-width", ".4px")
@@ -1592,8 +1831,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .on("mouseout", function(d) {
       d3.select(this)
       .style("font", "15px sans-serif")
-      .style("stroke", "black")
-     .style("fill","black")
+      .style("stroke", "#4682B4")
+     .style("fill","#4682B4")
     })
     .style("fill","black")
     .style("stroke-width", ".4px")
@@ -1613,8 +1852,8 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .on("mouseout", function(d) {
       d3.select(this)
       .style("font", "15px sans-serif")
-      .style("stroke", "black")
-     .style("fill","black")
+      .style("stroke", "#4682B4")
+     .style("fill","#4682B4")
     })
     .style("stroke", "black")
     .style("fill","black")
@@ -1657,7 +1896,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
       })
       .on("mouseout", function(d) {
         d3.select(this)
-          .style("stroke-width","2")
+          //.style("stroke-width","2")
       })
   .attr("d", d3.line()
     .x(function(d) { return x(d.Country) + (x.bandwidth() / 2) })
@@ -1675,7 +1914,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     //.attr("width",x.bandwidth)
     //.attr("height", d => HEIGHT2 - y(d.Confirmed))
     //.attr("fill", "red")
-    .attr("fill","red")
+    .attr("fill","black")
     .on("mouseover", function() {
       //Do something on mouseover of any bar
       d3.select(this)
@@ -1683,7 +1922,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     })
     .on("mouseout", function(d) {
       d3.select(this)
-        .attr("fill", "red");
+        .attr("fill", "black");
     })
     .append("title")
       .text(d=>`Mortality Rate : ${d.MortalityRate}  in ${d.Country}`);
@@ -1699,19 +1938,19 @@ rects2.enter().append("text")
   .attr("text-anchor", "middle")
   .text(d=>d.MortalityRate + " %")
   .attr("font-family" , "sans-serif")
-  .attr("font-size" , "15px")
+  .attr("font-size" , "25px")
   .on("mouseover", function(d) {
     //Do something on mouseover of any bar
     d3.select(this)
-    .style("font", "25px sans-serif")
-    .style("stroke", "blue")
-    .style("fill","blue")
+    .style("font", "30px sans-serif")
+    .style("stroke", "red")
+    .style("fill","red")
   })
   .on("mouseout", function(d) {
     d3.select(this)
-    .style("font", "15px sans-serif")
-   .style("fill","blue")
-   .style("stroke", "blue")
+    .style("font", "25px sans-serif")
+   .style("fill","red")
+   .style("stroke", "red")
   })
   .attr("fill" , "black")
   .append("title")
@@ -1810,7 +2049,7 @@ rects2.enter().append("text")
         })
         .attr("stroke", "#FFB9EC")
         .attr("stroke-width", 1.5)
-
+/*
       rects.enter().append("text")
         .attr("class", "value")
         .attr("x", d=> x(d.Year) + (x.bandwidth() / 2))
@@ -1835,6 +2074,6 @@ rects2.enter().append("text")
         })
         .style("font", "15px sans-serif")
         .append("title")
-         .text(d=>`${d.Number} patients were in ${d.Year} `);
+         .text(d=>`${d.Number} patients were in ${d.Year} `);*/
     }
 }

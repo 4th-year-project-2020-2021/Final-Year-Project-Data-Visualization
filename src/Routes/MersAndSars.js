@@ -8,7 +8,6 @@ import ChartWrapper from '../D3MersSarsComponents/ChartWrapper';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: #FFFFF0;
     color:black;
 `;
 
@@ -27,7 +26,7 @@ class MersAndSars extends React.Component{
     
     render(){
         return <Wrapper className="App">
-            <Navbar bg="success">
+            <Navbar bg="light">
                 <Navbar.Brand>MERS and SARS</Navbar.Brand>
             </Navbar>
             <Container>

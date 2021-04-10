@@ -224,14 +224,16 @@
 .navbar-brand
 {
   font-family: 'Lato', sans-serif;
-  color: white !important;
+  color: rgb(0, 0, 0) !important;
   font-size: 35px !important;
   margin: 0px;
-  border-bottom:  2px solid blueviolet;
+  border-bottom:  2px solid rgb(70, 40, 99);
   line-height: inherit;
   display: inline-block;
   white-space: nowrap;
 }
+
+
 
 
 

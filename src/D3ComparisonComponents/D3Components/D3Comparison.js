@@ -2307,7 +2307,7 @@ rects.enter().append("rect")
   .attr("fill", "#008B8B")
   .attr("stroke", "#D3D3D3")
   .attr("stroke-width", 3)
-
+/*
 rects.enter().append("text")
   .attr("class", "value")
   .attr("x", d=> x(d.Name)+ (x.bandwidth() / 2))
@@ -2332,7 +2332,7 @@ rects.enter().append("text")
   })
   .style("font", "22px sans-serif")
   .append("title")
-      .text(d=>`There are ${d.Number}% of patients \nwith ${d.Name} symptom`);
+      .text(d=>`There are ${d.Number}% of patients \nwith ${d.Name} symptom`);*/
     
   
 

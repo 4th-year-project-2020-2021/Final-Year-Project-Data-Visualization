@@ -3,7 +3,7 @@ import D3MersSars from './D3Components/D3MersSars';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: #F0FFF0;
+    background: #f5f6fa;
 `;
 
 export default class ChartWrapper extends Component{

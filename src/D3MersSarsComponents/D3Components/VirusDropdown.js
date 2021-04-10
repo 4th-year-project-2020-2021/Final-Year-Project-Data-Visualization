@@ -7,7 +7,7 @@ export default function VirusDropdown({virusSelected}){
             <Dropdown.Toggle variant="primary" id="dropdown-basic" size="lg" >
                 Please select virus
             </Dropdown.Toggle>
-            <strong class="text-danger font-weight-bold h3"> ⬅️ Click Here!</strong>
+            <strong class="font-weight-bold h3 bg-light"> ⬅️ Click Here!</strong>
 
             <Dropdown.Menu style={{backgroundColor:'lightblue'}} >
                 <Dropdown.Item disabled>Coronavirus</Dropdown.Item>
