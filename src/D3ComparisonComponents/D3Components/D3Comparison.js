@@ -1745,7 +1745,7 @@ d3.json(urlagerisk).then(age=>{
   const x = d3.scaleBand()
       .domain(age.map(d => d.AgeRange))
       .range([0,WIDTH])  
-      .padding(0.2)
+      .padding(0.6)
 
   const xAxisCall = d3.axisBottom(x)
   svgrisk.append("g")
@@ -1797,6 +1797,7 @@ d3.json(urlagerisk).then(age=>{
         .style("stroke-width", ".2px")
         .style("font", "20px sans-serif");
 //==
+
    
 
    svgrisk.append("text")
@@ -1862,7 +1863,7 @@ d3.json(urlagerisk).then(age=>{
       d3.select(this)
         .style("stroke","lightblue")
         .style("opacity","2")
-        .style("stroke-width","15")
+        .style("stroke-width","10")
         .attr("fill", d=>{
           if(d.PercentOfdeceased > 10){
               return "#FF8C00";
@@ -1883,6 +1884,54 @@ d3.json(urlagerisk).then(age=>{
     .append("title")
       .text(d=>`Mortality Rate :\n${d.PercentOfdeceased}%\nin ${d.AgeRange}`);
     
+      // Add the line
+      svgrisk.append("path")
+      .datum(age)
+      .attr("fill", "none")
+      .attr("stroke", "black")
+      .attr("stroke-width", 5)
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+          .style("stroke-width","10")
+          .attr("r",35)
+           //const yAxisCall2 = d3.axisLeft(y)
+           //svg4.append("g").call(yAxisCall2)
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+          .attr("stroke", "blue")
+          .style("stroke-width","5")
+      })
+      .attr("d", d3.line()
+        .x(function(d) { return x(d.AgeRange) + (x.bandwidth() / 2) })
+        .y(function(d) { return y(d.PercentOfdeceased) })
+      )
+
+       // Add the points
+
+       const rects2 = svgrisk.selectAll("circle")
+       .data(age)
+
+       rects2.enter().append("circle")
+         .attr("cx", d=> x(d.AgeRange)+ (x.bandwidth() / 2))
+         .attr("cy", d => y(d.PercentOfdeceased))
+         .attr("r",5)
+         //.attr("width",x.bandwidth)
+         //.attr("height", d => HEIGHT2 - y(d.Confirmed))
+         //.attr("fill", "red")
+         .attr("fill","red")
+         .on("mouseover", function() {
+           //Do something on mouseover of any bar
+           d3.select(this)
+             .attr("fill", "rgb(95, 109, 148)");
+         })
+         .on("mouseout", function(d) {
+           d3.select(this)
+             .attr("fill", "red");
+         })
+         .append("title")
+           .text(d=>`Number of Confirmed Cases : ${d.PercentOfdeceased}  in ${d.AgeRange}`);
 
   rects.enter().append("text")
     .attr("class", "value")
