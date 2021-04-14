@@ -154,3 +154,4 @@ The main purpose of every work is that making interactive visualization applicat
 [9] Smallpox data https://ourworldindata.org/smallpox<br>
 [10] Mers data https://www.hindawi.com/journals/bmri/2020/9629747/<br>
 [11] Comparisons of Mers,Sars,Covid-19 https://pulmonarychronicles.com/index.php/pulmonarychronicles/article/view/795/1687 <br>
+[12] The SARS outbreak of 2003; https://www.cdc.gov/sars/about/fs-sars.html <br>

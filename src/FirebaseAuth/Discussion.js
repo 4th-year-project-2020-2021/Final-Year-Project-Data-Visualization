@@ -5,7 +5,7 @@ import Message from './Message';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: #F0FFF0;
+    background: #f5f6fa;
 `;
 
 const Discussion = ({ userObj }) => {

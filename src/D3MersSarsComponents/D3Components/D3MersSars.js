@@ -72,6 +72,166 @@ export default class D3Comparison{
             })
             .text("SARS was first reported in Asia in February 2003. The illness spread to 29 countries, where 8,437 people got SARS and 774 of them died. The last known case of SARS was in 2004.");
           
+
+            
+        vis.xLabel = vis.svg.append("text")
+        .attr("x", WIDTH/1.8)
+        .attr("y", HEIGHT-410)
+        .attr("text-anchor","middle")
+        .style("stroke", "#3CB371")
+        .style("fill","#3CB371")
+        .on("mouseover", function(d) {
+          //Do something on mouseover of any bar
+          d3.select(this)
+          .style("font", "40px sans-serif")
+          .style("stroke", "#008080")
+          .style("fill","#008080")
+        })
+        .on("mouseout", function(d) {
+          d3.select(this)
+          .style("stroke", "#3CB371")
+          .style("fill","black")
+          .style("font", "30px sans-serif")
+        })
+        .style("stroke-width", ".4px")
+        .style("font", "30px sans-serif");
+
+        
+        vis.xLabel2 = vis.svg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-380)
+          .attr("text-anchor","middle")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","#3CB371")
+            .style("font", "20px sans-serif")
+          })
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        
+        vis.xLabel3 = vis.svg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-360)
+          .attr("text-anchor","middle")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
+          .style("stroke-width", ".4px")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","#3CB371")
+            .style("font", "20px sans-serif")
+          })
+          .style("font", "20px sans-serif");
+
+        vis.xLabel4 = vis.svg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-340)
+          .attr("text-anchor","middle")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","#3CB371")
+            .style("font", "20px sans-serif")
+          })
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        vis.xLabel5 = vis.svg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-320)
+          .attr("text-anchor","middle")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","#3CB371")
+            .style("font", "20px sans-serif")
+          })
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+          vis.xLabel6 = vis.svg.append("text")
+          .attr("x", WIDTH/1.8)
+          .attr("y", HEIGHT-280)
+          .attr("text-anchor","middle")
+          .style("stroke", "#191970")
+          .style("fill","#191970")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "22px sans-serif")
+            .style("stroke", "#008080")
+            .style("fill","#008080")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("stroke", "#3CB371")
+            .style("fill","#3CB371")
+            .style("font", "20px sans-serif")
+          })
+          .style("stroke-width", ".4px")
+          .style("font", "20px sans-serif");
+
+        
+        vis.xLabel7 = vis.svg.append("text")
+            .attr("x", WIDTH/1.8)
+            .attr("y", HEIGHT-260)
+            .attr("text-anchor","middle")
+            .style("stroke", "#191970")
+            .style("fill","#191970")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "22px sans-serif")
+              .style("stroke", "#008080")
+              .style("fill","#008080")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("stroke", "#3CB371")
+              .style("fill","#3CB371")
+              .style("font", "20px sans-serif")
+            })
+            .style("stroke-width", ".4px")
+            .style("font", "20px sans-serif");
+
+            //--
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
@@ -219,7 +379,7 @@ export default class D3Comparison{
               
           vis.xLabel = vis.svg.append("text")
             .attr("x", WIDTH/1.7)
-            .attr("y", HEIGHT-300)
+            .attr("y", HEIGHT-450)
             .attr("text-anchor","middle")
             .style("stroke", "gold")
             .style("fill","gold")
@@ -230,10 +390,10 @@ export default class D3Comparison{
             })
             .on("mouseout", function(d) {
               d3.select(this)
-              .style("font", "35px sans-serif")
+              .style("font", "45px sans-serif")
             })
             .style("stroke-width", ".4px")
-            .style("font", "35px sans-serif");
+            .style("font", "45px sans-serif");
 
           vis.svg.append("text")
             .attr("x",-(HEIGHT/2))
@@ -425,6 +585,94 @@ export default class D3Comparison{
                 .style("font", "17px sans-serif")
                 .style("stroke", "black")
                .style("fill","black")
+              })
+              .style("fill","black")
+              .style("stroke-width", ".4px")
+              .style("font", "17px sans-serif");
+
+              svg2.append("text")
+              .attr("x", WIDTH2/2.8)
+              .attr("y", HEIGHT2 - 210)
+              .attr("text-anchor","middle")
+              .text(" Saudi Arabia population presented nearly 80% of MERS cases and around 91.0% of deaths, ")
+              .style("stroke", "black")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "16px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "#4682B4")
+               .style("fill","#4682B4")
+              })
+              .style("fill","black")
+              .style("stroke-width", ".4px")
+              .style("font", "17px sans-serif");
+
+              svg2.append("text")
+              .attr("x", WIDTH2/2.8)
+              .attr("y", HEIGHT2 - 190)
+              .attr("text-anchor","middle")
+              .text("with a roughly CFR(case fatality rate) of 37.1%, which nearly quadrupled that of SARS.")
+              .style("stroke", "black")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "16px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "#4682B4")
+               .style("fill","#4682B4")
+              })
+              .style("fill","black")
+              .style("stroke-width", ".4px")
+              .style("font", "17px sans-serif");
+
+              svg2.append("text")
+              .attr("x", WIDTH2/2.9)
+              .attr("y", HEIGHT2 - 150)
+              .attr("text-anchor","middle")
+              .text("There was a sexual predisposition to male, while male patients presented 64% of total patients,")
+              .style("stroke", "black")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "16px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "#4682B4")
+               .style("fill","#4682B4")
+              })
+              .style("fill","black")
+              .style("stroke-width", ".4px")
+              .style("font", "17px sans-serif");
+
+            svg2.append("text")
+              .attr("x", WIDTH2/3)
+              .attr("y", HEIGHT2 - 130)
+              .attr("text-anchor","middle")
+              .text("female patients only accounted for 36%.")
+              .style("stroke", "black")
+              .on("mouseover", function(d) {
+                //Do something on mouseover of any bar
+                d3.select(this)
+                .style("font", "16px sans-serif")
+                .style("stroke", "#4682B4")
+              })
+              .on("mouseout", function(d) {
+                d3.select(this)
+                .style("font", "17px sans-serif")
+                .style("stroke", "#4682B4")
+               .style("fill","#4682B4")
               })
               .style("fill","black")
               .style("stroke-width", ".4px")
@@ -659,8 +907,8 @@ export default class D3Comparison{
             .on("mouseout", function(d) {
               d3.select(this)
               .style("font", "17px sans-serif")
-              .style("stroke", "black")
-             .style("fill","black")
+              .style("stroke", "#4682B4")
+             .style("fill","#4682B4")
             })
             .style("stroke", "black")
             .style("fill","black")
@@ -683,8 +931,8 @@ export default class D3Comparison{
             .on("mouseout", function(d) {
               d3.select(this)
               .style("font", "17px sans-serif")
-              .style("stroke", "black")
-             .style("fill","black")
+              .style("stroke", "#4682B4")
+             .style("fill","#4682B4")
             })
             .style("stroke-width", ".4px")
             .style("font", "17px sans-serif");
@@ -704,8 +952,53 @@ export default class D3Comparison{
             .on("mouseout", function(d) {
               d3.select(this)
               .style("font", "17px sans-serif")
-              .style("stroke", "black")
-             .style("fill","black")
+              .style("stroke", "#4682B4")
+             .style("fill","#4682B4")
+            })
+            .style("fill","black")
+            .style("stroke-width", ".4px")
+            .style("font", "17px sans-serif");
+
+          svg3.append("text")
+            .attr("x", WIDTH2/1.7)
+            .attr("y", HEIGHT2 - 210)
+            .attr("text-anchor","middle")
+            .text("Similar to MERS, more patients were male, while male patients presented 55.9% of total cases,")
+            .style("stroke", "black")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "15px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#4682B4")
+             .style("fill","#4682B4")
+            })
+            .style("fill","black")
+            .style("stroke-width", ".4px")
+            .style("font", "17px sans-serif");
+
+          
+          svg3.append("text")
+            .attr("x", WIDTH2/2)
+            .attr("y", HEIGHT2 - 188)
+            .attr("text-anchor","middle")
+            .text("female patients only accounted for 44.1%")
+            .style("stroke", "black")
+            .on("mouseover", function(d) {
+              //Do something on mouseover of any bar
+              d3.select(this)
+              .style("font", "15px sans-serif")
+              .style("stroke", "#4682B4")
+            })
+            .on("mouseout", function(d) {
+              d3.select(this)
+              .style("font", "17px sans-serif")
+              .style("stroke", "#4682B4")
+             .style("fill","#4682B4")
             })
             .style("fill","black")
             .style("stroke-width", ".4px")
@@ -922,6 +1215,118 @@ export default class D3Comparison{
           .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "15px sans-serif");
+
+      //x labels
+       
+      svg4.append("text")
+      .attr("x", WIDTH3/17)
+      .attr("y", HEIGHT3 - 425)
+      .attr("text-anchor","middle")
+      .text("No. infected : 5327")
+      .style("stroke", "black")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "14px sans-serif")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "12px sans-serif")
+       .style("fill","black")
+      })
+      .style("fill","black")
+      .style("stroke-width", ".4px")
+      .style("font", "12px sans-serif"); 
+
+      
+       //2
+       
+       svg4.append("text")
+       .attr("x", WIDTH3/2.75)
+       .attr("y", HEIGHT3 - 134)
+       .attr("text-anchor","middle")
+       .text("No. infected : 1755")
+       .style("stroke", "black")
+       .on("mouseover", function(d) {
+         //Do something on mouseover of any bar
+         d3.select(this)
+         .style("font", "14px sans-serif")
+       })
+       .on("mouseout", function(d) {
+         d3.select(this)
+         .style("font", "12px sans-serif")
+        .style("fill","black")
+       })
+       .style("fill","black")
+       .style("stroke-width", ".4px")
+       .style("font", "12px sans-serif"); 
+
+         //3
+       
+         svg4.append("text")
+         .attr("x", WIDTH3/1.80)
+         .attr("y", HEIGHT3 - 45)
+         .attr("text-anchor","middle")
+         .text("No. infected : 671")
+         .style("stroke", "black")
+         .on("mouseover", function(d) {
+           //Do something on mouseover of any bar
+           d3.select(this)
+           .style("font", "14px sans-serif")
+         })
+         .on("mouseout", function(d) {
+           d3.select(this)
+           .style("font", "12px sans-serif")
+          .style("fill","black")
+         })
+         .style("fill","black")
+         .style("stroke-width", ".4px")
+         .style("font", "12px sans-serif"); 
+
+          //4
+       
+          svg4.append("text")
+          .attr("x", WIDTH3/1.35)
+          .attr("y", HEIGHT3 - 13)
+          .attr("text-anchor","middle")
+          .text("No. infected : 671")
+          .style("stroke", "black")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "14px sans-serif")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("font", "12px sans-serif")
+           .style("fill","black")
+          })
+          .style("fill","black")
+          .style("stroke-width", ".4px")
+          .style("font", "12px sans-serif"); 
+
+          
+          //5
+       
+          svg4.append("text")
+          .attr("x", WIDTH3/1.06)
+          .attr("y", HEIGHT3 - 13)
+          .attr("text-anchor","middle")
+          .text("No. infected : 250")
+          .style("stroke", "black")
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+            .style("font", "14px sans-serif")
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+            .style("font", "12px sans-serif")
+           .style("fill","black")
+          })
+          .style("fill","black")
+          .style("stroke-width", ".4px")
+          .style("font", "12px sans-serif"); 
 /*
         svg4.append("text")
           .attr("x",-(HEIGHT3/2))
@@ -977,19 +1382,19 @@ export default class D3Comparison{
         rects2.enter().append("circle")
           .attr("cx", d=> x(d.Country)+ (x.bandwidth() / 2))
           .attr("cy", d => y(d.Cases))
-          .attr("r",5)
+          .attr("r",7)
           //.attr("width",x.bandwidth)
           //.attr("height", d => HEIGHT2 - y(d.Confirmed))
           //.attr("fill", "red")
-          .attr("fill","red")
+          .attr("fill","black")
           .on("mouseover", function() {
             //Do something on mouseover of any bar
             d3.select(this)
-              .attr("fill", "rgb(95, 109, 148)");
+              .attr("fill", "black");
           })
           .on("mouseout", function(d) {
             d3.select(this)
-              .attr("fill", "red");
+              .attr("fill", "black");
           })
           .append("title")
             .text(d=>`Number of Confirmed Cases : ${d.Cases}  in ${d.Country}`);
@@ -1003,22 +1408,8 @@ export default class D3Comparison{
         .attr("width",x.bandwidth)
         .attr("height", d => HEIGHT - y(d.Cases))
         .attr("text-anchor", "middle")
-        .text(d=>"⚫ No. "+ d.Cases)
         .attr("font-family" , "sans-serif")
-        .attr("font-size" , "15px")
-        .on("mouseover", function(d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-          .style("font", "25px sans-serif")
-          .style("stroke", "black")
-          .style("fill","black")
-        })
-        .on("mouseout", function(d) {
-          d3.select(this)
-          .style("font", "15px sans-serif")
-         .style("fill","black")
-         .style("stroke", "black")
-        })
+        .attr("font-size" , "14px")
         .attr("fill" , "black")
         .append("title")
               .text(d=>`Number of Total Infected Cases:\nNo. ${d.Cases} \nin ${d.Country} country`);
@@ -1119,119 +1510,119 @@ export default class D3Comparison{
        //x labels
        
       svg4.append("text")
-      .attr("x", WIDTH3/4.8)
+      .attr("x", WIDTH3/5.6)
       .attr("y", HEIGHT3 - 425)
       .attr("text-anchor","middle")
-      .text("🔺No. Death : 348")
+      .text("🔴No. Death : 348")
       .style("stroke", "red")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "red")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "red")
        .style("fill","red")
       })
       .style("fill","red")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
 
       //2
       svg4.append("text")
-      .attr("x", WIDTH3/2.8)
-      .attr("y", HEIGHT3 - 355)
+      .attr("x", WIDTH3/2.85)
+      .attr("y", HEIGHT3 - 356)
       .attr("text-anchor","middle")
-      .text("🔺No. Death : 298")
+      .text("🔴No. Death : 298")
       .style("stroke", "red")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "red")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "red")
        .style("fill","red")
       })
       .style("fill","red")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
 
       //3
       svg4.append("text")
-      .attr("x", WIDTH3/1.8)
-      .attr("y", HEIGHT3 - 90)
+      .attr("x", WIDTH3/1.85)
+      .attr("y", HEIGHT3 - 83)
       .attr("text-anchor","middle")
-      .text("🔺No. Death : 84")
+      .text("🔴No. Death : 84")
       .style("stroke", "red")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "red")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "red")
        .style("fill","red")
       })
       .style("fill","red")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
 
       //4
       svg4.append("text")
-      .attr("x", WIDTH3/1.35)
-      .attr("y", HEIGHT3 - 30)
+      .attr("x", WIDTH3/1.37)
+      .attr("y", HEIGHT3 - 28)
       .attr("text-anchor","middle")
-      .text("🔺No. Death : 32")
+      .text("🔴No. Death : 32")
       .style("stroke", "red")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "red")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "red")
        .style("fill","red")
       })
       .style("fill","red")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
 
       //5
       svg4.append("text")
-      .attr("x", WIDTH3/1.07)
-      .attr("y", HEIGHT3 - 30)
+      .attr("x", WIDTH3/1.09)
+      .attr("y", HEIGHT3 - 28)
       .attr("text-anchor","middle")
-      .text("🔺No. Death : 38")
+      .text("🔴No. Death : 38")
       .style("stroke", "red")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "red")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "red")
        .style("fill","red")
       })
       .style("fill","red")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
-
+      .style("font", "12px sans-serif"); 
+/*
       svg4.append("text")
         .attr("x", WIDTH3/1.37)
         .attr("y", HEIGHT3 - 340)
@@ -1252,7 +1643,8 @@ export default class D3Comparison{
          .style("fill","red")
         })
         .style("stroke-width", ".4px")
-        .style("font", "15px sans-serif");
+        .style("font", "15px sans-serif"); */
+
 /*
       svg4.append("text")
         .attr("x",-(HEIGHT3/2))
@@ -1423,7 +1815,7 @@ export default class D3Comparison{
 
     svg4.append("text")
       .attr("x", WIDTH3/1.33)
-      .attr("y", HEIGHT3 - 300)
+      .attr("y", HEIGHT3 - 340)
       .attr("text-anchor","middle")
       .text("🟢 Sars no. of total Recovered cases from confirmed cases")
       .style("stroke", "green")
@@ -1446,121 +1838,190 @@ export default class D3Comparison{
       //x labels
       //1
       svg4.append("text")
-      .attr("x", WIDTH3/7)
-      .attr("y", HEIGHT3 - 400)
+      .attr("x", WIDTH3/8)
+      .attr("y", HEIGHT3 - 405)
       .attr("text-anchor","middle")
-      .text("🟩 No. Recovered : 4951")
+      .text("🟢")
       .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "green")
        .style("fill","green")
       })
       .style("fill","green")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
+
+      //1
+      svg4.append("text")
+      .attr("x", WIDTH3/15)
+      .attr("y", HEIGHT3 - 395)
+      .attr("text-anchor","middle")
+      .text("No. Recovered : 4951")
+      .style("stroke", "green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "14px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "12px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("fill","green")
+      .style("stroke-width", ".4px")
+      .style("font", "12px sans-serif"); 
 
       //2
       svg4.append("text")
-      .attr("x", WIDTH3/5)
-      .attr("y", HEIGHT3 - 120)
+      .attr("x", WIDTH3/3.25)
+      .attr("y", HEIGHT3 - 116)
       .attr("text-anchor","middle")
-      .text("🟩 No. Recovered : 1433")
+      .text("🟢")
       .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "green")
        .style("fill","green")
       })
       .style("fill","green")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
+
+      //2
+      svg4.append("text")
+      .attr("x", WIDTH3/4.18)
+      .attr("y", HEIGHT3 - 113)
+      .attr("text-anchor","middle")
+      .text("No. Recovered : 1433")
+      .style("stroke", "green")
+      .on("mouseover", function(d) {
+        //Do something on mouseover of any bar
+        d3.select(this)
+        .style("font", "14px sans-serif")
+        .style("stroke", "green")
+      })
+      .on("mouseout", function(d) {
+        d3.select(this)
+        .style("font", "12px sans-serif")
+        .style("stroke", "green")
+       .style("fill","green")
+      })
+      .style("fill","green")
+      .style("stroke-width", ".4px")
+      .style("font", "12px sans-serif"); 
 
       //3
       svg4.append("text")
       .attr("x", WIDTH3/2)
-      .attr("y", HEIGHT3 - 15)
+      .attr("y", HEIGHT3 - 30)
       .attr("text-anchor","middle")
-      .text("🟩 No. Recovered : 507")
+      .text("🟢")
       .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
-        .style("stroke", "green")
+        .style("font", "14px sans-serif")
+        .style("stroke", "drakgreen")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "green")
        .style("fill","green")
       })
       .style("fill","green")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
+
+       //3.2
+       svg4.append("text")
+       .attr("x", WIDTH3/2)
+       .attr("y", HEIGHT3 - 20)
+       .attr("text-anchor","middle")
+       .text("No. Recovered : 507")
+       .style("stroke", "green")
+       .on("mouseover", function(d) {
+         //Do something on mouseover of any bar
+         d3.select(this)
+         .style("font", "14px sans-serif")
+         .style("stroke", "drakgreen")
+       })
+       .on("mouseout", function(d) {
+         d3.select(this)
+         .style("font", "12px sans-serif")
+         .style("stroke", "green")
+        .style("fill","green")
+       })
+       .style("fill","green")
+       .style("stroke-width", ".4px")
+       .style("font", "12px sans-serif"); 
 
       //4
       svg4.append("text")
-      .attr("x", WIDTH3/1.31)
+      .attr("x", WIDTH3/1.34)
       .attr("y", HEIGHT3 - 54)
       .attr("text-anchor","middle")
-      .text("🟩 No. Recovered : 172")
+      .text("🟢No. Recovered : 172")
       .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "green")
        .style("fill","green")
       })
       .style("fill","green")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
 
 
       //5
       svg4.append("text")
-      .attr("x", WIDTH3/1.05)
+      .attr("x", WIDTH3/1.07)
       .attr("y", HEIGHT3 - 54)
       .attr("text-anchor","middle")
-      .text("🟩 No. Recovered : 194")
+      .text("🟢No. Recovered : 194")
       .style("stroke", "green")
       .on("mouseover", function(d) {
         //Do something on mouseover of any bar
         d3.select(this)
-        .style("font", "20px sans-serif")
+        .style("font", "14px sans-serif")
         .style("stroke", "green")
       })
       .on("mouseout", function(d) {
         d3.select(this)
-        .style("font", "17px sans-serif")
+        .style("font", "12px sans-serif")
         .style("stroke", "green")
        .style("fill","green")
       })
       .style("fill","green")
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif"); 
+      .style("font", "12px sans-serif"); 
 
-
+/*
     svg4.append("text")
       .attr("x", WIDTH3/1.35)
       .attr("y", HEIGHT3 - 260)
@@ -1603,7 +2064,7 @@ export default class D3Comparison{
        .style("fill","green")
       })
       .style("stroke-width", ".4px")
-      .style("font", "15px sans-serif");
+      .style("font", "15px sans-serif");*/
 /*
     svg4.append("text")
       .attr("x",-(HEIGHT3/2))
@@ -1977,6 +2438,14 @@ rects2.enter().append("text")
     update(virus){
       const vis = this;
 
+      vis.xLabel.text(`${virus}`)  
+      vis.xLabel2.text(`From 1 January 2021 to 6 April 2021, `)  
+      vis.xLabel3.text(`eight MERS-CoV cases have been reported in Saudi Arabia (7) `)  
+      vis.xLabel4.text(`and the United Arab Emirates (1), including four deaths.`)  
+      vis.xLabel5.text(` In Saudi Arabia, all were primary cases, of whom four reported contact with camels. `) 
+      vis.xLabel6.text(`Sars was first identified at the end of February 2003 `)  
+      vis.xLabel7.text(`during an outbreak that emerged in China and spread to 4 other countries.`) 
+
       vis.data = (virus === "mers") ? vis.MersData : vis.SarsData;
       vis.xLabel.text(` ${virus}`)  
       
@@ -2041,14 +2510,9 @@ rects2.enter().append("text")
         .style("width", d => `${d * 10}px`)
         .text(d => d)
         //.attr("fill", "#008080")
-        .attr("fill", d=>{
-          if(d.Number > 300){
-              return "red";
-          }
-          return "#008080";
-        })
-        .attr("stroke", "#FFB9EC")
-        .attr("stroke-width", 1.5)
+        .attr("fill","#008080")
+        .attr("stroke", "#D3D3D3")
+        .attr("stroke-width", 3)
 /*
       rects.enter().append("text")
         .attr("class", "value")

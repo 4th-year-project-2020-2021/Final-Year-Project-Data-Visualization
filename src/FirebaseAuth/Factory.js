@@ -3,7 +3,7 @@ import { dbService } from "./firebase";
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    background: #F0FFF0;
+  background: #f5f6fa;
 `;
 
 const Factory = ({ userObj }) => {

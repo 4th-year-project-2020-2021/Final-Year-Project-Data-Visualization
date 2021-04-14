@@ -1676,6 +1676,33 @@ export default class D3Comparison{
         .style("stroke-width", ".4px")
         .style("font", "17px sans-serif");
 
+          // Add the line
+          svght.append("path")
+          .datum(diffViruses)
+          .attr("fill", "none")
+          .attr("stroke", "lightblue")
+          .attr("stroke-width", 1)
+          .on("mouseover", function(d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+              .style("fill","none")
+              .attr("stroke", "lightblue")
+              .style("opacity","2")
+              .style("stroke-width","7")
+              .attr("r",35)
+          })
+          .on("mouseout", function(d) {
+            d3.select(this)
+              .attr("r",20)
+              .attr("fill", "none")
+              .attr("stroke", "lightblue")
+              .style("stroke-width","5")
+          })
+          .attr("d", d3.line()
+            .x(function(d) { return x(d.virus) + (x.bandwidth() / 2) })
+            .y(function(d) { return y(d.fatalityRate) })
+          )
+
     const rects4 = svght.selectAll("circle")
     .data(diffViruses)
 
@@ -2355,7 +2382,7 @@ rects.enter().append("rect")
   .text(d => d)
   .attr("fill", "#008B8B")
   .attr("stroke", "#D3D3D3")
-  .attr("stroke-width", 3)
+  .attr("stroke-width", 4)
 /*
 rects.enter().append("text")
   .attr("class", "value")
