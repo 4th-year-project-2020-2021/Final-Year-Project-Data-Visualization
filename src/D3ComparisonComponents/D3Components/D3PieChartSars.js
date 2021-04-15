@@ -10,7 +10,7 @@ export default class D3Comparison{
          d3.select(element)
             .append("div")
                .style("border", "1px lightgray solid;")
-               .style("background-color", "#87CEEB")
+               .style("background-color", "grey")
                .style("font", "20px sans-serif")
                .on("mouseover", function(d) {
                   //Do something on mouseover of any bar
@@ -194,7 +194,7 @@ export default class D3Comparison{
             d3.select(element)
                .append("div")
                   .style("border", "1px lightgray solid;")
-                  .style("background-color", "#5F9EA0")
+                  .style("background-color", "#DCDCDC")
                   .style("font", "20px sans-serif")
                   .on("mouseover", function(d) {
                      //Do something on mouseover of any bar
@@ -214,7 +214,7 @@ export default class D3Comparison{
             d3.select(element)
                .append("div")
                   .style("border", "1px lightgray solid;")
-                  .style("background-color", "#5F9EA0")
+                  .style("background-color", "#DCDCDC")
                   .style("font", "20px sans-serif")
                   .on("mouseover", function(d) {
                      //Do something on mouseover of any bar

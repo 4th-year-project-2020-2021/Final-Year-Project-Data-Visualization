@@ -35,7 +35,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px gray solid;")
-            .style("background-color", "#4682B4")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -55,7 +55,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#87CEEB")
+            .style("background-color", "grey")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -235,7 +235,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#87CEEB")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -262,7 +262,7 @@ export default class D3Comparison{
         const tsvg2 = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
-          .style("background-color", "#87CEEB")
+          .style("background-color", "#DCDCDC")
           .style("font", "20px sans-serif")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
@@ -289,7 +289,7 @@ export default class D3Comparison{
         const tsvg3 = d3.select(element)
           .append("div")
           .style("border", "1px lightgray solid;")
-          .style("background-color", "#87CEEB")
+          .style("background-color", "#DCDCDC")
           .style("font", "20px sans-serif")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
@@ -309,7 +309,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "orange")
+            .style("background-color", "#808080")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -344,7 +344,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#87CEEB")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -478,6 +478,7 @@ export default class D3Comparison{
             svg2.append("g")
              .attr("transform",`translate(0, ${ HEIGHT2 })`)
              .call(xAxisCall2)
+             .style("fill","grey")
              .selectAll("text")
              .attr("y", 0)
              .attr("x", 9)
@@ -502,6 +503,7 @@ export default class D3Comparison{
 
             const yAxisCall2 = d3.axisLeft(y)
             svg2.append("g").call(yAxisCall2)
+            .style("fill","grey")
 
             svg2.append("text")
               .attr("x", WIDTH2/2)
@@ -826,6 +828,7 @@ export default class D3Comparison{
           svg3.append("g")
            .attr("transform",`translate(0, ${ HEIGHT2 })`)
            .call(xAxisCall3)
+           .style("fill","grey")
            .selectAll("text")
              .attr("y", 0)
              .attr("x", 9)
@@ -849,6 +852,7 @@ export default class D3Comparison{
   
           const yAxisCall3 = d3.axisLeft(y)
           svg3.append("g").call(yAxisCall3)
+          .style("fill","grey")
   
           svg3.append("text")
             .attr("x", WIDTH2/2)
@@ -1145,6 +1149,7 @@ export default class D3Comparison{
         svg4.append("g")
          .attr("transform",`translate(0, ${ HEIGHT3 })`)
          .call(xAxisCall2)
+         .style("fill","grey")
          .selectAll("text")
          .attr("y", 0)
          .attr("x", 9)
@@ -1167,8 +1172,9 @@ export default class D3Comparison{
          .style("text-anchor", "start");
 
 
-        //const yAxisCall2 = d3.axisLeft(y)
-        //svg4.append("g").call(yAxisCall2)
+        const yAxisCall2 = d3.axisLeft(y)
+        svg4.append("g").call(yAxisCall2)
+        .style("fill","grey")
 
         svg4.append("text")
             .attr("x", WIDTH3/1.9)
@@ -1786,8 +1792,8 @@ export default class D3Comparison{
      .style("text-anchor", "start");*/
 
 
-    const yAxisCall2 = d3.axisLeft(y)
-    svg4.append("g").call(yAxisCall2)
+   // const yAxisCall2 = d3.axisLeft(y)
+   // svg4.append("g").call(yAxisCall2)
 /*
     svg4.append("text")
             .attr("x", WIDTH3/1.9)
@@ -2183,6 +2189,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
   svg7.append("g")
    .attr("transform",`translate(0, ${ HEIGHT3 })`)
    .call(xAxisCall2)
+   .style("fill","grey")
    .selectAll("text")
    .attr("y", 0)
    .attr("x", 9)
@@ -2207,6 +2214,7 @@ d3.json(sarsOutbreak).then(outbreak4=>{
 
   const yAxisCall2 = d3.axisLeft(y)
   svg7.append("g").call(yAxisCall2)
+  .style("fill","grey")
 
   svg7.append("text")
     .attr("x", WIDTH3/1.9)
@@ -2464,6 +2472,7 @@ rects2.enter().append("text")
 
       const xAxisCall = d3.axisBottom(x)
         vis.xAxisGroup.transition().duration(500).call(xAxisCall)
+        .style("fill","grey")
         .selectAll("text")
              .attr("y", 0)
              .attr("x", 9)
@@ -2476,6 +2485,7 @@ rects2.enter().append("text")
 
       const yAxisCall = d3.axisLeft(y)
        vis.yAxisGroup.transition().duration(500).call(yAxisCall)
+       .style("fill","grey")
 
       // DATA JOIN
       const rects = vis.svg.selectAll("rect")

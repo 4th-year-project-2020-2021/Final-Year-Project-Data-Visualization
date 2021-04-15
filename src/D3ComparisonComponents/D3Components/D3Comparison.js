@@ -263,7 +263,7 @@ export default class D3Comparison{
       d3.select(element)
         .append("div")
           .style("border", "1px gray solid;")
-          .style("background-color", "#008080")
+          .style("background-color", "#DCDCDC")
           .style("font", "20px sans-serif")
           .on("mouseover", function(d) {
             //Do something on mouseover of any bar
@@ -305,7 +305,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#87CEEB")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -325,7 +325,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#9ACD32")
+            .style("background-color", "grey")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -360,7 +360,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#20B2AA")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -380,7 +380,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#20B2AA")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -400,7 +400,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "#87CEEB")
+            .style("background-color", "grey")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -428,7 +428,7 @@ export default class D3Comparison{
         d3.select(element)
             .append("div")
               .style("border", "1px lightgray solid;")
-              .style("background-color", "#6B8E23")
+              .style("background-color", "#DCDCDC")
               .style("font", "22px sans-serif")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -448,7 +448,7 @@ export default class D3Comparison{
         d3.select(element)
             .append("div")
               .style("border", "1px lightgray solid;")
-              .style("background-color", "#6B8E23")
+              .style("background-color", "#DCDCDC")
               .style("font", "22px sans-serif")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -468,7 +468,7 @@ export default class D3Comparison{
         d3.select(element)
             .append("div")
               .style("border", "1px lightgray solid;")
-              .style("background-color", "#808000")
+              .style("background-color", "grey")
               .style("font", "23px sans-serif")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -516,7 +516,7 @@ export default class D3Comparison{
         d3.select(element)
             .append("div")
               .style("border", "1px lightgray solid;")
-              .style("background-color", "#808000")
+              .style("background-color", "grey")
               .style("font", "23px sans-serif")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -550,7 +550,7 @@ export default class D3Comparison{
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
-            .style("background-color", "lightblue")
+            .style("background-color", "#DCDCDC")
             .style("font", "20px sans-serif")
             .on("mouseover", function(d) {
               //Do something on mouseover of any bar
@@ -565,7 +565,7 @@ export default class D3Comparison{
               .style("fill","black")
               .style("font", "20px sans-serif")
             })
-            .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died (Figure 4). Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
+            .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died. Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
 
 
 
@@ -589,9 +589,11 @@ export default class D3Comparison{
             svg.append("g")
              .attr("transform",`translate(0, ${ HEIGHT2 })`)
              .call(xAxisCall)
+             .style("fill","grey")
 
             const yAxisCall = d3.axisLeft(y)
             svg.append("g").call(yAxisCall)
+            .style("fill","grey")
 
             svg.append('g')
               .attr('class', 'grid')
@@ -751,9 +753,11 @@ export default class D3Comparison{
           svg2.append("g")
            .attr("transform",`translate(0, ${ HEIGHT2 })`)
            .call(xAxisCall2)
+           .style("fill","grey")
 
           const yAxisCall2 = d3.axisLeft(y)
           svg2.append("g").call(yAxisCall2)
+          .style("fill","grey")
 
           svg2.append("text")
               .attr("x", WIDTH/7)
@@ -919,9 +923,11 @@ export default class D3Comparison{
         svg3.append("g")
          .attr("transform",`translate(0, ${ HEIGHT2 })`)
          .call(xAxisCall3)
+         .style("fill","grey")
 
         const yAxisCall3 = d3.axisLeft(y)
         svg3.append("g").call(yAxisCall3)
+        .style("fill","grey")
 
         svg3.append("text")
           .attr("x", WIDTH/7)
@@ -1564,6 +1570,7 @@ export default class D3Comparison{
     svght.append("g")
      .attr("transform",`translate(0, ${ HEIGHT })`)
      .call(xAxisCall4)
+     .style("fill","grey")
 
   svght.append('g')
     .attr('class', 'grid')
@@ -1582,6 +1589,7 @@ export default class D3Comparison{
 
     const yAxisCall4 = d3.axisLeft(y)
     svght.append("g").call(yAxisCall4)
+    .style("fill","grey")
 
     
     svght.append("text")
@@ -1798,6 +1806,9 @@ d3.json(urlagerisk).then(age=>{
    .style("font", "17px sans-serif")
    .style("text-anchor", "start");
 
+   //const yAxisCall = d3.axisLeft(y)
+   //svgrisk.append("g").call(yAxisCall)
+   //.style("fill","grey")
 
    //==
    svgrisk.append("text")
@@ -2038,6 +2049,7 @@ d3.json(diffRaces).then(race=>{
 
   const yAxisCall = d3.axisLeft(y)
     svgraces.append("g").call(yAxisCall)
+    .style("fill","grey")
 
   const rects = svgraces.selectAll("rect")
     .data(race)
@@ -2189,6 +2201,7 @@ d3.json(diffRaces).then(race2=>{
 
   const yAxisCall = d3.axisLeft(y)
   svgraces2.append("g").call(yAxisCall)
+  .style("fill","grey")
 
 
   const rects = svgraces2.selectAll("rect")
@@ -2344,9 +2357,11 @@ const x = d3.scaleBand()
 
 const xAxisCall = d3.axisBottom(x)
 vis.xAxisGroup.transition().duration(500).call(xAxisCall)
+.style("fill","grey")
 
 const yAxisCall = d3.axisLeft(y)
  vis.yAxisGroup.transition().duration(500).call(yAxisCall)
+ .style("fill","grey")
 
 // DATA JOIN
 const rects = vis.svgg.selectAll("rect")
