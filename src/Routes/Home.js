@@ -86,7 +86,7 @@ return (
       <Rating
         fractions={2}
         stop={5}
-        color="red"
+      
         initialRating={rating2}
         onClick={rate => setRating2(rate)}
       />

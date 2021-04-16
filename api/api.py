@@ -19,7 +19,14 @@ app.register_blueprint(getDescriptionRoute)
 app.register_blueprint(ratingRoute)
 app.register_blueprint(indexRating)
 app.register_blueprint(ageRisk)
-  
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+# mongodb+srv://DVPSN:<CvnhJ5YPLxunTLs>@cluster0.s5kpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+# Replace <password> with the password for the DVPSN user. Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
+# CvnhJ5YPLxunTLs
+
 #@app.route('/time')
 #def get_current_time():
     #return{'time': time.time()}
@@ -28,15 +35,7 @@ app.register_blueprint(ageRisk)
 #def say_hello():
    # s = "Finally got it to show from project api yip yip!!"
     #return{'hello': s}
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
-# mongodb+srv://DVPSN:<CvnhJ5YPLxunTLs>@cluster0.s5kpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-# Replace <password> with the password for the DVPSN user. Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
-# CvnhJ5YPLxunTLs
-
-
+#https://stackoverflow.com/questions/48713701/react-flask-heroku-app-is-not-displaying-frontend
 
 #https://towardsdatascience.com/reactjs-python-flask-on-heroku-2a308272886a
 
