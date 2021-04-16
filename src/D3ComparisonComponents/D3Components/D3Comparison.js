@@ -565,7 +565,7 @@ export default class D3Comparison{
               .style("fill","black")
               .style("font", "20px sans-serif")
             })
-            .text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died. Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
+            //.text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died. Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
 
 
 
