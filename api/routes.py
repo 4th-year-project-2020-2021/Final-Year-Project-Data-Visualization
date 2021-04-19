@@ -90,6 +90,6 @@ def getDescription():
             description_json.append({"description": description['description'], "id": str(description['_id'])})
     return json.dumps(description_json)
 
-
+#https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly
 #https://www.youtube.com/watch?v=s4vMgOfbBzs
 #items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"], "description": document["description "]})

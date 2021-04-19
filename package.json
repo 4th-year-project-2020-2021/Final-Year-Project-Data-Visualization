@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.7.1",
     "leafletmap": "^0.1.1",
+    "node": "^14.x",
     "npm": "^7.7.4",
     "numeral": "^2.0.6",
     "prop-types": "^15.7.2",
