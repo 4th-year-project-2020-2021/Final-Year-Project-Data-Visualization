@@ -79,6 +79,8 @@ return (
         <br></br>
         <h3>Leave a rating when you're done?</h3>
 
+        <h3>This is a test to see is our heroku app auto updates</h3>
+
         <br/>
         
         <div className="App">
