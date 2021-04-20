@@ -127,13 +127,13 @@
 }
 
 
-.nweetEdit .formBtn {
+.messageEdit .formBtn {
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 5px;
 }
 
-.nweet {
+.message {
   margin-bottom: 20px;
   width: 100%;
   padding: 20px;
@@ -150,17 +150,17 @@
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
-.nweet__actions {
+.message__actions {
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
-.nweet__actions span {
+.message__actions span {
   cursor: pointer;
 }
 
-.nweet__actions span:first-child {
+.message__actions span:first-child {
   margin-right: 10px;
 }
 
@@ -246,7 +246,6 @@ div.tooltip {
   border-radius: 8px;			
   pointer-events: none;			
 }
-
 
 
 

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import firebase, { firebaseInstance ,authService } from "../FirebaseAuth/firebase";
 import AuthForm from './AuthForm';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
