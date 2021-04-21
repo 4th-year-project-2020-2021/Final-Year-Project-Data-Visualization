@@ -3,17 +3,16 @@ import { dbService, storageService } from './firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Message = ({nweetObj, isOwner, userObj}) => {
+const Message = ({messageObj, isOwner, userObj}) => {
 
-  //console.log("What is user name ",userObj.displayName);
   const [editing, setEditing] = useState(false);
-  const [newNweet, setNewNweet] = useState(nweetObj.text);
+  const [newMessage, setNewMessage] = useState(messageObj.text);
 
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this message?");
     if (ok) {
-      await dbService.doc(`nweets/${nweetObj.id}`).delete();
-      await storageService.refFromURL(nweetObj.attachmentUrl).delete();
+      await dbService.doc(`messages/${messageObj.id}`).delete();
+      await storageService.refFromURL(messageObj.attachmentUrl).delete();
     }
   };
   
@@ -21,8 +20,8 @@ const Message = ({nweetObj, isOwner, userObj}) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.doc(`nweets/${nweetObj.id}`).update({
-      text: newNweet,
+    await dbService.doc(`messages/${messageObj.id}`).update({
+      text: newMessage,
     });
     setEditing(false);
   };
@@ -31,19 +30,19 @@ const Message = ({nweetObj, isOwner, userObj}) => {
     const {
       target: { value },
     } = event;
-    setNewNweet(value);
+    setNewMessage(value);
   };
 
 
     return (
-      <div className="nweet">
+      <div className="message">
       {editing ? (
         <>
-          <form onSubmit={onSubmit} className="container nweetEdit">
+          <form onSubmit={onSubmit} className="container messageEdit">
             <input
               type="text"
               placeholder="Edit your message"
-              value={newNweet}
+              value={newMessage}
               required
               autoFocus
               onChange={onChange}
@@ -57,11 +56,11 @@ const Message = ({nweetObj, isOwner, userObj}) => {
         </>
       ) : (
         <>
-          <>ღ <h4 className="formInput" > ➤ {nweetObj.text}</h4></>
+          <>ღ <h4 className="formInput" > ➤ {messageObj.text}</h4></>
          {isOwner ? (
            <>
            <div className="font big"> By you [{userObj.displayName}]</div>
-            <div class="nweet__actions">
+            <div class="message__actions">
               <span onClick={onDeleteClick} className="font"> 
                 <FontAwesomeIcon icon={faTrash} size="1.5x" color={"#A52A2A"} />
                 Delete

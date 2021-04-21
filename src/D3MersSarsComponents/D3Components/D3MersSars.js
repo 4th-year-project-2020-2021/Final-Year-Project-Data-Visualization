@@ -1,9 +1,6 @@
 import * as d3 from 'd3';
 import { svg } from 'd3';
 import d3Tip from "d3-tip";
-//import * as d3Hexbin from "d3.hexbin";
-//import dagreD3 from "dagre-d3";
-//d3.tip = d3Tip;
 
 /********************
  * //Read the data  *
@@ -23,10 +20,6 @@ const MARGIN2 ={ TOP:10, BOTTOM:60, LEFT:60, RIGHT:10};
 
 const WIDTH3 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT3 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
-
-/* Initialize tooltip */
-//tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });
-
 
 export default class D3Comparison{
     // This constructor function gets called only once when you first load up this visualization.
@@ -240,7 +233,6 @@ export default class D3Comparison{
             .style("stroke-width", ".4px")
             .style("font", "20px sans-serif");
 
-            //--
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
@@ -342,14 +334,7 @@ export default class D3Comparison{
             .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
           .append("g")
             .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-/*
-        const svg5 = d3.select(element)
-          .append("svg")
-            .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
-            .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
-          .append("g")
-            .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-*/
+
         d3.select(element)
           .append("div")
             .style("border", "1px lightgray solid;")
@@ -370,14 +355,6 @@ export default class D3Comparison{
             })
             .text("China has the most infected cases and deaths, yet the lowest mortality rate.")
 
- /*             
-        const svg6 = d3.select(element)
-          .append("svg")
-            .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
-            .attr("height",HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
-          .append("g")
-            .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-*/
         const svg7 = d3.select(element)
           .append("svg")
             .attr("width",WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
@@ -428,7 +405,6 @@ export default class D3Comparison{
             .style("font", "20px sans-serif");
 
           
-            //=
             vis.svg.append("text")
             .attr("x", WIDTH/2.07)
             .attr("y", HEIGHT + 15)
@@ -452,7 +428,7 @@ export default class D3Comparison{
             .style("stroke-width", ".4px")
             .style("text-decoration", "underline") 
             .style("font", "15px sans-serif");
-            //=
+            
 
           vis.xAxisGroup = vis.svg.append("g")
             .attr("transform",`translate(0, ${ HEIGHT })`)
@@ -467,20 +443,6 @@ export default class D3Comparison{
             const max2 = d3.max(comparison2, d=> d.Confirmed)
             const min2 = d3.min(comparison2, d=> d.Confirmed) *0.55
 
-            
-            // Add a tooltip div.
-            // Its opacity is set to 0: we don't see it by default.
-            var tooltip = d3.select("#my_dataviz")
-              .append("div")
-              .style("opacity", 0)
-              .attr("class", "tooltip")
-              .style("background-color", "white")
-              .style("border", "solid")
-              .style("border-width", "1px")
-              .style("border-radius", "5px")
-              .style("padding", "10px")
-
-            
             // Define the div for the tooltip
             var div = d3.select("body").append("div")	
               .attr("class", "tooltip")				
@@ -625,7 +587,6 @@ export default class D3Comparison{
               .attr("x", WIDTH2/2.8)
               .attr("y", HEIGHT2 - 210)
               .attr("text-anchor","middle")
-              //.text(" Saudi Arabia population presented nearly 80% of MERS cases and around 91.0% of deaths, ")
               .style("stroke", "black")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -647,7 +608,6 @@ export default class D3Comparison{
               .attr("x", WIDTH2/2.8)
               .attr("y", HEIGHT2 - 190)
               .attr("text-anchor","middle")
-              //.text("with a roughly CFR(case fatality rate) of 37.1%, which nearly quadrupled that of SARS.")
               .style("stroke", "black")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -669,7 +629,6 @@ export default class D3Comparison{
               .attr("x", WIDTH2/2.9)
               .attr("y", HEIGHT2 - 150)
               .attr("text-anchor","middle")
-              //.text("There was a sexual predisposition to male, while male patients presented 64% of total patients,")
               .style("stroke", "black")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -691,7 +650,6 @@ export default class D3Comparison{
               .attr("x", WIDTH2/3)
               .attr("y", HEIGHT2 - 130)
               .attr("text-anchor","middle")
-              //.text("female patients only accounted for 36%.")
               .style("stroke", "black")
               .on("mouseover", function(d) {
                 //Do something on mouseover of any bar
@@ -771,9 +729,6 @@ export default class D3Comparison{
               .attr("cx", d=> x(d.Country))
               .attr("cy", d => y(d.Confirmed))
               .attr("r",20)
-              //.attr("width",x.bandwidth)
-              //.attr("height", d => HEIGHT2 - y(d.Confirmed))
-              //.attr("fill", "red")
               .attr("fill", d=>{
                 if(d.Confirmed > 2000){
                     return "red";
@@ -1105,9 +1060,6 @@ export default class D3Comparison{
             .attr("cx", d=> x(d.Country))
             .attr("cy", d => y(d.Confirmed))
             .attr("r",20)
-            //.attr("width",x.bandwidth)
-            //.attr("height", d => HEIGHT2 - y(d.Confirmed))
-            //.attr("fill", "red")
             .attr("fill", d=>{
               if(d.Confirmed > 5000){
                   return "red";
@@ -1261,7 +1213,6 @@ export default class D3Comparison{
           .style("font", "15px sans-serif");
 
 
-          //--
           svg4.append("text")
           .attr("x", WIDTH3/1.48)
           .attr("y", HEIGHT3 - 370)
@@ -1285,7 +1236,6 @@ export default class D3Comparison{
           .style("font", "15px sans-serif");
 
 
-          //--
           svg4.append("text")
           .attr("x", WIDTH3/1.52)
           .attr("y", HEIGHT3 - 345)
@@ -1396,8 +1346,6 @@ export default class D3Comparison{
           .style("fill","black")
           .style("stroke-width", ".4px")
           .style("font", "12px sans-serif"); 
-          
-
           
           //5
        
@@ -1837,9 +1785,6 @@ d3.json(sarsOutbreak).then(outbreak4=>{
     .attr("cx", d=> x(d.Country)+ (x.bandwidth() / 2))
     .attr("cy", d => y(d.MortalityRate))
     .attr("r",5)
-    //.attr("width",x.bandwidth)
-    //.attr("height", d => HEIGHT2 - y(d.Confirmed))
-    //.attr("fill", "red")
     .attr("fill","black")
     .on("mouseover", function() {
       //Do something on mouseover of any bar
@@ -1883,19 +1828,15 @@ rects2.enter().append("text")
     .text(d=>`Mortality Rate (%):\n${d.Cases}% \nin ${d.Country} country`);
 })// End Sars outbreak 4
 
-
-
           Promise.all([
             d3.json("https://merssummary-d0933.firebaseio.com/MersSummary.json"),
             d3.json("https://sarssummary-84e13.firebaseio.com/SarsSummary.json")
           ]).then((datasets)=>{
-
             vis.MersData=datasets[0]
             vis.SarsData=datasets[1]
             console.log(vis.MersData)
             console.log(vis.SarsData)
             vis.update("mers")
-            
         })
     }
 
@@ -1908,8 +1849,6 @@ rects2.enter().append("text")
       vis.xLabel3.text(`eight MERS-CoV cases have been reported in Saudi Arabia (7) `)  
       vis.xLabel4.text(`and the United Arab Emirates (1), including four deaths.`)  
       vis.xLabel5.text(` In Saudi Arabia, all were primary cases, of whom four reported contact with camels. `) 
-      //vis.xLabel6.text(`Sars was first identified at the end of February 2003 `)  
-      //vis.xLabel7.text(`during an outbreak that emerged in China and spread to 4 other countries.`) 
 
       vis.data = (virus === "mers") ? vis.MersData : vis.SarsData;
       vis.xLabel.text(` ${virus}`)  
@@ -1967,7 +1906,6 @@ rects2.enter().append("text")
       rects.enter().append("rect")
         .attr("x", d => x(d.Year))
         .attr("width", x.bandwidth)
-        //.attr("fill", "#69b3a2")
         .attr("y",HEIGHT)
         .transition().duration(500)
         .attr("height", d => HEIGHT-y(d.Number))
@@ -1976,35 +1914,8 @@ rects2.enter().append("text")
         .style("margin", "1px")
         .style("width", d => `${d * 10}px`)
         .text(d => d)
-        //.attr("fill", "#008080")
         .attr("fill","#008080")
         .attr("stroke", "#D3D3D3")
         .attr("stroke-width", 3)
-/*
-      rects.enter().append("text")
-        .attr("class", "value")
-        .attr("x", d=> x(d.Year) + (x.bandwidth() / 2))
-        .attr("y", d => y(d.Number))
-        .attr("dx", -5)
-        .attr("dy", ".35em") //vertical align middle
-        .attr("text-anchor", "end")
-        .text(d=>"No. "+d.Number)
-        .attr("fill" , "red")
-        .on("mouseover", function(d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-          .style("font", "22px sans-serif")
-          .style("stroke", "blue")
-          .style("fill","blue")
-        })
-        .on("mouseout", function(d) {
-          d3.select(this)
-          .style("font", "15px sans-serif")
-         .style("fill","blue")
-         .style("stroke", "blue")
-        })
-        .style("font", "15px sans-serif")
-        .append("title")
-         .text(d=>`${d.Number} patients were in ${d.Year} `);*/
     }
 }

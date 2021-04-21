@@ -10,23 +10,23 @@ const Wrapper = styled.div`
 
 const Discussion = ({ userObj }) => {
     console.log("userObject is : ",userObj);
-    const [nweets, setNweets] = useState([]);
+    const [messages, setMessages] = useState([]);
 
 
   useEffect(() => {
     dbService
-      .collection("nweets")
+      .collection("messages")
       .orderBy("createdAt", "desc")
       .onSnapshot((snapshot) => {
-        const nweetArray = snapshot.docs.map((doc) => ({
+        const messageArray = snapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setNweets(nweetArray);
+        setMessages(messageArray);
       });
   }, []);
 
-  console.log("nweets : \n",nweets);
+  console.log("messages : \n",messages);
 
   return (
    <Wrapper>
@@ -34,11 +34,11 @@ const Discussion = ({ userObj }) => {
     <div className="container">
       <Factory userObj={userObj} />
       <div style={{ marginTop: 20 }}>
-        {nweets.map((nweet) => (
+        {messages.map((message) => (
           <Message style={{ marginTop: 20 }} 
-            key={nweet.id}
-            nweetObj={nweet}
-            isOwner={nweet.creatorId === userObj.uid}
+            key={message.id}
+            messageObj={message}
+            isOwner={message.creatorId === userObj.uid}
             userObj={userObj}
           />
         ))}

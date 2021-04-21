@@ -23,7 +23,6 @@ const url5 ="https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.
 const url6 ="https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 const urlagerisk ="https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
 const diffRaces = "https://diffraces.firebaseio.com/DiffRaces.json";
-//const covidSymptoms = "https://covid19symptoms.firebaseio.com/Covid19Symptoms.json";
 
 
 export default class D3Comparison{
@@ -31,7 +30,6 @@ export default class D3Comparison{
       
       const vis = this;
 
-      // D3 code goes here--!
       // Appending SVG canvas and moving into the center of the screen according to the D3 margin convension.
       vis.svgg = d3.select(element)
         .append("svg")
@@ -565,10 +563,6 @@ export default class D3Comparison{
               .style("fill","black")
               .style("font", "20px sans-serif")
             })
-            //.text("In New York City, African-Americans and other minority communities have been disproportionately affected by COVID-19. As of April 16, 2020, according to the New York City Health Department, for every 100,000 cases there have been the following rates of non-hospitalized patients: 333.5 African-American, 271.6 Hispanic, 190.4 White, and 95.1 Asian. In addition, 92.3 African-Americans and 74.3 Hispanics died per 100,000 as compared to 45.2 Whites and 34.5 Asians who died. Of those who were known to have died, 33.2% were African-Americans, 28.2% were Hispanics, and 30% were Whites");
-
-
-
 
         d3.json(url).then(comparison=>{
             //using max function, it will loop through the data and get the highest number of y value
@@ -651,8 +645,6 @@ export default class D3Comparison{
             rects.enter().append("circle")
               .attr("cx", d=> x(d.Name) + (x.bandwidth() / 2))
               .attr("cy", d => y(d.Mortality))
-              //.attr("width",x.bandwidth)
-              //.attr("height", d => HEIGHT2 - y(d.Mortality))
               .attr("r",35)
               .style("stroke","lightblue")
               .style("opacity","2")
@@ -972,8 +964,6 @@ export default class D3Comparison{
           .attr("cx", d=> x(d.Name)+ (x.bandwidth() / 2))
           .attr("cy", d => y(d.Cases))
           .attr("r",35)
-          //.attr("width",x.bandwidth)
-          //.attr("height", d => HEIGHT2 - y(d.Cases))
           .style("stroke","lightblue")
           .style("opacity","2")
           .style("stroke-width","5")
@@ -1068,16 +1058,12 @@ export default class D3Comparison{
        .attr('y2', y)
        .attr('stroke', 'red')
 
-       //----------------------
-
       svgsymptom.append('g')
         .attr('class', 'grid')
         .call(d3.axisLeft()
           .scale(y)
           .tickSize(-WIDTH3, 0, 0)
           .tickFormat(''))
-
-      //========================
 
       svgsymptom.append("text")
           .attr("x",-(HEIGHT3/2))
@@ -1806,11 +1792,6 @@ d3.json(urlagerisk).then(age=>{
    .style("font", "17px sans-serif")
    .style("text-anchor", "start");
 
-   //const yAxisCall = d3.axisLeft(y)
-   //svgrisk.append("g").call(yAxisCall)
-   //.style("fill","grey")
-
-   //==
    svgrisk.append("text")
       .attr("x",-(HEIGHT/1.7))
       .attr("y",-40)
@@ -1933,8 +1914,6 @@ d3.json(urlagerisk).then(age=>{
         d3.select(this)
           .style("stroke-width","10")
           .attr("r",35)
-           //const yAxisCall2 = d3.axisLeft(y)
-           //svg4.append("g").call(yAxisCall2)
       })
       .on("mouseout", function(d) {
         d3.select(this)
@@ -1955,9 +1934,6 @@ d3.json(urlagerisk).then(age=>{
          .attr("cx", d=> x(d.AgeRange)+ (x.bandwidth() / 2))
          .attr("cy", d => y(d.PercentOfdeceased))
          .attr("r",5)
-         //.attr("width",x.bandwidth)
-         //.attr("height", d => HEIGHT2 - y(d.Confirmed))
-         //.attr("fill", "red")
          .attr("fill","red")
          .on("mouseover", function() {
            //Do something on mouseover of any bar
@@ -2398,34 +2374,5 @@ rects.enter().append("rect")
   .attr("fill", "#008B8B")
   .attr("stroke", "#D3D3D3")
   .attr("stroke-width", 4)
-/*
-rects.enter().append("text")
-  .attr("class", "value")
-  .attr("x", d=> x(d.Name)+ (x.bandwidth() / 2))
-  .attr("y", d => y(d.Number))
-  .attr("dx", -5)
-  .attr("dy", ".35em") //vertical align middle
-  .attr("text-anchor", "middle")
-  .text(d=>d.Number+ " %")
-  .attr("fill" , "red")
-  .on("mouseover", function(d) {
-    //Do something on mouseover of any bar
-    d3.select(this)
-    .style("font", "25px sans-serif")
-    .style("stroke", "blue")
-    .style("fill","blue")
-  })
-  .on("mouseout", function(d) {
-    d3.select(this)
-    .style("font", "22px sans-serif")
-   .style("fill","blue")
-   .style("stroke", "blue")
-  })
-  .style("font", "22px sans-serif")
-  .append("title")
-      .text(d=>`There are ${d.Number}% of patients \nwith ${d.Name} symptom`);*/
-    
-  
-
 }
 }

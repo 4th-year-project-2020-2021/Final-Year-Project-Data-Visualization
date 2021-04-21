@@ -7,31 +7,25 @@ const Wrapper = styled.div`
 `;
 
 const Factory = ({ userObj }) => {
-  const [nweet, setNweet] = useState("");
+  const [message, setMessage] = useState("");
   const creatorIds = userObj.uid;
-
-  //console.log("creatorId 1", creatorId);
 
   const onSubmit = async (event) => {
     event.preventDefault();
 
-  
-
-    //console.log("creatorId 2", creatorId);
-
-    await dbService.collection("nweets").add({
+    await dbService.collection("messages").add({
       creatorId : creatorIds,
-      text: nweet,
+      text: message,
       createdAt: Date.now(),
     });
-    setNweet("");
+    setMessage("");
   };
 
   const onChange = (event) => {
     const {
       target: { value },
     } = event;
-    setNweet(value);
+    setMessage(value);
   };
   
   
@@ -42,7 +36,7 @@ const Factory = ({ userObj }) => {
       <div className="factoryInput__container">
         <input
           className="factoryInput__input"
-          value={nweet}
+          value={message}
           onChange={onChange}
           type="text"
           placeholder= "Leave your message!"

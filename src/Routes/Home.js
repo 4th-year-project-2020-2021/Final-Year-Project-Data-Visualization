@@ -53,21 +53,26 @@ if(rating){
 }  
 
 return (
-	<div
-      	style={{
-		textAlign: "center",
-		fontSize:"20px",
-		fontFamily: "Nanum Gothic",
-		color: "dark"
-		}}
-	>    
+    <div
+      style={{
+      textAlign: "center",
+      fontSize:"20px",
+      fontFamily: "Nanum Gothic",
+      color: "dark"
+      }}
+    >    
 
-    <div className="app">
-    <div className="app__left">
-    	<h4>Data Visualization & Analysis</h4>
-    	<br/>
-        	<img src={Home} style={{ height: 300}}/>
-        	<h3>Leave a rating when you're done?</h3>
+<div className="app">
+<div className="app__left">
+    <h4>Data Visualization & Analysis</h4>
+    <br/>
+        <img src={Home} style={{ height: 300}}/>
+
+        <br></br>
+        <br></br>
+        <h3>Leave a rating when you're done?</h3>
+
+
         <br/>
         
         <div className="App">
