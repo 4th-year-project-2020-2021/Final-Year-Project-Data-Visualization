@@ -24,9 +24,6 @@ const AppRouter = ({refreshUser, authenticated , userObj}) => {
                 {authenticated ? (
                 <div
                     style={{
-                        width: "100%",
-                        margin: "0 auto",
-                        marginTop: 80,
                         display: "flex",
                         justifyContent: "center",
                     }}

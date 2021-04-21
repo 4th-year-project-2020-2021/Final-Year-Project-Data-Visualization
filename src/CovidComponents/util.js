@@ -57,6 +57,9 @@ data.map((country) => (
           
           <div className="info-name">{country.country}</div>
           <div className="info-confirmed">
+            Population: {numeral(country.population).format("0,0")}
+          </div>
+          <div className="info-confirmed">
             Total Covid-19 Tests: {numeral(country.tests).format("0,0")}
           </div>
           <div className="info-confirmed">

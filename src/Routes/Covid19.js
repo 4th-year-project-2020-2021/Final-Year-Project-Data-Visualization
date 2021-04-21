@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios"
-import GoogleMapReact from 'google-map-react';
 import Table from "../CovidComponents/Table";
 import { CardContent, Select } from '@material-ui/core';
 import { sortData, prettyPrintStat } from "../CovidComponents/util";
@@ -45,7 +44,7 @@ function Covid19(){
           .then((data) => {
             setCountryInfo(data);
           });
-      }, []);
+    }, []);
        
     // useEffect runs a piece of code based
     // on a given condition
@@ -94,29 +93,6 @@ function Covid19(){
         });
     }, []);
 
-    // Assigning country markers to cases 
-    const countriesLocation = results.map((data, i) => {
-        return (
-            <div
-                // Using latitude and longitude to plot
-                lat={data.countryInfo.lat}
-                lng={data.countryInfo.long}
-                // Various styling of marker
-                style={{
-                    color: "black",
-                    backgroundColor: "#FFF",
-                    height: "25px",
-                    width: "42px",
-                    textAlign: "center",
-                    borderRadius: "20%",
-                }}
-            >   
-                <img className="ImgHeight"height="10px" src={data.countryInfo.flag}/><br/>
-                {/* Return todays cases for each country - returns 0 if data has not been updated yet */}
-                {data.todayCases}
-            </div>
-        );
-    });
 
     // Adapted from https://www.npmjs.com/package/react-columns
     var queries = [{
@@ -131,14 +107,11 @@ function Covid19(){
     // country code to console
     const onCountryChange = async(event) => {
         const countryCode = event.target.value;
-
         // Testing
         console.log("Testing code: ", countryCode);
-
         // Allow selected country to be listed instead 
         // of "Worldwide"
         setSelectCountry(countryCode);
-
         const url =
         countryCode === "worldwide" 
         ? "https://disease.sh/v3/covid-19/all"
@@ -168,8 +141,8 @@ function Covid19(){
             <div className="app">
             <div className="app__left">
                     <div className="app__header">
-                        <h3 className="Heading">COVID-19</h3>
-                        <br></br>
+                    <h3 className="Heading">COVID-19</h3>
+                        
                     <FormControl className="app__dropdown">
                         <Select variant="outlined" onChange={onCountryChange} value={country}>
                             <MenuItem value="worldwide">Worldwide</MenuItem>
@@ -214,19 +187,7 @@ function Covid19(){
                         zoom={mapZoom}
                     />
                 </div>
-                <br></br>
-                <h1 className="app__header">Today's cases per country</h1>
-                <div className="map" style={{ height: '70vh', width: '100%' }}>
-                    <GoogleMapReact
-                        bootstrapURLKeys={{ key: "AIzaSyCMOO2VKuGpExDi9NjZ0jAofu5FOGJ4QbE" }}
-                        defaultCenter={{lat: 28, lng: 3}}
-                        // Zoom level
-                        defaultZoom={1}
-                    >
-                            {countriesLocation}
-                    </GoogleMapReact>
-                </div>  
-                <br></br>
+                
                 </div> 
                 <Card className="app__right">
                     <CardContent>
