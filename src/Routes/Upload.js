@@ -105,3 +105,6 @@ function Upload() {
 export default Upload;
 
 //https://www.cluemediator.com/read-csv-file-in-react
+
+//code for flask
+//"start-api": "cd api && ..\\envs\\dataviz\\Scripts\\activate &&  flask run --no-debugger",

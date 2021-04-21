@@ -5,6 +5,8 @@ import os
 import sys
 from pymongo import MongoClient
 from bson import ObjectId
+from boto.s3.connection import S3Connection
+
 
 #json encoder to manage MongoDB ObjectID
 class JSONEncoder(json.JSONEncoder):
@@ -14,7 +16,9 @@ class JSONEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, o)
 
 # mongodb config
-connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
+s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
+#connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
+connection = s3
 client = MongoClient(connection)
 db = client['Example'] 
 collections = db['sampleData']
@@ -93,3 +97,5 @@ def getDescription():
 #https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly
 #https://www.youtube.com/watch?v=s4vMgOfbBzs
 #items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"], "description": document["description "]})
+#https://medium.com/swlh/how-to-deploy-a-react-python-flask-project-on-heroku-edb99309311
+#https://devcenter.heroku.com/articles/config-vars

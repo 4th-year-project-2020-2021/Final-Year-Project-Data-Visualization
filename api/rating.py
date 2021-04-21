@@ -6,7 +6,7 @@ import sys
 from pymongo import MongoClient
 from bson import ObjectId
 import pytest
-
+from boto.s3.connection import S3Connection
 #json encoder to manage MongoDB ObjectID
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
@@ -15,7 +15,9 @@ class JSONEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, o)
 
 # mongodb config
-connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
+s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
+connection = s3
+#connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
 client = MongoClient(connection)
 db = client['Example'] 
 collections = db['ratings']
