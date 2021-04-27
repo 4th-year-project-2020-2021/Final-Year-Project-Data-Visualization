@@ -61,7 +61,7 @@ pymongo==3.11.0
 pyOpenSSL 
 pyparsing==2.4.7
 PyQt5==5.12.3
-PyQt5-sip==4.19.18
+PyQt5-sip
 PyQtChart==5.12
 PyQtWebEngine==5.12.1
 PySocks==1.7.1
