@@ -7,8 +7,13 @@ from age import ageRisk
 import os
 import flask
 
+
 app = Flask(__name__)
 CORS(app) # wrap app in CORS
+
+@app.route('/', methods=["GET"])# added 27/4
+def index():# added 27/4
+    return app.send_static_file('./build/index.html')# added 27/4
 
 # register the blueprints
 app.register_blueprint(indexRoute)
