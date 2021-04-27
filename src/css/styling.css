@@ -91,7 +91,7 @@ body {
 }
 
 /* Responsive app - min screen size set to 990px */
-@media (max-width: 990px) {
+@media (max-width: 900px) {
     .app {
         flex-direction: column;
     }

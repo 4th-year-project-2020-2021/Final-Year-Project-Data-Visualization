@@ -122,8 +122,6 @@ function Covid19(){
         .then((data) => {
             // Store selected country
             setSelectCountry(countryCode);
-            // Store responce
-            setCountryInfo(data);
 
             countryCode === "worldwide"
           ? setZoomCenter(2) 
@@ -158,14 +156,14 @@ function Covid19(){
                         isBlack
                         onClick={e => setCasesType('cases')}
                         active={casesType === "cases"}
-                            title="Cases today & total cases"
+                            title="Total Cases Wordwide"
                             cases={prettyPrintStat(countryInfo.todayCases)}
                             total={prettyPrintStat(countryInfo.cases)}/>
                     <InfoBox 
                         isBlack
                         onClick={e => setCasesType('recovered')}
                         active={casesType === "recovered"}
-                            title="Recovered today & total recovered" 
+                            title="Total Recovered Worldwide" 
                             cases={prettyPrintStat(countryInfo.todayRecovered)} 
                             total={prettyPrintStat(countryInfo.recovered)}/>
 
@@ -173,9 +171,10 @@ function Covid19(){
                         isBlack 
                         onClick={e => setCasesType('deaths')}
                         active={casesType === "deaths"}
-                            title="Deaths today & total deaths" 
+                            title="Total Deaths Worldwide" 
                             cases={prettyPrintStat(countryInfo.todayDeaths)} 
                             total={prettyPrintStat(countryInfo.deaths)}/>
+                    
                 </div>
                 <br></br>
                 <h3 className="app__header">Interact with the Map</h3>
