@@ -16,9 +16,9 @@ class JSONEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, o)
 
 # mongodb config
-s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
-#connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
-connection = s3
+#s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
+connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
+#connection = s3
 client = MongoClient(connection)
 db = client['Example'] 
 collections = db['sampleData']
