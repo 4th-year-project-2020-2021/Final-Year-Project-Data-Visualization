@@ -8,12 +8,17 @@ import os
 import flask
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
 CORS(app) # wrap app in CORS
 
 @app.route('/', methods=["GET"])# added 27/4
 def index():# added 27/4
-    return app.send_static_file('./build/index.html')# added 27/4
+    return app.send_static_file('/build/index.html')# added 27/4
+
+# This handles any errors generated because the app is using ReactRouter
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('/build/index.html')
 
 # register the blueprints
 app.register_blueprint(indexRoute)
@@ -26,7 +31,10 @@ app.register_blueprint(indexRating)
 app.register_blueprint(ageRisk)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    #app.run(debug=True) #uncomment this line if everything breaks
+    app.run(debug=True, port=os.environ.get('PORT',80)) # added 27/4
+
+
 
 # mongodb+srv://DVPSN:<CvnhJ5YPLxunTLs>@cluster0.s5kpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 # Replace <password> with the password for the DVPSN user. Replace myFirstDatabase with the name of the database that connections will use by default. Ensure any option params are URL encoded.
