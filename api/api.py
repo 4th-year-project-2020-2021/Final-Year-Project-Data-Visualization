@@ -8,17 +8,18 @@ import os
 import flask
 
 
-app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
+#app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
+app = Flask(__name__)
 CORS(app) # wrap app in CORS
 
-@app.route('/', methods=["GET"])# added 27/4
-def index():# added 27/4
-    return app.send_static_file('/build/index.html')# added 27/4
+#@app.route('/', methods=["GET"])# added 27/4
+#def index():# added 27/4
+    #return app.send_static_file('/build/index.html')# added 27/4
 
 # This handles any errors generated because the app is using ReactRouter
-@app.errorhandler(404)
-def not_found(e):
-    return app.send_static_file('/build/index.html')
+#@app.errorhandler(404)
+#def not_found(e):
+    #return app.send_static_file('/build/index.html')
 
 # register the blueprints
 app.register_blueprint(indexRoute)

@@ -101,3 +101,5 @@ def getDescription():
 #items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"], "description": document["description "]})
 #https://medium.com/swlh/how-to-deploy-a-react-python-flask-project-on-heroku-edb99309311
 #https://devcenter.heroku.com/articles/config-vars
+
+#https://medium.com/swlh/how-to-deploy-a-react-python-flask-project-on-heroku-edb99309311
