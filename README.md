@@ -37,9 +37,10 @@ As a result, the team felt it would be beneficial as well as informative to crea
 
 Our final year project is based on the data visualization and analysis of various viruses such as COVID-19, Sars and Mers and Smallpox. Our project follows a frontend (React), middleware (Python/ Flask) and backend (MongoDB Atlas, Firebase) architecture. This project allows data to be displayed on various data visualizations such as maps, bar charts, line graphs, pie charts, tables etc, using JavaScript, Python and D3. Graphs are generated using continuously updating data from a given API and stored data from MongoDB Atlas. Data comparisons and auto-generated graphs are also incorporated into this project. 
 
-[Heroku Link:](https://final-year-project-data-visual.herokuapp.com/) <br>
-[Video Link]() <br>
-[Dissertation]() <br>
+Heroku Link: 
+[https://final-year-project-data-visual.herokuapp.com/](https://final-year-project-data-visual.herokuapp.com/) <br>
+[View Video]() <br>
+[View Dissertation]() <br>
 
 ## Software Requirements
 - [Visual Studio Code](https://code.visualstudio.com/download)
