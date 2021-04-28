@@ -57,3 +57,4 @@ if __name__ == "__main__":
 #https://github.com/PrettyPrinted/flask-movie-api/tree/master/api - https://github.com/benawad/react-movie-list
 #https://www.youtube.com/watch?v=06pWsB_hoD4 - how to build react frontend using flask api
 #https://opensource.com/article/18/4/flask - about flask
+#https://medium.com/@gitaumoses4/deploying-a-flask-application-on-heroku-e509e5c76524
