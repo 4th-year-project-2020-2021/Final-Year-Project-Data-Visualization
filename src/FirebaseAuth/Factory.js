@@ -14,7 +14,7 @@ const Factory = ({ userObj }) => {
     event.preventDefault();
 
     await dbService.collection("messages").add({
-      creatorId : creatorIds,
+      creatorId: creatorIds,
       text: message,
       createdAt: Date.now(),
     });
@@ -27,24 +27,24 @@ const Factory = ({ userObj }) => {
     } = event;
     setMessage(value);
   };
-  
-  
+
+
   return (
-    <Wrapper> 
-    <h1 className="Center big font">Share your thoughts with others</h1>
-    <form onSubmit={onSubmit} >
-      <div className="factoryInput__container">
-        <input
-          className="factoryInput__input"
-          value={message}
-          onChange={onChange}
-          type="text"
-          placeholder= "Leave your message!"
-          maxLength={120}
-        />
-        <input type="submit" value="&rarr;" className="factoryInput__arrow" />
-      </div>
-    </form>
+    <Wrapper>
+      <h1 className="Center big font">Message Board</h1>
+      <form onSubmit={onSubmit} >
+        <div className="factoryInput__container">
+          <input
+            className="factoryInput__input"
+            value={message}
+            onChange={onChange}
+            type="text"
+            placeholder="Leave your message!"
+            maxLength={120}
+          />
+          <input type="submit" value="&rarr;" className="factoryInput__arrow" />
+        </div>
+      </form>
     </Wrapper>
   );
 };

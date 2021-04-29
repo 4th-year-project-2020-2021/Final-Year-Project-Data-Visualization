@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import {useHistory} from 'react-router-dom';
+//import {useHistory} from 'react-router-dom';
 import firebase from "../FirebaseAuth/firebase";
 import AppRouter from './Router';
 
 
 function App() {
   const [init, setInit] = useState(false);
-  const history = useHistory();
+  //const history = useHistory();
   const authService = firebase.auth();
-  const [ authenticated, setAuthenticated ] = useState(true); 
-  const [userObj,setUserObj] = useState(null);
-  
+  //const [ authenticated, setAuthenticated ] = useState(true); 
+  const [userObj, setUserObj] = useState(null);
+
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
@@ -37,14 +37,14 @@ function App() {
   };
 
   return (
-        <>
-          <AppRouter 
-            refreshUser={refreshUser}
-            authenticated={Boolean(userObj)} 
-            userObj={userObj} 
-          /> 
-        </>
-    );
+    <>
+      <AppRouter
+        refreshUser={refreshUser}
+        authenticated={Boolean(userObj)}
+        userObj={userObj}
+      />
+    </>
+  );
 }
 
 export default App;

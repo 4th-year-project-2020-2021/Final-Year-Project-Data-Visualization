@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navigation2 = () => (
   <nav>
-    <ul style={{ display: "flex", justifyContent: "center", marginTop: 50, fontFamily: "Sans-serif"}}>
+    <ul style={{ display: "flex", justifyContent: "center", marginTop: 50, fontFamily: "Sans-serif" }}>
       <li>
         <Link to="/" style={{ marginRight: 30 }}>Home</Link>
       </li>
