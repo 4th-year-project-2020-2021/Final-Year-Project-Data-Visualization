@@ -3,7 +3,7 @@ import { dbService, storageService } from './firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Message = ({messageObj, isOwner, userObj}) => {
+const Message = ({ messageObj, isOwner, userObj }) => {
 
   const [editing, setEditing] = useState(false);
   const [newMessage, setNewMessage] = useState(messageObj.text);
@@ -15,7 +15,7 @@ const Message = ({messageObj, isOwner, userObj}) => {
       await storageService.refFromURL(messageObj.attachmentUrl).delete();
     }
   };
-  
+
   const toggleEditing = () => setEditing((prev) => !prev);
 
   const onSubmit = async (event) => {
@@ -34,8 +34,8 @@ const Message = ({messageObj, isOwner, userObj}) => {
   };
 
 
-    return (
-      <div className="message">
+  return (
+    <div className="message">
       {editing ? (
         <>
           <form onSubmit={onSubmit} className="container messageEdit">
@@ -57,21 +57,21 @@ const Message = ({messageObj, isOwner, userObj}) => {
       ) : (
         <>
           <>ღ <h4 className="formInput" > ➤ {messageObj.text}</h4></>
-         {isOwner ? (
-           <>
-           <div className="font big"> By you [{userObj.displayName}]</div>
-            <div class="message__actions">
-              <span onClick={onDeleteClick} className="font"> 
-                <FontAwesomeIcon icon={faTrash} size="1.5x" color={"#A52A2A"} />
+          {isOwner ? (
+            <>
+              <div className="font big"> By you [{userObj.displayName}]</div>
+              <div class="message__actions">
+                <span onClick={onDeleteClick} className="font">
+                  <FontAwesomeIcon icon={faTrash} size="1.5x" color={"#A52A2A"} />
                 Delete
               </span>
-              <span onClick={toggleEditing} className="font"> 
-                <FontAwesomeIcon icon={faPencilAlt} size="1.5x" color={"#006400"} />
+                <span onClick={toggleEditing} className="font">
+                  <FontAwesomeIcon icon={faPencilAlt} size="1.5x" color={"#006400"} />
                 Edit
               </span>
-            </div>
+              </div>
             </>
-         ): <div className="font big">By someone </div> }
+          ) : <div className="font big">By someone </div>}
         </>
       )}
     </div>

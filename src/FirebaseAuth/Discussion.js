@@ -9,8 +9,8 @@ const Wrapper = styled.div`
 `;
 
 const Discussion = ({ userObj }) => {
-    console.log("userObject is : ",userObj);
-    const [messages, setMessages] = useState([]);
+  console.log("userObject is : ", userObj);
+  const [messages, setMessages] = useState([]);
 
 
   useEffect(() => {
@@ -26,26 +26,26 @@ const Discussion = ({ userObj }) => {
       });
   }, []);
 
-  console.log("messages : \n",messages);
+  console.log("messages : \n", messages);
 
   return (
-   <Wrapper>
-     <div className="authContainer">
-    <div className="container">
-      <Factory userObj={userObj} />
-      <div style={{ marginTop: 20 }}>
-        {messages.map((message) => (
-          <Message style={{ marginTop: 20 }} 
-            key={message.id}
-            messageObj={message}
-            isOwner={message.creatorId === userObj.uid}
-            userObj={userObj}
-          />
-        ))}
+    <Wrapper>
+      <div className="authContainer">
+        <div className="container">
+          <Factory userObj={userObj} />
+          <div style={{ marginTop: 20 }}>
+            {messages.map((message) => (
+              <Message style={{ marginTop: 20 }}
+                key={message.id}
+                messageObj={message}
+                isOwner={message.creatorId === userObj.uid}
+                userObj={userObj}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </Wrapper>
+    </Wrapper>
   );
 };
 export default Discussion;
