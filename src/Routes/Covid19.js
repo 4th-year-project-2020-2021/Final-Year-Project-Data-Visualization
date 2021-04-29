@@ -186,7 +186,6 @@ function Covid19() {
                             zoom={mapZoom}
                         />
                     </div>
-
                 </div>
                 <Card className="app__right">
                     <CardContent>
@@ -203,7 +202,6 @@ function Covid19() {
                             <br></br>
                             <h3>Ireland Vaccinations</h3>
                             <VaccineLineGraph vaccineType={vaccineType} />
-
                         </div>
                     </CardContent>
                 </Card>
