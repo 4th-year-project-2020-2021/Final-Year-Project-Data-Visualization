@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from 'react-bootstrap/Navbar';
+import "../css/styling.css";
+import ProgressGraph from "../CovidComponents/ProgressGraph";
 
-
-class Stats extends React.Component{
-    render(){
-        return <div>
-            <div className="app">
-                <div className="app__left"> 
-                    <h1 className="app__header">COVID-19 Stats</h1>
+function Stats() {
+    return (
+        <div>
+            <div>
+                <div className="Heading">
+                    <h1>COVID-19 Progress Report</h1>
                 </div>
             </div>
+            <ProgressGraph />
         </div>
-    }
+    );
 }
 export default Stats;
