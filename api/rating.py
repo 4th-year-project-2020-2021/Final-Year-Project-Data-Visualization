@@ -52,7 +52,7 @@ def ratingIndex():
         ratings.append({"_id": JSONEncoder().encode(document["_id"]),"rating": document["rating"]})
     return jsonify(data=ratings)
 
-
+#one chnage
 
 #https://www.youtube.com/watch?v=s4vMgOfbBzs
 #items.append({"_id": JSONEncoder().encode(document["_id"]),"name": document["name"], "description": document["description "]})

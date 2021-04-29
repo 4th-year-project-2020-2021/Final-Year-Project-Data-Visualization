@@ -1,16 +1,19 @@
 import time
-from flask import Flask
+from flask import Flask, send_from_directory
+from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute, smallpoxRoute
 from rating import ratingRoute, indexRating
 from age import ageRisk
 import os
+
 import flask
 
 
 #app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
 app = Flask(__name__)
 CORS(app) # wrap app in CORS
+#api = Api(app)
 
 #@app.route('/', methods=["GET"])# added 27/4
 #def index():# added 27/4
@@ -30,6 +33,8 @@ app.register_blueprint(getDescriptionRoute)
 app.register_blueprint(ratingRoute)
 app.register_blueprint(indexRating)
 app.register_blueprint(ageRisk)
+
+
 
 if __name__ == "__main__":
     #app.run(debug=True) #uncomment this line if everything breaks

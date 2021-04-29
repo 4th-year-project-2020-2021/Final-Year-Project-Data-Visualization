@@ -27,6 +27,7 @@ Flask-Compress
 Flask-Cors
 Flask-Mail==0.9.1
 flask-praetorian==1.1.0
+flask-restful==0.3.8
 Flask-SQLAlchemy
 future
 gunicorn==20.1.0
