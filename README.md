@@ -102,9 +102,10 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] D3 Mouse Events: mouseover, mouseout
 - [x] Comparison page. (Comparisions of Covid-19, Mers and Sars) - Data Visualization with D3
 - [x] Mers and Sars page. - Data Visualization with D3
-- [x] Login and Register functionalities ( Firebase )
+- [x] Firebase AuthProvider (email, password)
+- [x] Login with: Google, Facebook, Github etc... (Firebase)
 - [x] Profile page. - users can edit their profile name ( Firebase )
-- [x] Discussion page - Added CRUD(Create, read, update and delete) functionalities. ( Firestore )
+- [x] Firestore message functionality - Added CRUD(Create, read, update and delete) functionalities. 
 - [ ] Dissertation writing
 
 ### Shirin - Smallpox component, Home component & Upload component 
