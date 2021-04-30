@@ -17,6 +17,12 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   },
   "storage": {
@@ -30,13 +36,10 @@
       "port": 5001
     },
     "firestore": {
-      "port": 8080
+      "port": 8082
     },
     "database": {
       "port": 9000
-    },
-    "hosting": {
-      "port": 5000
     },
     "ui": {
       "enabled": true
