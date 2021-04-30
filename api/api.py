@@ -13,8 +13,8 @@ import flask
 app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
 #app = Flask(__name__)
 CORS(app)  # wrap app in CORS
-#api = Api(app)
 
+api = Api(app)
 
 @app.route('/', methods=["GET"])# added 27/4
 def index():
@@ -35,7 +35,7 @@ app.register_blueprint(ratingRoute)
 app.register_blueprint(indexRating)
 app.register_blueprint(ageRisk)
 
-
+#api.add_resource(ratingRoute)
 if __name__ == "__main__":
     # app.run(debug=True) #uncomment this line if everything breaks
     app.run(debug=True, port=os.environ.get('PORT', 80))  # added 27/4
@@ -62,3 +62,4 @@ if __name__ == "__main__":
 # https://www.youtube.com/watch?v=06pWsB_hoD4 - how to build react frontend using flask api
 # https://opensource.com/article/18/4/flask - about flask
 # https://medium.com/@gitaumoses4/deploying-a-flask-application-on-heroku-e509e5c76524
+#small change
