@@ -8,8 +8,8 @@ function Create(){
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState("");
-   
+  const [amount, setTemp] = useState("");
+  const [routeRedirect, setRedirect] = useState(""); 
 
   const createItem = (e) =>{//e is the event
     e.preventDefault();
@@ -22,13 +22,13 @@ function Create(){
      amount: amount//value is const amount
     }
 
-    //send items to API
+    //send item to API
     const options = { 
      method: 'post',
      headers: {
-       'Content-Type': 'application/json'//API is expecting JSON
+       'Content-Type':'application/json'//API is expecting JSON
      },
-        body: JSON.stringify(item)
+        body: JSON.stringify(item)//mongo expecting json
     } 
 
     if(description  && name && amount && date ){
@@ -38,12 +38,17 @@ function Create(){
             return res.json();
         }).then(res => {
             console.log(res)
-             
+            setRedirect(true);
         })
     }else {
-        console.log("The form is empty")//lets user know if form isn't filled in
+        console.log("The symptoms form is empty")//lets user know if form isn't filled in
     }
 }  
+
+const redirect = routeRedirect;
+    if(redirect){
+        return <Redirect to="/Item" />  
+    }
     return(  
         <div 
             style={{
@@ -82,7 +87,7 @@ function Create(){
                     step="0.01"
                     max="42.00"
                     presicion={2} 
-                    name="amount" onChange={e => setAmount(e.target.value)} />
+                    name="amount" onChange={e => setTemp(e.target.value)} />
             </div>
             <div>
             <br></br>

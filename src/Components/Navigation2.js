@@ -23,6 +23,9 @@ const Navigation2 = () => (
         <Link to="/smallpox" style={{ marginRight: 30 }}>Smallpox</Link>
       </li>
       <li>
+        <Link to="/testgraph" style={{ marginRight: 30 }}>TestPage</Link>
+      </li>
+      <li>
         <Link to="/auth" style={{ marginRight: 30 }}>Login</Link>
       </li>
       <li>

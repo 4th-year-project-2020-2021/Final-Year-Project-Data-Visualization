@@ -16,7 +16,7 @@ class JSONEncoder(json.JSONEncoder):
             return str(o)
         return json.JSONEncoder.default(self, o)
 
-# mongodb config
+# mongodb connection
 #s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
 #connection = s3
@@ -29,9 +29,10 @@ collection = db['uploadedData']
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
 itemRoute = Blueprint("item",__name__)
-smallpoxRoute = Blueprint("sp",__name__)
+#smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
-
+updateRoute = Blueprint("update", __name__)
+deleteRoute = Blueprint("delete", __name__)
 # routes
 
 
@@ -43,18 +44,18 @@ def create():
 
     name = request.json.get("name")
     description = request.json.get("description")
-    amount = request.json.get("amount")
+    temp = request.json.get("amount")
     date = request.json.get("date")
 
     item ={
         "date": date,
         "name": name,
         "description": description,
-        "amount": amount
+        "amount": temp
     }
     # inserts a single document into the database, 
     collections.insert_one(item)
-    return jsonify(data = "items created successfully")
+    return jsonify(data = "symptom created successfully")
 
 #all items route
 @indexRoute.route("/api/items")
@@ -78,17 +79,6 @@ def items(id):
     return jsonify(data=JSONEncoder().encode(cursor))
 
 
-
-@smallpoxRoute.route("/api/smallpox")
-def sp():
-
-    smallpox = []
-    #get all the items
-    cursor = collection.find({})
-    for document in cursor:
-        smallpox.append({"_id": JSONEncoder().encode(document["_id"]),"Entity": document["Entity"],"Code": document["Code"], "Year": document["Year"],"Cases": document["Smallpox cases"]})
-    return jsonify(data=smallpox)
-
 @getDescriptionRoute.route("/api/itemsDescriptions")
 def getDescription():
     description_json = []
@@ -97,6 +87,33 @@ def getDescription():
             description_json.append({"description": description['description'], "id": str(description['_id'])})
     return json.dumps(description_json)
 
+#update item
+@updateRoute.route("/api/update/<id>", methods=["PUT"])
+def update(id):
+    print(request.json, flush=True)
+    
+    itemid= request.json.get("itemid")
+    name = request.json.get("name")
+    description = request.json.get("description")
+    temp = request.json.get("amount")
+
+
+    updatedItem = {
+        "name": name,
+        "description": description,
+        "amount": temp
+    }
+
+    collection.update_one({"_id": ObjectId(itemid)}, {"$set": updatedItem})
+    return jsonify(data = "update response")   
+
+    @deleteRoute.route("/api/delete/<id>", methods = ["DELETE"])
+    def delete(id):
+        print(request.json, flush=True)
+        itemid = request.json.get("id")
+        collection.remove({"_id": ObjectId(itemid)})
+
+    return jsonify(data= "item deleted successfully") 
 
 
 #https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly

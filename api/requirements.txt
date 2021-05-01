@@ -47,11 +47,11 @@ packaging==20.4
 pandas==1.1.3
 passlib==1.7.4
 pendulum==2.1.2
-Pillow==8.1.0
+Pillow==8.1.2
 pip==20.2.4
 plotly==4.14.3
 pluggy==0.13.1
-py==1.9.0
+py>=1.10.0
 py-buzz==1.0.3
 pycodestyle==2.7.0
 pycparser==2.20

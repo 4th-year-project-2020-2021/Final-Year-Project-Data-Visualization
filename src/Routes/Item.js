@@ -9,6 +9,8 @@ const Item = () => {
     const [loading, setLoading] = useState(false);
     const [itemId, setItemId] = useState("");
     const [item, setItem] = useState({});
+    //const [collapseMode, setcollapseMode]= useState(false);
+    const [year, setYear] = useState([]);
 
     const getNumbers = () => {
         setLoading(true);
@@ -33,12 +35,24 @@ const Item = () => {
                 setLoading(false);
             })
     }
+
+    const getYear = () =>{
+        //let y = props.match.params.year
+        setLoading(true);
+        fetch("api/smallpox/Year=1950")
+            .then(res => res.json())
+            .then(year => {
+                console.log(year);
+                setYear(year.data);
+                setLoading(false);
+            })
+    }
     //Get one Symptom from DB
-    /*const getItem = (props) =>{
+    /*function getItem (){
         let id  = props.match.params.id;
         let cleanId = id.replace(/['"]+/g, "");
         setItemId(cleanId);
-        fetch("/api/item" + cleanId)
+        fetch("/api/item/" + cleanId)
         .then(res => {
             return res.json();
         }).then(res =>{
@@ -164,6 +178,43 @@ const Item = () => {
 
             </React.Fragment>
             <React.Fragment>
+                <button
+                    className="button"
+                    onClick={getYear}
+                    disabled={loading}
+                >
+                    {loading ? 'Loading...' : 'Get List of Countries by year'}
+                </button>
+                <div key={year._id}>
+                    <table>
+                        <thead>
+                            <th>Country </th>
+                            <th>Country Code</th>
+                            <th>Year</th>
+                            <th>No of Cases</th>
+                        </thead>
+
+
+                        <tbody>
+                            {year.map(x => <tr>
+                                <Link to={"year/" + year._id}>
+                                </Link>
+                                <td>{x.Entity}</td>
+                                <td>{x.Code}</td>
+                                <td>{x.Year}</td>
+                                <td>{x.Cases}</td>
+                            </tr>)}
+                            {year.length == 0 && <tr>
+
+                                <b>No data found to display.</b>
+
+                            </tr>}
+                        </tbody>
+                    </table>
+                </div>
+
+            </React.Fragment>
+            <React.Fragment>
                 <br />
                 {/*{itemsArray}*/}
                 <button
@@ -186,7 +237,7 @@ const Item = () => {
 
                         <tbody>
                             {items.map(x => <tr>
-                                <Link to={"item/" + items._id}>
+                                <Link to={"items/" + items._id}>
                                 </Link>
                                 <td>{x.date}</td>
                                 <td>{x.name}</td>
