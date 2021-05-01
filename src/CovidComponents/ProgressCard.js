@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import "../css/styling.css";
 
 const ProgressCard = (props) => {
@@ -9,4 +9,5 @@ const ProgressCard = (props) => {
     )
 }
 
-export default  ProgressCard
+export default  ProgressCard*/
+

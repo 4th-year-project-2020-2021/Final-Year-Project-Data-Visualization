@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+/*import React, { useEffect, useState } from 'react'
 import "../css/styling.css";
 import ProgressGraph from "../CovidComponents/ProgressGraph";
 import axios from 'axios';
@@ -84,4 +84,34 @@ function Stats() {
         </div>
     );
 }
+export default Stats;*/
+
+import React from 'react'
+import { Cards, Chart, CountryPicker, fetchData } from '../ProgressComponent';
+
+class Stats extends React.Component{
+
+    state = {
+        data: {}, 
+    }
+    
+    async componentDidMount(){
+        const fetchedData = await fetchData();
+        this.setState({ data:fetchedData });
+    }
+
+
+    render(){
+        const { data } = this.state;
+        return(
+            <div>
+                <Cards data={ data } />
+                <Chart />
+                <CountryPicker />
+
+            </div>
+        )
+    }
+}
+
 export default Stats;
