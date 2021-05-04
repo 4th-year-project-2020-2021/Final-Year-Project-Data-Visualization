@@ -3,6 +3,20 @@ import { Cards, Chart, CountryPicker, fetchData } from '../ProgressComponent';
 
 class Stats extends React.Component {
 
+    render() {
+        const { data, country } = this.state;
+        return (
+            <div>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+                
+                <Cards data={data} />
+                <Chart data={data} country={country}/>
+
+
+            </div>
+        )
+    }
+
     state = {
         data: {},
         country: '',
@@ -22,18 +36,6 @@ class Stats extends React.Component {
 
     }
 
-
-    render() {
-        const { data, country } = this.state;
-        return (
-            <div>
-                <Cards data={data} />
-                <Chart data={data} country={country}/>
-                <CountryPicker handleCountryChange={this.handleCountryChange} />
-
-            </div>
-        )
-    }
 }
 
 export default Stats;

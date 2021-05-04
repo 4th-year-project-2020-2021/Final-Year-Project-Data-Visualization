@@ -1,3 +1,8 @@
+/**
+ * @author Grace Keane, Shirin Nagle
+ *
+ * Home component for generating database calls for review feature.
+ */
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/styling.css";
@@ -20,15 +25,12 @@ function Ratings() {
 				setLoading(false);
 			})
 	}
-
 	const ratingItem = (e) => {
 		e.preventDefault();
 		console.log("data");
-
 		const item = {
 			rating: rating
 		}
-
 		const options = {
 			method: 'post',
 			headers: {
@@ -36,7 +38,6 @@ function Ratings() {
 			},
 			body: JSON.stringify(item)
 		}
-		//review ratings button
 		if (rating) {
 			fetch("/api/rating", options)
 				.then(res => {
@@ -49,7 +50,6 @@ function Ratings() {
 			console.log("The form is empty")
 		}
 	}
-
 	return (
 		<div
 			style={{
@@ -59,22 +59,16 @@ function Ratings() {
 				color: "dark"
 			}}
 		>
-
 			<div className="app">
 				<div className="app__left">
 					<h4>Data Visualization & Analysis</h4>
 					<br />
 					<img src={Home} style={{ height: 300 }} />
-
 					<br></br>
 					<br></br>
 					<h3>Leave a rating when you're done?</h3>
-
-
 					<br />
-
 					<div className="App">
-
 						<Rating
 							fractions={2}
 							stop={5}
@@ -82,8 +76,6 @@ function Ratings() {
 							onClick={rate => setRating2(rate)}
 						/>
 						<p>Rating: {rating2}</p>
-
-
 					</div>
 					<br></br>
 

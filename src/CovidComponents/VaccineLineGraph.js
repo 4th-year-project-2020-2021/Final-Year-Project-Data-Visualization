@@ -1,7 +1,14 @@
+/**
+ * @author Grace Keane
+ * 
+ * Covid-19 component for generating the Ireland vaccinations
+ * chart.
+ */
 import React, { useState, useEffect } from "react";
 import numeral from "numeral";
 import { Line } from 'react-chartjs-2';
 
+// Styling of chart
 const options = {
   legend: {
     display: false,
@@ -47,6 +54,7 @@ const options = {
   },
 };
 
+// Assigning date to specific data on that day
 const buildChartData = (data, vaccineType) => {
   let chartData = [];
   let lastDataPoint;
@@ -63,6 +71,7 @@ const buildChartData = (data, vaccineType) => {
   return chartData;
 };
 
+// Fetching api data
 function VaccineLineGraph({ vaccineType }) {
   const [data, setVaccineType] = useState({});
 
@@ -75,7 +84,6 @@ function VaccineLineGraph({ vaccineType }) {
         .then((data) => {
           let chartData = buildChartData(data, vaccineType);
           setVaccineType(chartData);
-          console.log("TESTTT" + vaccineType);
         });
     };
 
@@ -86,7 +94,7 @@ function VaccineLineGraph({ vaccineType }) {
     <div>
       {data?.length > 0 && (
         <Line
-        data={{
+          data={{
             datasets: [
               {
                 backgroundColor: "yellow",
