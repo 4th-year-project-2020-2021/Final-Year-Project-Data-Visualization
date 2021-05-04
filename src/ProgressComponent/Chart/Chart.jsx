@@ -1,9 +1,15 @@
+/**
+ * @author Grace Keane
+ * 
+ * Stats component for generating the interactive country bar chart and 
+ * global overlay line chart.
+ */
 import React, { useState, useEffect } from 'react';
 import { fetchDailyData } from '../../ProgressComponent';
 import { Line, Bar } from 'react-chartjs-2';
 import styles from '../Chart/Chart.module.css';
 
-const Chart = ({ data: {confirmed, deaths, recovered}, country }) => {
+const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
     const [dailyData, setDailyData] = useState([]);
 
     useEffect(() => {
@@ -28,11 +34,6 @@ const Chart = ({ data: {confirmed, deaths, recovered}, country }) => {
                             data: dailyData.map(({ deaths }) => deaths),
                             label: 'Deaths',
                             borderColor: 'rgba(192, 57, 43, 1)',
-                            fill: true,
-                        }, {
-                            data: dailyData.map(({ recovered }) => recovered),
-                            label: 'Recovered',
-                            borderColor: 'rgba(35, 205, 167, 1)',
                             fill: true,
                         }],
 
@@ -63,7 +64,7 @@ const Chart = ({ data: {confirmed, deaths, recovered}, country }) => {
 
     return (
         <div className={styles.container}>
-            {country ? barChart: lineChart}
+            {country ? barChart : lineChart}
         </div>
     )
 }

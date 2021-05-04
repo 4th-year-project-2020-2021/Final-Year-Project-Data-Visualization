@@ -1,8 +1,16 @@
+/**
+ * @author Grace Keane
+ * 
+ * Covid-19 component for generating the Leaflet interactive map.
+ * 
+ * Referance Leaflet Map - https://leafletjs.com/
+ */
 import React from "react";
 import "../css/styling.css";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import { showDataOnMap } from "../CovidComponents/util";
 
+// Assigning center and zoom of map
 function Map({ countries, casesType, center, zoom }) {
   function ChangeView({ center, zoom }) {
     const map = useMap();
@@ -20,6 +28,7 @@ function Map({ countries, casesType, center, zoom }) {
     >
       <ChangeView center={center} zoom={zoom} />
       <TileLayer
+        // Referance to Leaflet Map
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
