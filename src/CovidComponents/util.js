@@ -1,3 +1,9 @@
+/**
+ * @author Grace Keane
+ * 
+ * Covid-19 component for sorting table data, assigning pop-up
+ * data and for creation of the interactive map circles.
+ */
 import React from "react";
 import numeral from "numeral";
 import { Circle, Popup } from "react-leaflet";
@@ -19,19 +25,18 @@ const casesTypeColors = {
   },
 };
 
-
 // Class to sort listed data from highest to lowest cases
 export const sortData = (data) => {
-    const sortedData = [...data];
-    
-    sortedData.sort((a, b) => {
-      if (a.cases > b.cases) {
-        return -1; // False
-      } else {
-        return 1; // True
-      }
-    });
-    return sortedData;
+  const sortedData = [...data];
+
+  sortedData.sort((a, b) => {
+    if (a.cases > b.cases) {
+      return -1; // False
+    } else {
+      return 1; // True
+    }
+  });
+  return sortedData;
 };
 
 export const prettyPrintStat = (stat) =>
@@ -39,22 +44,22 @@ export const prettyPrintStat = (stat) =>
 
 // Draw circles on interactive map
 export const showDataOnMap = (data, casesType) =>
-data.map((country) => (
-  <Circle
-    center={[country.countryInfo.lat, country.countryInfo.long]}
-    fillOpacity={0.1}
-    pathOptions={{
-      color: casesTypeColors[casesType].hex,
-      fillColor: casesTypeColors[casesType].hex,
-    }}
-    radius={
-      Math.sqrt(country[casesType] / 10) *
-      casesTypeColors[casesType].mulitiplier
-    }
-  >
-    <Popup>
+  data.map((country) => (
+    <Circle
+      center={[country.countryInfo.lat, country.countryInfo.long]}
+      fillOpacity={0.1}
+      pathOptions={{
+        color: casesTypeColors[casesType].hex,
+        fillColor: casesTypeColors[casesType].hex,
+      }}
+      radius={
+        Math.sqrt(country[casesType] / 10) *
+        casesTypeColors[casesType].mulitiplier
+      }
+    >
+      <Popup>
         <div className="info__container">
-          
+
           <div className="info-name">{country.country}</div>
           <div className="info-confirmed">
             Population: {numeral(country.population).format("0,0")}
@@ -93,8 +98,6 @@ data.map((country) => (
             Active per 1M: {numeral(country.activePerOneMillion).format("0,0")}
           </div>
         </div>
-
-    </Popup>
-  </Circle>
-  
-));
+      </Popup>
+    </Circle>
+  ));

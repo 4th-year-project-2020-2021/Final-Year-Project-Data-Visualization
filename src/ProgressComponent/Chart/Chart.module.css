@@ -1,6 +1,5 @@
 .container {
-    display: flex;
-    justify-content: center;
-    width: 95%;
-    height: 90%;
+    justify-content: right;
+    width: 1000px;
+    height: 900px;
 }

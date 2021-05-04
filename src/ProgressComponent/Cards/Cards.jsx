@@ -1,3 +1,8 @@
+/**
+ * @author Grace Keane
+ * 
+ * Stats component for generating the 3 stats cards.
+ */
 import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
 import styles from '../Cards/Cards.module.css';
@@ -10,7 +15,7 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
     }
     return (
         <div>
-            <Grid container spacing={3} justify="center">
+            <Grid container spacing={1} justify="center">
                 <Grid item component={Card} className={cx(styles.card, styles.infected)}>
                     <CardContent>
                         <Typography color="textSecondary" gutterBottom>Infected</Typography>
