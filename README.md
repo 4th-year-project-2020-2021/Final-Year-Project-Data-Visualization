@@ -50,10 +50,13 @@ Heroku Link:
 - [Heroku](https://www.heroku.com/)
 
 ## Running the Program
-1) In your command line terminal: `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
-2) Install all project dependencies: `npm install`
-3) Start the development server: `npm start`
-4) Navigate to http://localhost:3000/ on your browser.
+1) Create a folder to clone the project code.
+2) In your command line terminal navigate to the folders location.
+3) In your command line terminal enter: `git clone https://github.com/4th-year-project-2020-2021/Final-Year-Project-Data-Visualization.git`
+4) When the project has finished cloning, change directory to the project root folder: cd Final-Year-Project-Data-Visualization
+5) To install all project dependencies enter: `npm install`
+6) Start the development server: `npm start`
+7) Navigate to http://localhost:3000/ on your browser.
 
 ## Running the Tests
 1) cd into the <b>/program/</b> directory
