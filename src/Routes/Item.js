@@ -11,6 +11,21 @@ const Item = () => {
     const [item, setItem] = useState({});
     //const [collapseMode, setcollapseMode]= useState(false);
     const [year, setYear] = useState([]);
+    const [testYear, setTestYear] = useState([]);
+
+    const getTestYear = () =>{
+        setLoading(true);
+        fetch("/api/smallpox")
+            .then(res => res.json()
+            ).then(res => {
+                console.log(numbers);
+                setTestYear(res.data.Year);
+                setLoading(false);
+               
+                if (setTestYear == '1950')
+                {console.log(res.data.Code)}
+            }) 
+    }
 
     const getNumbers = () => {
         setLoading(true);
@@ -23,7 +38,7 @@ const Item = () => {
             })
     }
     //return all symptoms from database
-    const [items, setItems] = useState([]);
+    /*const [items, setItems] = useState([]);
 
     const getItems = () => {
         setLoading(true);
@@ -34,7 +49,7 @@ const Item = () => {
                 setItems(items.data);
                 setLoading(false);
             })
-    }
+    }*/
 
     const getYear = () =>{
         //let y = props.match.params.year
@@ -78,7 +93,7 @@ const Item = () => {
     //const [temperature, setTemperature] = useState([]);
     //const [date, setDate] = useState([]);
 
-    const chart = () => {
+    /*const chart = () => {
         let temp = [];
         let tempDate = [];
 
@@ -109,14 +124,14 @@ const Item = () => {
         .catch(err => {
             console.log(err);
         });
-        //console.log(temp, tempDate);        
+         
     };
 
     useEffect(() =>{
         chart();
-    },[]);
+    },[]);*/
     
-    let itemsArray;
+    /*let itemsArray;
     if (items.length > 0) {
         itemsArray = <div className="items">
             {items.map(item => {
@@ -135,7 +150,7 @@ const Item = () => {
         itemsArray = <div className="message">
             <p>No items in the Database</p>
         </div>
-    }
+    }*/
 
     return (
         <div>
@@ -214,84 +229,11 @@ const Item = () => {
                 </div>
 
             </React.Fragment>
-            <React.Fragment>
-                <br />
-                {/*{itemsArray}*/}
-                <button
-                    className="button"
-                    onClick={getItems}
-                    disabled={loading}
-                >
-                    {loading ? 'Loading...' : 'Get Symptoms'}
-                </button>
-                <div key={items._id}>
-                    <table>
-                        <thead>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Temperature</th>
-                            
-                        </thead>
-
-
-                        <tbody>
-                            {items.map(x => <tr>
-                                <Link to={"items/" + items._id}>
-                                </Link>
-                                <td>{x.date}</td>
-                                <td>{x.name}</td>
-                                <td>{x.description}</td>
-                                <td>{x.amount}</td>
-                                
-                            </tr>)}
-                            {items.length == 0 && <tr>
-
-                                <b>No data found to display.</b>
-
-                            </tr>}
-                        </tbody>
-                    </table>
-                </div>
-
-                
-            </React.Fragment>
             
             <React.Fragment>
-            <div>
-        <Line
-          data={chartData}
-          options={{
-            responsive: true,
-            title: { text: "Temperature per Day", display: true, fontSize:20},
-            legend:{
-              display:true,
-              position:'right'
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    autoSkip: true,
-                    maxTicksLimit: 10,
-                  },
-                  gridLines: {
-                    display: true
-                  }
-                }
-              ],
-              xAxes: [
-                {
-                  gridLines: {
-                    display: true
-                  }
-                }
-              ]
-            }
-          }}
-        />
-      </div>
+                <p>{getTestYear}</p>
             </React.Fragment>
+            
             
 
         </div>

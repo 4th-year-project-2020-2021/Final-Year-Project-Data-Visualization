@@ -26,7 +26,7 @@ function TestGraph() {
   return (
     <div className="App">
       <div className="form">
-        <h3>Fetch API data using useEffect - <a href="https://www.cluemediator.com" target="_blank" rel="noopener noreferrer">Clue Mediator</a></h3>
+        <h3>Fetch API data using useEffect </h3>
         <input
           type="text"
           value={inputyear}

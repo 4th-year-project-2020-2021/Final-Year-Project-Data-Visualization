@@ -8,13 +8,11 @@ function Ratings() {
 	const [rating, setRating] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [ratings, setRatings] = useState([]);
-	const [rating1, setRating1] = useState(0);
 	const [rating2, setRating2] = useState(0);
-	const [rating3, setRating3] = useState(0);
 
 	const getRatings = () => {
 		setLoading(true);
-		fetch("/api/rating")
+		fetch("/api/rating")//coming from MongoDB Atlas
 			.then(res => res.json()
 			).then(res => {
 				console.log(ratings);
@@ -38,7 +36,7 @@ function Ratings() {
 			},
 			body: JSON.stringify(item)
 		}
-
+		//review ratings button
 		if (rating) {
 			fetch("/api/rating", options)
 				.then(res => {
