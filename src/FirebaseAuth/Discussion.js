@@ -8,6 +8,20 @@ const Wrapper = styled.div`
     background: #f5f6fa;
 `;
 
+
+// Referances
+// https://www.youtube.com/watch?v=LKAXg2drQJQ
+// https://levelup.gitconnected.com/structure-firestore-firebase-for-scalable-chat-app-939c7a6cd0f5
+// https://firebase.google.com/docs/auth/web/manage-users
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://firebase.google.com/docs/auth/web/google-signin
+// https://firebase.google.com/docs/auth/web/password-auth
+// https://firebase.google.com/docs/auth/web/facebook-login
+// https://firebase.google.com/docs/auth/web/github-auth
+// https://firebase.google.com/docs/auth/web/firebaseui
+// https://nomadcoders.co/nwitter
+// https://www.youtube.com/watch?v=wkdCpktUfGg
+
 const Discussion = ({ userObj }) => {
   console.log("userObject is : ", userObj);
   const [messages, setMessages] = useState([]);
@@ -49,3 +63,4 @@ const Discussion = ({ userObj }) => {
   );
 };
 export default Discussion;
+

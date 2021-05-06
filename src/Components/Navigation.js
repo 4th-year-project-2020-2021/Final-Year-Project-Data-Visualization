@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
+// Referances
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://reactnavigation.org/docs/link/
+// https://reactrouter.com/web/guides/quick-start
+// https://reactjs.org/tutorial/tutorial.html#making-an-interactive-component
+
 const Navigation = ({ userObj }) => (
   <nav>
     <ul style={{ display: "flex", justifyContent: "center", marginTop: 50, fontFamily: "Sans-serif" }}>
@@ -62,3 +68,4 @@ const Navigation = ({ userObj }) => (
   </nav>
 );
 export default Navigation;
+

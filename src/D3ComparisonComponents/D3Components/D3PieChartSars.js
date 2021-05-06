@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
-import { svg } from 'd3';
 
-const pie = d3.pie();
-const data = "https://comparison-b6dac-default-rtdb.firebaseio.com/Names.json";
+// Referances
+// https://www.d3-graph-gallery.com/graph/pie_basic.html
+
 export default class D3Comparison {
 
    constructor(element) {
@@ -234,3 +234,4 @@ export default class D3Comparison {
 
    }
 }
+

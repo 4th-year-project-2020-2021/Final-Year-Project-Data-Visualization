@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {Line} from 'react-chartjs-2';
-import { Redirect } from 'react-router';
 
 const Item = () => {
     //return all smallpox data from database
@@ -9,7 +8,6 @@ const Item = () => {
     const [loading, setLoading] = useState(false);
     const [itemId, setItemId] = useState("");
     const [item, setItem] = useState({});
-    //const [collapseMode, setcollapseMode]= useState(false);
     const [year, setYear] = useState([]);
 
     const getNumbers = () => {
@@ -47,36 +45,10 @@ const Item = () => {
                 setLoading(false);
             })
     }
-    //Get one Symptom from DB
-    /*function getItem (){
-        let id  = props.match.params.id;
-        let cleanId = id.replace(/['"]+/g, "");
-        setItemId(cleanId);
-        fetch("/api/item/" + cleanId)
-        .then(res => {
-            return res.json();
-        }).then(res =>{
-            let parsedResponse = JSON.parse(res.data);
-            setItem(parsedResponse)
-
-            setItems(parsedResponse.name);
-            setItems(parsedResponse.description);
-            setItems(parsedResponse.amount);
-            setItems(parsedResponse.date);
-
-        }).catch(err =>{
-            console.log(err);
-        })
-    }
-
-    useEffect(()=>{
-        getItem();
-    }, []);*/
+    
 
     //Chart for Temperature
     const [chartData, setChartData] = useState({});
-    //const [temperature, setTemperature] = useState([]);
-    //const [date, setDate] = useState([]);
 
     const chart = () => {
         let temp = [];
@@ -108,8 +80,7 @@ const Item = () => {
         })
         .catch(err => {
             console.log(err);
-        });
-        //console.log(temp, tempDate);        
+        });     
     };
 
     useEffect(() =>{

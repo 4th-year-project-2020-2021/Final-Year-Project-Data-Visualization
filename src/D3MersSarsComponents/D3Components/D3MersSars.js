@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import { svg } from 'd3';
 
 /********************
  * //Read the data  *
@@ -19,6 +18,16 @@ const MARGIN2 = { TOP: 10, BOTTOM: 60, LEFT: 60, RIGHT: 10 };
 
 const WIDTH3 = 1100 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT3 = 500 - MARGIN.TOP - MARGIN.BOTTOM;
+
+// References
+// https://blog.logrocket.com/using-d3-js-v6-with-react/
+// https://www.freecodecamp.org/news/how-to-get-started-with-d3-and-react-c7da74a5bd9f/
+// https://www.udemy.com/course/d3-react/
+// https://betterprogramming.pub/react-d3-plotting-a-line-chart-with-tooltips-ed41a4c31f4f
+// https://www.d3-graph-gallery.com/graph/custom_color.html
+// https://www.tutorialsteacher.com/d3js/create-bar-chart-using-d3js
+// http://www.d3noob.org/2016/11/change-line-chart-into-scatter-plot-in.html //Change a line chart into a scatter plot in d3.js
+// https://www.d3-graph-gallery.com/graph/line_select.html
 
 export default class D3Comparison {
   // This constructor function gets called only once when you first load up this visualization.
@@ -1918,3 +1927,5 @@ export default class D3Comparison {
       .attr("stroke-width", 3)
   }
 }
+
+

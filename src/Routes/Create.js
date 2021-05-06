@@ -1,5 +1,5 @@
 import { axisLeft } from 'd3-axis';
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
 
@@ -60,8 +60,6 @@ const redirect = routeRedirect;
         >
 
         <h2>How're you feeling today?</h2>
-        {/*<p>The current time is {currentTime}</p>
-        <p>This is from the flask api {getHello}</p>*/}
         <br></br>
         
         <form className="create" onSubmit={createItem}>        

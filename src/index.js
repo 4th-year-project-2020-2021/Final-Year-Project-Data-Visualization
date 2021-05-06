@@ -4,7 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import App from './Components/App';
 import {BrowserRouter} from 'react-router-dom';
 import firebase from './FirebaseAuth/firebase';
-import authStyles from './FirebaseAuth/AuthStyles/authStyles.css';
+import authStyles from './FirebaseAuth/AuthStyles/authStyles.css'; //Need this line for the navigation styling
 
 console.log(firebase);
 

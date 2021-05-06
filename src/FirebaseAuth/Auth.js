@@ -10,6 +10,18 @@ const Wrapper = styled.div`
     background: #f5f6fa;
 `;
 
+
+// Referances
+// https://firebase.google.com/docs/auth/web/manage-users
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://firebase.google.com/docs/auth/web/google-signin
+// https://firebase.google.com/docs/auth/web/password-auth
+// https://firebase.google.com/docs/auth/web/facebook-login
+// https://firebase.google.com/docs/auth/web/github-auth
+// https://firebase.google.com/docs/auth/web/firebaseui
+// https://nomadcoders.co/nwitter
+// https://www.youtube.com/watch?v=wkdCpktUfGg
+
 const Auth = () => {
     const onSocialClick = async (e) => {
         const { target: { name } } = e;

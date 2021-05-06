@@ -106,17 +106,16 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Login with: Google, Facebook, Github etc... (Firebase)
 - [x] Profile page. - users can edit their profile name ( Firebase )
 - [x] Firestore message functionality - Added CRUD(Create, read, update and delete) functionalities. 
-- [ ] Dissertation writing
+- [x] Dissertation writing
 
-### Shirin - Smallpox component, Home component & Upload component 
+### Shirin - Smallpox component, Home component & Upload component & React Testing
 - [x] World Map 
 - [x] Connection to MongoDB Atlas
 - [ ] Auto Generated Graph
 - [x] Flask backend
 - [ ] API routes for connecting to MongoDB Atlas
-- [ ] Stats
 - [x] Home Screen see all reviews functionality
-- [ ] Dissertation writing
+- [x] Dissertation writing
 
 ## Screens
 - Home
@@ -126,6 +125,7 @@ The main purpose of every work is that making interactive visualization applicat
 - Comparison
 - Small pox
 - Upload
+- Message Board
 - Login & Register
 - Profile
 - Discussion

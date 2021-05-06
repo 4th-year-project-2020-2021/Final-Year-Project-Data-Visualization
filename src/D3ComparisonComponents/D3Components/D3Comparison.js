@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import { svg } from 'd3';
 
 const url = "https://differentviruses-d1ee0.firebaseio.com/Comparison.json";
 const MARGIN = { TOP: 10, BOTTOM: 60, LEFT: 70, RIGHT: 10 };
@@ -24,6 +23,15 @@ const url6 = "https://differentviruses.firebaseio.com/DiffViruses.json";  //diff
 const urlagerisk = "https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
 const diffRaces = "https://diffraces.firebaseio.com/DiffRaces.json";
 
+// References
+// https://blog.logrocket.com/using-d3-js-v6-with-react/
+// https://www.freecodecamp.org/news/how-to-get-started-with-d3-and-react-c7da74a5bd9f/
+// https://www.udemy.com/course/d3-react/
+// https://betterprogramming.pub/react-d3-plotting-a-line-chart-with-tooltips-ed41a4c31f4f
+// https://www.d3-graph-gallery.com/graph/custom_color.html
+// https://www.tutorialsteacher.com/d3js/create-bar-chart-using-d3js
+// http://www.d3noob.org/2016/11/change-line-chart-into-scatter-plot-in.html //Change a line chart into a scatter plot in d3.js 
+// https://www.d3-graph-gallery.com/graph/line_select.html
 
 export default class D3Comparison {
   constructor(element) {
@@ -2376,3 +2384,4 @@ export default class D3Comparison {
       .attr("stroke-width", 4)
   }
 }
+

@@ -1,6 +1,9 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
+// Referances
+// https://getbootstrap.com/docs/4.0/components/dropdowns/
+
 export default function SymptomsDropdown({ virusSelected }) {
     return (
         <Dropdown>
@@ -19,3 +22,4 @@ export default function SymptomsDropdown({ virusSelected }) {
         </Dropdown>
     )
 }
+

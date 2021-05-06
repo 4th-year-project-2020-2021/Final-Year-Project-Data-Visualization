@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/styling.css";
 import Home from "../Img/Home.svg";
@@ -99,7 +99,6 @@ function Ratings() {
 						</div>
 						<br></br>
 
-						{/*<input className="button" type="submit" value="See all Reviews" />*/}
 					</form>
 				</div>
 

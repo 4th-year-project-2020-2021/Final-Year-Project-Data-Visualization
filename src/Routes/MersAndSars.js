@@ -7,6 +7,10 @@ import VirusDropdown from '../D3MersSarsComponents/D3Components/VirusDropdown';
 import ChartWrapper from '../D3MersSarsComponents/ChartWrapper';
 import styled from 'styled-components';
 
+// Referances
+// https://reactjs.org/tutorial/tutorial.html#making-an-interactive-component
+// https://react-bootstrap.github.io/components/navbar/
+
 const Wrapper = styled.div`
     color:black;
 `;

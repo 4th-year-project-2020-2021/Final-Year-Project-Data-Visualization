@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Chart from "react-google-charts";
-import Filter from "../OtherDiseaseComponents/Filter";
-import PropTypes from 'prop-types';
-import Dropdown from 'react-bootstrap/Dropdown';
-//import {omit} from 'ramda';
 
 const paragraphStyle = {
   marginTop: '10px',
@@ -13,7 +9,6 @@ const paragraphStyle = {
 //function Smallpox()
 const Smallpox = () =>
  {
-  const [chartData, setChartData] = useState({});
 
   const chart = () => {
     let country = [];
@@ -29,20 +24,6 @@ const Smallpox = () =>
             numberOfCases.push(dataObj.Cases);
             year.push(dataObj.Year);
           }
-          /*setChartData({
-            labels: tempDate,
-            datasets:[
-                {
-                    label: 'Temperature',
-                    fill: false,
-                    lineTension: 0.5,
-                    backgroundColor: 'rgba(75,192,192,1)',
-                    borderColor: 'rgba(0,0,0,1)',
-                    borderWidth: 2,
-                    data: temp
-                  }
-            ]
-        })*/   
     })
     .catch(err => {
         console.log(err);
@@ -84,8 +65,6 @@ useEffect(() =>{
     ['Bulgaria', 22],
     ['Burma', 987],
     ['Chile',1171],
-   // ['Czechoslovakia',1642],
-    //['Democratic Republic of Congo',1497],
     ['Egypt',93],
     ['Finland',27],
     ['Germany',680],
@@ -96,7 +75,6 @@ useEffect(() =>{
     ['Italy',4644],
     ['Japan',889],
     ['Kenya',200],
-    //['Korea',8316],
     ['Malaysia',232],
     ['Morocco',203],
     ['Netherlands',1],
