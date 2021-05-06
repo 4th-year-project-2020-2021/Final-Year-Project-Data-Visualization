@@ -8,7 +8,6 @@ class Stats extends React.Component {
         return (
             <div>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
-                
                 <Cards data={data} />
                 <Chart data={data} country={country}/>
 
