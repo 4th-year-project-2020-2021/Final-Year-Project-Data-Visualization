@@ -1,3 +1,9 @@
+/**
+ * @author Grace Keane
+ * 
+ * Stats component. Provides easy way to access cards, chart and drop down country picker
+ * and provides functions to access and filter API data.
+ */
 import axios from 'axios';
 export { default as Cards } from '../ProgressComponent/Cards/Cards';
 export { default as Chart } from '../ProgressComponent/Chart/Chart';
@@ -9,7 +15,7 @@ const url = 'https://covid19.mathdro.id/api';
 // Retrieving data
 export const fetchData = async (country) => {
     let changeableUrl = url;
-    if(country){
+    if (country) {
         changeableUrl = `${url}/countries/${country}`
     }
     try {
@@ -23,7 +29,7 @@ export const fetchData = async (country) => {
             lastUpdate,
         }
         return modifiedData;
-    } catch (error) {
+    } catch (error) { // Error handling
         console.log(error);
     }
 }
@@ -42,9 +48,9 @@ export const fetchDailyData = async () => {
     }
 }
 
-export const fetchCountries = async() => {
+export const fetchCountries = async () => {
     try {
-        const { data: { countries }} = await axios.get(`${url}/countries`);
+        const { data: { countries } } = await axios.get(`${url}/countries`);
         return countries.map((country) => country.name);
     } catch (error) {
         console.log(error);

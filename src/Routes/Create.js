@@ -2,18 +2,22 @@ import { axisLeft } from 'd3-axis';
 import React, { useState} from 'react';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
+import {Line} from 'react-chartjs-2';
+import { Link } from 'react-router-dom';
 
-function Create(){
+
+function Symptom (){
 
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [amount, setTemp] = useState("");
   const [routeRedirect, setRedirect] = useState(""); 
+  const [loading, setLoading] = useState(false);
 
   const createItem = (e) =>{//e is the event
     e.preventDefault();
-    console.log("data");//comment out when app is working, but keep for error checking 
+    console.log("symptoms page");//comment out when app is working, but keep for error checking 
 
     const item = {
      date : date,
@@ -44,11 +48,59 @@ function Create(){
         console.log("The symptoms form is empty")//lets user know if form isn't filled in
     }
 }  
+//return all symptoms from database
+const [items, setItems] = useState([]);
 
-const redirect = routeRedirect;
-    if(redirect){
-        return <Redirect to="/Item" />  
-    }
+const getItems = () => {
+    setLoading(true);
+    fetch("/api/items")
+        .then(res => res.json()
+        ).then(items => {
+            console.log(items);
+            setItems(items.data);
+            setLoading(false);
+        })
+}
+const [chartData, setChartData] = useState({});
+const chart = () => {
+    let temp = [];
+    let tempDate = [];
+
+    fetch("/api/items")
+    .then(res => res.json()
+    ).then(items => {
+        console.log(items);
+        for (const dataObj of items.data) {
+            temp.push(dataObj.amount);
+            tempDate.push(dataObj.date);
+          }
+          setChartData({
+            labels: tempDate,
+            datasets:[
+                {
+                    label: 'Temperature',
+                    fill: false,
+                    lineTension: 0.5,
+                    backgroundColor: 'rgba(75,192,192,1)',
+                    borderColor: 'rgba(0,0,0,1)',
+                    borderWidth: 2,
+                    data: temp
+                  }
+
+            ]
+        })   
+    })
+    .catch(err => {
+        console.log(err);
+    });
+    //console.log(temp, tempDate);        
+};
+
+useEffect(() =>{
+    chart();
+},[]);
+
+
     return(  
         <div 
             style={{
@@ -60,6 +112,10 @@ const redirect = routeRedirect;
         >
 
         <h2>How're you feeling today?</h2>
+<<<<<<< HEAD
+=======
+       
+>>>>>>> 6712b6e716126116b386418992d336c857558797
         <br></br>
         
         <form className="create" onSubmit={createItem}>        
@@ -89,10 +145,88 @@ const redirect = routeRedirect;
             </div>
             <div>
             <br></br>
-                <input className="button" type="submit" value="Save Symptoms" />
+                <input className="button" type="submit"  value="Save Symptoms" />
             </div>
         </form>  
+        <React.Fragment>
+            <div>
+        <Line
+          data={chartData}
+          options={{
+            responsive: true,
+            title: { text: "Temperature per Day", display: true, fontSize:20},
+            legend:{
+              display:true,
+              position:'right'
+            },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 10,
+                  },
+                  gridLines: {
+                    display: true
+                  }
+                }
+              ],
+              xAxes: [
+                {
+                  gridLines: {
+                    display: true
+                  }
+                }
+              ]
+            }
+          }}
+        />
+      </div>
+            </React.Fragment>
+            <React.Fragment>
+                <br />
+                {/*{itemsArray}*/}
+                <button
+                    className="button"
+                    onClick={getItems}
+                    disabled={loading}
+                >
+                    {loading ? 'Loading...' : 'Get Symptoms'}
+                </button>
+                <div key={items._id}>
+                    <table>
+                        <thead>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Temperature</th>
+                            
+                        </thead>
+
+
+                        <tbody>
+                            {items.map(x => <tr>
+                                <Link to={"items/" + items._id}>
+                                </Link>
+                                <td>{x.date}</td>
+                                <td>{x.name}</td>
+                                <td>{x.description}</td>
+                                <td>{x.amount}</td>
+                                
+                            </tr>)}
+                            {items.length == 0 && <tr>
+
+                                <b>No data found to display.</b>
+
+                            </tr>}
+                        </tbody>
+                    </table>
+                </div>
+
+                
+            </React.Fragment>
+            
         </div>
     )
 }
-export default Create;
+export default Symptom;

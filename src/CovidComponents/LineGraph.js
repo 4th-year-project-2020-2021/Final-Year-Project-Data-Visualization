@@ -1,7 +1,14 @@
+/**
+ * @author Grace Keane
+ * 
+ * Covid-19 component for generating the interative cases, deaths, recovered line graph.
+ */
+
 import React, { useState, useEffect } from "react";
 import numeral from "numeral";
 import { Line } from 'react-chartjs-2';
 
+// Assigning chart styling
 const options = {
   legend: {
     display: false,
@@ -47,6 +54,7 @@ const options = {
   },
 };
 
+// Assigning the date to specific api data
 const buildChartData = (data, casesType) => {
   let chartData = [];
   let lastDataPoint;
@@ -63,18 +71,22 @@ const buildChartData = (data, casesType) => {
   return chartData;
 };
 
+// Fetching API data
 function LineGraph({ casesType }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
+      // Fetching last 120 days api
       await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
         .then((response) => {
           return response.json();
         })
+        // Assigning data to the chart
         .then((data) => {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
+          // Testing if data is actually fetched from the api
           console.log(chartData);
         });
     };

@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+/**
+ * @author Grace Keane, Shirin Nagle
+ *
+ * Home component for generating database calls for review feature.
+ */
+import React, { useState, useEffect } from 'react';
+>>>>>>> 6712b6e716126116b386418992d336c857558797
 import { Link } from 'react-router-dom';
 import "../css/styling.css";
 import Home from "../Img/Home.svg";
@@ -8,13 +17,11 @@ function Ratings() {
 	const [rating, setRating] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [ratings, setRatings] = useState([]);
-	const [rating1, setRating1] = useState(0);
 	const [rating2, setRating2] = useState(0);
-	const [rating3, setRating3] = useState(0);
 
 	const getRatings = () => {
 		setLoading(true);
-		fetch("/api/rating")
+		fetch("/api/rating")//coming from MongoDB Atlas
 			.then(res => res.json()
 			).then(res => {
 				console.log(ratings);
@@ -22,15 +29,12 @@ function Ratings() {
 				setLoading(false);
 			})
 	}
-
 	const ratingItem = (e) => {
 		e.preventDefault();
 		console.log("data");
-
 		const item = {
 			rating: rating
 		}
-
 		const options = {
 			method: 'post',
 			headers: {
@@ -38,7 +42,6 @@ function Ratings() {
 			},
 			body: JSON.stringify(item)
 		}
-
 		if (rating) {
 			fetch("/api/rating", options)
 				.then(res => {
@@ -51,7 +54,6 @@ function Ratings() {
 			console.log("The form is empty")
 		}
 	}
-
 	return (
 		<div
 			style={{
@@ -61,22 +63,16 @@ function Ratings() {
 				color: "dark"
 			}}
 		>
-
 			<div className="app">
 				<div className="app__left">
 					<h4>Data Visualization & Analysis</h4>
 					<br />
 					<img src={Home} style={{ height: 300 }} />
-
 					<br></br>
 					<br></br>
 					<h3>Leave a rating when you're done?</h3>
-
-
 					<br />
-
 					<div className="App">
-
 						<Rating
 							fractions={2}
 							stop={5}
@@ -84,8 +80,6 @@ function Ratings() {
 							onClick={rate => setRating2(rate)}
 						/>
 						<p>Rating: {rating2}</p>
-
-
 					</div>
 					<br></br>
 

@@ -1,3 +1,9 @@
+/**
+ * @author Grace Keane
+ * 
+ * Covid-19 component for generating the interactive map, cards,
+ * charts and cases table. Links to CovidComponents classes.
+ */
 import React, { useEffect, useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,11 +23,11 @@ import "../css/styling.css";
 // Styling - https://react-bootstrap.github.io/components/cards/
 // Styling - https://react-bootstrap.github.io/getting-started/introduction/
 // Get API - https://www.npmjs.com/package/axios
-// Google map - https://www.npmjs.com/package/google-map-react
+// React columns - https://www.npmjs.com/package/react-columns
 
 function Covid19() {
     // Storing data inside array
-    // Top cards
+    // Interactive cards
     const [latest, setLatest] = useState([]);
     // Country cards
     const [results, setResults] = useState([]);
@@ -31,13 +37,17 @@ function Covid19() {
     const [country, setSelectCountry] = useState('worldwide');
     // Drop down list
     const [dropcountries, setDropDownCountries] = useState([]);
+
     const [countryInfo, setCountryInfo] = useState({});
     const [casesType, setCasesType] = useState("cases");
     const [vaccineType, setVaccineType] = useState("timeline");
+    // Assigning map zoom and center
     const [mapCenter, setMapCenter] = useState({ lat: 28, lng: 3 });
     const [mapZoom, setZoomCenter] = useState(2);
+
     const [mapCountries, setMapCountries] = useState([]);
 
+    // Fetching api data 
     useEffect(() => {
         fetch("https://disease.sh/v3/covid-19/all")
             .then((response) => response.json())
@@ -50,8 +60,6 @@ function Covid19() {
     // on a given condition
     useEffect(() => {
         // Code run once when the component loads
-        // and not again
-
         const getDropDownCountries = async () => {
             // Send a req to server, wait, do something
             await fetch("https://disease.sh/v3/covid-19/countries")
@@ -65,7 +73,6 @@ function Covid19() {
                     const sortedData = sortData(data);
                     setDropDownCountries(dropcountries);
                     setTableData(sortedData);
-                    //setMapCountries(dropcountries);
                     setMapCountries(data);
                 });
         };
@@ -107,8 +114,6 @@ function Covid19() {
     // country code to console
     const onCountryChange = async (event) => {
         const countryCode = event.target.value;
-        // Testing
-        console.log("Testing code: ", countryCode);
         // Allow selected country to be listed instead 
         // of "Worldwide"
         setSelectCountry(countryCode);
@@ -141,7 +146,7 @@ function Covid19() {
                     <div className="app__header">
                         <h3 className="Heading">COVID-19</h3>
 
-                        <FormControl className="app__dropdown">
+                        <FormControl className="app__dropdown" id="covid-drop">
                             <Select variant="outlined" onChange={onCountryChange} value={country}>
                                 <MenuItem value="worldwide">Worldwide</MenuItem>
                                 {dropcountries.map(country => (
@@ -151,21 +156,24 @@ function Covid19() {
                         </FormControl>
                     </div>
                     <br></br>
-                    <div className="app__stats">
+                    <div className="app__stats" id="cards">
                         <InfoBox
                             isBlack
                             onClick={e => setCasesType('cases')}
                             active={casesType === "cases"}
                             title="Total Cases Wordwide"
                             cases={prettyPrintStat(countryInfo.todayCases)}
-                            total={prettyPrintStat(countryInfo.cases)} />
+                            total={prettyPrintStat(countryInfo.cases)}
+                            id="cases-card" />
+
                         <InfoBox
                             isBlack
                             onClick={e => setCasesType('recovered')}
                             active={casesType === "recovered"}
                             title="Total Recovered Worldwide"
                             cases={prettyPrintStat(countryInfo.todayRecovered)}
-                            total={prettyPrintStat(countryInfo.recovered)} />
+                            total={prettyPrintStat(countryInfo.recovered)} 
+                            id="recovered-card" />
 
                         <InfoBox
                             isBlack
@@ -173,7 +181,8 @@ function Covid19() {
                             active={casesType === "deaths"}
                             title="Total Deaths Worldwide"
                             cases={prettyPrintStat(countryInfo.todayDeaths)}
-                            total={prettyPrintStat(countryInfo.deaths)} />
+                            total={prettyPrintStat(countryInfo.deaths)} 
+                            id="deaths-card" />
 
                     </div>
                     <br></br>
