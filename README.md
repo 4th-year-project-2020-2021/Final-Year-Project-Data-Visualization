@@ -98,7 +98,7 @@ $ flask run
 - [x] Selenium Testing of all frontend links and buttons
 - [x] Dissertation writing
 
-### Jina - Mers_Sars page, Comparison page & User Authentication (Firebase) & Discussion page (Cloud Firestore)
+### Jina - Mers_Sars component, Comparison component, Login & Resgister compoment (Firebase), Profile component, Message board component (Cloud Firestore) and Firebase Functions Testing with JEST and Firebase Emulators
 The main purpose of every work is that making interactive visualization applications and integrating D3.js in React.
 - [x] Interactive D3 Bar charts with dropdown function Flicking between datasets
 - [x] Interactive D3 Scatter plots
@@ -111,17 +111,15 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Login with: Google, Facebook, Github etc... (Firebase)
 - [x] Profile page. - users can edit their profile name ( Firebase )
 - [x] Firestore message functionality - Added CRUD(Create, read, update and delete) functionalities. 
-- [ ] Dissertation writing
+- [x] Dissertation writing
 
-### Shirin - Smallpox component, Home component & Upload component 
-- [x] World Map 
+### Shirin - Smallpox component, Home component & Upload component & React Testing
+- [x] World Map - Smallpox
 - [x] Connection to MongoDB Atlas
-- [ ] Auto Generated Graph
+- [x] Auto Generated Graph
 - [x] Flask backend
-- [ ] API routes for connecting to MongoDB Atlas
-- [ ] Stats
-- [x] Home Screen see all reviews functionality
-- [ ] Dissertation writing
+- [x] Home Screen - ratings functionality
+- [x] Dissertation writing
 
 ## Screens
 - Home
