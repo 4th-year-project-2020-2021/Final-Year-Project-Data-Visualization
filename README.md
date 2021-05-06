@@ -24,13 +24,13 @@ ID          | G00359990, G00363458, G00353420
 Supervisor  | Dr John French
 
 ## Contents
-- [About](#about)
+- [About](#project-overview)
 - [Software Requirements](#software-requirements)
 - [Run Locally](#run-locally)
 - [Technology stack](#technology-stack)
 - [Designated Tasks](#designated-tasks)
 - [Screens](#screens)
-- [Referances](#API-and-CSV-file-and-information-referances)
+- [References](#referances)
 
 ## Project Overview
 Data visualisation and analysis techniques have been the front and center in the efforts to communicate the statistics as well as the science around the COVID-19 virus. Interactive dashboards with several charts and graphs surfaced in different formats to offer concise ways to make sense of complex and overwhelming pandemic data sets. These techniques have become essential in informing the general public as well as healthcare providers, scientists and governments of the overall COVID-19 growth. 
@@ -114,20 +114,11 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Dissertation writing
 
 ### Shirin - Smallpox component, Home component & Upload component & React Testing
-<<<<<<< HEAD
-- [x] World Map 
-=======
 - [x] World Map - Smallpox
->>>>>>> 6712b6e716126116b386418992d336c857558797
 - [x] Connection to MongoDB Atlas
 - [x] Auto Generated Graph
 - [x] Flask backend
-<<<<<<< HEAD
-- [ ] API routes for connecting to MongoDB Atlas
-- [x] Home Screen see all reviews functionality
-=======
 - [x] Home Screen - ratings functionality
->>>>>>> 6712b6e716126116b386418992d336c857558797
 - [x] Dissertation writing
 
 ## Screens
@@ -143,7 +134,7 @@ The main purpose of every work is that making interactive visualization applicat
 - Profile
 - Discussion
 
-## API and CSV file and information Referances
+## Referances
 [1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
 [2] COVID-19 map data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest#34f61547-12f7-4c8b-8326-c3894d9ceea7 <br>
 [3] COVID-19 line graph API data - https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical<br>
