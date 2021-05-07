@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import * as XLSX from 'xlsx';
 import { Chart, Interval, Tooltip } from 'bizcharts';
+import {Line, Pie,Bar, Doughnut, Scatter} from 'react-chartjs-2';
  
 const paragraphStyle = {
   marginTop: '10px',
@@ -13,6 +14,7 @@ function Upload() {
  
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
+
 
   // process CSV data
   const processData = dataString => {
@@ -70,10 +72,22 @@ function Upload() {
     };
     reader.readAsBinaryString(file);
   }
+
+  function makeChart(data){
+    
+
+  }
  
   return (
-    <div>
-      <h3 style={paragraphStyle}>Upload a CSV file to the app</h3>
+    <div style={{
+      fontSize:"22px",
+      fontFamily: "Nanum Gothic",
+      color: "dark",
+      position: 'absolute',
+      width: "40%"
+      }}>
+      <h3 style={paragraphStyle}>Upload a CSV file to display data, please ensure at least two of the column names are titled year and cases to 
+      display a chart of the data</h3>
 
       <br></br>
       
@@ -98,6 +112,19 @@ function Upload() {
     <Interval position="year*cases" />
     <Tooltip shared />
   </Chart>
+  <React.Fragment>
+             <div>
+                 <Bar
+                     data={data}
+                     //columns={columns}
+                     interactions={['active-region']}
+                     options={{
+            title:{ display:true, text:'', fontSize:20 },
+            legend:{ display:true, position:'right'}
+          }}
+                 />
+             </div>
+         </React.Fragment>   
     </div>
   );
 }

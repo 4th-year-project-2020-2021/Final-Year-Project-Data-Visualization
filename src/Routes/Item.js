@@ -37,7 +37,6 @@ const Item = () => {
     }
     //return all symptoms from database
     /*const [items, setItems] = useState([]);
-
     const getItems = () => {
         setLoading(true);
         fetch("/api/items")
@@ -68,7 +67,6 @@ const Item = () => {
     /*const chart = () => {
         let temp = [];
         let tempDate = [];
-
         fetch("/api/items")
         .then(res => res.json()
         ).then(items => {
@@ -102,7 +100,6 @@ const Item = () => {
          
 >>>>>>> 6712b6e716126116b386418992d336c857558797
     };
-
     useEffect(() =>{
         chart();
     },[]);*/
@@ -116,7 +113,6 @@ const Item = () => {
                         <Link to={"item/" + item._id}>
                         </Link>
                         <p className="name">{item.name} {item.description} {item.amount}</p>
-
                     </div>
                 )
             })}

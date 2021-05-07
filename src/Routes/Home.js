@@ -1,10 +1,17 @@
 
+<<<<<<< HEAD
 import React, { useState } from 'react';
+=======
+>>>>>>> 419ecf21705494e940c4464e0abc7c6eb734ccbd
 /**
  * @author Grace Keane, Shirin Nagle
  *
  * Home component for generating database calls for review feature.
  */
+<<<<<<< HEAD
+=======
+import React, { useState, useEffect } from 'react';
+>>>>>>> 419ecf21705494e940c4464e0abc7c6eb734ccbd
 import { Link } from 'react-router-dom';
 import "../css/styling.css";
 import Home from "../Img/Home.svg";
