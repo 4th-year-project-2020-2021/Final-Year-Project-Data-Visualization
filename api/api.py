@@ -4,7 +4,7 @@ from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 from routes import indexRoute, createRoute, itemRoute, getDescriptionRoute, updateRoute, deleteRoute
 from rating import ratingRoute, indexRating
-from smallpox import smallpoxRoute, smallPoxFilter
+from smallpox import smallpoxRoute, smallPoxFilter, smallpox1921, smallpox1922
 from age import ageRisk
 import os
 
@@ -36,7 +36,8 @@ app.register_blueprint(getDescriptionRoute)
 app.register_blueprint(ratingRoute)
 app.register_blueprint(indexRating)
 app.register_blueprint(ageRisk)
-
+app.register_blueprint(smallpox1921)
+app.register_blueprint(smallpox1922)
 #api.add_resource(ratingRoute)
 if __name__ == "__main__":
     # app.run(debug=True) #uncomment this line if everything breaks
@@ -64,4 +65,4 @@ if __name__ == "__main__":
 # https://www.youtube.com/watch?v=06pWsB_hoD4 - how to build react frontend using flask api
 # https://opensource.com/article/18/4/flask - about flask
 # https://medium.com/@gitaumoses4/deploying-a-flask-application-on-heroku-e509e5c76524
-#small change
+# https://devcenter.heroku.com/articles/flask-memcache#prerequisites
