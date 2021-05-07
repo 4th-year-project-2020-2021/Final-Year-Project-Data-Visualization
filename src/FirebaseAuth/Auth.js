@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Login page
+ */
+
 import React from 'react';
 import firebase, { firebaseInstance, authService } from "./firebase";
 import AuthForm from './AuthForm';

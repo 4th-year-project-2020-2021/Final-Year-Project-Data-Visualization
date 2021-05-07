@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Javascript codes for D3 graphs (Mers, Sars, Covid-19) - Interactive bar chart line graphs, scatter plots
+ */
+
 import * as d3 from 'd3';
 
 const url = "https://differentviruses-d1ee0.firebaseio.com/Comparison.json";

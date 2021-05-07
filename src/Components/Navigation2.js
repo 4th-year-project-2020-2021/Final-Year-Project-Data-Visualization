@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Navigation - For unauthenticated users (Before login)
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 

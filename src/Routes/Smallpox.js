@@ -235,8 +235,4 @@ const Smallpox = () => {
 
 }
 
-<<<<<<< HEAD
 export default Smallpox
-=======
-export default Smallpox
->>>>>>> 419ecf21705494e940c4464e0abc7c6eb734ccbd

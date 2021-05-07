@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * This component will manage how to change the data through the dropdown button in Comparison component
+ */
+
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';

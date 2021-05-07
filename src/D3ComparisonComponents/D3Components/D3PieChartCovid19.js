@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Javascript codes for D3 graphs - Pie chart for Covid-19
+ */
+
 import * as d3 from 'd3';
 
 

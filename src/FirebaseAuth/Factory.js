@@ -1,3 +1,11 @@
+/**
+ * @author Jina Kim
+ *
+ * Messages will be stroed in fireStore with creatorId, text and Date
+ * Each message will have its own ID
+ * 
+ */
+
 import React, { useState } from "react";
 import { dbService } from "./firebase";
 import styled from 'styled-components';

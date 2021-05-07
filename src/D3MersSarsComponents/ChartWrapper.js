@@ -1,3 +1,10 @@
+/**
+ * @author Jina Kim
+ *
+ * Access D3 codes
+ * 
+ */
+
 import React, { Component } from 'react';
 import D3MersSars from './D3Components/D3MersSars';
 import styled from 'styled-components';

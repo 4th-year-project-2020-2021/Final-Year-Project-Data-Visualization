@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Javascript codes for D3 graphs (Mers, Sars) - Interactive bar chart line graphs, scatter plots
+ */
+
 import * as d3 from 'd3';
 
 /********************

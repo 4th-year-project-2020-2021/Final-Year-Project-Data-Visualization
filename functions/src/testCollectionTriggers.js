@@ -1,3 +1,10 @@
+/**
+ * @author Jina Kim
+ *
+ * Firebase Trigger Functions Testing with JEST and Emulators
+ * 
+ */
+
 const functions = require('firebase-functions');
 const admin = require("firebase-admin")
 

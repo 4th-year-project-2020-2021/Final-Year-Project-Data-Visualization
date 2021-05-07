@@ -1,3 +1,10 @@
+/**
+ * @author Jina Kim
+ *
+ * Users can create, update, delete their messages
+ *
+ */
+
 import React, { useState } from 'react';
 import { dbService, storageService } from './firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
