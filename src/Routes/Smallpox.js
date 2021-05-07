@@ -3,7 +3,7 @@ import {Line, Pie,Bar, Radar, Polar, Doughnut, Bubble} from 'react-chartjs-2';
 import "../css/styling.css";
 
 
-const Item = () => {
+const Smallpox = () => {
     //return all smallpox data from database
     const [chartData, setChartData] = useState({});
     const [chartDataBar, setChartDataBar] = useState({});
@@ -235,4 +235,4 @@ const Item = () => {
 
 }
 
-export default Item
+export default Smallpox

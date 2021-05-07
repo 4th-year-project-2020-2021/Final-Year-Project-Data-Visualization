@@ -1,5 +1,5 @@
 import { axisLeft } from 'd3-axis';
-import React, { useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
 import {Line} from 'react-chartjs-2';
@@ -112,10 +112,6 @@ useEffect(() =>{
         >
 
         <h2>How're you feeling today?</h2>
-<<<<<<< HEAD
-=======
-       
->>>>>>> 6712b6e716126116b386418992d336c857558797
         <br></br>
         
         <form className="create" onSubmit={createItem}>        
