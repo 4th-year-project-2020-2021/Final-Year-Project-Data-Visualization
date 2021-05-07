@@ -7,11 +7,8 @@ const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM;
 
 
 const MARGIN2 = { TOP: 10, BOTTOM: 60, LEFT: 60, RIGHT: 10 };
-const WIDTH2 = 350 - MARGIN2.LEFT - MARGIN2.RIGHT;
+const WIDTH2 = 370 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT2 = 380 - MARGIN2.TOP - MARGIN2.BOTTOM;
-
-const WIDTH3 = 500 - MARGIN2.LEFT - MARGIN2.RIGHT;
-const WIDTH4 = 550 - MARGIN2.LEFT - MARGIN2.RIGHT;
 const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 
 /********
@@ -21,7 +18,6 @@ const HEIGHT3 = 450 - MARGIN2.TOP - MARGIN2.BOTTOM;
 const url5 = "https://symptomsseriousness.firebaseio.com/CovidSymptomSeriousness.json";  //covid19 symptoms
 const url6 = "https://differentviruses.firebaseio.com/DiffViruses.json";  //different viruses comparison
 const urlagerisk = "https://covid19agerisk.firebaseio.com/Covid19AgeRisk.json" //covid-19, different age range risk
-const diffRaces = "https://diffraces.firebaseio.com/DiffRaces.json";
 
 // References
 // https://blog.logrocket.com/using-d3-js-v6-with-react/
@@ -326,8 +322,7 @@ export default class D3Comparison {
           .style("fill", "black")
           .style("font", "20px sans-serif")
       })
-      .text("COVID-19 seems not to be very different from SARS regarding its clinical features. However, it has a fatality rate of 5.6%, lower than that of SARS (9.63%) and much lower than that of MERS (34.45%). While the mortality rate among COVID‐19 patients is lower than SARS and MERS, COVID‐19 is proving to have a higher contagious potency, resulting in a higher number of deaths");
-
+     
     d3.select(element)
       .append("div")
       .style("border", "1px lightgray solid;")
@@ -351,17 +346,10 @@ export default class D3Comparison {
 
     const svgsymptom = d3.select(element)  //covid19 symptoms
       .append("svg")
-      .attr("width", WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
-      .attr("height", HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
+      .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+      .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
       .append("g")
-      .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-
-    const svgcovid19flu = d3.select(element)  //covid19 symptoms
-      .append("svg")
-      .attr("width", WIDTH3 + MARGIN2.LEFT + MARGIN2.RIGHT)
-      .attr("height", HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
-      .append("g")
-      .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+      .attr("transform", `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`)
 
     d3.select(element)
       .append("div")
@@ -382,26 +370,6 @@ export default class D3Comparison {
           .style("font", "20px sans-serif")
       })
       .text("How Contagious & Deadly is it?");
-
-    d3.select(element)
-      .append("div")
-      .style("border", "1px lightgray solid;")
-      .style("background-color", "#DCDCDC")
-      .style("font", "20px sans-serif")
-      .on("mouseover", function (d) {
-        //Do something on mouseover of any bar
-        d3.select(this)
-          .style("font", "22px sans-serif")
-          .style("stroke", "#008080")
-          .style("fill", "#008080")
-      })
-      .on("mouseout", function (d) {
-        d3.select(this)
-          .style("stroke", "#3CB371")
-          .style("fill", "black")
-          .style("font", "20px sans-serif")
-      })
-      .text("We don't fully know yet but it's in this range");
 
     d3.select(element)
       .append("div")
@@ -517,41 +485,7 @@ export default class D3Comparison {
           .style("fill", "black")
           .style("font", "20px sans-serif")
       })
-      .text("With both the SARS-CoV and MERS-CoV outbreaks, most cases occurred in the region in which it began, i.e., Asia and the Middle East, respectively. Both of these viruses spread globally, but the total caseload for each virus were under 10,000.10 Yet the global spread of COVID-19 infection is much larger, with over 3 million cases worldwide thus far. The COVID-19 virus has not affected all ethnicities and races in the same proportion. ");
-
-    d3.select(element)
-      .append("div")
-      .style("border", "1px lightgray solid;")
-      .style("background-color", "grey")
-      .style("font", "23px sans-serif")
-      .on("mouseover", function (d) {
-        //Do something on mouseover of any bar
-        d3.select(this)
-          .style("font", "22px sans-serif")
-          .style("stroke", "#008080")
-          .style("fill", "#008080")
-      })
-      .on("mouseout", function (d) {
-        d3.select(this)
-          .style("stroke", "#3CB371")
-          .style("fill", "black")
-          .style("font", "20px sans-serif")
-      })
-      .text("Age-adjusted Case Rate Per 100,000");
-
-    const svgraces = d3.select(element)  //covid19 symptoms
-      .append("svg")
-      .attr("width", WIDTH4 + MARGIN2.LEFT + MARGIN2.RIGHT)
-      .attr("height", HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
-      .append("g")
-      .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
-
-    const svgraces2 = d3.select(element)  //covid19 symptoms
-      .append("svg")
-      .attr("width", WIDTH4 + MARGIN2.LEFT + MARGIN2.RIGHT)
-      .attr("height", HEIGHT3 + MARGIN2.TOP + MARGIN2.BOTTOM)
-      .append("g")
-      .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
+    
 
     d3.select(element)
       .append("div")
@@ -659,9 +593,9 @@ export default class D3Comparison {
         .style("stroke-width", "5")
         .attr("fill", d => {
           if (d.Mortality > 20) {
-            return "red";
+            return "#A52A2A";
           }
-          return "green";
+          return "#4bc0c0";
         })
         .on("mouseover", function (d) {
           //Do something on mouseover of any bar
@@ -672,9 +606,9 @@ export default class D3Comparison {
             .attr("r", 70)
             .attr("fill", d => {
               if (d.Mortality > 20) {
-                return "#FF4500";
+                return "#A52A2A";
               }
-              return "#6B8E23";
+              return "#4bc0c0";
             })
         })
         .on("mouseout", function (d) {
@@ -682,9 +616,9 @@ export default class D3Comparison {
             .attr("r", 35)
             .attr("fill", d => {
               if (d.Mortality > 20) {
-                return "red";
+                return "#A52A2A";
               }
-              return "green";
+              return "#4bc0c0";
             })
         })
         .append("title")
@@ -832,9 +766,9 @@ export default class D3Comparison {
         .style("stroke-width", "5")
         .attr("fill", d => {
           if (d.Deaths > 1000) {
-            return "red";
+            return "#A52A2A";
           }
-          return "green";
+          return "#4bc0c0";
         })
         .on("mouseover", function (d) {
           //Do something on mouseover of any bar
@@ -845,9 +779,9 @@ export default class D3Comparison {
             .attr("r", 70)
             .attr("fill", d => {
               if (d.Deaths > 1000) {
-                return "#FF4500";
+                return "#A52A2A";
               }
-              return "#808000";
+              return "#4bc0c0";
             })
         })
         .on("mouseout", function (d) {
@@ -855,9 +789,9 @@ export default class D3Comparison {
             .attr("r", 35)
             .attr("fill", d => {
               if (d.Deaths > 1000) {
-                return "red";
+                return "#A52A2A";
               }
-              return "green";
+              return "#4bc0c0";
             })
         })
         .append("title")
@@ -977,9 +911,9 @@ export default class D3Comparison {
         .style("stroke-width", "5")
         .attr("fill", d => {
           if (d.Cases > 10000) {
-            return "red";
+            return "#A52A2A";
           }
-          return "green";
+          return "#4bc0c0";
         })
         .on("mouseover", function (d) {
           //Do something on mouseover of any bar
@@ -990,9 +924,9 @@ export default class D3Comparison {
             .attr("r", 70)
             .attr("fill", d => {
               if (d.Cases > 10000) {
-                return "#FF4500";
+                return "#A52A2A";
               }
-              return "#808000";
+              return "#4bc0c0";
             })
         })
         .on("mouseout", function (d) {
@@ -1000,9 +934,9 @@ export default class D3Comparison {
             .attr("r", 35)
             .attr("fill", d => {
               if (d.Cases > 10000) {
-                return "red";
+                return "#A52A2A";
               }
-              return "green";
+              return "#4bc0c0";
             })
         })
         .append("title")
@@ -1044,16 +978,16 @@ export default class D3Comparison {
 
       const y = d3.scaleLinear()
         .domain([min, max]) //highest y value
-        .range([HEIGHT3, 0]) //minimum and maximum value 
+        .range([HEIGHT, 0]) //minimum and maximum value 
 
       const x = d3.scaleBand()
         .domain(symptoms.map(d => d.Seriousness))
-        .range([0, WIDTH3])
+        .range([0, WIDTH])
         .padding(0.2)
 
       const xAxisCall = d3.axisBottom(x)
       svgsymptom.append("g")
-        .attr("transform", `translate(0, ${HEIGHT3})`)
+        .attr("transform", `translate(0, ${HEIGHT})`)
         .call(xAxisCall)
         .style("fill", "gold")
         .style("font", "17px sans-serif")
@@ -1062,7 +996,7 @@ export default class D3Comparison {
       svgsymptom.append('line')
         .attr('x1', 0)
         .attr('y1', y)
-        .attr('x2', WIDTH3)
+        .attr('x2', WIDTH)
         .attr('y2', y)
         .attr('stroke', 'red')
 
@@ -1070,11 +1004,11 @@ export default class D3Comparison {
         .attr('class', 'grid')
         .call(d3.axisLeft()
           .scale(y)
-          .tickSize(-WIDTH3, 0, 0)
+          .tickSize(-WIDTH, 0, 0)
           .tickFormat(''))
 
       svgsymptom.append("text")
-        .attr("x", -(HEIGHT3 / 2))
+        .attr("x", -(HEIGHT / 2))
         .attr("y", -40)
         .attr("text-anchor", "middle")
         .text("Percentage (%) of patients with symptoms")
@@ -1099,7 +1033,7 @@ export default class D3Comparison {
 
 
       svgsymptom.append("text")
-        .attr("x", WIDTH / 3.2)
+        .attr("x", WIDTH / 1.5)
         .attr("y", HEIGHT - 290)
         .attr("text-anchor", "middle")
         .text("The Majority of infections are Mild")
@@ -1127,12 +1061,12 @@ export default class D3Comparison {
         .attr("x", d => x(d.Seriousness))
         .attr("y", d => y(d.HowSerious))
         .attr("width", x.bandwidth)
-        .attr("height", d => HEIGHT3 - y(d.HowSerious))
+        .attr("height", d => HEIGHT - y(d.HowSerious))
         .attr("fill", d => {
           if (d.HowSerious > 80) {
-            return "#4169E1";
+            return "#A52A2A";
           }
-          return "#FF4500";
+          return "#4066e0";
         })
         .on("mouseover", function (d) {
           //Do something on mouseover of any bar
@@ -1142,9 +1076,9 @@ export default class D3Comparison {
             .style("stroke-width", "20")
             .attr("fill", d => {
               if (d.HowSerious > 80) {
-                return "#483D8B";
+                return "#A52A2A";
               }
-              return "#FFA500";
+              return "#4066e0";
             })
         })
         .on("mouseout", function (d) {
@@ -1153,9 +1087,9 @@ export default class D3Comparison {
             .style("opacity", "1")
             .attr("fill", d => {
               if (d.HowSerious > 80) {
-                return "#4169E1";
+                return "#A52A2A";
               }
-              return "#FF4500";
+              return "#4066e0";
             })
         })
         .append("title")
@@ -1188,11 +1122,11 @@ export default class D3Comparison {
         .attr("fill", "#000080")
 
       svgsymptom.append("text")
-        .attr("x", WIDTH2 / 3.5)
+        .attr("x", WIDTH2 / 1.5)
         .attr("y", HEIGHT2 - 50)
         .attr("text-anchor", "middle")
         .text("Like flu, stay at home")
-        .style("fill", "#FF4500")
+        .style("fill", "white")
         .style("stroke-width", ".4px")
         .on("mouseover", function (d) {
           //Do something on mouseover of any bar
@@ -1204,12 +1138,12 @@ export default class D3Comparison {
           d3.select(this)
             .style("font", "17px sans-serif")
             .style("stroke", "#FF4500")
-            .style("fill", "#FF4500")
+            .style("fill", "white")
         })
         .style("font", "17px sans-serif");
 
       svgsymptom.append("text")
-        .attr("x", WIDTH2 / 1.4)
+        .attr("x", WIDTH2 / 0.58)
         .attr("y", HEIGHT2 - 20)
         .attr("text-anchor", "middle")
         .text("Hospitalization")
@@ -1230,7 +1164,7 @@ export default class D3Comparison {
         .style("font", "17px sans-serif");
 
       svgsymptom.append("text")
-        .attr("x", WIDTH2 / 0.86)
+        .attr("x", WIDTH2 / 0.36)
         .attr("y", HEIGHT2)
         .attr("text-anchor", "middle")
         .text("Intensive care")
@@ -1251,300 +1185,6 @@ export default class D3Comparison {
         .style("font", "17px sans-serif");
     })//end covid19 symptoms
 
-    d3.json(url5).then(symptoms => {
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 400)
-        .attr("text-anchor", "middle")
-        .text("What is the difference between Influenza (Flu) and COVID-19?")
-        .style("stroke", "#191970")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "#FF6347")
-            .style("fill", "#FF6347")
-        })
-        .style("fill", "#191970")
-        .style("stroke-width", ".4px")
-        .style("font", "17px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 370)
-        .attr("text-anchor", "middle")
-        .text("Influenza (Flu) and COVID-19 are both contagious respiratory illnesses,")
-        .style("stroke", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("fill", "black")
-        .style("stroke-width", ".4px")
-        .style("font", "15px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 350)
-        .attr("text-anchor", "middle")
-        .text("but they are caused by different viruses.")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "16px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 330)
-        .attr("text-anchor", "middle")
-        .text("COVID-19 is caused by infection with a new coronavirus (called SARS-CoV-2),")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "13px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 310)
-        .attr("text-anchor", "middle")
-        .text("and flu is caused by infection with influenza viruses.")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "16px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 260)
-        .attr("text-anchor", "middle")
-        .text("How long someone can spread the virus")
-        .style("stroke", "#4169E1")
-        .style("fill", "#4169E1")
-        .style("stroke-width", ".4px")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "20px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "#4169E1")
-            .style("fill", "#4169E1")
-        })
-        .style("font", "19px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 220)
-        .attr("text-anchor", "middle")
-        .text("Similarities:")
-        .style("fill", "#FF6347")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "#FF6347")
-            .style("fill", "#FF6347")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "18px sans-serif");
-
-
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 200)
-        .attr("text-anchor", "middle")
-        .text("For both COVID-19 and flu, it’s possible to spread the virus for at least 1 day ")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "15px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 180)
-        .attr("text-anchor", "middle")
-        .text("before experiencing any symptoms.")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "15px sans-serif");
-
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 150)
-        .attr("text-anchor", "middle")
-        .text("Differences:")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "#FF6347")
-            .style("fill", "#FF6347")
-        })
-        .style("fill", "#FF6347")
-        .style("stroke-width", ".4px")
-        .style("font", "18px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 130)
-        .attr("text-anchor", "middle")
-        .text("If a person has COVID-19, ")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .style("stroke-width", ".4px")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("font", "15px sans-serif");
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 110)
-        .attr("text-anchor", "middle")
-        .text("they may be contagious for a longer period of time ")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .style("stroke-width", ".4px")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("font", "15px sans-serif");
-
-
-
-      svgcovid19flu.append("text")
-        .attr("x", WIDTH / 4.9)
-        .attr("y", HEIGHT - 90)
-        .attr("text-anchor", "middle")
-        .text("than if they had flu. ")
-        .style("stroke", "black")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "14px sans-serif")
-            .style("stroke", "#4682B4")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke-width", ".4px")
-        .style("font", "15px sans-serif");
-
-
-
-    })//end - explain how different between flu and covid-19
 
     d3.json(url6).then(diffViruses => {
       //using max function, it will loop through the data and get the highest number of y value
@@ -1613,28 +1253,6 @@ export default class D3Comparison {
 
       svght.append("text")
         .attr("x", WIDTH / 1.5)
-        .attr("y", HEIGHT - 330)
-        .attr("text-anchor", "middle")
-        .text("The case fatality rate (CFR) only shows the")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "19px sans-serif")
-            .style("stroke", "#FF6347")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("stroke", "black")
-            .style("fill", "black")
-        })
-        .style("stroke", "black")
-        .style("fill", "black")
-        .style("stroke-width", ".4px")
-        .style("font", "17px sans-serif");
-
-      svght.append("text")
-        .attr("x", WIDTH / 1.5)
         .attr("y", HEIGHT - 290)
         .attr("text-anchor", "middle")
         .text("% of confirmed cases who have died")
@@ -1659,7 +1277,7 @@ export default class D3Comparison {
         .attr("x", WIDTH / 1.5)
         .attr("y", HEIGHT - 255)
         .attr("text-anchor", "middle")
-        .text("CFR is unreliable during a pandamic")
+        .text("case fatality rate (CFR) is unreliable during a pandamic")
         .style("stroke", "red")
         .style("fill", "red")
         .on("mouseover", function (d) {
@@ -1823,54 +1441,7 @@ export default class D3Comparison {
         })
         .style("stroke-width", ".2px")
         .style("font", "20px sans-serif");
-      //==
-
-
-
-      svgrisk.append("text")
-        .attr("x", WIDTH / 3.2)
-        .attr("y", HEIGHT - 290)
-        .attr("text-anchor", "middle")
-        .text("COVID-19 is often more severe in people 60+yrs or with health conditions")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "18px sans-serif")
-            .style("stroke", "#8B4513")
-            .style("fill", "#8B4513")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "20px sans-serif")
-            .style("stroke", "#800000")
-            .style("fill", "#800000")
-        })
-        .style("stroke", "#800000")
-        .style("fill", "#800000")
-        .style("stroke-width", ".4px")
-        .style("font", "20px sans-serif");
-
-      svgrisk.append("text")
-        .attr("x", WIDTH / 3.2)
-        .attr("y", HEIGHT - 270)
-        .attr("text-anchor", "middle")
-        .text("like lung or heart disease, diabetes or conditions that affect their immune system.​")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "18px sans-serif")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "20px sans-serif")
-            .style("stroke", "#8B4513")
-            .style("fill", "#8B4513")
-        })
-        .style("stroke", "#800000")
-        .style("fill", "#800000")
-        .style("stroke-width", ".4px")
-        .style("font", "20px sans-serif");
-
+      
       const rects = svgrisk.selectAll("rect")
         .data(age)
 
@@ -1880,8 +1451,8 @@ export default class D3Comparison {
         .attr("width", x.bandwidth)
         .attr("height", d => HEIGHT - y(d.PercentOfdeceased))
         .attr("fill", d => {
-          if (d.PercentOfdeceased > 10) {
-            return "#FF4500";
+          if (d.PercentOfdeceased > 20) {
+            return "#A52A2A";
           }
           return "#008080";
         })
@@ -1892,7 +1463,7 @@ export default class D3Comparison {
             .style("opacity", "2")
             .style("stroke-width", "10")
             .attr("fill", d => {
-              if (d.PercentOfdeceased > 10) {
+              if (d.PercentOfdeceased > 20) {
                 return "#FF8C00";
               }
               return "#556B2F";
@@ -1902,8 +1473,8 @@ export default class D3Comparison {
           d3.select(this)
             .style("stroke", "none")
             .attr("fill", d => {
-              if (d.PercentOfdeceased > 10) {
-                return "#FF4500";
+              if (d.PercentOfdeceased > 20) {
+                return "#A52A2A";
               }
               return "#008080";
             })
@@ -1980,315 +1551,6 @@ export default class D3Comparison {
         .attr("fill", "black")
 
     })//end - Most at Risk
-
-    //Start -- Different races
-    d3.json(diffRaces).then(race => {
-      //using max function, it will loop through the data and get the highest number of y value
-      const max = d3.max(race, d => d.Cases)
-
-      const min = d3.min(race, d => d.Cases) * 0.55
-
-      const y = d3.scaleLinear()
-        .domain([min, max]) //highest y value
-        .range([HEIGHT3, 0]) //minimum and maximum value 
-
-      const x = d3.scaleBand()
-        .domain(race.map(d => d.Races))
-        .range([0, WIDTH4])
-        .padding(0.2)
-
-
-      svgraces.append('g')
-        .attr('class', 'grid')
-        .call(d3.axisLeft()
-          .scale(y)
-          .tickSize(-WIDTH3, 0, 0)
-          .tickFormat(''))
-
-
-
-      const xAxisCall = d3.axisBottom(x)
-      svgraces.append("g")
-        .attr("transform", `translate(0, ${HEIGHT3})`)
-        .call(xAxisCall)
-        .style("fill", "#C71585")
-        .style("font", "17px sans-serif")
-        .style("text-anchor", "middle")
-
-        .selectAll("text")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "25px sans-serif")
-            .style("fill", "blue")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("fill", "black")
-        })
-        .style("font", "15px sans-serif")
-        .style("text-anchor", "start");
-
-      const yAxisCall = d3.axisLeft(y)
-      svgraces.append("g").call(yAxisCall)
-        .style("fill", "grey")
-
-      const rects = svgraces.selectAll("rect")
-        .data(race)
-
-      svgraces.append("text")
-        .attr("x", WIDTH / 3.2)
-        .attr("y", HEIGHT - 390)
-        .attr("text-anchor", "middle")
-        .text("Non-Hospitalized Patients")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "30px sans-serif")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "20px sans-serif")
-        })
-        .style("stroke", "#800000")
-        .style("fill", "#800000")
-        .style("stroke-width", ".4px")
-        .style("font", "20px sans-serif");
-
-      rects.enter().append("rect")
-        .attr("x", d => x(d.Races))
-        .attr("y", d => y(d.Cases))
-        .attr("width", x.bandwidth)
-        .attr("height", d => HEIGHT3 - y(d.Cases))
-        .attr("fill", d => {
-          if (d.Cases > 300) {
-            return "#DAA520";
-          } else if (d.Cases > 270) {
-            return "#008000";
-          } else if (d.Cases > 190) {
-            return "#D2691E";
-          } else {
-            return "#1E90FF";
-          }
-        })
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("stroke", "lightblue")
-            .style("opacity", "2")
-            .style("stroke-width", "15")
-            .attr("fill", d => {
-              if (d.Cases > 300) {
-                return "#FF8C00";
-              } else if (d.Cases > 270) {
-                return "#006400";
-              } else if (d.Cases > 190) {
-                return "#FFA07A";
-              } else {
-                return "#4169E1";
-              }
-            })
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("stroke", "none")
-            .attr("fill", d => {
-              if (d.Cases > 300) {
-                return "#DAA520";
-              } else if (d.Cases > 270) {
-                return "#008000";
-              } else if (d.Cases > 190) {
-                return "#D2691E";
-              } else {
-                return "#1E90FF";
-              }
-            })
-        })
-        .append("title")
-        .text(d => `Cases : \n${d.Cases} % \nin ${d.Races}`);
-
-
-      rects.enter().append("text")
-        .attr("class", "value")
-        .attr("x", d => x(d.Races) + (x.bandwidth() / 2))
-        .attr("y", d => y(d.Cases) + (x.bandwidth() / 2))
-        .attr("dy", ".35em") //vertical align middle
-        .attr("width", x.bandwidth)
-        .attr("height", d => HEIGHT - y(d.Cases))
-        .attr("text-anchor", "middle")
-        .text(d => d.Cases + " %")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "22px")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "30px sans-serif")
-            .style("fill", "blue")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "22px sans-serif")
-            .style("fill", "black")
-        })
-        .attr("fill", "black")
-
-    })//end - Races
-
-    //Start -- Different races2
-    d3.json(diffRaces).then(race2 => {
-      //using max function, it will loop through the data and get the highest number of y value
-      const max = d3.max(race2, d => d.Death)
-
-      const min = d3.min(race2, d => d.Death) * 0.55
-
-      const y = d3.scaleLinear()
-        .domain([min, max]) //highest y value
-        .range([HEIGHT3, 0]) //minimum and maximum value 
-
-      const x = d3.scaleBand()
-        .domain(race2.map(d => d.Races))
-        .range([0, WIDTH4])
-        .padding(0.2)
-
-      svgraces2.append('g')
-        .attr('class', 'grid')
-        .call(d3.axisLeft()
-          .scale(y)
-          .tickSize(-WIDTH3, 0, 0)
-          .tickFormat(''))
-
-      const xAxisCall = d3.axisBottom(x)
-      svgraces2.append("g")
-        .attr("transform", `translate(0, ${HEIGHT3})`)
-        .call(xAxisCall)
-        .style("fill", "#C71585")
-        .style("font", "17px sans-serif")
-        .style("text-anchor", "middle")
-
-        .selectAll("text")
-        .style("fill", "black")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "25px sans-serif")
-            .style("fill", "blue")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "17px sans-serif")
-            .style("fill", "black")
-        })
-        .style("font", "17px sans-serif")
-        .style("text-anchor", "start");
-
-      const yAxisCall = d3.axisLeft(y)
-      svgraces2.append("g").call(yAxisCall)
-        .style("fill", "grey")
-
-
-      const rects = svgraces2.selectAll("rect")
-        .data(race2)
-
-
-      svgraces2.append("text")
-        .attr("x", WIDTH / 3.2)
-        .attr("y", HEIGHT - 390)
-        .attr("text-anchor", "middle")
-        .text("Patient Deaths")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "35px sans-serif")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "20px sans-serif")
-        })
-        .style("stroke", "#800000")
-        .style("fill", "#800000")
-        .style("stroke-width", ".4px")
-        .style("font", "20px sans-serif");
-
-      rects.enter().append("rect")
-        .attr("x", d => x(d.Races))
-        .attr("y", d => y(d.Death))
-        .attr("width", x.bandwidth)
-        .attr("height", d => HEIGHT3 - y(d.Death))
-        .attr("fill", d => {
-          if (d.Death > 90) {
-            return "#DAA520";
-          } else if (d.Death > 70) {
-            return "#008000";
-          } else if (d.Death > 40) {
-            return "#D2691E";
-          } else {
-            return "#1E90FF";
-          }
-        })
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("stroke", "lightblue")
-            .style("opacity", "2")
-            .style("stroke-width", "15")
-            .attr("fill", d => {
-              if (d.Cases > 300) {
-                return "#FF8C00";
-              } else if (d.Cases > 270) {
-                return "#006400";
-              } else if (d.Cases > 190) {
-                return "#FFA07A";
-              } else {
-                return "#4169E1";
-              }
-            })
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("stroke", "none")
-            .attr("fill", d => {
-              if (d.Cases > 300) {
-                return "#DAA520";
-              } else if (d.Cases > 270) {
-                return "#008000";
-              } else if (d.Cases > 190) {
-                return "#D2691E";
-              } else {
-                return "#1E90FF";
-              }
-            })
-        })
-        .append("title")
-        .text(d => `Mortality Rate : \n${d.Death} %\nin ${d.Races}`);
-
-
-      rects.enter().append("text")
-        .attr("class", "value")
-        .attr("x", d => x(d.Races) + (x.bandwidth() / 2))
-        .attr("y", d => y(d.Death) + (x.bandwidth() / 2))
-        .attr("dy", ".35em") //vertical align middle
-        .attr("width", x.bandwidth)
-        .attr("height", d => HEIGHT - y(d.Death))
-        .attr("text-anchor", "middle")
-        .text(d => d.Death + " %")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", "22px")
-        .on("mouseover", function (d) {
-          //Do something on mouseover of any bar
-          d3.select(this)
-            .style("font", "30px sans-serif")
-            .style("fill", "blue")
-        })
-        .on("mouseout", function (d) {
-          d3.select(this)
-            .style("font", "22px sans-serif")
-            .style("fill", "black")
-        })
-        .attr("fill", "black")
-
-    })//end - Races2
 
 
     Promise.all([
@@ -2379,7 +1641,7 @@ export default class D3Comparison {
       .style("margin", "1px")
       .style("width", d => `${d * 10}px`)
       .text(d => d)
-      .attr("fill", "#008B8B")
+      .attr("fill", "#5F9EA0")
       .attr("stroke", "#D3D3D3")
       .attr("stroke-width", 4)
   }
