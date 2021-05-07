@@ -4,6 +4,17 @@ import "firebase/firestore";
 import "firebase/storage";
 
 
+// Referances
+// https://firebase.google.com/docs/auth/web/manage-users
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://firebase.google.com/docs/auth/web/google-signin
+// https://firebase.google.com/docs/auth/web/password-auth
+// https://firebase.google.com/docs/auth/web/facebook-login
+// https://firebase.google.com/docs/auth/web/github-auth
+// https://firebase.google.com/docs/auth/web/firebaseui
+// https://nomadcoders.co/nwitter
+// https://www.youtube.com/watch?v=wkdCpktUfGg
+
 const firebaseConfig = {
   apiKey: "AIzaSyC4k9Gx8zcOtkU-xJxfo0QvK0vn3kl3nLw",
   authDomain: "projectauth-466ef.firebaseapp.com",

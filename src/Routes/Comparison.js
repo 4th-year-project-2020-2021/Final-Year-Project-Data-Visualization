@@ -7,6 +7,10 @@ import ChartWrapper2 from '../D3ComparisonComponents/ChartWrapper2';
 import SymptomsDropdown from '../D3ComparisonComponents/D3Components/SymptomsDropdown';
 import styled from 'styled-components';
 
+// Referances
+// https://reactjs.org/tutorial/tutorial.html#making-an-interactive-component
+// https://react-bootstrap.github.io/components/navbar/
+
 const Wrapper = styled.div`
     color:black;
 `;

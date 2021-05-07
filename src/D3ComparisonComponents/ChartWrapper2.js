@@ -5,6 +5,10 @@ import D3PieChartSars from './D3Components/D3PieChartSars';
 import D3PieChartMers from './D3Components/D3PieChartMers';
 import styled from 'styled-components';
 
+// Reference
+// https://medium.com/@mautayro/d3-react-and-using-refs-e25b9a817a43
+// https://www.udemy.com/course/d3-react/
+
 const Wrapper = styled.div`
     background: #f5f6fa;
 `;
@@ -42,3 +46,4 @@ export default class ChartWrapper extends Component {
         </Wrapper>
     }
 }
+

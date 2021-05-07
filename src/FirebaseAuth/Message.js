@@ -3,6 +3,20 @@ import { dbService, storageService } from './firebase';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
+
+// Referances
+// https://levelup.gitconnected.com/structure-firestore-firebase-for-scalable-chat-app-939c7a6cd0f5
+// https://www.youtube.com/watch?v=LKAXg2drQJQ
+// https://firebase.google.com/docs/auth/web/manage-users
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://firebase.google.com/docs/auth/web/google-signin
+// https://firebase.google.com/docs/auth/web/password-auth
+// https://firebase.google.com/docs/auth/web/facebook-login
+// https://firebase.google.com/docs/auth/web/github-auth
+// https://firebase.google.com/docs/auth/web/firebaseui
+// https://nomadcoders.co/nwitter
+// https://www.youtube.com/watch?v=wkdCpktUfGg
+
 const Message = ({ messageObj, isOwner, userObj }) => {
 
   const [editing, setEditing] = useState(false);

@@ -2,6 +2,17 @@ import React, { useState } from 'react';
 import firebase, { firebaseInstance, authService } from "../FirebaseAuth/firebase";
 
 
+// Referances
+// https://firebase.google.com/docs/auth/web/manage-users
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://firebase.google.com/docs/auth/web/google-signin
+// https://firebase.google.com/docs/auth/web/password-auth
+// https://firebase.google.com/docs/auth/web/facebook-login
+// https://firebase.google.com/docs/auth/web/github-auth
+// https://firebase.google.com/docs/auth/web/firebaseui
+// https://nomadcoders.co/nwitter
+// https://www.youtube.com/watch?v=wkdCpktUfGg
+
 const AuthForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Referances
+// https://fontawesome.com/how-to-use/on-the-web/using-with/react
+// https://reactnavigation.org/docs/link/
+// https://reactrouter.com/web/guides/quick-start
+// https://reactjs.org/tutorial/tutorial.html#making-an-interactive-component
+
 const Navigation2 = () => (
   <nav>
     <ul style={{ display: "flex", justifyContent: "center", marginTop: 50, fontFamily: "Sans-serif" }}>
@@ -34,3 +40,4 @@ const Navigation2 = () => (
   </nav>
 );
 export default Navigation2;
+

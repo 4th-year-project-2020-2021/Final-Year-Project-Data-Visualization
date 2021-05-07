@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-//import {useHistory} from 'react-router-dom';
 import firebase from "../FirebaseAuth/firebase";
 import AppRouter from './Router';
 
+// Referances
+// https://reactjs.org/docs/hooks-effect.html
+// https://reactjs.org/tutorial/tutorial.html#making-an-interactive-component
 
 function App() {
-  const [init, setInit] = useState(false);
-  //const history = useHistory();
+  const [setInit] = useState(false);
   const authService = firebase.auth();
-  //const [ authenticated, setAuthenticated ] = useState(true); 
   const [userObj, setUserObj] = useState(null);
 
   useEffect(() => {

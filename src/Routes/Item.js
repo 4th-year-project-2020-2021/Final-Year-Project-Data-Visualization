@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import {Line, Pie,Bar, Doughnut, Scatter} from 'react-chartjs-2';
+
 import "../css/styling.css";
+
 
 
 const Item = () => {
     //return all smallpox data from database
     const [numbers, setNumbers] = useState([]);
     const [loading, setLoading] = useState(false);
-   
+
+
      const getNumbers = () => {
+
+    const [itemId, setItemId] = useState("");
+    const [item, setItem] = useState({});
+    const [year, setYear] = useState([]);
+    const [testYear, setTestYear] = useState([]);
+
+    const getTestYear = () =>{
         setLoading(true);
         fetch("/api/smallpox")
             .then(res => res.json()
@@ -19,6 +28,7 @@ const Item = () => {
                 setLoading(false);
             })
     }
+
 
     return (
         <div style={{
@@ -66,10 +76,10 @@ const Item = () => {
                 </div>
 
             </React.Fragment>
-            
-           
- 
-          
+
+
+
+
 
         </div>
     )

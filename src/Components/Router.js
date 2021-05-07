@@ -16,6 +16,11 @@ import Profile from 'FirebaseAuth/Profile';
 import Navigation from './Navigation';
 import Navigation2 from './Navigation2';
 
+
+// Reference
+// https://reactrouter.com/web/api/BrowserRouter
+// https://reactjs.org/tutorial/tutorial.html#making-an-interactive-component
+
 const AppRouter = ({ refreshUser, authenticated, userObj }) => {
 
   return (

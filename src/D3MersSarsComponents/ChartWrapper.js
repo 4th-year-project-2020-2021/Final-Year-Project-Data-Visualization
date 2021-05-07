@@ -6,6 +6,10 @@ const Wrapper = styled.div`
     background: #f5f6fa;
 `;
 
+// Reference
+// https://medium.com/@mautayro/d3-react-and-using-refs-e25b9a817a43
+// https://www.udemy.com/course/d3-react/
+
 export default class ChartWrapper extends Component {
 
     componentDidMount() {
@@ -33,3 +37,4 @@ export default class ChartWrapper extends Component {
         </Wrapper>
     }
 }
+

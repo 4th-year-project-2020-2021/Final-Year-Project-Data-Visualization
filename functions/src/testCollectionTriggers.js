@@ -12,3 +12,7 @@ exports.onCreate = functions.firestore.document('TestCollection/{docId}').onCrea
     await copyRef.set(data)
 
 })
+
+// Referances
+// Firebase Trigger Functions Testing with JEST and Emulators
+// https://dev.to/ssagga/firebase-trigger-functions-testing-with-jest-and-emulators-5dc2

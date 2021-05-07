@@ -1,9 +1,13 @@
+<<<<<<< HEAD
+import React, { useState } from 'react';
+=======
 /**
  * @author Grace Keane, Shirin Nagle
  *
  * Home component for generating database calls for review feature.
  */
 import React, { useState, useEffect } from 'react';
+>>>>>>> 6712b6e716126116b386418992d336c857558797
 import { Link } from 'react-router-dom';
 import "../css/styling.css";
 import Home from "../Img/Home.svg";
@@ -89,7 +93,6 @@ function Ratings() {
 						</div>
 						<br></br>
 
-						{/*<input className="button" type="submit" value="See all Reviews" />*/}
 					</form>
 				</div>
 

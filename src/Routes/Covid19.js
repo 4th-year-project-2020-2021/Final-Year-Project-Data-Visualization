@@ -146,7 +146,7 @@ function Covid19() {
                     <div className="app__header">
                         <h3 className="Heading">COVID-19</h3>
 
-                        <FormControl className="app__dropdown">
+                        <FormControl className="app__dropdown" id="covid-drop">
                             <Select variant="outlined" onChange={onCountryChange} value={country}>
                                 <MenuItem value="worldwide">Worldwide</MenuItem>
                                 {dropcountries.map(country => (
@@ -156,21 +156,24 @@ function Covid19() {
                         </FormControl>
                     </div>
                     <br></br>
-                    <div className="app__stats">
+                    <div className="app__stats" id="cards">
                         <InfoBox
                             isBlack
                             onClick={e => setCasesType('cases')}
                             active={casesType === "cases"}
                             title="Total Cases Wordwide"
                             cases={prettyPrintStat(countryInfo.todayCases)}
-                            total={prettyPrintStat(countryInfo.cases)} />
+                            total={prettyPrintStat(countryInfo.cases)}
+                            id="cases-card" />
+
                         <InfoBox
                             isBlack
                             onClick={e => setCasesType('recovered')}
                             active={casesType === "recovered"}
                             title="Total Recovered Worldwide"
                             cases={prettyPrintStat(countryInfo.todayRecovered)}
-                            total={prettyPrintStat(countryInfo.recovered)} />
+                            total={prettyPrintStat(countryInfo.recovered)} 
+                            id="recovered-card" />
 
                         <InfoBox
                             isBlack
@@ -178,7 +181,8 @@ function Covid19() {
                             active={casesType === "deaths"}
                             title="Total Deaths Worldwide"
                             cases={prettyPrintStat(countryInfo.todayDeaths)}
-                            total={prettyPrintStat(countryInfo.deaths)} />
+                            total={prettyPrintStat(countryInfo.deaths)} 
+                            id="deaths-card" />
 
                     </div>
                     <br></br>

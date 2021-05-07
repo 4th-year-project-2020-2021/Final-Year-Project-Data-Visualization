@@ -14,7 +14,7 @@ const Item = () => {
         let cases = [];
         let country = [];
         let year = [];
-    
+
         fetch("/api/smallpox/1921")
         .then(res => res.json()
         ).then(items => {
@@ -30,7 +30,7 @@ const Item = () => {
                     {
                         label: 'Cases',
                         fill: false,
-                        
+
                         backgroundColor: 'rgba(75,192,192,1)',
                         lineTension: 0.1,
                         borderColor: 'rgba(0,0,0,1)',
@@ -51,15 +51,15 @@ const Item = () => {
                         borderWidth: 1,
                         data: year
                       }
-                      
-    
+
+
                 ]
-            })   
+            })
         })
         .catch(err => {
             console.log(err);
         });
-        //console.log(temp, tempDate);        
+        //console.log(temp, tempDate);
     };
 
 
@@ -70,7 +70,7 @@ const Item = () => {
     const chartBar = () => {
         let cases = [];
         let country = [];
-    
+
         fetch("/api/smallpox/1922")
         .then(res => res.json()
         ).then(items => {
@@ -90,7 +90,7 @@ const Item = () => {
                         data: cases
                       }
                 ]
-            })   
+            })
         })
         .catch(err => {
             console.log(err);
@@ -105,7 +105,7 @@ const Item = () => {
     const chartPie = () => {
       let age = [];
       let risk = [];
-  
+
       fetch("/api/ageRisk")
       .then(res => res.json()
       ).then(items => {
@@ -135,7 +135,7 @@ const Item = () => {
                       data: risk
                     }
               ]
-          })   
+          })
       })
       .catch(err => {
           console.log(err);
@@ -146,8 +146,8 @@ const Item = () => {
   useEffect(() =>{
       chartPie();
   },[]);
-    
-  
+
+
     return (
         <div style={{
             fontSize:"22px",
@@ -157,9 +157,9 @@ const Item = () => {
             width: "40%"
             }}>
 
-            
-            
-          
+
+
+
             <React.Fragment>
             <div>
         <Line
@@ -195,7 +195,7 @@ const Item = () => {
           }}
                  />
              </div>
-         </React.Fragment>   
+         </React.Fragment>
          <React.Fragment>
            <div>
            <Doughnut
@@ -236,4 +236,3 @@ const Item = () => {
 }
 
 export default Item
-
