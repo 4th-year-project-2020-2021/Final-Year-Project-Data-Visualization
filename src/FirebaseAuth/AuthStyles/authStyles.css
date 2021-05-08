@@ -13,7 +13,7 @@
   border: 1px solid black;
   background-color: rgb(235, 235, 235);
   font-size: 17px;
-  color: #008080;
+  color: black;
   width: 100%;
   font-family: "Lucida Console", "Courier New", monospace;
   
@@ -34,7 +34,8 @@
   height: 15vh;
   align-items: center;
   margin-top: 10px;
-  font-size: 22px;
+  font-size: 32px;
+  color: #0d397c;
 }
 
 .formBtn {
@@ -205,12 +206,13 @@
 .factoryInput__arrow {
   position: absolute;
   right: 0;
-  background-color: #5F9EA0;
-  height: 60px;
-  width: 60px;
+  background-color: #04aaff;
+  height: 50px;
+  width: 50px;
   padding: 10px 0px;
   text-align: center;
   border-radius: 20px;
+  font-size: 20px;
   color: white;
 }
 

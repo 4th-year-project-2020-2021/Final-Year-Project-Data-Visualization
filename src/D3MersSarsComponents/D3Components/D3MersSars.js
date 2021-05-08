@@ -79,15 +79,15 @@ export default class D3Comparison {
       .on("mouseover", function (d) {
         //Do something on mouseover of any bar
         d3.select(this)
-          .style("font", "40px sans-serif")
+          .style("font", "60px sans-serif")
           .style("stroke", "#008080")
           .style("fill", "#008080")
       })
       .on("mouseout", function (d) {
         d3.select(this)
-          .style("stroke", "#3CB371")
-          .style("fill", "black")
-          .style("font", "30px sans-serif")
+          .style("stroke", "#008080")
+          .style("fill", "#008080")
+          .style("font", "40px sans-serif")
       })
       .style("stroke-width", ".4px")
       .style("font", "40px sans-serif");
@@ -146,7 +146,7 @@ export default class D3Comparison {
       .append("g")
       .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
-    const tsvg2 = d3.select(element)
+    d3.select(element)
       .append("div")
       .style("border", "1px lightgray solid;")
       .style("background-color", "#DCDCDC")
@@ -173,7 +173,7 @@ export default class D3Comparison {
       .append("g")
       .attr("transform", `translate(${MARGIN2.LEFT}, ${MARGIN2.TOP})`)
 
-    const tsvg3 = d3.select(element)
+    d3.select(element)
       .append("div")
       .style("border", "1px lightgray solid;")
       .style("background-color", "#DCDCDC")

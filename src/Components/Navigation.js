@@ -54,7 +54,7 @@ const Navigation = ({ userObj }) => (
         <Link to="/upload" style={{ marginRight: 30 }}>Upload</Link>
       </li>
       <li>
-        <Link to="/discussion" style={{ marginRight: 30 }}>Share</Link>
+        <Link to="/discussion" style={{ marginRight: 30 }}>Message Board</Link>
       </li>
       <li>
         <Link className="font"

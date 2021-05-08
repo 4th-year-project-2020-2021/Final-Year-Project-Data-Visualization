@@ -17,7 +17,7 @@ export default class D3Comparison {
     d3.select(element)
       .append("div")
       .style("border", "1px lightgray solid;")
-      .style("background-color", "grey")
+      .style("background-color", "#8FBC8F")
       .style("font", "20px sans-serif")
       .on("mouseover", function (d) {
         //Do something on mouseover of any bar
@@ -32,7 +32,7 @@ export default class D3Comparison {
           .style("fill", "black")
           .style("font", "20px sans-serif")
       })
-      .text("Biological Sex is also a Risk-Factor  --> Mers");
+      .text("% of Mers deaths");
 
     const width = 700
     const height = 300

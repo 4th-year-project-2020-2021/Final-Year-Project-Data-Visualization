@@ -15,14 +15,16 @@ const admin = require('firebase-admin')
 
 const projectId = "projectauth-466ef"
 process.env.GCLOUD_PROJECT = projectId
-process.env.FIRESTORE_EMULATOR_HOST = "localhost:8083";
+process.env.FIRESTORE_EMULATOR_HOST = "localhost:8084";
 let app = admin.initializeApp({projectId}) //so that you wouldn't need any permission to write,delete or update
 let db = firebase.firestore(app)  //firestore instance which is going to be calling be firebase
 
 
 beforeAll(async ()=>{
+    
+    //jest.setTimeout(30000);
+
     await firebase.clearFirestoreData({projectId});
-    jest.setTimeout(30000)
 })
 
 
@@ -45,7 +47,8 @@ test("Expect to find a copy in 'Copies' Collection", async ()=>{
 
     const copyRef = db.collection('Copies').doc(copyId)
 
-    await new Promise((r)=>setTimeout(r,5000))
+    //The timeout problem could occur when either the network is slow or many network calls are made using await
+    await new Promise((r)=>setTimeout(r,6000))
 
     const copyDoc = await copyRef.get()
 

@@ -53,8 +53,8 @@ const Factory = ({ userObj }) => {
 
   return (
     <Wrapper>
-      <h1 className="Center big font">Message Board</h1>
-      <form onSubmit={onSubmit} >
+      <h1 className="Center font">Message Board</h1>
+      <form  className="profileForm" onSubmit={onSubmit} >
         <div className="factoryInput__container">
           <input
             className="factoryInput__input"
