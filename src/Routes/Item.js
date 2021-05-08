@@ -195,7 +195,7 @@ const Item = () => {
             
             <React.Fragment>
                 <p>{getTestYear}</p>
-                <p>The current time is {currentTime}.</p>
+             
             </React.Fragment>
             
             

@@ -5,9 +5,7 @@ import os
 import sys
 from pymongo import MongoClient
 from bson import ObjectId
-#import pytest
 from boto.s3.connection import S3Connection
-# json encoder to manage MongoDB ObjectID
 
 
 class JSONEncoder(json.JSONEncoder):

@@ -23,13 +23,12 @@ connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Clu
 client = MongoClient(connection, tlsAllowInvalidCertificates=True)
 db = client['Example'] 
 collections = db['sampleData']
-collection = db['uploadedData']
+collection = db['uploadedData'] 
 
 # Blueprint - each blueprint will be 1 route
 indexRoute = Blueprint("index", __name__)
 createRoute = Blueprint("create",__name__)
 itemRoute = Blueprint("item",__name__)
-#smallpoxRoute = Blueprint("sp",__name__)
 getDescriptionRoute = Blueprint("getDescription",__name__)
 updateRoute = Blueprint("update", __name__)
 deleteRoute = Blueprint("delete", __name__)
@@ -106,14 +105,6 @@ def update(id):
 
     collection.update_one({"_id": ObjectId(itemid)}, {"$set": updatedItem})
     return jsonify(data = "update response")   
-
-    #@deleteRoute.route("/api/delete/<id>", methods = ["DELETE"])
-    #def delete(id):
-        #print(request.json, flush=True)
-        #itemid = request.json.get("id")
-        #collection.remove({"_id": ObjectId(itemid)})
-
-    #return jsonify(data= "item deleted successfully") 
 
 
 #https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly
