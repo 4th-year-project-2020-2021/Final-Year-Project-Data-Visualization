@@ -35,18 +35,7 @@ const Item = () => {
                 setLoading(false);
             })
     }
-    //return all symptoms from database
-    /*const [items, setItems] = useState([]);
-    const getItems = () => {
-        setLoading(true);
-        fetch("/api/items")
-            .then(res => res.json()
-            ).then(items => {
-                console.log(items);
-                setItems(items.data);
-                setLoading(false);
-            })
-    }*/
+ 
 
     const getYear = () =>{
         //let y = props.match.params.year
@@ -59,7 +48,14 @@ const Item = () => {
                 setLoading(false);
             })
     }
-    
+    const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    fetch('api/time').then(res => res.json()).then(data => {
+      setCurrentTime(data.time);
+    });
+  }, []);
+
 
     //Chart for Temperature
     const [chartData, setChartData] = useState({});
@@ -93,12 +89,7 @@ const Item = () => {
         })
         .catch(err => {
             console.log(err);
-<<<<<<< HEAD
         });     
-=======
-        });
-         
->>>>>>> 6712b6e716126116b386418992d336c857558797
     };
     useEffect(() =>{
         chart();
@@ -204,6 +195,7 @@ const Item = () => {
             
             <React.Fragment>
                 <p>{getTestYear}</p>
+                <p>The current time is {currentTime}.</p>
             </React.Fragment>
             
             

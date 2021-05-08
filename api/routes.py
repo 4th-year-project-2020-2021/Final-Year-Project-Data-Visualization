@@ -20,7 +20,7 @@ class JSONEncoder(json.JSONEncoder):
 #s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
 #connection = s3
-client = MongoClient(connection)
+client = MongoClient(connection, tlsAllowInvalidCertificates=True)
 db = client['Example'] 
 collections = db['sampleData']
 collection = db['uploadedData']
@@ -107,13 +107,13 @@ def update(id):
     collection.update_one({"_id": ObjectId(itemid)}, {"$set": updatedItem})
     return jsonify(data = "update response")   
 
-    @deleteRoute.route("/api/delete/<id>", methods = ["DELETE"])
-    def delete(id):
-        print(request.json, flush=True)
-        itemid = request.json.get("id")
-        collection.remove({"_id": ObjectId(itemid)})
+    #@deleteRoute.route("/api/delete/<id>", methods = ["DELETE"])
+    #def delete(id):
+        #print(request.json, flush=True)
+        #itemid = request.json.get("id")
+        #collection.remove({"_id": ObjectId(itemid)})
 
-    return jsonify(data= "item deleted successfully") 
+    #return jsonify(data= "item deleted successfully") 
 
 
 #https://stackoverflow.com/questions/24420857/what-are-flask-blueprints-exactly

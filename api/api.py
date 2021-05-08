@@ -11,11 +11,15 @@ import os
 import flask
 
 
-app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
-#app = Flask(__name__)
+#app = Flask(__name__, static_folder='../build', static_url_path='/')# added 27/4
+app = Flask(__name__)
 CORS(app)  # wrap app in CORS method
 
 #api = Api(app)
+
+#@app.route('/api/time')
+#def get_current_time():
+    #return{'time': time.time()}
 
 @app.route('/', methods=["GET"])# added 27/4
 def index():
@@ -40,8 +44,8 @@ app.register_blueprint(smallpox1921)
 app.register_blueprint(smallpox1922)
 #api.add_resource(ratingRoute)
 if __name__ == "__main__":
-    # app.run(debug=True) #uncomment this line if everything breaks
-    app.run(debug=True, port=os.environ.get('PORT', 80))  # added 27/4
+    app.run(debug=True) #uncomment this line if everything breaks
+    #app.run(debug=True, port=os.environ.get('PORT', 80))  # added 27/4
 
 
 # mongodb+srv://DVPSN:<CvnhJ5YPLxunTLs>@cluster0.s5kpm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority

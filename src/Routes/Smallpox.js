@@ -62,7 +62,6 @@ const Smallpox = () => {
         //console.log(temp, tempDate);
     };
 
-
     useEffect(() =>{
         chart();
     },[]);
