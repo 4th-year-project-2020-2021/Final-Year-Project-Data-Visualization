@@ -1,3 +1,4 @@
+# Author Shirin Nagle
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource, reqparse
 import json
@@ -66,8 +67,6 @@ def index():
     for document in cursor:
         items.append({"_id": JSONEncoder().encode(document["_id"]),"date": document["date"], "name": document["name"],"description": document["description"], "amount": document["amount"]})
     return jsonify(data=items)
-
-
 
 #single item route
 @itemRoute.route("/api/item/<id>", methods=["GET"])

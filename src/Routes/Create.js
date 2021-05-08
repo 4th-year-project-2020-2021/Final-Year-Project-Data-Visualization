@@ -1,183 +1,189 @@
-import { axisLeft } from 'd3-axis';
-import React, { useState,useEffect} from 'react';
-import { Redirect } from 'react-router';
+/**
+ * @author Shirin Nagle
+ *
+ * User can enter symtoms and record a temperature
+ * 
+ */
+
+import React, { useState, useEffect } from 'react';
 import "../css/styling.css";
-import {Line} from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { Link } from 'react-router-dom';
 
 
-function Symptom (){
+function Symptom() {
 
-  const [date, setDate] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [amount, setTemp] = useState("");
-  const [routeRedirect, setRedirect] = useState(""); 
-  const [loading, setLoading] = useState(false);
+    const [date, setDate] = useState("");
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [amount, setTemp] = useState("");
+    const [routeRedirect, setRedirect] = useState("");
+    const [loading, setLoading] = useState(false);
 
-  const createItem = (e) =>{//e is the event
-    e.preventDefault();
-    console.log("symptoms page");//comment out when app is working, but keep for error checking 
+    const createItem = (e) => {//e is the event
+        e.preventDefault();
+        console.log("symptoms page");//comment out when app is working, but keep for error checking 
 
-    const item = {
-     date : date,
-     name : name,//value is const name
-     description : description,//value is const description
-     amount: amount//value is const amount
+        const item = {
+            date: date,
+            name: name,//value is const name
+            description: description,//value is const description
+            amount: amount//value is const amount
+        }
+
+        //send item to API
+        const options = {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'//API is expecting JSON
+            },
+            body: JSON.stringify(item)//mongo expecting json
+        }
+
+        if (description && name && amount && date) {
+            fetch("/api/create", options)
+                .then(res => {
+                    //response must be parsed to JSON format
+                    return res.json();
+                }).then(res => {
+                    console.log(res)
+                    setRedirect(true);
+                })
+        } else {
+            console.log("The symptoms form is empty")//lets user know if form isn't filled in
+        }
     }
+    //return all symptoms from database
+    const [items, setItems] = useState([]);
 
-    //send item to API
-    const options = { 
-     method: 'post',
-     headers: {
-       'Content-Type':'application/json'//API is expecting JSON
-     },
-        body: JSON.stringify(item)//mongo expecting json
-    } 
-
-    if(description  && name && amount && date ){
-        fetch("/api/create", options)
-        .then(res => {
-            //response must be parsed to JSON format
-            return res.json();
-        }).then(res => {
-            console.log(res)
-            setRedirect(true);
-        })
-    }else {
-        console.log("The symptoms form is empty")//lets user know if form isn't filled in
+    const getItems = () => {
+        setLoading(true);
+        fetch("/api/items")
+            .then(res => res.json()
+            ).then(items => {
+                console.log(items);
+                setItems(items.data);
+                setLoading(false);
+            })
     }
-}  
-//return all symptoms from database
-const [items, setItems] = useState([]);
+    const [chartData, setChartData] = useState({});
+    const chart = () => {
+        let temp = [];
+        let tempDate = [];
 
-const getItems = () => {
-    setLoading(true);
-    fetch("/api/items")
-        .then(res => res.json()
-        ).then(items => {
-            console.log(items);
-            setItems(items.data);
-            setLoading(false);
-        })
-}
-const [chartData, setChartData] = useState({});
-const chart = () => {
-    let temp = [];
-    let tempDate = [];
+        fetch("/api/items")
+            .then(res => res.json()
+            ).then(items => {
+                console.log(items);
+                for (const dataObj of items.data) {
+                    temp.push(dataObj.amount);
+                    tempDate.push(dataObj.date);
+                }
+                setChartData({
+                    labels: tempDate,
+                    datasets: [
+                        {
+                            
+                            fill: false,
+                            lineTension: 0.5,
+                            label: 'Temperature',
+                            backgroundColor: 'rgba(75,192,192,1)',
+                            borderColor: 'rgba(0,0,0,1)',
+                            borderWidth: 1,
+                            data: temp
+                        },
 
-    fetch("/api/items")
-    .then(res => res.json()
-    ).then(items => {
-        console.log(items);
-        for (const dataObj of items.data) {
-            temp.push(dataObj.amount);
-            tempDate.push(dataObj.date);
-          }
-          setChartData({
-            labels: tempDate,
-            datasets:[
-                {
-                    label: 'Temperature',
-                    fill: false,
-                    lineTension: 0.5,
-                    backgroundColor: 'rgba(75,192,192,1)',
-                    borderColor: 'rgba(0,0,0,1)',
-                    borderWidth: 2,
-                    data: temp
-                  }
+                    ]
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        //console.log(temp, tempDate);        
+    };
 
-            ]
-        })   
-    })
-    .catch(err => {
-        console.log(err);
-    });
-    //console.log(temp, tempDate);        
-};
-
-useEffect(() =>{
-    chart();
-},[]);
+    useEffect(() => {
+        chart();
+    }, []);
 
 
-    return(  
-        <div 
+    return (
+        <div
             style={{
-            fontSize:"22px",
-            fontFamily: "Nanum Gothic",
-            color: "dark",
-            position: 'absolute',
+                fontSize: "22px",
+                fontFamily: "Nanum Gothic",
+                color: "dark",
+                position: 'absolute',
             }}
         >
 
-        <h2>How're you feeling today?</h2>
-        <br></br>
-        
-        <form className="create" onSubmit={createItem}>        
-            <div className="control">
-                <label htmlFor="name">Date:</label> <br></br>
-                <input type="date" name="date" onChange={e => setDate(e.target.value)} />
-            </div>
+            <h2>How're you feeling today?</h2>
             <br></br>
-            <div className="control">
-                <label htmlFor="name">Name: </label> <br></br>
-                <input type="text" name = "name" onChange={e => setName(e.target.value)} ></input>
-            </div>
-            <br></br>
-            <div className="control">
-                <label htmlFor="description">Description: </label> <br></br>
-                <textarea name="description" onChange={e => setDescription(e.target.value)} ></textarea>
-            </div>
-            <br></br>
-            <div className="control"> 
-                <label htmlFor="amount">Temperature: </label> 
-                <input type="number"
-                    min="30.00"
-                    step="0.01"
-                    max="42.00"
-                    presicion={2} 
-                    name="amount" onChange={e => setTemp(e.target.value)} />
-            </div>
-            <div>
-            <br></br>
-                <input className="button" type="submit"  value="Save Symptoms" />
-            </div>
-        </form>  
-        <React.Fragment>
-            <div>
-        <Line
-          data={chartData}
-          options={{
-            responsive: true,
-            title: { text: "Temperature per Day", display: true, fontSize:20},
-            legend:{
-              display:true,
-              position:'right'
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    autoSkip: true,
-                    maxTicksLimit: 10,
-                  },
-                  gridLines: {
-                    display: true
-                  }
-                }
-              ],
-              xAxes: [
-                {
-                  gridLines: {
-                    display: true
-                  }
-                }
-              ]
-            }
-          }}
-        />
-      </div>
+
+            <form className="create" onSubmit={createItem}>
+                <div className="control">
+                    <label htmlFor="name">Date:</label> <br></br>
+                    <input type="date" name="date" onChange={e => setDate(e.target.value)} />
+                </div>
+                <br></br>
+                <div className="control">
+                    <label htmlFor="name">Name: </label> <br></br>
+                    <input type="text" name="name" onChange={e => setName(e.target.value)} ></input>
+                </div>
+                <br></br>
+                <div className="control">
+                    <label htmlFor="description">Description: </label> <br></br>
+                    <textarea name="description" onChange={e => setDescription(e.target.value)} ></textarea>
+                </div>
+                <br></br>
+                <div className="control">
+                    <label htmlFor="amount">Temperature: </label>
+                    <input type="number"
+                        min="30.00"
+                        step="0.01"
+                        max="42.00"
+                        presicion={2}
+                        name="amount" onChange={e => setTemp(e.target.value)} />
+                </div>
+                <div>
+                    <br></br>
+                    <input className="button" type="submit" value="Save Symptoms" />
+                </div>
+            </form>
+            <React.Fragment>
+                <div>
+                    <Line
+                        data={chartData}
+                        options={{
+                            responsive: true,
+                            title: { text: "Temperature per Day", display: true, fontSize: 20 },
+                            legend: {
+                                display: true,
+                                position: 'right'
+                            },
+                            scales: {
+                                yAxes: [
+                                    {
+                                        ticks: {
+                                            autoSkip: true,
+                                            maxTicksLimit: 10,
+                                        },
+                                        gridLines: {
+                                            display: true
+                                        }
+                                    }
+                                ],
+                                xAxes: [
+                                    {
+                                        gridLines: {
+                                            display: true
+                                        }
+                                    }
+                                ]
+                            }
+                        }}
+                    />
+                </div>
             </React.Fragment>
             <React.Fragment>
                 <br />
@@ -196,7 +202,7 @@ useEffect(() =>{
                             <th>Name</th>
                             <th>Description</th>
                             <th>Temperature</th>
-                            
+
                         </thead>
 
 
@@ -208,7 +214,7 @@ useEffect(() =>{
                                 <td>{x.name}</td>
                                 <td>{x.description}</td>
                                 <td>{x.amount}</td>
-                                
+
                             </tr>)}
                             {items.length == 0 && <tr>
 
@@ -219,9 +225,9 @@ useEffect(() =>{
                     </table>
                 </div>
 
-                
+
             </React.Fragment>
-            
+
         </div>
     )
 }

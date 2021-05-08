@@ -1,17 +1,22 @@
-
+/**
+ * @author Shirin Nagle
+ *
+ * user can upload csv file
+ * 
+ */
 import React, { useState, useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import * as XLSX from 'xlsx';
 import { Chart, Interval, Tooltip } from 'bizcharts';
-import {Line, Pie,Bar, Doughnut, Scatter} from 'react-chartjs-2';
- 
+import { Line, Pie, Bar, Doughnut, Scatter } from 'react-chartjs-2';
+
 const paragraphStyle = {
   marginTop: '10px',
   marginBottom: '10px'
 }
 
 function Upload() {
- 
+
   const [columns, setColumns] = useState([]);
   const [data, setData] = useState([]);
 
@@ -37,24 +42,24 @@ function Upload() {
             obj[headers[j]] = d;
           }
         }
- 
+
         // remove the blank rows
         if (Object.values(obj).filter(x => x).length > 0) {
           list.push(obj);
         }
       }
     }
- 
+
     // prepare columns list from headers
     const columns = headers.map(c => ({
       name: c,
       selector: c,
     }));
- 
+
     setData(list);
     setColumns(columns);
   }
- 
+
   // handle file upload
   const handleFileUpload = e => {
     const file = e.target.files[0];
@@ -73,24 +78,24 @@ function Upload() {
     reader.readAsBinaryString(file);
   }
 
-  function makeChart(data){
-    
+  function makeChart(data) {
+
 
   }
- 
+
   return (
     <div style={{
-      fontSize:"22px",
+      fontSize: "22px",
       fontFamily: "Nanum Gothic",
       color: "dark",
       position: 'absolute',
       width: "40%"
-      }}>
-      <h3 style={paragraphStyle}>Upload a CSV file to display data, please ensure at least two of the column names are titled year and cases to 
+    }}>
+      <h3 style={paragraphStyle}>Upload a CSV file to display data, please ensure at least two of the column names are titled year and cases to
       display a chart of the data</h3>
 
       <br></br>
-      
+
       <br></br>
 
       <input
@@ -99,9 +104,9 @@ function Upload() {
         onChange={handleFileUpload}
       />
       <div>
-      
-      
-    </div>
+
+
+      </div>
       <DataTable
         pagination
         highlightOnHover
@@ -109,26 +114,26 @@ function Upload() {
         data={data}
       />
       <Chart height={600} autoFit data={data} interactions={['active-region']} padding={[10, 10, 10, 10]} >
-    <Interval position="year*cases" />
-    <Tooltip shared />
-  </Chart>
-  <React.Fragment>
-             <div>
-                 <Bar
-                     data={data}
-                     //columns={columns}
-                     interactions={['active-region']}
-                     options={{
-            title:{ display:true, text:'', fontSize:20 },
-            legend:{ display:true, position:'right'}
-          }}
-                 />
-             </div>
-         </React.Fragment>   
+        <Interval position="year*cases" />
+        <Tooltip shared />
+      </Chart>
+      <React.Fragment>
+        <div>
+          <Bar
+            data={data}
+            //columns={columns}
+            interactions={['active-region']}
+            options={{
+              title: { display: true, text: '', fontSize: 20 },
+              legend: { display: true, position: 'right' }
+            }}
+          />
+        </div>
+      </React.Fragment>
     </div>
   );
 }
- 
+
 export default Upload;
 
 //https://www.cluemediator.com/read-csv-file-in-react

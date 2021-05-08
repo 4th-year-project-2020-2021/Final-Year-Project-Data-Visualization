@@ -41,14 +41,12 @@ const Navigation = ({ userObj }) => (
       <li>
         <Link to="/smallpox" style={{ marginRight: 30 }}>Smallpox</Link>
       </li>
-      <li>
-        <Link to="/testgraph" style={{ marginRight: 30 }}>TestPage</Link>
-      </li>
+      
       <li>
         <Link to="/create" style={{ marginRight: 30 }}>Symptom</Link>
       </li>
       <li>
-        <Link to="/item" style={{ marginRight: 30 }}>Item</Link>
+        <Link to="/item" style={{ marginRight: 30 }}>Data</Link>
       </li>
       <li>
         <Link to="/upload" style={{ marginRight: 30 }}>Upload</Link>

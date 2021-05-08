@@ -7,7 +7,6 @@ import Stats from 'Routes/Stats';
 import MersAndSars from 'Routes/MersAndSars';
 import Comparison from 'Routes/Comparison';
 import Smallpox from 'Routes/Smallpox';
-import TestGraph from 'Routes/TestGraph';
 import Create from 'Routes/Create';
 import Item from 'Routes/Item';
 import Upload from 'Routes/Upload';
@@ -52,9 +51,7 @@ const AppRouter = ({ refreshUser, authenticated, userObj }) => {
             <Route exact path="/smallpox">
               <Smallpox />
             </Route>
-            <Route exact path="/testgraph">
-              <TestGraph />
-            </Route>
+            
             <Route exact path="/create">
               <Create />
             </Route>
@@ -93,9 +90,7 @@ const AppRouter = ({ refreshUser, authenticated, userObj }) => {
             <Route exact path="/smallpox">
               <Smallpox />
             </Route>
-            <Route exact path="/testgraph">
-              <TestGraph />
-            </Route>
+            
             <Route exact path="/auth">
               <Auth />
             </Route>
