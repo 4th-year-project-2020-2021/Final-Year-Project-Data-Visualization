@@ -32,7 +32,27 @@ export default class D3Comparison {
                .style("fill", "black")
                .style("font", "20px sans-serif")
          })
-         .text("Biological Sex is also a Risk-Factor  -- Covid-19 --");
+         .text("Biological Sex is also a Risk-Factor");
+
+      d3.select(element)
+         .append("div")
+         .style("border", "1px lightgray solid;")
+         .style("background-color", "#8FBC8F")
+         .style("font", "20px sans-serif")
+         .on("mouseover", function (d) {
+            //Do something on mouseover of any bar
+            d3.select(this)
+               .style("font", "22px sans-serif")
+               .style("stroke", "#DCDCDC")
+               .style("fill", "#008080")
+         })
+         .on("mouseout", function (d) {
+            d3.select(this)
+               .style("stroke", "#3CB371")
+               .style("fill", "black")
+               .style("font", "20px sans-serif")
+         })
+         .text("% of COVID-19 deaths");
 
       const width = 700
       const height = 300

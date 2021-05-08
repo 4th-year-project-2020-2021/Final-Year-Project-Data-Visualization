@@ -4,8 +4,8 @@ module.exports = {
     moduleFileExtensions: ['js','ts','tsx','jsx','json','node'],
     testEnvironment: 'node',
     rootDir: 'src',
-    setupFilesAfterEnv: ['./jest.setup.js']
+    //setupFilesAfterEnv: ['./jest.setup.js']
 }
 
 // jest.setup.js
-jest.setTimeout(30000)
+//jest.setTimeout(30000)

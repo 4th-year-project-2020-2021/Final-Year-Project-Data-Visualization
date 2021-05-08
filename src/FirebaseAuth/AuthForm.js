@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import firebase, { firebaseInstance, authService } from "../FirebaseAuth/firebase";
+import {authService } from "../FirebaseAuth/firebase";
 
 
 // Referances
