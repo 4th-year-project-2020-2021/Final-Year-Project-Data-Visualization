@@ -15,7 +15,7 @@ class JSONEncoder(json.JSONEncoder):
 
 # mongodb config
 connection = 'mongodb+srv://DVPSN:CvnhJ5YPLxunTLs@cluster0.s5kpm.mongodb.net/Cluster0?retryWrites=true&w=majority'
-client = MongoClient(connection)
+client = MongoClient(connection, tlsAllowInvalidCertificates=True)
 db = client['Example'] 
 collections = db['AgeData']
 
