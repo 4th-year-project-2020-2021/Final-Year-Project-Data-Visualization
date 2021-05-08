@@ -1,5 +1,12 @@
+/**
+ * @author Jina Kim
+ *
+ * Firebase Trigger Functions Testing with JEST and Emulators
+ * 
+ */
+
+
 // Referances
-// Firebase Trigger Functions Testing with JEST and Emulators
 // https://dev.to/ssagga/firebase-trigger-functions-testing-with-jest-and-emulators-5dc2
 // https://jestjs.io/docs/using-matchers
 

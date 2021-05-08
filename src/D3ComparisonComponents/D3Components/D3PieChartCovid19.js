@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Javascript codes for D3 graphs - Pie chart for Covid-19
+ */
+
 import * as d3 from 'd3';
 
 
@@ -189,26 +195,6 @@ export default class D3Comparison {
          })
          .attr("fill", "#FAFAD2")
          .attr("stroke", "white")
-
-      d3.select(element)
-         .append("div")
-         .style("border", "1px lightgray solid;")
-         .style("background-color", "#DCDCDC")
-         .style("font", "20px sans-serif")
-         .on("mouseover", function (d) {
-            //Do something on mouseover of any bar
-            d3.select(this)
-               .style("font", "22px sans-serif")
-               .style("stroke", "#008080")
-               .style("fill", "#008080")
-         })
-         .on("mouseout", function (d) {
-            d3.select(this)
-               .style("stroke", "#3CB371")
-               .style("fill", "black")
-               .style("font", "20px sans-serif")
-         })
-         .text(" The number of men was 2.4 times that of women in the deceased patients. While men and women had the same susceptibility, men were more prone to dying (χ2 test, P = 0.016)");
 
    }
 }

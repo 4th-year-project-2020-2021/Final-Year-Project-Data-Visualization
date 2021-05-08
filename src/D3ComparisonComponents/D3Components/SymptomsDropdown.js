@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Dropdown functionality for Comparison page
+ */
+
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 

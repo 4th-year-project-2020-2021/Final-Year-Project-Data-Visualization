@@ -1,3 +1,14 @@
+/**
+ * @author Jina Kim
+ *
+ * Navigation - For authenticated users (After login)
+ * 
+ * Hidden components will be visible after login.
+ * 
+ * Display User name on the screen.
+ * 
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

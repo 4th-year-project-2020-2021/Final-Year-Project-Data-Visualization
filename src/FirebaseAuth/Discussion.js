@@ -1,3 +1,10 @@
+/**
+ * @author Jina Kim
+ *
+ * Checks if the message creator ID and User ID
+ * 
+ */
+
 import React, { useEffect, useState } from 'react';
 import { dbService } from './firebase';
 import Factory from './Factory';

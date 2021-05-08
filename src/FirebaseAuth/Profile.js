@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Users can log out, Users can change their name, User name will be displayed on the screen.
+ */
+
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { authService } from './firebase';

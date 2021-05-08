@@ -1,3 +1,9 @@
+/**
+ * @author Jina Kim
+ *
+ * Login page form, users can login or register 
+ */
+
 import React, { useState } from 'react';
 import firebase, { firebaseInstance, authService } from "../FirebaseAuth/firebase";
 

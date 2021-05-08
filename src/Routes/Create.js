@@ -1,5 +1,5 @@
 import { axisLeft } from 'd3-axis';
-import React, {useEffect, useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import { Redirect } from 'react-router';
 import "../css/styling.css";
 import {Line} from 'react-chartjs-2';

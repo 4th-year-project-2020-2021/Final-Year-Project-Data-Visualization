@@ -1,10 +1,10 @@
 
+import React, { useState } from 'react';
 /**
  * @author Grace Keane, Shirin Nagle
  *
  * Home component for generating database calls for review feature.
  */
-import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/styling.css";
 import Home from "../Img/Home.svg";

@@ -1,3 +1,10 @@
+/**
+ * @author Jina Kim
+ *
+ * This component will manage how to change the data through the dropdown button in Mers_Sars component
+ * 
+ */
+
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
