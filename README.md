@@ -114,12 +114,17 @@ The main purpose of every work is that making interactive visualization applicat
 - [x] Dissertation writing
 
 ### Shirin - Smallpox component, Home component & Upload component & React Testing
-- [x] World Map - Smallpox
-- [x] Connection to MongoDB Atlas
+- [x] Smallpox - interactive bar and line charts
+- [x] Data tier to MongoDB Atlas
 - [x] Auto Generated Graph
-- [x] Flask backend
-- [x] Home Screen - ratings functionality
+- [x] Flask backend - create and read
+- [x] Home Screen - ratings and review functionality
 - [x] Dissertation writing
+- [x] Symptoms page, enter details record a temperature, graph of recorded temperatures is generated.
+- [x] Screen cast
+- [x] Team meeting coordination
+- [x] Deployed project to Heroku
+- [x] Tested API routes with Postman
 
 ## Screens
 - Home
@@ -128,7 +133,7 @@ The main purpose of every work is that making interactive visualization applicat
 - Mers and Sars
 - Comparison
 - Small pox
-- Upload
+- Symptom
 - Message Board
 - Login & Register
 - Profile
