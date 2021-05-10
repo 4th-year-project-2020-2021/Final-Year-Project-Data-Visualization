@@ -19,8 +19,7 @@ Authors     | Grace Keane, Shirin Nagle, Jina Kim
 ID          | G00359990, G00363458, G00353420
 Video       | [Demo Video](https://web.microsoftstream.com/video/d8ab7e52-3528-47bb-8ffe-b484f0ca3987?list=studio)
 Heroku      | [Deploid Project](https://final-year-project-data-visual.herokuapp.com/)
-Dissertation| View Dissertation
-ID          | G00359990, G00363458, G00353420
+Dissertation| [View Dissertation](https://github.com/4th-year-project-2020-2021/LaTeX-Dissertation/blob/main/Dissertation%20PDF.pdf)
 Supervisor  | Dr John French
 
 ## Contents
