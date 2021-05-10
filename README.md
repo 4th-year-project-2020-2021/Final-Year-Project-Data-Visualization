@@ -54,11 +54,10 @@ As a result, the team felt it would be beneficial as well as informative to crea
 6) Start the development server: `npm start`
 7) Navigate to http://localhost:3000/ on your browser.
 
-### Running the Tests
+### Running the Firebase Tests
 1) cd into the <b>/program/</b> directory
-2) `cd api`
-3) `cd Tests`
-4) In the terminal type: `pytest`
+2) `cd functions`
+3) Open two terminals and type: `npm test` and `Firebase emulators:start`
 
 ### Running the Web Service
 ```bash
