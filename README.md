@@ -135,9 +135,8 @@ The main purpose of every work is that making interactive visualization applicat
 - Discussion
 
 ## Referances
-[1] COVID-19 card data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest <br>
-[2] COVID-19 map data (NovelCOVID API) - https://documenter.getpostman.com/view/8854915/SzS7R6uu?version=latest#34f61547-12f7-4c8b-8326-c3894d9ceea7 <br>
-[3] COVID-19 line graph API data - https://disease.sh/docs/#/COVID-19%3A%20JHUCSSE/get_v3_covid_19_historical<br>
+[1] COVID-19 Page data - https://www.disease.sh/ <br>
+[3] COVID-19 Stats page data - https://github.com/mathdroid/covid-19-api <br>
 [4] Mers and Sars datasets - https://www.kaggle.com/ <br>
 [5] Sars outbreak - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7312089/<br>
 [6] Sars - https://www.who.int/csr/sars/country/2003_07_11/en/<br>
